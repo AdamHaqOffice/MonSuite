@@ -16,11 +16,16 @@ import ProductsPage from './pages/ProductsPage.jsx';
 import SupportPage from './pages/SupportPage.jsx';
 import PlaceholderPage from './pages/PlaceholderPage.jsx';
 
-const allowedEmailDomain = import.meta.env.VITE_ALLOWED_EMAIL_DOMAIN?.trim().toLowerCase();
+const allowedEmailDomains = import.meta.env.VITE_ALLOWED_EMAIL_DOMAINS
+  ?.split(',')
+  .map((domain) => domain.trim().toLowerCase())
+  .filter(Boolean);
 
 function userIsAllowed(user) {
-  if (!allowedEmailDomain) return true;
-  return user?.email?.toLowerCase().endsWith(`@${allowedEmailDomain}`);
+  if (!allowedEmailDomains?.length) return true;
+
+  const email = user?.email?.toLowerCase() || '';
+  return allowedEmailDomains.some((domain) => email.endsWith(`@${domain}`));
 }
 
 function ProtectedRoute({ user, loading, children }) {
@@ -61,7 +66,7 @@ export default function App() {
       if (currentUser && !userIsAllowed(currentUser)) {
         await signOut(auth);
         setUser(null);
-        setAuthError(`Access is limited to @${allowedEmailDomain} accounts.`);
+        setAuthError(`Access is limited to approved company email accounts.`);
       } else {
         setUser(currentUser);
       }
