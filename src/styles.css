@@ -1233,3 +1233,135 @@ button, input {
   font-size: 0.76rem;
   line-height: 1.35;
 }
+
+/* Setup Builder V4 refinements */
+.setup-builder-v4 .setup-header {
+  background:
+    linear-gradient(135deg, rgba(255, 255, 255, 0.96), rgba(248, 250, 252, 0.92)),
+    radial-gradient(circle at top right, rgba(200, 32, 47, 0.08), transparent 18rem);
+}
+
+.tool-grid {
+  grid-template-columns: 1fr 1fr;
+}
+
+.setup-canvas {
+  background-color: #ffffff;
+  background-image:
+    linear-gradient(rgba(15, 23, 42, 0.065) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 23, 42, 0.065) 1px, transparent 1px),
+    linear-gradient(rgba(200, 32, 47, 0.07) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(200, 32, 47, 0.07) 1px, transparent 1px),
+    radial-gradient(circle at center, rgba(255,255,255,0.55), rgba(248,250,252,0.2));
+  background-size: 24px 24px, 24px 24px, 120px 120px, 120px 120px, 100% 100%;
+}
+
+.setup-canvas::after {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px dashed rgba(148, 163, 184, 0.35);
+  border-radius: 22px;
+  pointer-events: none;
+}
+
+.setup-canvas.tool-door,
+.setup-canvas.tool-power,
+.setup-canvas.tool-wall,
+.setup-canvas.tool-ethernet,
+.setup-canvas.tool-tubing {
+  cursor: crosshair;
+}
+
+.door-line {
+  stroke: #92400e;
+  stroke-width: 6;
+  stroke-linecap: round;
+}
+
+.door-line.draft,
+.door-swing.draft {
+  opacity: 0.55;
+  stroke-dasharray: 10 8;
+}
+
+.door-swing {
+  fill: none;
+  stroke: rgba(146, 64, 14, 0.55);
+  stroke-width: 3;
+}
+
+.connection-line.power {
+  stroke: #f59e0b;
+  stroke-width: 4;
+  stroke-dasharray: 8 8;
+}
+
+.connection-line.probe {
+  stroke: #8b5cf6;
+  stroke-width: 3;
+  stroke-dasharray: 10 8;
+}
+
+.connection-label.power {
+  fill: #b45309;
+}
+
+.connection-label.probe {
+  fill: #6d28d9;
+}
+
+.inventory-card.sensor > span {
+  background: linear-gradient(135deg, #1f2937, #475569);
+}
+
+.inventory-card.monitor > span {
+  background: linear-gradient(135deg, #c8202f, #7f1d1d);
+}
+
+.inventory-card.communication > span {
+  background: linear-gradient(135deg, #2563eb, #1e3a8a);
+}
+
+.inventory-card.probe > span,
+.inventory-card.power > span {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.placed-item.sensor {
+  background: linear-gradient(135deg, #ffffff, #e2e8f0);
+}
+
+.placed-item.probe {
+  border-style: dashed;
+  border-width: 2px;
+  border-color: rgba(109, 40, 217, 0.55);
+  color: #5b21b6;
+  background: linear-gradient(135deg, #f5f3ff, #ede9fe);
+  box-shadow: 0 10px 20px rgba(109, 40, 217, 0.14);
+}
+
+.placed-item.power-accessory {
+  color: #78350f;
+  border-color: rgba(217, 119, 6, 0.65);
+  background: linear-gradient(135deg, #fff7ed, #fed7aa);
+}
+
+.placed-item.local-powered {
+  box-shadow: 0 0 0 4px rgba(245, 158, 11, 0.14), 0 12px 24px rgba(15, 23, 42, 0.18);
+}
+
+.power-badge.attached {
+  top: -12px;
+  right: 14px;
+  color: #78350f !important;
+  background: #fdba74;
+}
+
+.selected-card,
+.parts-list-card,
+.rules-card,
+.power-card,
+.empty-details {
+  background: linear-gradient(180deg, rgba(255,255,255,0.98), rgba(248,250,252,0.9));
+}

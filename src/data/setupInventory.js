@@ -3,6 +3,8 @@ export const GRID_SIZE = 24;
 export const POWER_RECOMMENDATION_THRESHOLD_MA = 90;
 export const MONITOR_EXPANSION_BUS_CAPACITY_MA = 200;
 
+export const PROBE_MAX_LENGTH_FT = 2;
+
 export const inventoryItems = [
   {
     sku: 'PPM4',
@@ -54,6 +56,22 @@ export const inventoryItems = [
     description: 'External powered bus with two ethernet ports. Use it when a daisy chain exceeds monitor expansion bus power limits or when high-draw devices need dedicated power.',
   },
   {
+    sku: 'PPM4CHRGR',
+    name: 'PPM4 Charger',
+    shortName: 'CHG',
+    category: 'Power',
+    dimensions: { widthIn: 2.5, heightIn: 2.5, depthIn: 1.25 },
+    mount: ['wall'],
+    ethernetPorts: 0,
+    tubingPorts: [],
+    pressureCapable: false,
+    powerSource: false,
+    powerAccessory: true,
+    powerDrawMa: 0,
+    label: 'PPM4 Charger',
+    description: 'Wall-mounted local charger that powers one attached sensor or unit without using monitor expansion-bus power.',
+  },
+  {
     sku: 'PMA-TRHM',
     name: 'Temperature & Humidity Sensor',
     shortName: 'T/H',
@@ -96,7 +114,10 @@ export const inventoryItems = [
     powerSource: false,
     powerDrawMa: 100,
     label: 'Velocity',
-    description: 'Wall-mounted ACH/velocity sensor module with front label and two rear ethernet ports.',
+    createsProbe: true,
+    probeLabel: 'Probe',
+    probeMaxLengthFt: PROBE_MAX_LENGTH_FT,
+    description: 'Wall-mounted ACH/velocity sensor module with front label and two rear ethernet ports. Includes a separate probe with a maximum 2 ft reach for future ducting layouts.',
   },
   {
     sku: 'PMA-PSM',
