@@ -95,3 +95,14 @@ Before uploading sensitive files, firmware, pricing, or internal-only documents,
 4. Add room labels, doors, and windows.
 5. Add PDF export for customer-facing setup summaries.
 6. Move saved layouts to a database after the MVP works.
+
+
+## Netlify dependency install note
+
+This clean package intentionally does not include `package-lock.json`. Netlify will install dependencies from the public npm registry using `.npmrc`:
+
+```txt
+registry=https://registry.npmjs.org/
+```
+
+If a previous deploy failed because `package-lock.json` referenced an internal registry, delete the old lockfile from GitHub and upload this clean version.
