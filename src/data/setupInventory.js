@@ -1,5 +1,8 @@
 export const GRID_SIZE = 24;
 
+export const POWER_RECOMMENDATION_THRESHOLD_MA = 90;
+export const MONITOR_EXPANSION_BUS_CAPACITY_MA = 200;
+
 export const inventoryItems = [
   {
     sku: 'PPM4',
@@ -11,6 +14,9 @@ export const inventoryItems = [
     ethernetPorts: 2,
     tubingPorts: ['room', 'ref'],
     pressureCapable: true,
+    powerSource: true,
+    powerCapacityMa: MONITOR_EXPANSION_BUS_CAPACITY_MA,
+    powerDrawMa: 0,
     description: 'Yellow construction case, opens to show screen, small window to view screen. Portable and wall-mountable.',
     requiredAccessories: ['PPM4CHRGR'],
   },
@@ -24,8 +30,28 @@ export const inventoryItems = [
     ethernetPorts: 2,
     tubingPorts: ['room', 'ref'],
     pressureCapable: true,
+    powerSource: true,
+    powerCapacityMa: MONITOR_EXPANSION_BUS_CAPACITY_MA,
+    powerDrawMa: 0,
     description: 'White wall-mounted case around a 7 inch screen.',
     requiredAccessories: [],
+  },
+  {
+    sku: 'PMA-PB',
+    name: 'Power Bus',
+    shortName: 'PWR',
+    category: 'Power',
+    dimensions: { widthIn: 5.125, heightIn: 3, depthIn: 1.5 },
+    mount: ['wall'],
+    ethernetPorts: 2,
+    tubingPorts: [],
+    pressureCapable: false,
+    powerSource: true,
+    powerBus: true,
+    powerCapacityMa: null,
+    powerDrawMa: 0,
+    label: 'Power Bus',
+    description: 'External powered bus with two ethernet ports. Use it when a daisy chain exceeds monitor expansion bus power limits or when high-draw devices need dedicated power.',
   },
   {
     sku: 'PMA-TRHM',
@@ -37,6 +63,8 @@ export const inventoryItems = [
     ethernetPorts: 2,
     tubingPorts: [],
     pressureCapable: false,
+    powerSource: false,
+    powerDrawMa: 50,
     label: 'Temp & Humidity',
     description: 'Wall-mounted sensor module with front label and two rear ethernet ports.',
   },
@@ -50,6 +78,8 @@ export const inventoryItems = [
     ethernetPorts: 2,
     tubingPorts: ['room', 'ref'],
     pressureCapable: true,
+    powerSource: false,
+    powerDrawMa: 65,
     label: 'Pressure',
     description: 'Wall-mounted pressure sensor with two rear ethernet ports and room/ref tubing ports.',
   },
@@ -63,6 +93,8 @@ export const inventoryItems = [
     ethernetPorts: 2,
     tubingPorts: [],
     pressureCapable: false,
+    powerSource: false,
+    powerDrawMa: 100,
     label: 'Velocity',
     description: 'Wall-mounted ACH/velocity sensor module with front label and two rear ethernet ports.',
   },
@@ -76,8 +108,10 @@ export const inventoryItems = [
     ethernetPorts: 2,
     tubingPorts: [],
     pressureCapable: false,
+    powerSource: false,
+    powerDrawMa: 120,
     label: 'Particle',
-    description: 'Wall-mounted particle sensor module with front label and two rear ethernet ports.',
+    description: 'Wall-mounted particle sensor module with Honeywell particle sensor, front label, and two rear ethernet ports.',
   },
   {
     sku: 'PMA-CM',
@@ -89,8 +123,10 @@ export const inventoryItems = [
     ethernetPorts: 2,
     tubingPorts: [],
     pressureCapable: false,
+    powerSource: false,
+    powerDrawMa: 365,
     label: 'Cellular',
-    description: 'Cellular module for monitor systems. Sensor-style housing with two rear ethernet ports.',
+    description: 'Cellular module for monitor systems. Sensor-style housing with two rear ethernet ports. Monarch-Go module draws 365mA and should have dedicated power.',
   },
 ];
 
