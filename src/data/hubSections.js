@@ -29,10 +29,10 @@ export const hubSections = [
   },
   {
     title: 'Setup Configurator',
-    eyebrow: 'Future tool',
-    description: 'Create room layouts, place monitors, sensors, units, tubing, and ethernet paths for real setups.',
+    eyebrow: 'CAD-lite',
+    description: 'Draw rooms on a grid, place monitors and sensors, connect tubing and ethernet, and build a parts list.',
     path: '/setup-builder',
-    status: 'Coming later',
+    status: 'V2 MVP',
   },
   {
     title: 'Parts & Costing',

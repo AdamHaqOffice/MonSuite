@@ -18,6 +18,7 @@ export default function AppShell({ user, onLogout, children }) {
           <NavLink to="/downloads">Downloads</NavLink>
           <NavLink to="/firmware">Firmware</NavLink>
           <NavLink to="/support">Support</NavLink>
+          <NavLink to="/setup-builder">Setup</NavLink>
         </nav>
 
         <div className="user-menu">

@@ -15,17 +15,24 @@ import FirmwarePage from './pages/FirmwarePage.jsx';
 import ProductsPage from './pages/ProductsPage.jsx';
 import SupportPage from './pages/SupportPage.jsx';
 import PlaceholderPage from './pages/PlaceholderPage.jsx';
+import SetupBuilderPage from './pages/SetupBuilderPage.jsx';
 
 const allowedEmailDomains = import.meta.env.VITE_ALLOWED_EMAIL_DOMAINS
   ?.split(',')
   .map((domain) => domain.trim().toLowerCase())
   .filter(Boolean);
 
-function userIsAllowed(user) {
-  if (!allowedEmailDomains?.length) return true;
+const legacyAllowedEmailDomain = import.meta.env.VITE_ALLOWED_EMAIL_DOMAIN?.trim().toLowerCase();
+const effectiveAllowedEmailDomains = allowedEmailDomains?.length
+  ? allowedEmailDomains
+  : legacyAllowedEmailDomain
+    ? [legacyAllowedEmailDomain]
+    : [];
 
+function userIsAllowed(user) {
+  if (!effectiveAllowedEmailDomains.length) return true;
   const email = user?.email?.toLowerCase() || '';
-  return allowedEmailDomains.some((domain) => email.endsWith(`@${domain}`));
+  return effectiveAllowedEmailDomains.some((domain) => email.endsWith(`@${domain}`));
 }
 
 function ProtectedRoute({ user, loading, children }) {
@@ -66,7 +73,7 @@ export default function App() {
       if (currentUser && !userIsAllowed(currentUser)) {
         await signOut(auth);
         setUser(null);
-        setAuthError(`Access is limited to approved company email accounts.`);
+        setAuthError('Access is limited to approved company email accounts.');
       } else {
         setUser(currentUser);
       }
@@ -158,7 +165,7 @@ export default function App() {
         path="/setup-builder"
         element={(
           <ProtectedRoute user={user} loading={loading}>
-            <PlaceholderPage user={user} onLogout={authActions.logout} title="Setup Configurator" />
+            <SetupBuilderPage user={user} onLogout={authActions.logout} />
           </ProtectedRoute>
         )}
       />
