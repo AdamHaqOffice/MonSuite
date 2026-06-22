@@ -1,7 +1,7 @@
 {
-  "name": "monsuite-v4",
+  "name": "monsuite-v5",
   "private": true,
-  "version": "4.0.0",
+  "version": "5.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",

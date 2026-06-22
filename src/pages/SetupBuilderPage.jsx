@@ -472,6 +472,80 @@ function constrainProbes(items, canvasSize) {
   });
 }
 
+
+function getDeviceVisualClass(catalogItem, placedItem) {
+  if (placedItem?.isProbe || catalogItem?.probe) return 'probe-visual';
+  if (catalogItem?.sku === 'PPM4') return 'ppm4-visual';
+  if (catalogItem?.sku === 'AT-RPM-RTS') return 'rpm-visual';
+  if (catalogItem?.sku === 'PMA-PB') return 'powerbus-visual';
+  if (catalogItem?.sku === 'PPM4CHRGR') return 'charger-visual';
+  if (catalogItem?.sku === 'PMA-AVM') return 'ach-visual';
+  if (catalogItem?.sku === 'PMA-RPSM') return 'pressure-visual';
+  if (catalogItem?.sku === 'PMA-PSM') return 'particle-visual';
+  if (catalogItem?.sku === 'PMA-CM') return 'cell-visual';
+  return 'sensor-visual';
+}
+
+function DeviceGraphic({ catalogItem, placedItem = null, usedPorts = 0, compact = false, localPowerAttached = false }) {
+  const visualClass = getDeviceVisualClass(catalogItem, placedItem);
+  const ethernetPorts = Number(catalogItem?.ethernetPorts) || 0;
+  const tubingCapable = Boolean(catalogItem?.pressureCapable);
+  const displayName = catalogItem?.shortName || placedItem?.label || catalogItem?.label || 'ITEM';
+  const draw = Number(catalogItem?.powerDrawMa) || 0;
+
+  return (
+    <div className={`device-graphic ${visualClass} ${compact ? 'compact' : ''}`}>
+      <div className="device-shell">
+        {visualClass === 'ppm4-visual' && <span className="case-handle" />}
+        {(visualClass === 'ppm4-visual' || visualClass === 'rpm-visual') && (
+          <div className="device-screen">
+            <span>{visualClass === 'ppm4-visual' ? 'MONITOR' : 'ROOM PRESSURE'}</span>
+          </div>
+        )}
+        {visualClass === 'probe-visual' && (
+          <div className="probe-face">
+            <span />
+            <b>Probe</b>
+          </div>
+        )}
+        {visualClass === 'charger-visual' && (
+          <div className="charger-face">
+            <span>↯</span>
+            <b>CHARGER</b>
+          </div>
+        )}
+        {visualClass === 'powerbus-visual' && (
+          <div className="bus-face">
+            <span>POWER BUS</span>
+            <b>24V</b>
+          </div>
+        )}
+        {!['ppm4-visual', 'rpm-visual', 'probe-visual', 'charger-visual', 'powerbus-visual'].includes(visualClass) && (
+          <div className="sensor-face">
+            <span>{catalogItem?.label || displayName}</span>
+            <b>{draw ? `${draw}mA` : catalogItem?.sku}</b>
+          </div>
+        )}
+        <div className="device-nameplate">{displayName}</div>
+        {ethernetPorts > 0 && (
+          <div className="device-ports" aria-label={`${usedPorts} of ${ethernetPorts} ethernet ports used`}>
+            {Array.from({ length: ethernetPorts }).map((_, index) => (
+              <i className={index < usedPorts ? 'used' : ''} key={`${catalogItem?.sku}-eth-${index}`} />
+            ))}
+          </div>
+        )}
+        {tubingCapable && (
+          <div className="tube-ports" aria-label="Room and reference tubing ports">
+            <i>R</i>
+            <i>F</i>
+          </div>
+        )}
+        {localPowerAttached && <div className="local-power-chip">🔌</div>}
+      </div>
+    </div>
+  );
+}
+
 function getDoorSwingPath(door) {
   const dx = door.to.x - door.from.x;
   const dy = door.to.y - door.from.y;
@@ -880,7 +954,7 @@ export default function SetupBuilderPage({ user, onLogout }) {
                   key={item.sku}
                   onDragStart={(event) => handleInventoryDragStart(event, item)}
                 >
-                  <span>{item.shortName}</span>
+                  <DeviceGraphic catalogItem={item} compact />
                   <div>
                     <strong>{item.name}</strong>
                     <small>
@@ -1014,14 +1088,12 @@ export default function SetupBuilderPage({ user, onLogout }) {
                     title={catalogItem?.name}
                   >
                     {hasItemPowerWarning && <span className="power-badge" aria-label="Power warning">⚡</span>}
-                    {localPowerAttached && <span className="power-badge attached" aria-label="Local power attached">🔌</span>}
-                    <strong>{item.label}</strong>
-                    <span>{catalogItem?.sku || item.sku}</span>
-                    <small>
-                      {item.isProbe
-                        ? `remote · ${PROBE_MAX_LENGTH_FT}ft max`
-                        : `${usedPorts}/${catalogItem?.ethernetPorts || 0} ETH${Number(catalogItem?.powerDrawMa) > 0 ? ` · ${catalogItem.powerDrawMa}mA` : ''}`}
-                    </small>
+                    <DeviceGraphic
+                      catalogItem={catalogItem}
+                      placedItem={item}
+                      usedPorts={usedPorts}
+                      localPowerAttached={localPowerAttached}
+                    />
                   </button>
                 );
               })}
