@@ -14,6 +14,17 @@ const DEFAULT_SCALE_LABEL = '1 grid square = 1 ft';
 const DEFAULT_CANVAS_SIZE = { width: 1120, height: 720 };
 const PROBE_MAX_DISTANCE_PX = PROBE_MAX_LENGTH_FT * GRID_SIZE;
 
+function getCanvasItemSize(catalogItem) {
+  if (!catalogItem) return { width: 72, height: 72 };
+
+  if (catalogItem.sku === 'PPM4') return { width: 132, height: 104 };
+  if (catalogItem.sku === 'AT-RPM-RTS') return { width: 126, height: 82 };
+  if (catalogItem.sku === 'PMA-PB') return { width: 92, height: 64 };
+  if (catalogItem.sku === 'PPM4CHRGR') return { width: 50, height: 58 };
+  if (catalogItem.category === 'Sensor' || catalogItem.category === 'Communication') return { width: 58, height: 116 };
+  return { width: 72, height: 72 };
+}
+
 function makeId(prefix) {
   return `${prefix}-${Date.now()}-${Math.random().toString(16).slice(2)}`;
 }
@@ -595,9 +606,7 @@ export default function SetupBuilderPage({ user, onLogout }) {
 
     const pointer = getPointerPosition(event, canvasRef.current);
     const canvasSize = getCanvasSize(canvasRef.current);
-    const scale = catalogItem.category === 'Monitor' ? 5 : catalogItem.powerAccessory ? 9 : 7;
-    const width = Math.max(catalogItem.powerAccessory ? 42 : 56, Math.round(catalogItem.dimensions.widthIn * scale));
-    const height = Math.max(catalogItem.powerAccessory ? 42 : 56, Math.round(catalogItem.dimensions.heightIn * scale));
+    const { width, height } = getCanvasItemSize(catalogItem);
 
     const newItem = {
       id: makeId('item'),

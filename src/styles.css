@@ -1669,3 +1669,139 @@ button, input {
   transform: scale(0.78);
   transform-origin: top right;
 }
+
+/* Setup Builder V6 sizing/proportion fixes */
+.inventory-card {
+  grid-template-columns: 92px 1fr;
+  min-height: 96px;
+  align-items: center;
+}
+
+.inventory-card .device-graphic.compact {
+  width: 82px;
+  height: 78px;
+  min-height: 78px;
+}
+
+.inventory-card .device-graphic.compact.sensor-visual,
+.inventory-card .device-graphic.compact.ach-visual,
+.inventory-card .device-graphic.compact.pressure-visual,
+.inventory-card .device-graphic.compact.particle-visual,
+.inventory-card .device-graphic.compact.cell-visual {
+  width: 50px;
+  height: 82px;
+  justify-self: center;
+}
+
+.placed-item {
+  min-width: unset;
+  min-height: unset;
+  border-radius: 0;
+  overflow: visible;
+}
+
+.placed-item .device-graphic {
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+}
+
+.placed-item .device-shell {
+  overflow: hidden;
+}
+
+.placed-item.sensor .device-shell,
+.placed-item.communication .device-shell {
+  border-radius: 18px;
+}
+
+.sensor-visual .device-shell,
+.ach-visual .device-shell,
+.pressure-visual .device-shell,
+.particle-visual .device-shell,
+.cell-visual .device-shell {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.92), rgba(226,232,240,0.95)),
+    linear-gradient(90deg, rgba(15,23,42,0.08), transparent 18%, transparent 82%, rgba(15,23,42,0.08));
+}
+
+.placed-item .sensor-face {
+  width: 70%;
+  min-height: 48%;
+  padding: 0.32rem 0.22rem;
+  border-radius: 10px;
+}
+
+.placed-item .sensor-face span {
+  font-size: 0.55rem;
+  line-height: 1.05;
+  white-space: normal;
+}
+
+.placed-item .sensor-face b {
+  font-size: 0.58rem;
+}
+
+.placed-item .device-nameplate {
+  left: 7px;
+  right: 7px;
+  bottom: 7px;
+  font-size: 0.62rem;
+}
+
+.placed-item.monitor .device-nameplate {
+  bottom: 8px;
+  font-size: 0.68rem;
+}
+
+.placed-item .device-ports {
+  top: 7px;
+  right: 7px;
+}
+
+.placed-item .tube-ports {
+  left: 7px;
+  bottom: 7px;
+}
+
+.placed-item.monitor .device-screen {
+  transform: translateY(-2px);
+}
+
+.ppm4-visual .device-shell::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 2px solid rgba(66,32,6,0.18);
+  border-radius: 16px;
+  pointer-events: none;
+}
+
+.rpm-visual .device-shell::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border: 1px solid rgba(148,163,184,0.45);
+  border-radius: 14px;
+  pointer-events: none;
+}
+
+.placed-item.probe {
+  width: auto;
+  height: auto;
+}
+
+.placed-item.probe .device-shell {
+  overflow: hidden;
+}
+
+@media (max-width: 840px) {
+  .inventory-card {
+    grid-template-columns: 78px 1fr;
+  }
+
+  .inventory-card .device-graphic.compact {
+    width: 70px;
+    height: 68px;
+  }
+}

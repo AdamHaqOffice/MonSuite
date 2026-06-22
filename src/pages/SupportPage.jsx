@@ -1,7 +1,7 @@
 import AppShell from '../components/AppShell.jsx';
 
 export default function SupportPage({ user, onLogout }) {
-  const ticketingUrl = import.meta.env.VITE_SUPPORT_TICKETING_URL || 'https://example.com/support';
+  const ticketingUrl = import.meta.env.VITE_SUPPORT_TICKETING_URL || 'https://abatementpartnersupport.freshdesk.com/support/home';
 
   return (
     <AppShell user={user} onLogout={onLogout}>
