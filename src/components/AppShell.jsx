@@ -1,24 +1,21 @@
-import { Link, NavLink } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
+import BrandLockup from './BrandLockup.jsx';
 
 export default function AppShell({ user, onLogout, children }) {
   return (
     <div className="app-shell">
       <header className="topbar">
-        <Link to="/hub" className="brand-mark" aria-label="MonSuite home">
-          <span className="brand-icon">M</span>
-          <span>
-            <strong>MonSuite</strong>
-            <small>Monitor support hub</small>
-          </span>
-        </Link>
+        <BrandLockup to="/hub" compact subtitle="Monitor support hub" />
 
         <nav className="nav-links" aria-label="Main navigation">
           <NavLink to="/hub">Hub</NavLink>
           <NavLink to="/products">Products</NavLink>
           <NavLink to="/downloads">Downloads</NavLink>
           <NavLink to="/firmware">Firmware</NavLink>
+          <NavLink to="/ai-assistant">Assistant</NavLink>
           <NavLink to="/support">Support</NavLink>
-          <NavLink to="/setup-builder">Setup</NavLink>
+          <NavLink className="desktop-only-link" to="/setup-builder">Setup</NavLink>
+          <NavLink to="/system-builder">System Builder</NavLink>
         </nav>
 
         <div className="user-menu">

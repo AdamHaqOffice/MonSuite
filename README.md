@@ -1,6 +1,6 @@
-# MonSuite V6
+# MonSuite V9
 
-MonSuite V6 is a Netlify-hosted React/Vite sales support portal with Google login and a CAD-lite setup builder.
+MonSuite V9 is a Netlify-hosted React/Vite sales support portal with Google login and a CAD-lite setup builder.
 
 ## V3 setup builder updates
 
@@ -56,3 +56,35 @@ VITE_SUPPORT_TICKETING_URL=https://your-ticketing-system-link.com
 4. Make sure `.npmrc` is in the repo root.
 5. In Netlify, run **Clear cache and deploy site**.
 
+
+
+## V7 Products section
+
+Adds a documentation-backed Products page with product cards, product photos extracted from current docs, specs, setup notes, power reference, search/filtering, and related document links.
+
+
+## V9 Downloads Library
+
+V9 replaces the starter downloads table with a populated document library using the current RPM, PPM4, module, Wi-Fi, firmware, cloud, cellular, and architecture documents. Temp Office files, desktop.ini, old-dontuse content, and nested zip archives are excluded from the deployed library.
+
+
+## V9 Firmware Center
+
+- Populated the firmware page with PPM4 v2.2 latest, PPM4 v1.8 migration, and RPM MFW1042A firmware.
+- Added a critical PPM4 warning: units below v1.8 must update to v1.8 before installing the latest package.
+- Firmware files are stored under `public/firmware`.
+- Formal engineering release notes were not included with the HEX files, so detailed feature/bug-fix changelog lines should be updated later.
+
+
+## MonSuite V13 Chatbot Assistant
+
+This version adds a client-side MonSuite Assistant at `/ai-assistant`.
+
+- Uses `src/data/chatbotBrain.json` as the search brain.
+- Includes 218 knowledge entries and 2,183 question variants.
+- Searches locally in the browser; no paid AI API is required.
+- Returns best matching answer, related matches, and source links.
+- Always surfaces the PPM4 below-v1.8 firmware warning for PPM4 firmware/update/version questions.
+- Raw reference files are also included in `public/knowledge/`.
+
+Later, this can be upgraded to a true AI/RAG workflow through a Netlify Function.

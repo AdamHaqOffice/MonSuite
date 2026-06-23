@@ -930,6 +930,11 @@ export default function SetupBuilderPage({ user, onLogout }) {
           </div>
         </section>
 
+        <div className="mobile-setup-warning">
+          <strong>Desktop/tablet recommended.</strong>
+          <span> On small screens, use the System Builder page for a simpler mobile workflow.</span>
+        </div>
+
         <section className="setup-workspace">
           <aside className="setup-panel inventory-panel">
             <div className="panel-heading">

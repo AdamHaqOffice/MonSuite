@@ -1,4 +1,5 @@
 import { Navigate, useLocation } from 'react-router-dom';
+import BrandLockup from '../components/BrandLockup.jsx';
 
 export default function LoginPage({ user, loading, authError, onGoogleLogin }) {
   const location = useLocation();
@@ -11,18 +12,12 @@ export default function LoginPage({ user, loading, authError, onGoogleLogin }) {
   return (
     <main className="login-page">
       <section className="login-panel">
-        <div className="brand-lockup">
-          <span className="brand-icon large">M</span>
-          <div>
-            <p className="eyebrow">Secure sales portal</p>
-            <h1>MonSuite</h1>
-          </div>
-        </div>
+        <BrandLockup to={null} login subtitle="Secure sales portal" />
 
         <h2>Monitor product support, all in one place.</h2>
         <p className="login-copy">
           Sign in with your approved Google account to access product knowledge, manuals, firmware updates,
-          support links, and future setup tools.
+          support links, and both the desktop setup builder and mobile system builder.
         </p>
 
         {authError && <div className="alert">{authError}</div>}
@@ -32,7 +27,7 @@ export default function LoginPage({ user, loading, authError, onGoogleLogin }) {
         </button>
 
         <p className="login-footnote">
-          Access should be limited to approved company accounts before adding sensitive pricing, firmware, or internal documents.
+          Install MonSuite as a PWA on mobile for quick access to products, downloads, firmware, support, and the system builder.
         </p>
       </section>
 
@@ -57,12 +52,19 @@ export default function LoginPage({ user, loading, authError, onGoogleLogin }) {
             </div>
             <span>Tracked</span>
           </div>
+          <div className="metric-row">
+            <div>
+              <strong>System Builder</strong>
+              <small>Mobile · Power · Parts</small>
+            </div>
+            <span>PWA</span>
+          </div>
           <div className="metric-row muted">
             <div>
               <strong>Setup Builder</strong>
-              <small>Layouts · Parts · Costing</small>
+              <small>Desktop CAD-lite</small>
             </div>
-            <span>Later</span>
+            <span>Desktop</span>
           </div>
         </div>
       </section>

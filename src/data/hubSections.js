@@ -4,35 +4,44 @@ export const hubSections = [
     eyebrow: 'Sales answers',
     description: 'Browse monitor product details, model notes, accessories, SKUs, FAQs, and internal sales guidance.',
     path: '/products',
-    status: 'V1 starter',
+    status: 'Live',
   },
   {
     title: 'Manuals & Downloads',
     eyebrow: 'Documents',
     description: 'Central library for manuals, pamphlets, quick guides, spec sheets, and product information files.',
     path: '/downloads',
-    status: 'V1 starter',
+    status: 'Linked',
   },
   {
     title: 'Firmware & Updates',
     eyebrow: 'Versions',
-    description: 'Firmware files, release notes, feature updates, compatibility notes, and update instructions.',
+    description: 'Firmware links, release notes, compatibility notes, and update instructions.',
     path: '/firmware',
-    status: 'V1 starter',
+    status: 'Live',
   },
   {
     title: 'Support Tickets',
     eyebrow: 'Help desk',
-    description: 'Send users to the existing support/ticketing system when they need technical help or escalation.',
+    description: 'Open the existing Freshdesk support portal when a customer or rep needs technical help or escalation.',
     path: '/support',
     status: 'Linked',
   },
   {
+    title: 'System Builder',
+    eyebrow: 'Mobile PWA',
+    description: 'Select monitors, sensors, chargers, and Power Bus modules. MonSuite calculates bus load, warnings, and a quick parts list.',
+    path: '/system-builder',
+    status: 'New',
+    mobileOnly: true,
+  },
+  {
     title: 'Setup Configurator',
     eyebrow: 'CAD-lite',
-    description: 'Draw rooms on a grid, place monitors and sensors, connect tubing and ethernet, and build a parts list.',
+    description: 'Desktop/tablet tool to draw rooms, place monitors and sensors, connect tubing and ethernet, and build a parts list.',
     path: '/setup-builder',
-    status: 'V2 MVP',
+    status: 'Desktop',
+    desktopOnly: true,
   },
   {
     title: 'Parts & Costing',
@@ -42,21 +51,10 @@ export const hubSections = [
     status: 'Coming later',
   },
   {
-    title: 'AI Assistant',
-    eyebrow: 'Future search',
-    description: 'Ask questions across manuals, guides, firmware notes, product pages, and setup documentation.',
+    title: 'MonSuite Assistant',
+    eyebrow: 'Search bot',
+    description: 'Ask questions across manuals, guides, firmware notes, product pages, setup rules, and troubleshooting entries.',
     path: '/ai-assistant',
-    status: 'Coming later',
+    status: 'Live',
   },
-];
-
-export const starterDownloads = [
-  { product: 'PPM4', type: 'Manual', title: 'Portable Pressure Monitor Manual', version: 'Add version', url: '#' },
-  { product: 'RPM', type: 'Quick Guide', title: 'Room Pressure Monitor Quick Start Guide', version: 'Add version', url: '#' },
-  { product: 'Sensors', type: 'Pamphlet', title: 'External Sensor Product Sheet', version: 'Add version', url: '#' },
-];
-
-export const starterFirmware = [
-  { product: 'PPM4', version: 'Add version', releaseDate: 'Add date', notes: 'Add release notes and compatibility details.', url: '#' },
-  { product: 'RPM', version: 'Add version', releaseDate: 'Add date', notes: 'Add release notes and update instructions.', url: '#' },
 ];

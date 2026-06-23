@@ -16,6 +16,8 @@ import ProductsPage from './pages/ProductsPage.jsx';
 import SupportPage from './pages/SupportPage.jsx';
 import PlaceholderPage from './pages/PlaceholderPage.jsx';
 import SetupBuilderPage from './pages/SetupBuilderPage.jsx';
+import ChatbotPage from './pages/ChatbotPage.jsx';
+import SystemBuilderPage from './pages/SystemBuilderPage.jsx';
 
 const allowedEmailDomains = import.meta.env.VITE_ALLOWED_EMAIL_DOMAINS
   ?.split(',')
@@ -161,6 +163,15 @@ export default function App() {
           </ProtectedRoute>
         )}
       />
+
+      <Route
+        path="/system-builder"
+        element={(
+          <ProtectedRoute user={user} loading={loading}>
+            <SystemBuilderPage user={user} onLogout={authActions.logout} />
+          </ProtectedRoute>
+        )}
+      />
       <Route
         path="/setup-builder"
         element={(
@@ -181,7 +192,7 @@ export default function App() {
         path="/ai-assistant"
         element={(
           <ProtectedRoute user={user} loading={loading}>
-            <PlaceholderPage user={user} onLogout={authActions.logout} title="AI Assistant" />
+            <ChatbotPage user={user} onLogout={authActions.logout} />
           </ProtectedRoute>
         )}
       />
