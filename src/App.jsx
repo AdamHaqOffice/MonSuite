@@ -18,6 +18,7 @@ import PlaceholderPage from './pages/PlaceholderPage.jsx';
 import SetupBuilderPage from './pages/SetupBuilderPage.jsx';
 import ChatbotPage from './pages/ChatbotPage.jsx';
 import SystemBuilderPage from './pages/SystemBuilderPage.jsx';
+import NewsPage from './pages/NewsPage.jsx';
 
 const allowedEmailDomains = import.meta.env.VITE_ALLOWED_EMAIL_DOMAINS
   ?.split(',')
@@ -152,6 +153,15 @@ export default function App() {
         element={(
           <ProtectedRoute user={user} loading={loading}>
             <FirmwarePage user={user} onLogout={authActions.logout} />
+          </ProtectedRoute>
+        )}
+      />
+
+      <Route
+        path="/news"
+        element={(
+          <ProtectedRoute user={user} loading={loading}>
+            <NewsPage user={user} onLogout={authActions.logout} />
           </ProtectedRoute>
         )}
       />

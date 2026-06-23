@@ -241,14 +241,20 @@ export default function ChatbotPage({ user, onLogout }) {
       <main className="page-wrap chatbot-page">
         <section className="hero-card chatbot-hero">
           <div>
-            <p className="eyebrow">MonSuite Assistant</p>
-            <h1>Ask the manuals without opening every manual.</h1>
+            <p className="eyebrow">Ask the AbateBot</p>
+            <h1>Ask AbateBot instead of opening every manual.</h1>
             <p>
-              This assistant searches the MonSuite brain built from product docs, setup rules, firmware notes,
+              AbateBot searches the MonSuite brain built from product docs, setup rules, firmware notes,
               troubleshooting entries, and source links. It answers from that knowledge base and links back to the source.
             </p>
           </div>
-          <div className="hero-panel assistant-stats">
+          <div className="hero-panel assistant-stats abatebot-panel">
+            <div className="abatebot-avatar" aria-hidden="true">
+              <span className="bot-antenna" />
+              <span className="bot-eye left" />
+              <span className="bot-eye right" />
+              <span className="bot-mouth" />
+            </div>
             <span>Knowledge base</span>
             <strong>{stats.entries} entries</strong>
             <small>{stats.variants.toLocaleString()} question variants · {stats.products} products/topics</small>
@@ -258,7 +264,7 @@ export default function ChatbotPage({ user, onLogout }) {
         <section className="chatbot-shell">
           <section className="chatbot-main">
             <form className="assistant-search" onSubmit={handleSubmit}>
-              <label htmlFor="assistant-question">Ask a product or setup question</label>
+              <label htmlFor="assistant-question">Ask AbateBot a product or setup question</label>
               <div className="assistant-input-row">
                 <input
                   id="assistant-question"
@@ -266,10 +272,10 @@ export default function ChatbotPage({ user, onLogout }) {
                   onChange={(event) => setQuery(event.target.value)}
                   placeholder="Example: how do I set job number on RPM?"
                 />
-                <button className="button primary" type="submit">Ask</button>
+                <button className="button primary" type="submit">Ask AbateBot</button>
               </div>
               <small>
-                No paid AI is used yet. This is a local search assistant, so answers are limited to the knowledge brain.
+                AbateBot is using local search right now, so answers are limited to the MonSuite knowledge brain.
               </small>
             </form>
 
@@ -293,7 +299,7 @@ export default function ChatbotPage({ user, onLogout }) {
               </div>
             ) : (
               <div className="assistant-empty-state">
-                <strong>Try asking about RPM, PPM4, firmware, Wi-Fi, cellular, power, sensors, alarms, or setup rules.</strong>
+                <strong>Hi, I’m AbateBot. Try asking about RPM, PPM4, firmware, Wi-Fi, cellular, power, sensors, alarms, or setup rules.</strong>
                 <p>
                   Good first test: “How do I set job number on RPM?” The assistant should return the RPM job number answer and link to the RPM manual.
                 </p>

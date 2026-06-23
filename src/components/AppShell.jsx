@@ -12,10 +12,11 @@ export default function AppShell({ user, onLogout, children }) {
           <NavLink to="/products">Products</NavLink>
           <NavLink to="/downloads">Downloads</NavLink>
           <NavLink to="/firmware">Firmware</NavLink>
-          <NavLink to="/ai-assistant">Assistant</NavLink>
+          <NavLink to="/news">News</NavLink>
+          <NavLink to="/ai-assistant">AbateBot</NavLink>
           <NavLink to="/support">Support</NavLink>
           <NavLink className="desktop-only-link" to="/setup-builder">Setup</NavLink>
-          <NavLink to="/system-builder">System Builder</NavLink>
+          <NavLink className="mobile-only-link" to="/system-builder">System Builder</NavLink>
         </nav>
 
         <div className="user-menu">

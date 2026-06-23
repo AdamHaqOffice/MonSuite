@@ -76,7 +76,7 @@ V9 replaces the starter downloads table with a populated document library using 
 - Formal engineering release notes were not included with the HEX files, so detailed feature/bug-fix changelog lines should be updated later.
 
 
-## MonSuite V13 Chatbot Assistant
+## MonSuite V16 Chatbot Assistant
 
 This version adds a client-side MonSuite Assistant at `/ai-assistant`.
 

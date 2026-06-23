@@ -6,9 +6,7 @@ function hasLink(value) {
 }
 
 function ActionLink({ href, children, primary = false }) {
-  if (!hasLink(href)) {
-    return <button className="button secondary small disabled" type="button" disabled>Link needed</button>;
-  }
+  if (!hasLink(href)) return null;
 
   return (
     <a className={`button ${primary ? 'primary' : 'secondary'} small`} href={href} target="_blank" rel="noreferrer">
@@ -59,7 +57,7 @@ function LatestFirmwareCard({ item }) {
               <em>{file.version}</em>
             </div>
             <span>{file.size}</span>
-            {hasLink(file.url) ? <a href={file.url} target="_blank" rel="noreferrer">file</a> : <span>link needed</span>}
+            {hasLink(file.url) ? <a href={file.url} target="_blank" rel="noreferrer">file</a> : null}
           </div>
         ))}
       </div>

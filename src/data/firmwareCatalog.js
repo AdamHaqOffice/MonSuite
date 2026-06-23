@@ -64,7 +64,7 @@ export const latestFirmware = [
     id: 'rpm-latest',
     product: 'RPM Room Pressure Monitor',
     shortProduct: 'RPM',
-    version: 'REV.0.5 / BL REV.1.0',
+    version: '0.5',
     status: 'Latest uploaded',
     releaseDate: 'Not supplied',
     packageType: 'Firmware file',
@@ -82,7 +82,7 @@ export const latestFirmware = [
       {
         name: 'MFW1042A.hex',
         role: 'RPM firmware',
-        version: 'REV.0.5, BL REV.1.0 detected inside file',
+        version: '0.5',
         size: '3.74 MB',
         checksum: '31cd9d401daa',
         url: 'https://drive.google.com/drive/folders/1yc95dsKmsmHNuY4kqDxwt7MDEy9ZaTdO?usp=sharing',
@@ -91,7 +91,7 @@ export const latestFirmware = [
     highlights: [
       'Latest RPM firmware file supplied in this upload.',
       'Embedded strings identify the file as Abatement RPM MFW1042A.hex.',
-      'Embedded strings show BL REV.1.0 and REV.0.5.',
+      'Embedded strings show RPM firmware REV.0.5. Bootloader string BL REV.1.0 was detected separately.',
     ],
     changes: [
       'Initial RPM firmware record added to MonSuite.',
@@ -138,7 +138,7 @@ export const firmwareHistory = [
   {
     id: 'rpm-0-5',
     product: 'RPM',
-    version: 'REV.0.5 / BL REV.1.0',
+    version: '0.5',
     status: 'Latest uploaded',
     releaseDate: 'Not supplied',
     packageUrl: 'https://drive.google.com/file/d/1NGnEJ_9rewr1g4IuLqO0MV8n09rGO79i/view?usp=drive_link',
@@ -150,11 +150,11 @@ export const firmwareHistory = [
       'Keep power connected and wait for the unit to confirm completion before removing USB.',
       'Verify firmware version after restart.',
     ],
-    files: ['MFW1042A.hex — RPM firmware, BL REV.1.0 / REV.0.5 detected'],
+    files: ['MFW1042A.hex — RPM firmware REV.0.5'],
     changes: [
       'Initial RPM firmware package added to MonSuite.',
       'Embedded file text identifies the file as Abatement RPM MFW1042A.hex.',
-      'Embedded file text shows BL REV.1.0 and REV.0.5.',
+      'Embedded file text shows RPM firmware REV.0.5. Bootloader string BL REV.1.0 was detected separately.',
       'Detailed feature/bug-fix notes were not supplied with the uploaded HEX file.',
     ],
   },

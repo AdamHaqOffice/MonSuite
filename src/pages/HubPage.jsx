@@ -9,7 +9,7 @@ export default function HubPage({ user, onLogout }) {
         <section className="hero-card hero-brand-card">
           <div>
             <p className="eyebrow">MonSuite PWA</p>
-            <h1>One branded hub for monitor product answers.</h1>
+            <h1>Abatement’s hub for all monitor product answers.</h1>
             <p>
               Centralize manuals, firmware updates, sales notes, support links, a mobile system builder,
               and the desktop setup builder in one clean, secure Abatement portal.

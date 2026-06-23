@@ -4,10 +4,9 @@ export default function BrandLockup({ to = '/hub', compact = false, subtitle = '
   const className = `brand-lockup brand-system ${compact ? 'compact' : ''} ${login ? 'login' : ''}`;
   const content = (
     <>
-      <img className="abatement-logo" src="/abatement-mark.svg" alt="Abatement Technologies" />
+      <img className="abatement-logo" src="/abatement-logo.png" alt="Abatement Technologies" />
       <div className="brand-copy">
-        <strong>MonSuite</strong>
-        <small>Abatement Technologies</small>
+        <span className="monsuite-chip">MonSuite</span>
         {showSubtitle && <em>{subtitle}</em>}
       </div>
     </>

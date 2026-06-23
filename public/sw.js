@@ -1,4 +1,4 @@
-const CACHE_NAME = 'monsuite-shell-v1';
+const CACHE_NAME = 'monsuite-shell-v14';
 const APP_SHELL = [
   '/',
   '/hub',
@@ -6,6 +6,8 @@ const APP_SHELL = [
   '/downloads',
   '/firmware',
   '/support',
+  '/news',
+  '/ai-assistant',
   '/system-builder',
   '/manifest.webmanifest',
   '/icon-192.png',

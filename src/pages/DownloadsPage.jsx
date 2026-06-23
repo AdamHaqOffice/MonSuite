@@ -6,6 +6,31 @@ function hasLink(value) {
   return Boolean(value && value.trim());
 }
 
+function getGoogleId(url) {
+  const docMatch = url?.match(/\/document\/d\/([^/]+)/);
+  if (docMatch) return { type: 'doc', id: docMatch[1] };
+  const fileMatch = url?.match(/\/file\/d\/([^/]+)/);
+  if (fileMatch) return { type: 'file', id: fileMatch[1] };
+  return null;
+}
+
+function getDownloadUrl(url) {
+  const match = getGoogleId(url);
+  if (!match) return url;
+  if (match.type === 'doc') return `https://docs.google.com/document/d/${match.id}/export?format=docx`;
+  if (match.type === 'file') return `https://drive.google.com/uc?export=download&id=${match.id}`;
+  return url;
+}
+
+function getOpenUrl(url) {
+  const match = getGoogleId(url);
+  if (!match) return url;
+  if (match.type === 'doc') return `https://docs.google.com/document/d/${match.id}/edit`;
+  if (match.type === 'file') return `https://drive.google.com/file/d/${match.id}/view`;
+  return url;
+}
+
+
 const statusOrder = {
   Current: 0,
   Reference: 1,
@@ -138,8 +163,8 @@ export default function DownloadsPage({ user, onLogout }) {
               <div className="download-actions">
                 {hasLink(doc.href) ? (
                   <>
-                    <a className="button primary small" href={doc.href} target="_blank" rel="noreferrer">Download</a>
-                    <a className="button secondary small" href={doc.href} target="_blank" rel="noreferrer">Open</a>
+                    <a className="button primary small" href={getDownloadUrl(doc.href)} target="_blank" rel="noreferrer">Download DOCX</a>
+                    <a className="button secondary small" href={getOpenUrl(doc.href)} target="_blank" rel="noreferrer">Open in Drive</a>
                   </>
                 ) : (
                   <button className="button secondary small disabled" type="button" disabled>Drive link needed</button>
