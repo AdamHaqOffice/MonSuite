@@ -38,6 +38,13 @@ function userIsAllowed(user) {
   return effectiveAllowedEmailDomains.some((domain) => email.endsWith(`@${domain}`));
 }
 
+function getStoredTheme() {
+  if (typeof window === 'undefined') return 'light';
+  const stored = window.localStorage.getItem('monsuite-theme');
+  if (stored === 'dark' || stored === 'light') return stored;
+  return window.matchMedia?.('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+}
+
 function ProtectedRoute({ user, loading, children }) {
   const location = useLocation();
 
@@ -61,6 +68,13 @@ export default function App() {
   const [user, setUser] = useState(null);
   const [loading, setLoading] = useState(true);
   const [authError, setAuthError] = useState('');
+  const [theme, setTheme] = useState(getStoredTheme);
+
+  useEffect(() => {
+    document.documentElement.dataset.theme = theme;
+    document.documentElement.style.colorScheme = theme;
+    window.localStorage.setItem('monsuite-theme', theme);
+  }, [theme]);
 
   useEffect(() => {
     if (missingFirebaseConfig || !auth) {
@@ -110,11 +124,33 @@ export default function App() {
     },
   }), []);
 
+  const themeControls = useMemo(() => ({
+    theme,
+    onToggleTheme() {
+      setTheme((current) => (current === 'dark' ? 'light' : 'dark'));
+    },
+  }), [theme]);
+
+  const protectedPageProps = {
+    onLogout: authActions.logout,
+    theme,
+    onToggleTheme: themeControls.onToggleTheme,
+  };
+
   return (
     <Routes>
       <Route
         path="/login"
-        element={<LoginPage user={user} loading={loading} authError={authError} onGoogleLogin={authActions.loginWithGoogle} />}
+        element={(
+          <LoginPage
+            user={user}
+            loading={loading}
+            authError={authError}
+            onGoogleLogin={authActions.loginWithGoogle}
+            theme={theme}
+            onToggleTheme={themeControls.onToggleTheme}
+          />
+        )}
       />
       <Route
         path="/"
@@ -128,7 +164,7 @@ export default function App() {
         path="/hub"
         element={(
           <ProtectedRoute user={user} loading={loading}>
-            <HubPage user={user} onLogout={authActions.logout} />
+            <HubPage user={user} {...protectedPageProps} />
           </ProtectedRoute>
         )}
       />
@@ -136,7 +172,7 @@ export default function App() {
         path="/products"
         element={(
           <ProtectedRoute user={user} loading={loading}>
-            <ProductsPage user={user} onLogout={authActions.logout} />
+            <ProductsPage user={user} {...protectedPageProps} />
           </ProtectedRoute>
         )}
       />
@@ -144,7 +180,7 @@ export default function App() {
         path="/downloads"
         element={(
           <ProtectedRoute user={user} loading={loading}>
-            <DownloadsPage user={user} onLogout={authActions.logout} />
+            <DownloadsPage user={user} {...protectedPageProps} />
           </ProtectedRoute>
         )}
       />
@@ -152,16 +188,15 @@ export default function App() {
         path="/firmware"
         element={(
           <ProtectedRoute user={user} loading={loading}>
-            <FirmwarePage user={user} onLogout={authActions.logout} />
+            <FirmwarePage user={user} {...protectedPageProps} />
           </ProtectedRoute>
         )}
       />
-
       <Route
         path="/news"
         element={(
           <ProtectedRoute user={user} loading={loading}>
-            <NewsPage user={user} onLogout={authActions.logout} />
+            <NewsPage user={user} {...protectedPageProps} />
           </ProtectedRoute>
         )}
       />
@@ -169,16 +204,15 @@ export default function App() {
         path="/support"
         element={(
           <ProtectedRoute user={user} loading={loading}>
-            <SupportPage user={user} onLogout={authActions.logout} />
+            <SupportPage user={user} {...protectedPageProps} />
           </ProtectedRoute>
         )}
       />
-
       <Route
         path="/system-builder"
         element={(
           <ProtectedRoute user={user} loading={loading}>
-            <SystemBuilderPage user={user} onLogout={authActions.logout} />
+            <SystemBuilderPage user={user} {...protectedPageProps} />
           </ProtectedRoute>
         )}
       />
@@ -186,7 +220,7 @@ export default function App() {
         path="/setup-builder"
         element={(
           <ProtectedRoute user={user} loading={loading}>
-            <SetupBuilderPage user={user} onLogout={authActions.logout} />
+            <SetupBuilderPage user={user} {...protectedPageProps} />
           </ProtectedRoute>
         )}
       />
@@ -194,7 +228,7 @@ export default function App() {
         path="/parts-costing"
         element={(
           <ProtectedRoute user={user} loading={loading}>
-            <PlaceholderPage user={user} onLogout={authActions.logout} title="Parts & Costing" />
+            <PlaceholderPage user={user} {...protectedPageProps} title="Parts & Costing" />
           </ProtectedRoute>
         )}
       />
@@ -202,7 +236,7 @@ export default function App() {
         path="/ai-assistant"
         element={(
           <ProtectedRoute user={user} loading={loading}>
-            <ChatbotPage user={user} onLogout={authActions.logout} />
+            <ChatbotPage user={user} {...protectedPageProps} />
           </ProtectedRoute>
         )}
       />

@@ -131,9 +131,9 @@ function HistoryCard({ release }) {
   );
 }
 
-export default function FirmwarePage({ user, onLogout }) {
+export default function FirmwarePage({ user, onLogout, theme, onToggleTheme }) {
   return (
-    <AppShell user={user} onLogout={onLogout}>
+    <AppShell user={user} onLogout={onLogout} theme={theme} onToggleTheme={onToggleTheme}>
       <main className="page-wrap firmware-page-wrap">
         <section className="section-heading page-title firmware-title-block">
           <p className="eyebrow">Firmware center</p>

@@ -1,7 +1,7 @@
 {
-  "name": "monsuite-v16",
+  "name": "monsuite-v24",
   "private": true,
-  "version": "16.0.0",
+  "version": "24.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",

@@ -4,7 +4,17 @@ export default function BrandLockup({ to = '/hub', compact = false, subtitle = '
   const className = `brand-lockup brand-system ${compact ? 'compact' : ''} ${login ? 'login' : ''}`;
   const content = (
     <>
-      <img className="abatement-logo" src="/abatement-logo.png" alt="Abatement Technologies" />
+      <span className="brand-logo-suite" aria-hidden="true">
+        <span className="brand-plate main-brand-plate">
+          <img className="abatement-logo sleek-brand-logo" src="/abatement-brand-full.png" alt="" />
+        </span>
+        {login ? (
+          <span className="brand-plate slogan-brand-plate">
+            <img className="abatement-slogan-logo" src="/abatement-brand-slogan.png" alt="" />
+          </span>
+        ) : null}
+      </span>
+      <span className="sr-only">Abatement Technologies</span>
       <div className="brand-copy">
         <span className="monsuite-chip">MonSuite</span>
         {showSubtitle && <em>{subtitle}</em>}

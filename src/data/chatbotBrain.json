@@ -1,5 +1,394 @@
 [
   {
+    "id": "support-ticket-what-to-include-pressure-issue",
+    "title": "what to include in a pressure support ticket",
+    "product": "MonSuite",
+    "category": "Support",
+    "sourceTitle": "Support Portal",
+    "sourceUrl": "https://abatementpartnersupport.freshdesk.com/support/home",
+    "confidence": "grounded",
+    "keywords": [
+      "support",
+      "ticket",
+      "pressure",
+      "reading",
+      "alarm",
+      "hospital",
+      "room",
+      "reference",
+      "tubing"
+    ],
+    "questions": [
+      "What should I include in a pressure ticket?",
+      "What info does support need?",
+      "How do I report a pressure issue?",
+      "What do I send R&D or support?"
+    ],
+    "answer": "For a pressure-related support ticket, include the room type, whether the room should be positive or negative, current pressure reading, units, alarm points, Room/Reference tubing setup, photos of the ports and tubing, job/site name, device model, firmware version, and whether readings match the cloud or mobile app.",
+    "notes": ""
+  },
+  {
+    "id": "support-ticket-when-to-make-a-ticket",
+    "title": "when to make a support ticket",
+    "product": "MonSuite",
+    "category": "Support",
+    "sourceTitle": "Support Portal",
+    "sourceUrl": "https://abatementpartnersupport.freshdesk.com/support/home",
+    "confidence": "grounded",
+    "keywords": [
+      "support",
+      "ticket",
+      "freshdesk",
+      "hospital",
+      "pressure",
+      "alarm",
+      "cloud",
+      "mobile",
+      "history",
+      "escalation"
+    ],
+    "questions": [
+      "When should I make a support ticket?",
+      "Should I open a ticket?",
+      "When do I contact support?",
+      "How do I escalate an issue?",
+      "What needs a ticket?"
+    ],
+    "answer": "Make a support ticket when an issue affects a live hospital job, pressure readings look wrong, pressure alarms will not clear, cloud/mobile verification fails, recording/history is missing, or the documentation does not clearly answer the question. Include product, serial number if available, firmware version, current pressure reading, alarm points, job/site name, screenshots/photos, and troubleshooting already tried.",
+    "notes": ""
+  },
+  {
+    "id": "pressure-cloud-mobile-verify-pressure-reporting",
+    "title": "verify pressure reporting to cloud or mobile app",
+    "product": "RPM / PPM4",
+    "category": "Cloud / Mobile Verification",
+    "sourceTitle": "PPM4 Web / Cloud and Mobile Quickstarts",
+    "sourceUrl": "https://docs.google.com/document/d/1OUGNAgw2QJEc4o0Ttt8VNnsZ6mFidqpW/edit?usp=drive_link&ouid=106548179376433005372&rtpof=true&sd=true",
+    "confidence": "grounded",
+    "keywords": [
+      "pressure",
+      "verify",
+      "cloud",
+      "mobile app",
+      "web app",
+      "reporting",
+      "live readings",
+      "validate",
+      "wifi",
+      "cellular"
+    ],
+    "questions": [
+      "How do I verify pressure to cloud or mobile?",
+      "How do I verify pressure reporting?",
+      "How do I know the monitor is connected to cloud or mobile?",
+      "How do I validate pressure readings online?"
+    ],
+    "answer": "To verify pressure reporting, first confirm the monitor is connected through Wi-Fi or cellular and successfully validated to the cloud/web account. Then check the web portal for live pressure readings, device/job information, history, and events. After web/cloud reporting works, open the mobile app with the correct account and confirm the same device shows live pressure readings and alarm notifications.",
+    "notes": ""
+  },
+  {
+    "id": "pressure-calibration-zero-pressure",
+    "title": "zero/calibrate pressure reading safely",
+    "product": "RPM / PPM4 / Pressure Sensor",
+    "category": "Calibration",
+    "sourceTitle": "RPM / PPM4 calibration guidance",
+    "sourceUrl": "https://docs.google.com/document/d/1fQubA6975M3K3Zy80_ylF3fbROo8CGRp/edit?usp=drive_link&ouid=106548179376433005372&rtpof=true&sd=true",
+    "confidence": "grounded",
+    "keywords": [
+      "pressure",
+      "calibrate",
+      "calibration",
+      "zero",
+      "zero pressure",
+      "offset",
+      "sensor",
+      "do not blow",
+      "ports"
+    ],
+    "questions": [
+      "How do I calibrate pressure?",
+      "How do I zero pressure?",
+      "Why is pressure not zero?",
+      "How do I reset pressure reading?",
+      "Can I blow into the pressure port?"
+    ],
+    "answer": "When zeroing or calibrating pressure, remove applied pressure from the inputs and follow the monitor calibration workflow. Do not blow into hoses or pressure ports. If the reading will not settle, check tubing, filters, reference location, and whether the sensor is exposed to actual pressure before assuming the monitor is wrong.",
+    "notes": ""
+  },
+  {
+    "id": "pressure-tubing-room-reference-check",
+    "title": "check Room and Reference pressure tubing",
+    "product": "RPM / PPM4 / Pressure Sensor",
+    "category": "Tubing",
+    "sourceTitle": "Pressure Sensor Quick Guide",
+    "sourceUrl": "https://docs.google.com/document/d/1cOVjqPVg3SVflLI92JfK1A26HadMA2U1/edit?usp=drive_link&ouid=106548179376433005372&rtpof=true&sd=true",
+    "confidence": "grounded",
+    "keywords": [
+      "pressure",
+      "tubing",
+      "hose",
+      "room",
+      "reference",
+      "ref",
+      "ports",
+      "differential pressure",
+      "negative pressure",
+      "sensor damage"
+    ],
+    "questions": [
+      "How do I connect pressure tubing?",
+      "What are Room and Reference ports?",
+      "Why is pressure reading wrong?",
+      "How do I check pressure hoses?",
+      "Can tubing be reversed?"
+    ],
+    "answer": "Pressure readings depend on the Room and Reference tubing being connected correctly. Verify the Room line goes to the monitored space and the Reference line goes to the intended reference area. Check for reversed hoses, kinks, disconnections, blocked filters, or leaks. Do not blow into hoses or pressure ports because that can damage the sensor.",
+    "notes": ""
+  },
+  {
+    "id": "pressure-recording-history-and-usb-export",
+    "title": "record pressure history and export data",
+    "product": "RPM / PPM4",
+    "category": "Data Log",
+    "sourceTitle": "RPM / PPM4 data log guidance",
+    "sourceUrl": "https://docs.google.com/document/d/1fQubA6975M3K3Zy80_ylF3fbROo8CGRp/edit?usp=drive_link&ouid=106548179376433005372&rtpof=true&sd=true",
+    "confidence": "grounded",
+    "keywords": [
+      "pressure",
+      "record",
+      "recording",
+      "history",
+      "data log",
+      "usb",
+      "archive.csv",
+      "job number",
+      "download history",
+      "recording interval"
+    ],
+    "questions": [
+      "How do I record pressure history?",
+      "How do I export pressure data?",
+      "How do I download pressure history?",
+      "How do I use data log?",
+      "How do I get pressure records from the monitor?"
+    ],
+    "answer": "For pressure records, set the correct job number before monitoring, confirm recording/history settings, let the monitor log during the job, then use USB Download/Data Log to export the history. Do not remove the USB drive until the download is complete. Downloading history does not necessarily erase internal records unless Delete Log is used.",
+    "notes": ""
+  },
+  {
+    "id": "pressure-mobile-verify-pressure-in-mobile-app",
+    "title": "verify pressure readings in the mobile app",
+    "product": "PPM4 Mobile / RPM",
+    "category": "Mobile Verification",
+    "sourceTitle": "PPM4 Mobile App Quickstart",
+    "sourceUrl": "https://docs.google.com/document/d/1IdczrcXU-10oq0iUZ-pJ87er_bRnzA_s/edit?usp=drive_link&ouid=106548179376433005372&rtpof=true&sd=true",
+    "confidence": "grounded",
+    "keywords": [
+      "pressure",
+      "mobile",
+      "mobile app",
+      "verify",
+      "app",
+      "phone",
+      "notifications",
+      "live readings",
+      "cloud"
+    ],
+    "questions": [
+      "How do I verify pressure in the mobile app?",
+      "How do I see pressure on my phone?",
+      "How do I know the mobile app is connected?",
+      "Why are pressure readings not showing in mobile app?",
+      "How do I connect pressure data to mobile?"
+    ],
+    "answer": "To verify pressure in the mobile app, sign in with the correct account, make sure the monitor/device is assigned to that account, confirm the monitor is connected to cloud through Wi-Fi or cellular, then check that live pressure readings and alarm notifications appear in the app. If mobile is not updating, verify cloud/web reporting first.",
+    "notes": ""
+  },
+  {
+    "id": "pressure-cloud-verify-pressure-to-cloud",
+    "title": "verify pressure readings to the cloud",
+    "product": "PPM4 Cloud / RPM",
+    "category": "Cloud Verification",
+    "sourceTitle": "PPM4 Web / Cloud Quickstart",
+    "sourceUrl": "https://docs.google.com/document/d/1OUGNAgw2QJEc4o0Ttt8VNnsZ6mFidqpW/edit?usp=drive_link&ouid=106548179376433005372&rtpof=true&sd=true",
+    "confidence": "grounded",
+    "keywords": [
+      "pressure",
+      "cloud",
+      "verify",
+      "validate",
+      "web app",
+      "connect",
+      "reporting",
+      "live readings",
+      "device validation",
+      "bridgera"
+    ],
+    "questions": [
+      "How do I verify pressure to the cloud?",
+      "How do I validate the monitor to the cloud?",
+      "How do I know pressure is reporting online?",
+      "How do I connect pressure readings to the web app?",
+      "How do I verify cloud data?"
+    ],
+    "answer": "To verify pressure readings to the cloud, confirm the monitor is connected through Wi-Fi or cellular, create/register the device in the web app, complete the device/cloud setup flow on the monitor, then check that live pressure readings, job/device information, and history/events are updating in the web portal.",
+    "notes": ""
+  },
+  {
+    "id": "pressure-maintain-required-pressure",
+    "title": "maintain required pressure",
+    "product": "RPM / PPM4",
+    "category": "Pressure Control",
+    "sourceTitle": "Pressure monitoring best-practice guidance",
+    "sourceUrl": "https://docs.google.com/document/d/1cOVjqPVg3SVflLI92JfK1A26HadMA2U1/edit?usp=drive_link&ouid=106548179376433005372&rtpof=true&sd=true",
+    "confidence": "grounded",
+    "keywords": [
+      "maintain pressure",
+      "keep pressure",
+      "negative pressure",
+      "positive pressure",
+      "stable pressure",
+      "containment",
+      "fan",
+      "airflow",
+      "leak",
+      "door",
+      "filter"
+    ],
+    "questions": [
+      "How do I maintain pressure?",
+      "How do I keep negative pressure?",
+      "How do I keep pressure stable?",
+      "What if pressure keeps dropping?",
+      "How do I hold pressure in a room?",
+      "How do I maintain the required pressure?"
+    ],
+    "answer": "To maintain required pressure, treat the monitor as the proof device and fix the room conditions causing the reading. Verify tubing and reference location, keep doors and containment openings controlled, check for leaks, confirm exhaust/negative-air equipment is running correctly, make sure filters are not clogged, and adjust airflow or containment before changing alarm limits.",
+    "notes": ""
+  },
+  {
+    "id": "pressure-alarms-active-pressure-alarm-troubleshooting",
+    "title": "active pressure alarm troubleshooting",
+    "product": "RPM / PPM4",
+    "category": "Pressure Alarms",
+    "sourceTitle": "RPM / PPM4 pressure alarm guidance",
+    "sourceUrl": "https://docs.google.com/document/d/1fQubA6975M3K3Zy80_ylF3fbROo8CGRp/edit?usp=drive_link&ouid=106548179376433005372&rtpof=true&sd=true",
+    "confidence": "grounded",
+    "keywords": [
+      "pressure",
+      "alarm",
+      "active alarm",
+      "red screen",
+      "beeping",
+      "outside limit",
+      "threshold",
+      "troubleshooting",
+      "negative pressure"
+    ],
+    "questions": [
+      "Why is my pressure alarm going off?",
+      "Why is the screen red?",
+      "Why is the monitor alarming?",
+      "What do I check when pressure alarm is active?",
+      "How do I troubleshoot pressure alarms?"
+    ],
+    "answer": "If a pressure alarm is active, first check whether the live pressure reading is outside the selected alarm limits. Then check Room/Reference tubing, reversed or disconnected hoses, blocked filters, doors/openings, containment leaks, fan or negative-air-machine changes, and whether the alarm points were set correctly. STOP ALARM silences the audible alert only; it does not fix the pressure condition.",
+    "notes": ""
+  },
+  {
+    "id": "pressure-alarms-set-pressure-alarm-points",
+    "title": "set pressure alarm points",
+    "product": "RPM / PPM4",
+    "category": "Pressure Alarms",
+    "sourceTitle": "RPM / PPM4 alarm settings",
+    "sourceUrl": "https://docs.google.com/document/d/1fQubA6975M3K3Zy80_ylF3fbROo8CGRp/edit?usp=drive_link&ouid=106548179376433005372&rtpof=true&sd=true",
+    "confidence": "grounded",
+    "keywords": [
+      "pressure",
+      "alarm",
+      "alarm point",
+      "setpoint",
+      "set point",
+      "threshold",
+      "limit",
+      "high limit",
+      "low limit",
+      "negative pressure",
+      "positive pressure"
+    ],
+    "questions": [
+      "How do I set alarm points?",
+      "How do I set pressure alarm points?",
+      "How do I set alarm thresholds?",
+      "How do I set pressure limits?",
+      "How do I change alarm setpoints?",
+      "How do I set negative pressure alarms?"
+    ],
+    "answer": "Set pressure alarm points from the monitor settings/alarm area for the room or pressure sensor you are using. Choose the pressure units first, then enter the high/low limits or required threshold for the job. The alarm points should match the containment requirement, not just whatever makes the alarm quiet.",
+    "notes": ""
+  },
+  {
+    "id": "pressure-display-screen-timeout-always-on",
+    "title": "set display always on / screen timeout",
+    "product": "RPM / PPM4",
+    "category": "Display",
+    "sourceTitle": "Monitor display settings",
+    "sourceUrl": "https://docs.google.com/document/d/1fQubA6975M3K3Zy80_ylF3fbROo8CGRp/edit?usp=drive_link&ouid=106548179376433005372&rtpof=true&sd=true",
+    "confidence": "grounded",
+    "keywords": [
+      "display",
+      "screen",
+      "screen saver",
+      "screensaver",
+      "always on",
+      "screen timeout",
+      "administration",
+      "options",
+      "monitor screen"
+    ],
+    "questions": [
+      "How do I keep the screen always on?",
+      "How do I use screen saver?",
+      "How do I change screen timeout?",
+      "How do I stop the display from turning off?",
+      "Where is display always on?",
+      "How do I make the monitor screen stay on?"
+    ],
+    "answer": "To keep the monitor display on, go to Settings \u2192 Administration \u2192 Options \u2192 Display \u2192 Screen Timeout. Set the timeout to the always-on/no-timeout option if available. Use this when the live pressure display needs to stay visible on a job site; use a timeout/screen saver when battery life or screen life matters more.",
+    "notes": ""
+  },
+  {
+    "id": "pressure-core-display-and-record-pressure-data",
+    "title": "display and record pressure data",
+    "product": "RPM / PPM4",
+    "category": "Pressure Monitoring",
+    "sourceTitle": "RPM / PPM4 manuals",
+    "sourceUrl": "https://docs.google.com/document/d/1fQubA6975M3K3Zy80_ylF3fbROo8CGRp/edit?usp=drive_link&ouid=106548179376433005372&rtpof=true&sd=true",
+    "confidence": "grounded",
+    "keywords": [
+      "pressure",
+      "recording",
+      "display",
+      "data log",
+      "history",
+      "job number",
+      "inWC",
+      "Pa",
+      "differential pressure",
+      "room pressure"
+    ],
+    "questions": [
+      "What are RPM and PPM4 mainly used for?",
+      "How do I display pressure data?",
+      "How do I record pressure data?",
+      "How do I use pressure monitoring?",
+      "How does the monitor record pressure?",
+      "How do I view pressure readings?"
+    ],
+    "answer": "RPM and PPM4 are mainly used to display real-time differential pressure and record pressure history for a job. Set the job number, confirm the correct pressure units, verify Room and Reference tubing, set the recording interval/history settings, then monitor the live pressure screen and export history when needed.",
+    "notes": ""
+  },
+  {
     "id": "monsuite-support-open-a-support-ticket",
     "title": "open a support ticket",
     "product": "MonSuite",

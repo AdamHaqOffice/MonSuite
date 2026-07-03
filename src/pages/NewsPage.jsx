@@ -1,9 +1,9 @@
 import AppShell from '../components/AppShell.jsx';
 import { monitorNews } from '../data/monitorNews.js';
 
-export default function NewsPage({ user, onLogout }) {
+export default function NewsPage({ user, onLogout, theme, onToggleTheme }) {
   return (
-    <AppShell user={user} onLogout={onLogout}>
+    <AppShell user={user} onLogout={onLogout} theme={theme} onToggleTheme={onToggleTheme}>
       <main className="page-wrap news-page">
         <section className="hero-card news-hero">
           <div>

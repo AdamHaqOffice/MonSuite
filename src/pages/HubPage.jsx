@@ -2,9 +2,9 @@ import AppShell from '../components/AppShell.jsx';
 import HubCard from '../components/HubCard.jsx';
 import { hubSections } from '../data/hubSections.js';
 
-export default function HubPage({ user, onLogout }) {
+export default function HubPage({ user, onLogout, theme, onToggleTheme }) {
   return (
-    <AppShell user={user} onLogout={onLogout}>
+    <AppShell user={user} onLogout={onLogout} theme={theme} onToggleTheme={onToggleTheme}>
       <main className="page-wrap">
         <section className="hero-card hero-brand-card">
           <div>
@@ -15,10 +15,11 @@ export default function HubPage({ user, onLogout }) {
               and the desktop setup builder in one clean, secure Abatement portal.
             </p>
           </div>
-          <div className="hero-panel">
-            <span>Current focus</span>
-            <strong>PWA + mobile builder</strong>
-            <small>Login · Docs · Firmware · Mobile system builder</small>
+          <div className="hero-panel brand-forward-panel">
+            <span>Abatement Technologies</span>
+            <strong>Leaders in clean air</strong>
+            <small>Monitor systems · Documentation · Support · Mobile access</small>
+            <img className="hero-brand-image" src="/abatement-brand-slogan.png" alt="Abatement Technologies — Leaders in Clean Air" />
           </div>
         </section>
 

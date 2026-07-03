@@ -12,7 +12,7 @@ const sensorLike = products.filter((item) => item.powerDrawMa > 0);
 const supportPowerItems = products.filter((item) => item.powerBus || item.powerAccessory);
 const step = (value, delta) => Math.max(0, value + delta);
 
-export default function SystemBuilderPage({ user, onLogout }) {
+export default function SystemBuilderPage({ user, onLogout, theme, onToggleTheme }) {
   const [counts, setCounts] = useState({
     PPM4: 0,
     'AT-RPM-RTS': 1,
@@ -160,7 +160,7 @@ export default function SystemBuilderPage({ user, onLogout }) {
   }, [counts, localPowerAssignments]);
 
   return (
-    <AppShell user={user} onLogout={onLogout}>
+    <AppShell user={user} onLogout={onLogout} theme={theme} onToggleTheme={onToggleTheme}>
       <main className="page-wrap system-builder-page">
         <section className="hero-card mobile-hero">
           <div>
@@ -179,6 +179,33 @@ export default function SystemBuilderPage({ user, onLogout }) {
                 ? 'Power Bus present'
                 : `${analysis.sourceCount} monitor source${analysis.sourceCount === 1 ? '' : 's'}`}
             </small>
+          </div>
+        </section>
+
+
+        <section className="mobile-install-help-card">
+          <div>
+            <p className="eyebrow">Mobile install help</p>
+            <h2>Use your work profile when installing MonSuite.</h2>
+            <p>
+              If Google sign-in will not let you choose your work account, the app was probably installed from your
+              personal browser/profile. Delete that install, open MonSuite in Work Chrome or your managed work browser,
+              then install it from that browser menu.
+            </p>
+          </div>
+          <div className="install-steps-grid">
+            <div>
+              <strong>Android / Work Chrome</strong>
+              <span>Open MonSuite → three-dot menu → Install app or Add to Home screen.</span>
+            </div>
+            <div>
+              <strong>iPhone / Safari</strong>
+              <span>Open MonSuite in Safari → Share → Add to Home Screen. If work login is isolated, use the work browser directly.</span>
+            </div>
+            <div>
+              <strong>Wrong account showing?</strong>
+              <span>Sign out, remove the personal install, reinstall from the work browser, then choose your Abatement Google account.</span>
+            </div>
           </div>
         </section>
 

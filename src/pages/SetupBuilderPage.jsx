@@ -13,6 +13,13 @@ import {
 const DEFAULT_SCALE_LABEL = '1 grid square = 1 ft';
 const DEFAULT_CANVAS_SIZE = { width: 1120, height: 720 };
 const PROBE_MAX_DISTANCE_PX = PROBE_MAX_LENGTH_FT * GRID_SIZE;
+const DEFAULT_DUCT_FORM = {
+  shape: 'round',
+  diameterIn: 10,
+  widthIn: 12,
+  heightIn: 12,
+  lengthFt: 8,
+};
 
 function getCanvasItemSize(catalogItem) {
   if (!catalogItem) return { width: 72, height: 72 };
@@ -20,6 +27,7 @@ function getCanvasItemSize(catalogItem) {
   if (catalogItem.sku === 'PPM4') return { width: 132, height: 104 };
   if (catalogItem.sku === 'AT-RPM-RTS') return { width: 126, height: 82 };
   if (catalogItem.sku === 'PMA-PB') return { width: 92, height: 64 };
+  if (catalogItem.sku === 'AIR-SCRUBBER') return { width: 116, height: 76 };
   if (catalogItem.sku === 'PPM4CHRGR') return { width: 50, height: 58 };
   if (catalogItem.category === 'Sensor' || catalogItem.category === 'Communication') return { width: 58, height: 116 };
   return { width: 72, height: 72 };
@@ -73,9 +81,56 @@ function getProbeCatalog(item) {
   };
 }
 
+function getDuctSizeFromForm(form) {
+  const lengthFt = Math.max(1, Number(form.lengthFt) || DEFAULT_DUCT_FORM.lengthFt);
+  const roundDiameter = Math.max(4, Number(form.diameterIn) || DEFAULT_DUCT_FORM.diameterIn);
+  const squareWidth = Math.max(4, Number(form.widthIn) || DEFAULT_DUCT_FORM.widthIn);
+  const squareHeight = Math.max(4, Number(form.heightIn) || DEFAULT_DUCT_FORM.heightIn);
+  const ductThicknessIn = form.shape === 'round' ? roundDiameter : Math.max(squareWidth, squareHeight);
+
+  return {
+    width: Math.max(96, Math.round(lengthFt * GRID_SIZE)),
+    height: Math.max(34, Math.round((ductThicknessIn / 12) * GRID_SIZE)),
+  };
+}
+
+function getDuctMeasurementLabel(item) {
+  if (!item?.isDuct) return '';
+  const length = `${item.lengthFt || DEFAULT_DUCT_FORM.lengthFt}ft`;
+  if (item.ductShape === 'round') {
+    return `Round Ø${item.diameterIn || DEFAULT_DUCT_FORM.diameterIn}" × ${length}`;
+  }
+  return `Square ${item.widthIn || DEFAULT_DUCT_FORM.widthIn}"×${item.heightIn || DEFAULT_DUCT_FORM.heightIn}" × ${length}`;
+}
+
+function getDuctCatalog(item) {
+  return {
+    sku: item.sku || `DUCT-${String(item.ductShape || 'round').toUpperCase()}`,
+    name: `${item.ductShape === 'square' ? 'Square' : 'Round'} Ducting`,
+    shortName: item.ductShape === 'square' ? 'Square Duct' : 'Round Duct',
+    category: 'Ducting',
+    dimensions: {
+      widthIn: item.ductShape === 'round' ? (item.diameterIn || DEFAULT_DUCT_FORM.diameterIn) : (item.widthIn || DEFAULT_DUCT_FORM.widthIn),
+      heightIn: item.ductShape === 'round' ? (item.diameterIn || DEFAULT_DUCT_FORM.diameterIn) : (item.heightIn || DEFAULT_DUCT_FORM.heightIn),
+      depthIn: Math.round((Number(item.lengthFt) || DEFAULT_DUCT_FORM.lengthFt) * 12),
+    },
+    mount: ['duct run', 'temporary'],
+    ethernetPorts: 0,
+    ductPorts: 2,
+    tubingPorts: [],
+    pressureCapable: false,
+    powerSource: false,
+    powerDrawMa: 0,
+    ductCapable: true,
+    label: getDuctMeasurementLabel(item),
+    description: `${getDuctMeasurementLabel(item)}. Placeholder ducting for airflow layouts. Connect ducting to air scrubbers and room/exhaust points.`,
+  };
+}
+
 function getCatalogForPlacedItem(item) {
   if (!item) return null;
   if (item.isProbe) return getProbeCatalog(item);
+  if (item.isDuct) return getDuctCatalog(item);
   return findInventoryItem(item.sku);
 }
 
@@ -257,6 +312,37 @@ function validatePowerConnection(source, target, placedItems, connections) {
   return { valid: true, message: `${sourceItem.label} now powers ${targetItem.label}.` };
 }
 
+function isDuctEndpoint(point, placedItems) {
+  if (!point?.itemId) return true;
+  const item = placedItems.find((entry) => entry.id === point.itemId);
+  const catalog = getCatalogForPlacedItem(item);
+  return Boolean(item?.isDuct || catalog?.airScrubber || catalog?.ductCapable);
+}
+
+function validateDuctConnection(source, target, placedItems) {
+  if (!source || !target) {
+    return { valid: false, message: 'Ducting needs a start and end point.' };
+  }
+
+  if (source.itemId && target.itemId && source.itemId === target.itemId) {
+    return { valid: false, message: 'Ducting cannot connect an item to itself.' };
+  }
+
+  if (!isDuctEndpoint(source, placedItems) || !isDuctEndpoint(target, placedItems)) {
+    return { valid: false, message: 'Ducting should connect to duct runs, scrubbers, or a room/exhaust point.' };
+  }
+
+  return { valid: true, message: 'Duct run added.' };
+}
+
+function findLastEthernetCapableItem(placedItems) {
+  return [...placedItems].reverse().find((item) => {
+    if (item.isProbe || item.isDuct) return false;
+    const catalog = getCatalogForPlacedItem(item);
+    return Number(catalog?.ethernetPorts) > 0;
+  });
+}
+
 function getLocallyPoweredItemIds(connections, placedItems) {
   const chargerIds = new Set(
     placedItems.filter((item) => getCatalogForPlacedItem(item)?.powerAccessory).map((item) => item.id),
@@ -310,13 +396,18 @@ function summarizeParts(placedItems, connections) {
     addPart('PWR-ATTACH', 'Local power attachment', powerConnections.length, 'Power', 'Each attachment represents one PPM4 charger powering one device.');
   }
 
+  const ductConnections = connections.filter((connection) => connection.type === 'duct');
+  if (ductConnections.length) {
+    addPart('DUCT-CONNECT', 'Duct connection / collar placeholder', ductConnections.length, 'Ducting', 'Placeholder until exact duct collars, adapters, and SKUs are finalized.');
+  }
+
   return Array.from(lines.values());
 }
 
 function buildEthernetGraph(placedItems, connections) {
   const graph = new Map(
     placedItems
-      .filter((item) => !item.isProbe)
+      .filter((item) => !item.isProbe && !item.isDuct)
       .map((item) => [item.id, new Set()]),
   );
 
@@ -331,7 +422,7 @@ function buildEthernetGraph(placedItems, connections) {
 }
 
 function getPowerComponents(placedItems, connections) {
-  const nonProbeItems = placedItems.filter((item) => !item.isProbe);
+  const nonProbeItems = placedItems.filter((item) => !item.isProbe && !item.isDuct);
   const graph = buildEthernetGraph(nonProbeItems, connections);
   const locallyPoweredIds = getLocallyPoweredItemIds(connections, placedItems);
   const visited = new Set();
@@ -486,6 +577,8 @@ function constrainProbes(items, canvasSize) {
 
 function getDeviceVisualClass(catalogItem, placedItem) {
   if (placedItem?.isProbe || catalogItem?.probe) return 'probe-visual';
+  if (placedItem?.isDuct || catalogItem?.ductCapable) return placedItem?.ductShape === 'square' ? 'duct-square-visual' : 'duct-round-visual';
+  if (catalogItem?.airScrubber || catalogItem?.sku === 'AIR-SCRUBBER') return 'scrubber-visual';
   if (catalogItem?.sku === 'PPM4') return 'ppm4-visual';
   if (catalogItem?.sku === 'AT-RPM-RTS') return 'rpm-visual';
   if (catalogItem?.sku === 'PMA-PB') return 'powerbus-visual';
@@ -509,8 +602,8 @@ function DeviceGraphic({ catalogItem, placedItem = null, usedPorts = 0, compact 
       <div className="device-shell">
         {visualClass === 'ppm4-visual' && <span className="case-handle" />}
         {(visualClass === 'ppm4-visual' || visualClass === 'rpm-visual') && (
-          <div className="device-screen">
-            <span>{visualClass === 'ppm4-visual' ? 'MONITOR' : 'ROOM PRESSURE'}</span>
+          <div className="device-screen clean-monitor-screen">
+            <span>{visualClass === 'ppm4-visual' ? 'PPM4' : 'RPM'}</span>
           </div>
         )}
         {visualClass === 'probe-visual' && (
@@ -531,7 +624,19 @@ function DeviceGraphic({ catalogItem, placedItem = null, usedPorts = 0, compact 
             <b>24V</b>
           </div>
         )}
-        {!['ppm4-visual', 'rpm-visual', 'probe-visual', 'charger-visual', 'powerbus-visual'].includes(visualClass) && (
+        {visualClass === 'scrubber-visual' && (
+          <div className="scrubber-face">
+            <span className="scrubber-fan" />
+            <b>SCRUBBER</b>
+          </div>
+        )}
+        {(visualClass === 'duct-round-visual' || visualClass === 'duct-square-visual') && (
+          <div className="duct-face">
+            <span>{visualClass === 'duct-round-visual' ? 'ROUND DUCT' : 'SQUARE DUCT'}</span>
+            <b>{placedItem ? getDuctMeasurementLabel(placedItem) : catalogItem?.shortName}</b>
+          </div>
+        )}
+        {!['ppm4-visual', 'rpm-visual', 'probe-visual', 'charger-visual', 'powerbus-visual', 'scrubber-visual', 'duct-round-visual', 'duct-square-visual'].includes(visualClass) && (
           <div className="sensor-face">
             <span>{catalogItem?.label || displayName}</span>
             <b>{draw ? `${draw}mA` : catalogItem?.sku}</b>
@@ -568,7 +673,22 @@ function getDoorSwingPath(door) {
   return `M ${door.from.x} ${door.from.y} Q ${mx} ${my} ${door.to.x} ${door.to.y}`;
 }
 
-export default function SetupBuilderPage({ user, onLogout }) {
+function getAngleDegrees(from, to) {
+  return Math.atan2(to.y - from.y, to.x - from.x) * (180 / Math.PI);
+}
+
+function EthernetTip({ point, target }) {
+  const angle = getAngleDegrees(point, target);
+  return (
+    <g className="ethernet-tip" transform={`translate(${point.x} ${point.y}) rotate(${angle})`}>
+      <rect x="-2" y="-7" width="16" height="14" rx="2" />
+      <path d="M10 -5H14V5H10" />
+      <path d="M1 -4V4M5 -4V4M9 -4V4" />
+    </g>
+  );
+}
+
+export default function SetupBuilderPage({ user, onLogout, theme, onToggleTheme }) {
   const canvasRef = useRef(null);
   const [tool, setTool] = useState('select');
   const [placedItems, setPlacedItems] = useState([]);
@@ -580,8 +700,11 @@ export default function SetupBuilderPage({ user, onLogout }) {
   const [draftWall, setDraftWall] = useState(null);
   const [draftDoor, setDraftDoor] = useState(null);
   const [dragging, setDragging] = useState(null);
-  const [notice, setNotice] = useState('Drag a monitor, sensor, charger, or Power Bus onto the grid to start a setup.');
+  const [notice, setNotice] = useState('Drag a monitor, sensor, charger, scrubber, or ducting onto the grid to start a setup.');
   const [tubingPort, setTubingPort] = useState('room');
+  const [ductModalOpen, setDuctModalOpen] = useState(false);
+  const [ductForm, setDuctForm] = useState(DEFAULT_DUCT_FORM);
+  const [pendingDuct, setPendingDuct] = useState(null);
 
   const selectedItem = placedItems.find((item) => item.id === selectedId);
   const selectedCatalogItem = selectedItem ? getCatalogForPlacedItem(selectedItem) : null;
@@ -589,7 +712,7 @@ export default function SetupBuilderPage({ user, onLogout }) {
   const partsList = useMemo(() => summarizeParts(placedItems, connections), [placedItems, connections]);
   const powerWarnings = useMemo(() => getPowerWarnings(placedItems, connections), [placedItems, connections]);
   const selectedPowerInfo = useMemo(() => (
-    selectedItem && !selectedItem.isProbe ? getPowerInfoForItem(selectedItem.id, placedItems, connections) : null
+    selectedItem && !selectedItem.isProbe && !selectedItem.isDuct ? getPowerInfoForItem(selectedItem.id, placedItems, connections) : null
   ), [selectedItem, placedItems, connections]);
   const locallyPoweredItemIds = useMemo(() => getLocallyPoweredItemIds(connections, placedItems), [connections, placedItems]);
 
@@ -598,16 +721,71 @@ export default function SetupBuilderPage({ user, onLogout }) {
     event.dataTransfer.effectAllowed = 'copy';
   }
 
+  function updateDuctFormField(field, value) {
+    setDuctForm((current) => ({ ...current, [field]: value }));
+  }
+
+  function createPendingDuct() {
+    const cleanForm = {
+      shape: ductForm.shape === 'square' ? 'square' : 'round',
+      diameterIn: Math.max(4, Number(ductForm.diameterIn) || DEFAULT_DUCT_FORM.diameterIn),
+      widthIn: Math.max(4, Number(ductForm.widthIn) || DEFAULT_DUCT_FORM.widthIn),
+      heightIn: Math.max(4, Number(ductForm.heightIn) || DEFAULT_DUCT_FORM.heightIn),
+      lengthFt: Math.max(1, Number(ductForm.lengthFt) || DEFAULT_DUCT_FORM.lengthFt),
+    };
+    setPendingDuct(cleanForm);
+    setDuctModalOpen(false);
+    setNotice(`${cleanForm.shape === 'square' ? 'Square' : 'Round'} duct ready. Drag the duct card onto the canvas.`);
+  }
+
+  function handleDuctDragStart(event) {
+    if (!pendingDuct) return;
+    event.dataTransfer.setData('application/monsuite-duct', JSON.stringify(pendingDuct));
+    event.dataTransfer.effectAllowed = 'copy';
+  }
+
   function handleCanvasDrop(event) {
     event.preventDefault();
-    const sku = event.dataTransfer.getData('application/monsuite-item');
-    const catalogItem = findInventoryItem(sku);
-    if (!catalogItem || !canvasRef.current) return;
+    if (!canvasRef.current) return;
 
     const pointer = getPointerPosition(event, canvasRef.current);
     const canvasSize = getCanvasSize(canvasRef.current);
-    const { width, height } = getCanvasItemSize(catalogItem);
+    const ductData = event.dataTransfer.getData('application/monsuite-duct');
 
+    if (ductData) {
+      try {
+        const duct = JSON.parse(ductData);
+        const { width, height } = getDuctSizeFromForm(duct);
+        const newDuct = {
+          id: makeId('duct'),
+          sku: `DUCT-${String(duct.shape || 'round').toUpperCase()}`,
+          label: duct.shape === 'square' ? 'Square Duct' : 'Round Duct',
+          isDuct: true,
+          ductShape: duct.shape === 'square' ? 'square' : 'round',
+          diameterIn: duct.diameterIn,
+          widthIn: duct.widthIn,
+          heightIn: duct.heightIn,
+          lengthFt: duct.lengthFt,
+          x: clamp(snap(pointer.x - width / 2), 0, canvasSize.width - width),
+          y: clamp(snap(pointer.y - height / 2), 0, canvasSize.height - height),
+          width,
+          height,
+          rotation: 0,
+        };
+        setPlacedItems((items) => [...items, newDuct]);
+        setSelectedId(newDuct.id);
+        setNotice(`${getDuctMeasurementLabel(newDuct)} added. Use the Duct tool to connect it to a scrubber or room/exhaust point.`);
+      } catch {
+        setNotice('Duct could not be added. Recreate it from Add duct.');
+      }
+      return;
+    }
+
+    const sku = event.dataTransfer.getData('application/monsuite-item');
+    const catalogItem = findInventoryItem(sku);
+    if (!catalogItem) return;
+
+    const { width, height } = getCanvasItemSize(catalogItem);
     const newItem = {
       id: makeId('item'),
       sku: catalogItem.sku,
@@ -638,10 +816,27 @@ export default function SetupBuilderPage({ user, onLogout }) {
       addedItems.push(probe);
     }
 
+    const lastEthernetItem = Number(catalogItem.ethernetPorts) > 0 ? findLastEthernetCapableItem(placedItems) : null;
     const nextItems = constrainProbes([...placedItems, ...addedItems], canvasSize);
     setPlacedItems(nextItems);
     setSelectedId(newItem.id);
-    setNotice(catalogItem.createsProbe ? `${catalogItem.name} added with remote probe. Probe must stay within ${PROBE_MAX_LENGTH_FT} ft.` : `${catalogItem.name} added to the setup.`);
+
+    let autoMessage = '';
+    if (lastEthernetItem) {
+      const validation = validateEthernetConnection({ itemId: lastEthernetItem.id }, { itemId: newItem.id }, nextItems, connections);
+      if (validation.valid) {
+        setConnections((currentConnections) => [...currentConnections, {
+          id: makeId('eth'),
+          type: 'ethernet',
+          auto: true,
+          from: { itemId: lastEthernetItem.id },
+          to: { itemId: newItem.id },
+        }]);
+        autoMessage = ` Ethernet auto-connected to ${lastEthernetItem.label}.`;
+      }
+    }
+
+    setNotice(catalogItem.createsProbe ? `${catalogItem.name} added with remote probe. Probe must stay within ${PROBE_MAX_LENGTH_FT} ft.${autoMessage}` : `${catalogItem.name} added to the setup.${autoMessage}`);
   }
 
   function handleCanvasPointerDown(event) {
@@ -689,6 +884,29 @@ export default function SetupBuilderPage({ user, onLogout }) {
           label: activeStart.point.tubingPort,
           from: { ...activeStart.point },
           to: target,
+        }]);
+      }
+      setActiveStart(null);
+      return;
+    }
+
+    if (tool === 'duct') {
+      const point = { x: snap(pointer.x), y: snap(pointer.y), ductPoint: true };
+      if (!activeStart || activeStart.type !== 'duct') {
+        setActiveStart({ type: 'duct', point });
+        setNotice('Duct start point set. Click a scrubber, duct run, or another room/exhaust point.');
+        return;
+      }
+
+      const validation = validateDuctConnection(activeStart.point, point, placedItems);
+      setNotice(validation.message);
+      if (validation.valid) {
+        setConnections((currentConnections) => [...currentConnections, {
+          id: makeId('ductline'),
+          type: 'duct',
+          label: 'DUCT',
+          from: { ...activeStart.point },
+          to: point,
         }]);
       }
       setActiveStart(null);
@@ -810,6 +1028,36 @@ export default function SetupBuilderPage({ user, onLogout }) {
       return;
     }
 
+    if (tool === 'duct') {
+      const catalogItem = getCatalogForPlacedItem(item);
+      const point = { itemId: item.id };
+      if (!isDuctEndpoint(point, placedItems)) {
+        setNotice('Ducting should connect to scrubbers, duct runs, or room/exhaust points.');
+        setActiveStart(null);
+        return;
+      }
+
+      if (!activeStart || activeStart.type !== 'duct') {
+        setActiveStart({ type: 'duct', point });
+        setNotice(`Duct start: ${catalogItem?.shortName || item.label}. Click another duct endpoint or room/exhaust point.`);
+        return;
+      }
+
+      const validation = validateDuctConnection(activeStart.point, point, placedItems);
+      setNotice(validation.message);
+      if (validation.valid) {
+        setConnections((currentConnections) => [...currentConnections, {
+          id: makeId('ductline'),
+          type: 'duct',
+          label: 'DUCT',
+          from: { ...activeStart.point },
+          to: { ...point },
+        }]);
+      }
+      setActiveStart(null);
+      return;
+    }
+
     if (tool === 'select') {
       const pointer = getPointerPosition(event, canvasRef.current);
       setDragging({ itemId: item.id, offsetX: pointer.x - item.x, offsetY: pointer.y - item.y });
@@ -912,7 +1160,7 @@ export default function SetupBuilderPage({ user, onLogout }) {
   }
 
   return (
-    <AppShell user={user} onLogout={onLogout}>
+    <AppShell user={user} onLogout={onLogout} theme={theme} onToggleTheme={onToggleTheme}>
       <main className="setup-builder-page setup-builder-v4">
         <section className="setup-header">
           <div>
@@ -948,6 +1196,7 @@ export default function SetupBuilderPage({ user, onLogout }) {
               <button className={`tool-button ${tool === 'door' ? 'active' : ''}`} onClick={() => { setTool('door'); setActiveStart(null); }}>Draw Doors</button>
               <button className={`tool-button ${tool === 'ethernet' ? 'active' : ''}`} onClick={() => { setTool('ethernet'); setActiveStart(null); }}>Ethernet</button>
               <button className={`tool-button ${tool === 'tubing' ? 'active' : ''}`} onClick={() => { setTool('tubing'); setActiveStart(null); }}>Tubing</button>
+              <button className={`tool-button ${tool === 'duct' ? 'active' : ''}`} onClick={() => { setTool('duct'); setActiveStart(null); }}>Duct</button>
               <button className={`tool-button ${tool === 'power' ? 'active' : ''}`} onClick={() => { setTool('power'); setActiveStart(null); }}>Local Power</button>
             </div>
 
@@ -958,7 +1207,24 @@ export default function SetupBuilderPage({ user, onLogout }) {
               </div>
             )}
 
-            <p className="panel-help">Drag products onto the canvas. Use tools by clicking a source, then a target. ACH sensors auto-create a probe that must stay within 2 ft.</p>
+            <div className="duct-builder-card">
+              <div>
+                <strong>Ducting</strong>
+                <small>Create round or square ducting with measurements, then drag it onto the grid.</small>
+              </div>
+              <button className="button secondary small full" onClick={() => setDuctModalOpen(true)}>+ Add duct</button>
+              {pendingDuct && (
+                <div className="pending-duct-card" draggable onDragStart={handleDuctDragStart}>
+                  <span>{pendingDuct.shape === 'square' ? '▭' : '◯'}</span>
+                  <div>
+                    <strong>{pendingDuct.shape === 'square' ? 'Square duct' : 'Round duct'}</strong>
+                    <small>{pendingDuct.shape === 'square' ? `${pendingDuct.widthIn}"×${pendingDuct.heightIn}"` : `Ø${pendingDuct.diameterIn}"`} · {pendingDuct.lengthFt}ft</small>
+                  </div>
+                </div>
+              )}
+            </div>
+
+            <p className="panel-help">Drag products onto the canvas. Sensors and ethernet-capable devices auto-connect to the last ethernet device when possible. Manual ethernet still works the same. ACH sensors auto-create a probe that must stay within 2 ft.</p>
 
             <div className="inventory-list">
               {inventoryItems.map((item) => (
@@ -1040,6 +1306,15 @@ export default function SetupBuilderPage({ user, onLogout }) {
                   const length = lineLengthFeet(connection, placedItems);
                   return (
                     <g key={connection.id}>
+                      {connection.type === 'duct' && (
+                        <line
+                          className="connection-line duct-shadow"
+                          x1={points.from.x}
+                          y1={points.from.y}
+                          x2={points.to.x}
+                          y2={points.to.y}
+                        />
+                      )}
                       <line
                         className={`connection-line ${connection.type}`}
                         x1={points.from.x}
@@ -1047,6 +1322,21 @@ export default function SetupBuilderPage({ user, onLogout }) {
                         x2={points.to.x}
                         y2={points.to.y}
                       />
+                      {connection.type === 'ethernet' && (
+                        <>
+                          <EthernetTip point={points.from} target={points.to} />
+                          <EthernetTip point={points.to} target={points.from} />
+                          {connection.auto && (
+                            <text
+                              className="connection-label ethernet"
+                              x={(points.from.x + points.to.x) / 2}
+                              y={(points.from.y + points.to.y) / 2 - 8}
+                            >
+                              AUTO ETH · {length}ft
+                            </text>
+                          )}
+                        </>
+                      )}
                       {connection.type === 'tubing' && (
                         <>
                           <circle className="tube-endpoint" cx={points.to.x} cy={points.to.y} r="6" />
@@ -1056,6 +1346,19 @@ export default function SetupBuilderPage({ user, onLogout }) {
                             y={(points.from.y + points.to.y) / 2 - 8}
                           >
                             {connection.label?.toUpperCase()} · {length}ft
+                          </text>
+                        </>
+                      )}
+                      {connection.type === 'duct' && (
+                        <>
+                          <circle className="duct-endpoint" cx={points.from.x} cy={points.from.y} r="6" />
+                          <circle className="duct-endpoint" cx={points.to.x} cy={points.to.y} r="6" />
+                          <text
+                            className="connection-label duct"
+                            x={(points.from.x + points.to.x) / 2}
+                            y={(points.from.y + points.to.y) / 2 - 11}
+                          >
+                            DUCT · {length}ft
                           </text>
                         </>
                       )}
@@ -1128,7 +1431,8 @@ export default function SetupBuilderPage({ user, onLogout }) {
                   <div><dt>SKU</dt><dd>{selectedCatalogItem.sku}</dd></div>
                   <div><dt>Size</dt><dd>{selectedCatalogItem.dimensions.widthIn}&quot; W × {selectedCatalogItem.dimensions.heightIn}&quot; H × {selectedCatalogItem.dimensions.depthIn}&quot; D</dd></div>
                   <div><dt>Mount</dt><dd>{selectedCatalogItem.mount.join(', ')}</dd></div>
-                  <div><dt>Ethernet</dt><dd>{selectedItem.isProbe ? 'None' : `${connectionCounts[selectedItem.id] || 0}/${selectedCatalogItem.ethernetPorts} ports used`}</dd></div>
+                  <div><dt>Ethernet</dt><dd>{selectedItem.isProbe || !selectedCatalogItem.ethernetPorts ? 'None' : `${connectionCounts[selectedItem.id] || 0}/${selectedCatalogItem.ethernetPorts} ports used`}</dd></div>
+                  <div><dt>Duct ports</dt><dd>{selectedCatalogItem.ductPorts ? `${selectedCatalogItem.ductPorts} duct endpoints` : selectedItem.isDuct ? 'Duct run' : 'None'}</dd></div>
                   <div><dt>Power draw</dt><dd>{Number(selectedCatalogItem.powerDrawMa) > 0 ? `${selectedCatalogItem.powerDrawMa}mA` : selectedCatalogItem.powerSource ? 'Power source' : selectedCatalogItem.powerAccessory ? 'Local charger' : 'None'}</dd></div>
                   <div><dt>Local power</dt><dd>{selectedPowerInfo?.locallyPowered ? 'PPM4 Charger attached' : selectedCatalogItem.powerAccessory ? 'Provides single-device power' : 'No dedicated charger attached'}</dd></div>
                   <div><dt>Bus status</dt><dd>{selectedItem.isProbe ? `Must stay within ${PROBE_MAX_LENGTH_FT} ft of parent ACH sensor` : selectedPowerInfo ? (selectedPowerInfo.hasPowerBus ? `${selectedPowerInfo.loadMa}mA load · Power Bus present` : `${selectedPowerInfo.loadMa}mA / ${selectedPowerInfo.capacityMa || 0}mA`) : 'Not connected'}</dd></div>
@@ -1204,10 +1508,58 @@ export default function SetupBuilderPage({ user, onLogout }) {
                 <li>PPM4, RPM, Power Bus, and all sensors have 2 ethernet ports. Chargers and probes do not.</li>
                 <li>Tubing can only start from PPM4, RPM, or pressure sensors.</li>
                 <li>ACH sensors automatically create a remote probe with a max length of {PROBE_MAX_LENGTH_FT} ft.</li>
+                <li>Round and square ducting can be added with measurements and connected to scrubbers or room/exhaust points.</li>
+                <li>Scrubber is a placeholder for Abatement air scrubbers until exact model/SKU details are finalized.</li>
               </ul>
             </div>
           </aside>
         </section>
+
+        {ductModalOpen && (
+          <div className="duct-modal-backdrop" role="presentation" onPointerDown={() => setDuctModalOpen(false)}>
+            <div className="duct-modal" role="dialog" aria-modal="true" aria-label="Add duct" onPointerDown={(event) => event.stopPropagation()}>
+              <div className="panel-heading compact">
+                <span>Add duct</span>
+                <button className="button secondary small" onClick={() => setDuctModalOpen(false)}>Close</button>
+              </div>
+              <div className="segmented-control duct-shape-control" aria-label="Duct shape">
+                <button className={ductForm.shape === 'round' ? 'active' : ''} onClick={() => updateDuctFormField('shape', 'round')}>Round</button>
+                <button className={ductForm.shape === 'square' ? 'active' : ''} onClick={() => updateDuctFormField('shape', 'square')}>Square</button>
+              </div>
+
+              <div className="duct-form-grid">
+                {ductForm.shape === 'round' ? (
+                  <label>
+                    Diameter (in)
+                    <input type="number" min="4" value={ductForm.diameterIn} onChange={(event) => updateDuctFormField('diameterIn', event.target.value)} />
+                  </label>
+                ) : (
+                  <>
+                    <label>
+                      Width (in)
+                      <input type="number" min="4" value={ductForm.widthIn} onChange={(event) => updateDuctFormField('widthIn', event.target.value)} />
+                    </label>
+                    <label>
+                      Height (in)
+                      <input type="number" min="4" value={ductForm.heightIn} onChange={(event) => updateDuctFormField('heightIn', event.target.value)} />
+                    </label>
+                  </>
+                )}
+                <label>
+                  Length (ft)
+                  <input type="number" min="1" value={ductForm.lengthFt} onChange={(event) => updateDuctFormField('lengthFt', event.target.value)} />
+                </label>
+              </div>
+
+              <div className="duct-preview-row">
+                <span className={ductForm.shape === 'square' ? 'duct-preview square' : 'duct-preview round'} />
+                <small>{ductForm.shape === 'square' ? `${ductForm.widthIn}"×${ductForm.heightIn}" square duct` : `Ø${ductForm.diameterIn}" round duct`} · {ductForm.lengthFt}ft long</small>
+              </div>
+
+              <button className="button primary full" onClick={createPendingDuct}>Create draggable duct</button>
+            </div>
+          </div>
+        )}
       </main>
     </AppShell>
   );

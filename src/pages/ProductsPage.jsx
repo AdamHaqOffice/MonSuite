@@ -43,7 +43,7 @@ function DetailSection({ title, children }) {
   );
 }
 
-export default function ProductsPage({ user, onLogout }) {
+export default function ProductsPage({ user, onLogout, theme, onToggleTheme }) {
   const [activeCategory, setActiveCategory] = useState('All');
   const [query, setQuery] = useState('');
   const [selectedProductId, setSelectedProductId] = useState(products[0]?.id);
@@ -71,7 +71,7 @@ export default function ProductsPage({ user, onLogout }) {
     || products[0];
 
   return (
-    <AppShell user={user} onLogout={onLogout}>
+    <AppShell user={user} onLogout={onLogout} theme={theme} onToggleTheme={onToggleTheme}>
       <main className="page-wrap products-page">
         <section className="products-hero">
           <div>

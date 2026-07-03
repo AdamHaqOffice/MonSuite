@@ -1,7 +1,7 @@
 import { Navigate, useLocation } from 'react-router-dom';
 import BrandLockup from '../components/BrandLockup.jsx';
 
-export default function LoginPage({ user, loading, authError, onGoogleLogin }) {
+export default function LoginPage({ user, loading, authError, onGoogleLogin, theme = 'light', onToggleTheme }) {
   const location = useLocation();
   const from = location.state?.from?.pathname || '/hub';
 
@@ -9,8 +9,14 @@ export default function LoginPage({ user, loading, authError, onGoogleLogin }) {
     return <Navigate to={from} replace />;
   }
 
+  const isDark = theme === 'dark';
+
   return (
     <main className="login-page">
+      <button className="theme-toggle login-theme-toggle" type="button" onClick={onToggleTheme} aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}>
+        <span className="theme-toggle-track"><i /></span>
+        <strong>{isDark ? 'Dark' : 'Light'}</strong>
+      </button>
       <section className="login-panel">
         <BrandLockup to={null} login subtitle="Secure sales portal" />
 
@@ -26,12 +32,21 @@ export default function LoginPage({ user, loading, authError, onGoogleLogin }) {
           Continue with Google
         </button>
 
-        <p className="login-footnote">
-          Install MonSuite as a PWA on mobile for quick access to products, downloads, firmware, support, and the system builder.
-        </p>
+        <div className="login-footnote work-account-note">
+          <strong>Using a work Google account on mobile?</strong>
+          <p>
+            Install MonSuite from your work browser or work profile. If the app opens the wrong Google account,
+            delete the personal install, open MonSuite in Work Chrome, then use the browser menu to install again.
+          </p>
+        </div>
       </section>
 
       <section className="login-visual" aria-label="MonSuite overview">
+        <div className="brand-showcase-card">
+          <span className="brand-showcase-eyebrow">Abatement Technologies</span>
+          <img className="brand-showcase-logo" src="/abatement-brand-slogan.png" alt="Abatement Technologies — Leaders in Clean Air" />
+          <p>Equipment, supplies, training, and support — now connected through MonSuite for monitor products.</p>
+        </div>
         <div className="screen-card main-screen">
           <div className="screen-header">
             <span />

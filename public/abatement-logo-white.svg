@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="520" height="108" viewBox="0 0 520 108" fill="none">
+  <g>
+    <rect x="0" y="8" width="76" height="76" rx="12" fill="white" fill-opacity="0.15" stroke="white" stroke-opacity="0.35"/>
+    <path d="M12 24H28V70H12V24Z" fill="white"/>
+    <path d="M31 34H47V70H31V34Z" fill="white"/>
+    <path d="M50 20H66V70H50V20Z" fill="white"/>
+    <path d="M8 76H68" stroke="white" stroke-width="5" stroke-linecap="round"/>
+  </g>
+  <text x="94" y="47" fill="white" font-family="Arial Black, Arial, Helvetica, sans-serif" font-size="42" font-weight="900" letter-spacing="0.5">ABATEMENT</text>
+  <text x="94" y="78" fill="white" font-family="Arial, Helvetica, sans-serif" font-size="17" font-weight="800" letter-spacing="8">TECHNOLOGIES</text>
+</svg>

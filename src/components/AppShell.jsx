@@ -1,7 +1,9 @@
 import { NavLink } from 'react-router-dom';
 import BrandLockup from './BrandLockup.jsx';
 
-export default function AppShell({ user, onLogout, children }) {
+export default function AppShell({ user, onLogout, theme = 'light', onToggleTheme, children }) {
+  const isDark = theme === 'dark';
+
   return (
     <div className="app-shell">
       <header className="topbar">
@@ -20,6 +22,16 @@ export default function AppShell({ user, onLogout, children }) {
         </nav>
 
         <div className="user-menu">
+          <button
+            className="theme-toggle"
+            type="button"
+            onClick={onToggleTheme}
+            aria-label={`Switch to ${isDark ? 'light' : 'dark'} mode`}
+            title={`Switch to ${isDark ? 'light' : 'dark'} mode`}
+          >
+            <span className="theme-toggle-track"><i /></span>
+            <strong>{isDark ? 'Dark' : 'Light'}</strong>
+          </button>
           <span title={user?.email}>{user?.displayName || user?.email}</span>
           <button className="button secondary small" onClick={onLogout}>Sign out</button>
         </div>

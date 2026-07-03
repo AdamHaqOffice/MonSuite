@@ -1,8 +1,8 @@
 import AppShell from '../components/AppShell.jsx';
 
-export default function PlaceholderPage({ user, onLogout, title }) {
+export default function PlaceholderPage({ user, onLogout, title, theme, onToggleTheme }) {
   return (
-    <AppShell user={user} onLogout={onLogout}>
+    <AppShell user={user} onLogout={onLogout} theme={theme} onToggleTheme={onToggleTheme}>
       <main className="page-wrap narrow">
         <section className="support-card muted-card">
           <p className="eyebrow">Future phase</p>

@@ -1,10 +1,10 @@
 import AppShell from '../components/AppShell.jsx';
 
-export default function SupportPage({ user, onLogout }) {
+export default function SupportPage({ user, onLogout, theme, onToggleTheme }) {
   const ticketingUrl = import.meta.env.VITE_SUPPORT_TICKETING_URL || 'https://abatementpartnersupport.freshdesk.com/support/home';
 
   return (
-    <AppShell user={user} onLogout={onLogout}>
+    <AppShell user={user} onLogout={onLogout} theme={theme} onToggleTheme={onToggleTheme}>
       <main className="page-wrap narrow">
         <section className="support-card">
           <p className="eyebrow">Support escalation</p>

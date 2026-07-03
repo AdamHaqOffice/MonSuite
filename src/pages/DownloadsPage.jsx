@@ -46,7 +46,7 @@ function normalize(value) {
   return value.toLowerCase().trim();
 }
 
-export default function DownloadsPage({ user, onLogout }) {
+export default function DownloadsPage({ user, onLogout, theme, onToggleTheme }) {
   const [query, setQuery] = useState('');
   const [activeType, setActiveType] = useState('All');
   const [activeProduct, setActiveProduct] = useState('All');
@@ -74,7 +74,7 @@ export default function DownloadsPage({ user, onLogout }) {
   const referenceCount = downloads.filter((doc) => doc.status !== 'Current').length;
 
   return (
-    <AppShell user={user} onLogout={onLogout}>
+    <AppShell user={user} onLogout={onLogout} theme={theme} onToggleTheme={onToggleTheme}>
       <main className="page-wrap downloads-page">
         <section className="section-heading page-title downloads-hero">
           <div>
