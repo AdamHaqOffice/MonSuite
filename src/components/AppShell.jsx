@@ -15,6 +15,9 @@ export default function AppShell({ user, onLogout, theme = 'light', onToggleThem
           <NavLink to="/downloads">Downloads</NavLink>
           <NavLink to="/firmware">Firmware</NavLink>
           <NavLink to="/news">News</NavLink>
+          <NavLink to="/scrubber-selector">Scrubber Selector</NavLink>
+          <NavLink to="/at-connect">AT Connect</NavLink>
+          <NavLink to="/pressure-monitoring">Pressure Guide</NavLink>
           <NavLink to="/ai-assistant">AbateBot</NavLink>
           <NavLink to="/support">Support</NavLink>
           <NavLink className="desktop-only-link" to="/setup-builder">Setup</NavLink>

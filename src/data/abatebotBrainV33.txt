@@ -1,0 +1,1619 @@
+# How to choose between PRED750, H2KM, BD2K, PAS2400, and PAS5000
+Product: Scrubber Selector
+Category: Product Selection
+Keywords: scrubber selector, PRED750, H2KM, BD2K, PAS2400, PAS5000, which scrubber, residential, wet, metal, plastic
+Answer: Use PRED750 for smaller/portable 750 CFM-class jobs. Use H2KM/H2KMA as the main metal 2,000 CFM workhorse for most commercial/industrial/heavy containment jobs. Use BD2K-XHP/XHPA when the same 2,000 CFM-class work benefits from a plastic cabinet, especially finished residential areas, scratch-sensitive spaces, or wet/damp restoration work. Use PAS2400 when 2,100 CFM and 120V power are needed with better mobility/stair handling. Use PAS5000 for very large containments where 4,000 CFM is useful and 230V/30A power is available.
+
+# PAS5000 4,000 CFM large scrubber overview
+Product: PAS5000
+Category: Scrubber Selector
+Keywords: PAS5000, 4000 CFM, 230 VAC, 30 amp, 21 amps, large containment, galvanized steel, H242406-99, VL2024, H2080P
+Answer: PAS5000 is the large real Abatement HEPA-AIRE portable air filtration unit for major containments. It is rated at 4,000 CFM with clean filters and requires 230 VAC, 60 Hz, single phase, 30A power; normal operation draws up to about 21A. It uses two H242406-99 HEPA filters, two H2002 pleated filters, optional H2001 polypad pre-filters, and optional VL2024 carbon filters. Use it only when the job has the access, power, and scale to justify a 332 lb high-airflow unit.
+
+# PAS2400 2,100 CFM portable air scrubber overview
+Product: PAS2400
+Category: Scrubber Selector
+Keywords: PAS2400, 2100 CFM, 700 CFM, 120 VAC, 15 amp, 12 amps, stair climber, stainless steel, H1980P, VL2002
+Answer: PAS2400 is a real Abatement HEPA-AIRE portable air scrubber with 700 CFM low speed and 2,100 CFM high speed clean-filter airflow. It runs on 120 VAC/60 Hz with a minimum 15A circuit and draws 12A or less. It has a stainless steel two-module design, transport dolly, stair climber assembly, and an included H1980P 12-inch manifold that can attach to intake or exhaust. Use it when higher airflow is needed on 120V power and mobility/stairs matter.
+
+# BD2K-XHP / BD2K-XHPA plastic scrubber overview
+Product: BD2K-XHP / BD2K-XHPA
+Category: Scrubber Selector
+Keywords: BD2K, BD2K-XHP, BD2K-XHPA, Bulldog, 2100 CFM, 1400 CFM, plastic cabinet, residential, wet areas, H242406-99, VL2024
+Answer: BD2K-XHP/BD2K-XHPA is the plastic-cabinet BULLDOG portable air filtration unit in the same general class as H2KM. MonSuite treats it as the preferred 2,000 CFM-class option for residential/finished spaces where metal could scratch surfaces, and for wet/damp restoration areas where plastic is preferred. Use H2KM metal everywhere else unless the job specifically benefits from the BD2K plastic cabinet.
+
+# H2KM / H2KMA 2,000 CFM metal scrubber overview
+Product: H2KM / H2KMA
+Category: Scrubber Selector
+Keywords: H2KM, H2KMA, 2000 CFM, 1300 CFM, metal cabinet, galvanized steel, H2001, H2002, H242406-99, VL2024
+Answer: H2KM/H2KMA is a real Abatement HEPA-AIRE portable air filtration unit in the 2,000 CFM class. It is the metal-cabinet workhorse: 1,300 CFM low speed and 2,000 CFM high speed with clean filters, 120 VAC/15A power, 10A or less normal operating amps, and 20 ga galvanized steel cabinet construction. Use H2KM/H2KMA for most commercial, industrial, healthcare construction, abatement, and general containment jobs where a metal cabinet is appropriate. For finished residential spaces, scratch-sensitive areas, or wet/damp restoration work, choose BD2K plastic instead.
+
+# PRED750 electrical and ducting notes
+Product: PRED750
+Category: Setup
+Keywords: PRED750, 120 VAC, 15 amp, 1.9 amps, 10 inch duct, ducting, GFCI, stackable
+Answer: PRED750 is listed in MonSuite with 120 VAC, 60 Hz, 15A circuit requirements, normal operating amps of 1.9A or less, and integrated 10-inch nominal inlet and outlet connections. Use the shortest ducting possible, minimize bends, prefer rigid duct where practical, and keep flex duct taut because ducting and restrictions reduce airflow.
+
+# PRED750 filters and carbon option
+Product: PRED750
+Category: Filters
+Keywords: PRED750, F621, H502, H161606-99, VL1002, VAPOR-LOCK, carbon, HEPA, VOC, odor
+Answer: PRED750 supplied filter stages are F621 1-inch coarse pre-filter, H502 2-inch pleated pre-filter, and H161606-99 HEPA filter. For low concentrations of odors, vapors, gases, or VOC support, use the optional VL1002 VAPOR-LOCK carbon filter. HEPA captures particles; carbon is the option for odor/VOC support.
+
+# PRED750 portable air scrubber overview
+Product: PRED750
+Category: Scrubber Selector
+Keywords: PRED750, PREDATOR, portable air scrubber, negative pressure, recirculation, positive pressure, 750 CFM, HEPA
+Answer: The PREDATOR PRED750 is a real Abatement Technologies portable air scrubber now included in the Scrubber Selector. It uses staged pre-filtration plus HEPA filtration, has a variable-speed clean-filter airflow range of 200 to 750 CFM, and can be configured for negative pressure, recirculation, or positive pressure support when ducting and site setup are appropriate. Pressure must still be verified with a calibrated pressure monitor when pressure control is claimed.
+
+# use AT Connect for pressure alarms and records
+Product: AT Connect
+Category: Remote Monitoring
+Keywords: at connect, app, push notification, alarm history, online data, pressure data, web portal
+Answer: Use the AT Connect mobile app first when push alarm notifications matter. Connected PPM4 and RPM units can save data online, show alarm history, and support online review/downloads. The web portal is useful for downloads and records, but the app should be used for phone-based push notifications.
+
+# what causes pressure failure
+Product: Pressure Guide
+Category: Troubleshooting
+Keywords: pressure failure, alarm, doors, barriers, filters, hvac, tubing, ducts
+Answer: Common pressure failure causes include doors left open, bad seals, torn barriers, clogged filters, undersized HEPA units, failed fans, blocked ducts, too much entry/exit traffic, HVAC imbalance, incorrect tubing setup, wind, or stack effect. Continuous monitoring matters because a manual reading only shows one moment.
+
+# HEPA versus MERV filtration
+Product: Pressure Guide
+Category: Filtration
+Keywords: hepa, merv, filter, filtration, air scrubber, hvac
+Answer: MERV ratings usually apply to building HVAC filters. HEPA is higher-efficiency filtration used for containment, isolation support, remediation, negative air machines, and portable air cleaning. A HEPA unit moves and filters air; a pressure monitor verifies whether the space is holding the correct pressure relationship.
+
+# basic ACH math
+Product: Pressure Guide
+Category: ACH Calculator
+Keywords: ach formula, cfm formula, room volume, calculate ach, calculate cfm
+Answer: Room volume is length × width × height. ACH = (CFM × 60) / room volume. CFM needed = (target ACH × room volume) / 60. This estimates airflow only and does not prove pressure, containment, or compliance.
+
+# ACH versus pressure
+Product: Pressure Guide
+Category: ACH
+Keywords: ach, air changes, cfm, pressure, ventilation, dilution
+Answer: ACH means Air Changes per Hour. It describes how many times the air in a room is replaced or cleaned in one hour. ACH is about dilution and air cleaning. Pressure is about air direction. They are related, but they are not the same thing.
+
+# common pressure targets
+Product: Pressure Guide
+Category: Pressure Targets
+Keywords: pressure targets, pa, in w.g., -2.5 pa, -7.5 pa, -0.01, -0.02, -0.03
+Answer: Common reference points include US airborne isolation around -2.5 Pa / -0.01 in. w.g., Canadian airborne isolation around -7.5 Pa / -0.03 in. w.g., and construction or abatement containment around -5 Pa / -0.02 in. w.g. Always confirm the actual target with the facility policy, project specification, consultant, and AHJ.
+
+# positive pressure explanation
+Product: Pressure Guide
+Category: Positive Pressure
+Keywords: positive pressure, operating room, sterile storage, protective environment, clean space
+Answer: Positive pressure means air is being pushed out of the protected space. It is used when the space itself needs protection from outside contamination, such as operating rooms, sterile storage, protective environments, clean rooms, pharmacies, and sensitive clinical spaces.
+
+# negative pressure explanation
+Product: Pressure Guide
+Category: Negative Pressure
+Keywords: negative pressure, isolation, containment, infection, dust, asbestos, mold, silica
+Answer: Negative pressure means air is being pulled into a room or containment area. It is used when air inside the space may be dirty, infectious, dusty, or hazardous. The goal is to keep contaminated air from escaping into surrounding clean or occupied areas.
+
+# what pressure monitors do
+Product: Pressure Guide
+Category: Pressure Monitoring
+Keywords: pressure, monitoring, negative pressure, positive pressure, air direction, containment
+Answer: Pressure monitors confirm whether air is moving in the intended direction between two spaces. They show whether a room or containment is negative or positive compared with a reference area. They do not clean air, filter air, or prove ACH by themselves.
+
+# what to include in a pressure support ticket
+Product: MonSuite
+Category: Support
+Keywords: support, ticket, pressure, reading, alarm, hospital, room, reference, tubing
+Answer: For a pressure-related support ticket, include the room type, whether the room should be positive or negative, current pressure reading, units, alarm points, Room/Reference tubing setup, photos of the ports and tubing, job/site name, device model, firmware version, and whether readings match the cloud or mobile app.
+
+# when to make a support ticket
+Product: MonSuite
+Category: Support
+Keywords: support, ticket, freshdesk, hospital, pressure, alarm, cloud, mobile, history, escalation
+Answer: Make a support ticket when an issue affects a live hospital job, pressure readings look wrong, pressure alarms will not clear, cloud/mobile verification fails, recording/history is missing, or the documentation does not clearly answer the question. Include product, serial number if available, firmware version, current pressure reading, alarm points, job/site name, screenshots/photos, and troubleshooting already tried.
+
+# verify pressure reporting to cloud or mobile app
+Product: RPM / PPM4
+Category: Cloud / Mobile Verification
+Keywords: pressure, verify, cloud, mobile app, web app, reporting, live readings, validate, wifi, cellular
+Answer: To verify pressure reporting, first confirm the monitor is connected through Wi-Fi or cellular and successfully validated to the cloud/web account. Then check the web portal for live pressure readings, device/job information, history, and events. After web/cloud reporting works, open the mobile app with the correct account and confirm the same device shows live pressure readings and alarm notifications.
+
+# zero/calibrate pressure reading safely
+Product: RPM / PPM4 / Pressure Sensor
+Category: Calibration
+Keywords: pressure, calibrate, calibration, zero, zero pressure, offset, sensor, do not blow, ports
+Answer: When zeroing or calibrating pressure, remove applied pressure from the inputs and follow the monitor calibration workflow. Do not blow into hoses or pressure ports. If the reading will not settle, check tubing, filters, reference location, and whether the sensor is exposed to actual pressure before assuming the monitor is wrong.
+
+# check Room and Reference pressure tubing
+Product: RPM / PPM4 / Pressure Sensor
+Category: Tubing
+Keywords: pressure, tubing, hose, room, reference, ref, ports, differential pressure, negative pressure, sensor damage
+Answer: Pressure readings depend on the Room and Reference tubing being connected correctly. Verify the Room line goes to the monitored space and the Reference line goes to the intended reference area. Check for reversed hoses, kinks, disconnections, blocked filters, or leaks. Do not blow into hoses or pressure ports because that can damage the sensor.
+
+# record pressure history and export data
+Product: RPM / PPM4
+Category: Data Log
+Keywords: pressure, record, recording, history, data log, usb, archive.csv, job number, download history, recording interval
+Answer: For pressure records, set the correct job number before monitoring, confirm recording/history settings, let the monitor log during the job, then use USB Download/Data Log to export the history. Do not remove the USB drive until the download is complete. Downloading history does not necessarily erase internal records unless Delete Log is used.
+
+# verify pressure readings in the mobile app
+Product: PPM4 Mobile / RPM
+Category: Mobile Verification
+Keywords: pressure, mobile, mobile app, verify, app, phone, notifications, live readings, cloud
+Answer: To verify pressure in the mobile app, sign in with the correct account, make sure the monitor/device is assigned to that account, confirm the monitor is connected to cloud through Wi-Fi or cellular, then check that live pressure readings and alarm notifications appear in the app. If mobile is not updating, verify cloud/web reporting first.
+
+# verify pressure readings to the cloud
+Product: PPM4 Cloud / RPM
+Category: Cloud Verification
+Keywords: pressure, cloud, verify, validate, web app, connect, reporting, live readings, device validation, bridgera
+Answer: To verify pressure readings to the cloud, confirm the monitor is connected through Wi-Fi or cellular, create/register the device in the web app, complete the device/cloud setup flow on the monitor, then check that live pressure readings, job/device information, and history/events are updating in the web portal.
+
+# maintain required pressure
+Product: RPM / PPM4
+Category: Pressure Control
+Keywords: maintain pressure, keep pressure, negative pressure, positive pressure, stable pressure, containment, fan, airflow, leak, door, filter
+Answer: To maintain required pressure, treat the monitor as the proof device and fix the room conditions causing the reading. Verify tubing and reference location, keep doors and containment openings controlled, check for leaks, confirm exhaust/negative-air equipment is running correctly, make sure filters are not clogged, and adjust airflow or containment before changing alarm limits.
+
+# active pressure alarm troubleshooting
+Product: RPM / PPM4
+Category: Pressure Alarms
+Keywords: pressure, alarm, active alarm, red screen, beeping, outside limit, threshold, troubleshooting, negative pressure
+Answer: If a pressure alarm is active, first check whether the live pressure reading is outside the selected alarm limits. Then check Room/Reference tubing, reversed or disconnected hoses, blocked filters, doors/openings, containment leaks, fan or negative-air-machine changes, and whether the alarm points were set correctly. STOP ALARM silences the audible alert only; it does not fix the pressure condition.
+
+# set pressure alarm points
+Product: RPM / PPM4
+Category: Pressure Alarms
+Keywords: pressure, alarm, alarm point, setpoint, set point, threshold, limit, high limit, low limit, negative pressure, positive pressure
+Answer: Set pressure alarm points from the monitor settings/alarm area for the room or pressure sensor you are using. Choose the pressure units first, then enter the high/low limits or required threshold for the job. The alarm points should match the containment requirement, not just whatever makes the alarm quiet.
+
+# set display always on / screen timeout
+Product: RPM / PPM4
+Category: Display
+Keywords: display, screen, screen saver, screensaver, always on, screen timeout, administration, options, monitor screen
+Answer: To keep the monitor display on, go to Settings → Administration → Options → Display → Screen Timeout. Set the timeout to the always-on/no-timeout option if available. Use this when the live pressure display needs to stay visible on a job site; use a timeout/screen saver when battery life or screen life matters more.
+
+# display and record pressure data
+Product: RPM / PPM4
+Category: Pressure Monitoring
+Keywords: pressure, recording, display, data log, history, job number, inWC, Pa, differential pressure, room pressure
+Answer: RPM and PPM4 are mainly used to display real-time differential pressure and record pressure history for a job. Set the job number, confirm the correct pressure units, verify Room and Reference tubing, set the recording interval/history settings, then monitor the live pressure screen and export history when needed.
+
+# open a support ticket
+Product: MonSuite
+Category: Support
+Keywords: freshdesk, monsuite, open, portal, support, ticket
+Answer: Use the Support section in MonSuite to open the Abatement Partner Support Freshdesk portal. The direct support portal is linked in MonSuite and should be used for technical help, escalation, or cases the documentation does not answer.
+
+# use System Builder on mobile
+Product: MonSuite
+Category: Mobile PWA
+Keywords: builder, mobile, monsuite, power calculator, pwa, system, system builder, use
+Answer: On phones and small screens, use System Builder instead of the CAD-style Setup Builder. System Builder lets you pick monitors, sensors, chargers, and Power Bus modules, then calculates bus load, warnings, and a quick parts list.
+
+# use Setup Builder on desktop
+Product: MonSuite
+Category: Setup Builder
+Keywords: builder, cad, desktop, grid, layout, monsuite, setup, use
+Answer: The full Setup Builder is intended for desktop or tablet. It lets users draw walls and doors, drag units and sensors onto a grid, draw Ethernet/tubing/local power, and view parts and power warnings.
+
+# Portable Pressure Monitor 4 overview
+Product: PPM4
+Category: Monitor
+Keywords: dimensions, monitor, overview, portable, portable pressure monitor 4, ports, power, ppm4, pressure
+Answer: Portable Pressure Monitor 4 (PPM4): 10.75 in wide x 9 in tall x 5.25 in deep; yellow portable construction case; portable and wall-mountable; two Ethernet ports; room/ref pressure tubing ports; power source capacity modeled as 200mA expansion bus.
+
+# RPM Monitor overview
+Product: RPM
+Category: Monitor
+Keywords: at-rpm-rts, dimensions, monitor, overview, ports, power, rpm, rpm monitor
+Answer: RPM Monitor (AT-RPM-RTS): 8 in wide x 5 in tall x 1.5 in deep; white wall-mounted case around a 7 inch screen; two Ethernet ports; built-in pressure monitoring; supports external sensors via daisy chain; power source capacity modeled as 200mA expansion bus.
+
+# Temperature & Humidity Sensor overview
+Product: Temp/RH Sensor
+Category: Sensor
+Keywords: dimensions, humidity, overview, pma-trhm, ports, power, sensor, temp/rh, temp/rh sensor, temperature, temperature & humidity sensor
+Answer: Temperature & Humidity Sensor (PMA-TRHM): Approx. 4 in wide x 8 in tall x 1.5 in deep; wall-mounted; two rear Ethernet ports; draws 50mA; reports temperature and relative humidity.
+
+# Pressure Sensor overview
+Product: Pressure Sensor
+Category: Sensor
+Keywords: dimensions, overview, pma-rpsm, ports, power, pressure, pressure sensor, sensor
+Answer: Pressure Sensor (PMA-RPSM): Approx. 4 in wide x 8 in tall x 1.5 in deep; wall-mounted; two rear Ethernet ports; room and reference tubing ports; draws 65mA.
+
+# Velocity / ACH Sensor overview
+Product: ACH / Velocity Sensor
+Category: Sensor
+Keywords: ach, ach / velocity sensor, dimensions, overview, pma-avm, ports, power, sensor, velocity, velocity / ach sensor
+Answer: Velocity / ACH Sensor (PMA-AVM): Approx. 4 in wide x 8 in tall x 1.5 in deep; wall-mounted; two rear Ethernet ports; draws 100mA; includes an ACH/velocity probe with a maximum 2 ft reach for future ducting layouts.
+
+# Particle Sensor overview
+Product: Particle Sensor
+Category: Sensor
+Keywords: dimensions, overview, particle, particle sensor, pma-psm, ports, power, sensor
+Answer: Particle Sensor (PMA-PSM): Approx. 4 in wide x 8 in tall x 1.5 in deep; wall-mounted; two rear Ethernet ports; draws 120mA; uses a Honeywell particle sensor module.
+
+# Cellular Module overview
+Product: Cellular Module
+Category: Communication
+Keywords: cellular, cellular module, communication, dimensions, module, overview, pma-cm, ports, power
+Answer: Cellular Module (PMA-CM): Approx. 4 in wide x 8 in tall x 1.5 in deep; two Ethernet ports; draws 365mA; Monarch-Go cellular module; should have dedicated power or Power Bus.
+
+# Power Bus overview
+Product: Power Bus
+Category: Power
+Keywords: bus, dimensions, overview, pma-pb, ports, power, power bus
+Answer: Power Bus (PMA-PB): External powered bus with two Ethernet ports. Use when high-draw sensors or too many modules exceed the monitor expansion bus limit. In MonSuite logic, a Power Bus powers the connected chain/branch.
+
+# PPM4 Charger overview
+Product: PPM4 Charger
+Category: Power
+Keywords: charger, dimensions, overview, ports, power, ppm4, ppm4 charger, ppm4chrgr
+Answer: PPM4 Charger (PPM4CHRGR): Local single-device power accessory. In MonSuite logic, it can attach to one monitor or sensor and remove that device from upstream expansion-bus load. Confirm exact approved field use with engineering.
+
+# PPM4 and RPM expansion bus capacity
+Product: PPM4 / RPM
+Category: Power
+Keywords: and, bus, capacity, charger, expansion, ma, power, power bus, ppm4, rpm, warning
+Answer: PPM4 and RPM-S expansion bus capacity is modeled as 200mA. Both have two Ethernet ports. Sensors can daisy-chain, but the total load on a monitor-powered chain should stay at or below 200mA unless a Power Bus or local power accessory is used.
+
+# sensor power draw table
+Product: Sensors
+Category: Power
+Keywords: bus, charger, draw, ma, power, power bus, sensor, sensors, table, warning
+Answer: Pressure Sensor Module draws 65mA. Velocity/ACH Sensor Module draws 100mA. Temp/RH Sensor Module draws 50mA. Particle Sensor Module draws 120mA. Cellular Module draws 365mA.
+
+# dedicated power recommendation threshold
+Product: Sensors
+Category: Power
+Keywords: bus, charger, dedicated, ma, power, power bus, recommendation, sensors, threshold, warning
+Answer: Anything above 90mA should have dedicated power recommended. Velocity/ACH at 100mA, Particle at 120mA, and Cellular at 365mA should trigger power recommendations unless powered by a Power Bus or local charger.
+
+# what happens if bus power is exceeded
+Product: PPM4 / RPM
+Category: Power
+Keywords: bus, charger, exceeded, happens, ma, power, power bus, ppm4, rpm, warning, what
+Answer: If the daisy chain exceeds the 200mA bus limit, the whole chain should be considered unsupported or unreliable. Do not assume only the last sensor fails. Possible symptoms include voltage drop, intermittent sensor detection, unstable readings, or devices randomly disconnecting.
+
+# fix an overloaded sensor chain
+Product: PPM4 / RPM
+Category: Power
+Keywords: bus, chain, charger, fix, ma, overloaded, power, power bus, ppm4, rpm, sensor, warning
+Answer: To fix an overloaded sensor chain, add a Power Bus, split the chain, or attach a PPM4 Charger to high-draw devices. Example: two Temp/RH sensors and one Pressure sensor draw 165mA. Adding ACH adds 100mA for 265mA total, which exceeds 200mA. If the ACH has local power, the bus load returns to 165mA.
+
+# PPM4 Charger single device power logic
+Product: PPM4CHRGR
+Category: Power
+Keywords: bus, charger, device, logic, ma, power, power bus, ppm4, ppm4chrgr, single, warning
+Answer: PPM4CHRGR is modeled as a local single-device power accessory. It powers only the one device it is attached to. If attached to an ACH sensor, that ACH sensor stays in the Ethernet communication chain but no longer counts against upstream bus power load.
+
+# Power Bus logic
+Product: Power Bus
+Category: Power
+Keywords: bus, charger, logic, ma, power, power bus, warning
+Answer: Power Bus has two Ethernet ports and is modeled as powering anything connected to its branch/chain. Use it for high-draw sensors, long chains, cellular modules, or setups that exceed monitor bus limits.
+
+# cellular module power warning
+Product: Cellular Module
+Category: Power
+Keywords: bus, cellular, charger, ma, module, power, power bus, warning
+Answer: The Cellular Module draws 365mA, which exceeds the 200mA monitor bus capacity by itself. It should be treated as needing dedicated power or a Power Bus.
+
+# particle sensor power warning
+Product: Particle Sensor
+Category: Power
+Keywords: bus, charger, ma, particle, power, power bus, sensor, warning
+Answer: The Particle Sensor draws 120mA, which is above the 90mA dedicated-power recommendation threshold. Use dedicated power or a Power Bus when appropriate, especially if combined with other sensors.
+
+# velocity ACH sensor power warning
+Product: ACH / Velocity Sensor
+Category: Power
+Keywords: ach, bus, charger, ma, power, power bus, sensor, velocity, warning
+Answer: The Velocity/ACH sensor draws 100mA, which is above the 90mA dedicated-power recommendation threshold. It should receive a power recommendation unless a Power Bus or charger is present.
+
+# PPM4 features
+Product: PPM4
+Category: Manual
+Keywords: features, manual, ppm4
+Answer: PPM4 features include real-time differential pressure monitoring, color touch-screen display, battery or AC operation, internal rechargeable lithium polymer battery, rugged case, USB port for firmware/history functions, visual/audible alarms, optional email/text notifications, selectable inWC and Pa units, job number support, and a pressure range of -25Pa to +25Pa (-0.1 to +0.1 inWC).
+
+# PPM4 battery conditioning
+Product: PPM4
+Category: Battery
+Keywords: battery, conditioning, manual, ppm4
+Answer: Before first use, the PPM4 battery should be conditioned. Turn the power on and let it operate in AC mode until the battery discharges completely. Then charge until full charge is achieved. Use only the Abatement-supplied charger. Keep the battery charged every 6 months even if unused.
+
+# PPM4 AC mode versus battery mode
+Product: PPM4
+Category: Operation
+Keywords: ac, battery, manual, mode, operation, ppm4, versus
+Answer: PPM4 has AC Power Mode for continuous operation and Battery Mode for preserving battery life. In AC mode the monitor is active and the display times out while the LED stays on. In Battery Mode the display switches off after inactivity and the LED flashes periodically to show the unit remains operating.
+
+# PPM4 pressure tubing connections
+Product: PPM4
+Category: Tubing
+Keywords: connections, manual, ppm4, pressure, tubing
+Answer: PPM4 pressure measurement uses Room and Reference tubing connections. Tubing should be connected properly to monitor differential pressure. Do not blow into hoses or pressure ports because that can permanently damage the sensor. Use inline filters as provided.
+
+# PPM4 change job number
+Product: PPM4
+Category: Operation
+Keywords: change, job, manual, number, operation, ppm4
+Answer: To change the PPM4 job number, click the current Job Number in the upper left corner of the screen. An input menu appears so the user can change the job number. Job numbers help distinguish job sites and are stored with history records.
+
+# PPM4 menu access
+Product: PPM4
+Category: Operation
+Keywords: access, manual, menu, operation, ppm4
+Answer: Access PPM4 settings by pressing the gear icon in the upper right corner of the main screen. The menu contains submenus such as Room Settings, Preferences, Communications, Data Log, and Administration. Use Back to return to previous menus and Exit to return to the main screen.
+
+# PPM4 silence alarm
+Product: PPM4
+Category: Alarms
+Keywords: alarm, alarms, manual, ppm4, silence
+Answer: In an alarm condition, the STOP ALARM button appears at the bottom of the main menu screen. Pressing STOP ALARM silences the audible alarm and external alarms through web/mobile if connected. The main screen remains red until pressure is back within the user-specified limit.
+
+# PPM4 USB download history
+Product: PPM4
+Category: Data Log
+Keywords: data, download, history, log, manual, ppm4, usb
+Answer: PPM4 Data Log USB Download prompts the operator to plug in a USB flash drive. Downloading history does not erase internal records. Do not remove USB until complete. History downloads as ARCHIVE.CSV and can be opened with a text editor. Use the supplied USB drive.
+
+# PPM4 delete log
+Product: PPM4
+Category: Data Log
+Keywords: data, delete, log, manual, ppm4
+Answer: The Delete Log option erases previously archived history messages. A new entry is added to the archive showing the archive was erased. Use with care when preserving job history is important.
+
+# PPM4 job number in history
+Product: PPM4
+Category: Data Log
+Keywords: data, history, in, job, log, manual, number, ppm4
+Answer: The history archive displays the job number that was set when the event was recorded. The job number can be changed at startup and through the menu system.
+
+# PPM4 pressure measurement units
+Product: PPM4
+Category: Preferences
+Keywords: manual, measurement, ppm4, preferences, pressure, units
+Answer: PPM4 supports selectable pressure measurement units in inches water column (inWC) and Pascals (Pa). Set preferred units in the Preferences area.
+
+# PPM4 firmware update warning
+Product: PPM4 Firmware
+Category: Firmware
+Keywords: firmware, from, legacy, ppm4, update, versions, warning
+Answer: Critical MonSuite rule: if PPM4 firmware is below v1.8, update to v1.8 first before going to the latest v2.2 package. Do not jump directly from older firmware to the latest version unless engineering instructions explicitly say it is safe.
+
+# PPM4 Wi-Fi setup start
+Product: PPM4 Wi-Fi
+Category: Wi-Fi
+Keywords: fi, ppm4, quickstart, setup, start, wi, wi-fi
+Answer: To set up Wi-Fi on the PPM4, navigate to Settings by pressing the gear icon in the top right corner of the screen, then go to Communications and Wi-Fi. Enter or select the network details as described in the Wi-Fi setup guide.
+
+# PPM4 Wi-Fi validate fails
+Product: PPM4 Wi-Fi
+Category: Troubleshooting
+Keywords: fails, fi, ppm4, troubleshooting, validate, wi, wi-fi
+Answer: If PPM4 connects to Wi-Fi but fails to validate, the issue can be caused by networks with advanced security measures such as hospitals or corporate environments. Try a simpler network/hotspot, confirm internet access, and escalate if validation still fails.
+
+# PPM4 connect to cloud web app
+Product: PPM4 Cloud
+Category: Cloud
+Keywords: app, cloud, connect, ppm4, quickstart, to, web
+Answer: To connect PPM4 to the web/cloud app, create the device on the web application, then use the device/cloud setup flow on the PPM4 to enter credentials and validate the device. The web guide points users to connect.abatement.com for web access.
+
+# PPM4 IoT architecture
+Product: PPM4 Cloud
+Category: Architecture
+Keywords: architecture, cloud, explanation, iot, ppm4, system
+Answer: The PPM4 IoT system communicates from the PPM4 device through Wi-Fi (and planned/current cellular options) to the Bridgera web platform and mobile app. The cloud platform handles device communication, verification, data, events, and notifications.
+
+# PPM4 mobile app signup
+Product: PPM4 Mobile
+Category: Mobile
+Keywords: app, mobile, ppm4, quickstart, signup
+Answer: The PPM4 mobile app quickstart instructs users to download the app, open it, choose sign up, and create an account. Some placeholders such as link/QR code still need final production values.
+
+# RPM features
+Product: RPM
+Category: Manual
+Keywords: features, manual, rpm
+Answer: RPM features include real-time differential pressure monitoring for up to two rooms, built-in pressure sensor for the primary room, support for daisy-chained external sensors via RJ45, dual-room support, 7 inch color touchscreen, audible/visual alarms, sensor auto-discovery/naming, optional cloud notifications, selectable units, USB firmware/data support, and wall mounting.
+
+# RPM sensor capacity
+Product: RPM
+Category: Sensors
+Keywords: capacity, manual, rpm, sensor, sensors
+Answer: RPM supports connection of up to 10 external sensors, with a maximum of 5 per room. The built-in pressure sensor is automatically assigned to Room 1, Sensor 1, so that address cannot be used by an external sensor.
+
+# RPM do not connect to standard network
+Product: RPM
+Category: Connections
+Keywords: connect, connections, do, manual, network, not, rpm, standard, to
+Answer: Important: do not connect any RPM or sensor unit to a standard Ethernet network switch or router. The RJ45 connections are for the sensor bus, not normal Ethernet networking, and improper connection may damage RPM, sensors, or network equipment.
+
+# RPM sensor setup DIP switches
+Product: RPM
+Category: Sensors
+Keywords: dip, manual, rpm, sensor, sensors, setup, switches
+Answer: Before connecting RPM sensors, plan the sensor layout. Each external sensor must be assigned a room and sensor number using DIP switches. Room 1 Sensor 1 is reserved for the built-in pressure sensor and cannot be assigned to an external sensor.
+
+# RPM connect sensors
+Product: RPM
+Category: Connections
+Keywords: connect, connections, manual, rpm, sensors
+Answer: Use straight-through Cat5e or higher Ethernet cable for RPM sensor connections. Connect from either RJ45 port on the RPM to either RJ45 port on the sensor. Multiple sensors can be daisy-chained sensor-to-sensor. Maximum total cable distance from RPM to the last sensor should not exceed 50 ft.
+
+# RPM job number
+Product: RPM
+Category: Operation
+Keywords: job, manual, number, operation, rpm
+Answer: To change the RPM job number, click the current Job Number in the upper left corner of the screen. An input menu appears where the job number can be changed. Job numbers are used to distinguish job sites and appear in history records.
+
+# RPM menu access
+Product: RPM
+Category: Operation
+Keywords: access, manual, menu, operation, rpm
+Answer: Access RPM settings by pressing the gear icon in the upper right corner of the main screen. The RPM menu includes Room Settings, Preferences, Communications, Data Log, and Administration.
+
+# RPM room settings menu
+Product: RPM
+Category: Room Settings
+Keywords: manual, menu, room, rpm, settings
+Answer: RPM Room Settings lets the user select which room settings to change. Related areas include Room Status, Calibrate, Room Name, Sensor Settings, and ACH Room Setup.
+
+# RPM room status
+Product: RPM
+Category: Room Settings
+Keywords: manual, room, rpm, settings, status
+Answer: Use Room Status in RPM Room Settings to review or adjust the monitored room status information. It belongs under Menu → Room Settings → select room → Room Status.
+
+# RPM calibrate
+Product: RPM
+Category: Calibration
+Keywords: calibrate, calibration, manual, rpm
+Answer: Use the RPM Calibrate option under Room Settings for the selected room when calibration is required. Do not blow into hoses or pressure ports, as this can permanently damage sensors.
+
+# RPM room name
+Product: RPM
+Category: Room Settings
+Keywords: manual, name, room, rpm, settings
+Answer: Use Room Name under RPM Room Settings to name the selected room. Naming rooms helps users distinguish Room 1 and Room 2 in monitoring and reporting.
+
+# RPM sensor settings
+Product: RPM
+Category: Sensors
+Keywords: manual, rpm, sensor, sensors, settings
+Answer: Use RPM Sensor Settings under Room Settings to enable sensors that match DIP switch assignments and review connected sensor configuration. If values do not appear, check DIP switches, physical Ethernet connections, power, and daisy-chain consistency.
+
+# RPM ACH room setup
+Product: RPM
+Category: ACH
+Keywords: ach, manual, room, rpm, setup
+Answer: Use RPM ACH Room Setup under Room Settings for ACH/airflow configuration. The ACH/Velocity sensor quick guide should be used for sensor placement and probe/airflow guidance.
+
+# RPM preferences alarms
+Product: RPM
+Category: Alarms
+Keywords: alarms, manual, preferences, rpm
+Answer: RPM Preferences includes Alarms, Pressure Units, Recording Intervals, Altitude, and Display Scale. Use Alarms to configure alarm behavior for the monitored room setup.
+
+# RPM communications menu
+Product: RPM
+Category: Communications
+Keywords: communications, manual, menu, rpm
+Answer: RPM Communications includes BACnet, Wi-Fi, Wi-Fi Info, Cellular, and Cloud Setup. Use the proper setup guide for cloud, Wi-Fi, or cellular configuration.
+
+# RPM USB download
+Product: RPM
+Category: Data Log
+Keywords: data, download, log, manual, rpm, usb
+Answer: RPM Data Log includes USB Download and Delete Log. Use USB Download to export logged data, and do not remove the USB drive until the download process is complete.
+
+# RPM sensor not detected
+Product: RPM
+Category: Troubleshooting
+Keywords: detected, manual, not, rpm, sensor, troubleshooting
+Answer: If an RPM sensor is not detected, check DIP switch settings, confirm physical Ethernet connections, ensure the sensor is powered, unplug/reconnect Ethernet, and keep daisy-chaining consistent such as left RJ45 to left RJ45 when needed.
+
+# Temp RH sensor setup
+Product: Temp/RH Sensor
+Category: Sensor Setup
+Keywords: guide, humidity, quick, rh, sensor, setup, temp, temp/rh, temperature
+Answer: The Temp/RH sensor adds temperature and relative humidity readings to RPM/PPM4. Set DIP switches for room/sensor assignment, connect with straight-through Cat5e or higher cable, daisy-chain if needed, then enable the matching sensor in the user interface.
+
+# Pressure sensor setup
+Product: Pressure Sensor
+Category: Sensor Setup
+Keywords: guide, pressure, quick, sensor, setup
+Answer: The Pressure Sensor adds room pressure differential readings. Set DIP switches, connect via RJ45 sensor bus, connect tubing to Room and Reference ports correctly, use filters, and enable the matching sensor in the user interface. Do not blow into the ports.
+
+# ACH velocity sensor setup
+Product: ACH / Velocity Sensor
+Category: Sensor Setup
+Keywords: ach, guide, quick, sensor, setup, velocity
+Answer: The ACH/Velocity sensor adds air velocity readings. Set DIP switches, connect via RJ45 sensor bus, power the sensor, mount it where airflow reaches the sensing element properly, avoid blocked/stagnant locations, and enable the matching sensor in the UI.
+
+# ACH sensor placement
+Product: ACH / Velocity Sensor
+Category: Placement
+Keywords: ach, guide, placement, quick, sensor, velocity
+Answer: Install the ACH/Velocity sensor where airflow needs to be monitored. Position the sensing element or probe so airflow can reach it. Avoid blocked areas, tight corners, water spray, heavy dust, debris, physical damage, or supply/exhaust points unless those are the intended measurement locations.
+
+# ACH probe max length
+Product: ACH / Velocity Sensor
+Category: Probe
+Keywords: ach, guide, length, max, probe, quick, sensor, velocity
+Answer: MonSuite models the ACH/Velocity sensor with a remote probe that must stay within 2 ft of the ACH sensor. This rule is intended for future ducting layouts and should be confirmed against final engineering documentation.
+
+# Particle sensor setup
+Product: Particle Sensor
+Category: Sensor Setup
+Keywords: guide, particle, quick, sensor, setup
+Answer: The Particle Sensor adds airborne particulate readings for display, alarming, and cloud reporting if configured. Set DIP switches, connect via RJ45 sensor bus, power as required, place where particle conditions should be measured, and enable the matching sensor in the UI.
+
+# Cellular module SIM requirement
+Product: Cellular Module
+Category: Cellular
+Keywords: cellular, guide, module, quick, requirement, setup, sim
+Answer: The cellular modem uses a standard 3FF micro-SIM form factor. Use IoT/M2M data plans that include LTE-M/Cat-M1 and confirm carrier support for the modem bands in the installation area.
+
+# Cellular APN setup
+Product: Cellular Module
+Category: Cellular
+Keywords: apn, cellular, guide, module, quick, setup
+Answer: Cellular setup requires the carrier APN. Insert the SIM, power on, set the APN according to the carrier, and try alternate carrier APNs if the first APN does not work.
+
+# Cellular SIM installation
+Product: Cellular Module
+Category: Cellular
+Keywords: cellular, guide, installation, module, quick, setup, sim
+Answer: To install the SIM, access the Monarch-Go module, remove the black plate, unlock the metal SIM plate, insert the micro-SIM, slide the plate to lock, confirm the SIM cannot move, replace the black plate, and connect the module to PPM4/RPM using the provided Ethernet cable.
+
+# Enable cellular on PPM4
+Product: PPM4 Cellular
+Category: Cellular
+Keywords: cellular, enable, guide, module, on, ppm4, quick, setup
+Answer: On PPM4, enable cellular through Settings → Communications → Cellular. Then set the APN according to the carrier. If connection fails, verify plan type, LTE-M support, SIM activation, and APN.
+
+# PPM4 dimensions
+Product: PPM4
+Category: Monitor
+Keywords: dimensions, monitor, ppm4
+Answer: Portable Pressure Monitor 4 (PPM4) reference: 10.75 in wide x 9 in tall x 5.25 in deep; yellow portable construction case; portable and wall-mountable; two Ethernet ports; room/ref pressure tubing ports; power source capacity modeled as 200mA expansion bus.
+
+# PPM4 ethernet ports
+Product: PPM4
+Category: Monitor
+Keywords: ethernet, ethernet ports, monitor, ports, ppm4
+Answer: Portable Pressure Monitor 4 (PPM4) reference: 10.75 in wide x 9 in tall x 5.25 in deep; yellow portable construction case; portable and wall-mountable; two Ethernet ports; room/ref pressure tubing ports; power source capacity modeled as 200mA expansion bus.
+
+# PPM4 wall mount
+Product: PPM4
+Category: Monitor
+Keywords: monitor, mount, ppm4, wall, wall mount
+Answer: Portable Pressure Monitor 4 (PPM4) reference: 10.75 in wide x 9 in tall x 5.25 in deep; yellow portable construction case; portable and wall-mountable; two Ethernet ports; room/ref pressure tubing ports; power source capacity modeled as 200mA expansion bus.
+
+# PPM4 power draw
+Product: PPM4
+Category: Monitor
+Keywords: draw, monitor, power, power draw, ppm4
+Answer: Portable Pressure Monitor 4 (PPM4) reference: 10.75 in wide x 9 in tall x 5.25 in deep; yellow portable construction case; portable and wall-mountable; two Ethernet ports; room/ref pressure tubing ports; power source capacity modeled as 200mA expansion bus.
+
+# PPM4 use case
+Product: PPM4
+Category: Monitor
+Keywords: case, monitor, ppm4, use, use case
+Answer: Portable Pressure Monitor 4 (PPM4) reference: 10.75 in wide x 9 in tall x 5.25 in deep; yellow portable construction case; portable and wall-mountable; two Ethernet ports; room/ref pressure tubing ports; power source capacity modeled as 200mA expansion bus.
+
+# RPM dimensions
+Product: RPM
+Category: Monitor
+Keywords: at-rpm-rts, dimensions, monitor, rpm
+Answer: RPM Monitor (AT-RPM-RTS) reference: 8 in wide x 5 in tall x 1.5 in deep; white wall-mounted case around a 7 inch screen; two Ethernet ports; built-in pressure monitoring; supports external sensors via daisy chain; power source capacity modeled as 200mA expansion bus.
+
+# RPM ethernet ports
+Product: RPM
+Category: Monitor
+Keywords: at-rpm-rts, ethernet, ethernet ports, monitor, ports, rpm
+Answer: RPM Monitor (AT-RPM-RTS) reference: 8 in wide x 5 in tall x 1.5 in deep; white wall-mounted case around a 7 inch screen; two Ethernet ports; built-in pressure monitoring; supports external sensors via daisy chain; power source capacity modeled as 200mA expansion bus.
+
+# RPM wall mount
+Product: RPM
+Category: Monitor
+Keywords: at-rpm-rts, monitor, mount, rpm, wall, wall mount
+Answer: RPM Monitor (AT-RPM-RTS) reference: 8 in wide x 5 in tall x 1.5 in deep; white wall-mounted case around a 7 inch screen; two Ethernet ports; built-in pressure monitoring; supports external sensors via daisy chain; power source capacity modeled as 200mA expansion bus.
+
+# RPM power draw
+Product: RPM
+Category: Monitor
+Keywords: at-rpm-rts, draw, monitor, power, power draw, rpm
+Answer: RPM Monitor (AT-RPM-RTS) reference: 8 in wide x 5 in tall x 1.5 in deep; white wall-mounted case around a 7 inch screen; two Ethernet ports; built-in pressure monitoring; supports external sensors via daisy chain; power source capacity modeled as 200mA expansion bus.
+
+# RPM use case
+Product: RPM
+Category: Monitor
+Keywords: at-rpm-rts, case, monitor, rpm, use, use case
+Answer: RPM Monitor (AT-RPM-RTS) reference: 8 in wide x 5 in tall x 1.5 in deep; white wall-mounted case around a 7 inch screen; two Ethernet ports; built-in pressure monitoring; supports external sensors via daisy chain; power source capacity modeled as 200mA expansion bus.
+
+# Temp/RH Sensor dimensions
+Product: Temp/RH Sensor
+Category: Sensor
+Keywords: dimensions, pma-trhm, sensor, temp/rh, temp/rh sensor
+Answer: Temperature & Humidity Sensor (PMA-TRHM) reference: Approx. 4 in wide x 8 in tall x 1.5 in deep; wall-mounted; two rear Ethernet ports; draws 50mA; reports temperature and relative humidity.
+
+# Temp/RH Sensor ethernet ports
+Product: Temp/RH Sensor
+Category: Sensor
+Keywords: ethernet, ethernet ports, pma-trhm, ports, sensor, temp/rh, temp/rh sensor
+Answer: Temperature & Humidity Sensor (PMA-TRHM) reference: Approx. 4 in wide x 8 in tall x 1.5 in deep; wall-mounted; two rear Ethernet ports; draws 50mA; reports temperature and relative humidity.
+
+# Temp/RH Sensor wall mount
+Product: Temp/RH Sensor
+Category: Sensor
+Keywords: mount, pma-trhm, sensor, temp/rh, temp/rh sensor, wall, wall mount
+Answer: Temperature & Humidity Sensor (PMA-TRHM) reference: Approx. 4 in wide x 8 in tall x 1.5 in deep; wall-mounted; two rear Ethernet ports; draws 50mA; reports temperature and relative humidity.
+
+# Temp/RH Sensor power draw
+Product: Temp/RH Sensor
+Category: Sensor
+Keywords: draw, pma-trhm, power, power draw, sensor, temp/rh, temp/rh sensor
+Answer: Temperature & Humidity Sensor (PMA-TRHM) reference: Approx. 4 in wide x 8 in tall x 1.5 in deep; wall-mounted; two rear Ethernet ports; draws 50mA; reports temperature and relative humidity.
+
+# Temp/RH Sensor use case
+Product: Temp/RH Sensor
+Category: Sensor
+Keywords: case, pma-trhm, sensor, temp/rh, temp/rh sensor, use, use case
+Answer: Temperature & Humidity Sensor (PMA-TRHM) reference: Approx. 4 in wide x 8 in tall x 1.5 in deep; wall-mounted; two rear Ethernet ports; draws 50mA; reports temperature and relative humidity.
+
+# Pressure Sensor dimensions
+Product: Pressure Sensor
+Category: Sensor
+Keywords: dimensions, pma-rpsm, pressure, pressure sensor, sensor
+Answer: Pressure Sensor (PMA-RPSM) reference: Approx. 4 in wide x 8 in tall x 1.5 in deep; wall-mounted; two rear Ethernet ports; room and reference tubing ports; draws 65mA.
+
+# Pressure Sensor ethernet ports
+Product: Pressure Sensor
+Category: Sensor
+Keywords: ethernet, ethernet ports, pma-rpsm, ports, pressure, pressure sensor, sensor
+Answer: Pressure Sensor (PMA-RPSM) reference: Approx. 4 in wide x 8 in tall x 1.5 in deep; wall-mounted; two rear Ethernet ports; room and reference tubing ports; draws 65mA.
+
+# Pressure Sensor wall mount
+Product: Pressure Sensor
+Category: Sensor
+Keywords: mount, pma-rpsm, pressure, pressure sensor, sensor, wall, wall mount
+Answer: Pressure Sensor (PMA-RPSM) reference: Approx. 4 in wide x 8 in tall x 1.5 in deep; wall-mounted; two rear Ethernet ports; room and reference tubing ports; draws 65mA.
+
+# Pressure Sensor power draw
+Product: Pressure Sensor
+Category: Sensor
+Keywords: draw, pma-rpsm, power, power draw, pressure, pressure sensor, sensor
+Answer: Pressure Sensor (PMA-RPSM) reference: Approx. 4 in wide x 8 in tall x 1.5 in deep; wall-mounted; two rear Ethernet ports; room and reference tubing ports; draws 65mA.
+
+# Pressure Sensor use case
+Product: Pressure Sensor
+Category: Sensor
+Keywords: case, pma-rpsm, pressure, pressure sensor, sensor, use, use case
+Answer: Pressure Sensor (PMA-RPSM) reference: Approx. 4 in wide x 8 in tall x 1.5 in deep; wall-mounted; two rear Ethernet ports; room and reference tubing ports; draws 65mA.
+
+# ACH / Velocity Sensor dimensions
+Product: ACH / Velocity Sensor
+Category: Sensor
+Keywords: ach, ach / velocity sensor, dimensions, pma-avm, sensor, velocity
+Answer: Velocity / ACH Sensor (PMA-AVM) reference: Approx. 4 in wide x 8 in tall x 1.5 in deep; wall-mounted; two rear Ethernet ports; draws 100mA; includes an ACH/velocity probe with a maximum 2 ft reach for future ducting layouts.
+
+# ACH / Velocity Sensor ethernet ports
+Product: ACH / Velocity Sensor
+Category: Sensor
+Keywords: ach, ach / velocity sensor, ethernet, ethernet ports, pma-avm, ports, sensor, velocity
+Answer: Velocity / ACH Sensor (PMA-AVM) reference: Approx. 4 in wide x 8 in tall x 1.5 in deep; wall-mounted; two rear Ethernet ports; draws 100mA; includes an ACH/velocity probe with a maximum 2 ft reach for future ducting layouts.
+
+# ACH / Velocity Sensor wall mount
+Product: ACH / Velocity Sensor
+Category: Sensor
+Keywords: ach, ach / velocity sensor, mount, pma-avm, sensor, velocity, wall, wall mount
+Answer: Velocity / ACH Sensor (PMA-AVM) reference: Approx. 4 in wide x 8 in tall x 1.5 in deep; wall-mounted; two rear Ethernet ports; draws 100mA; includes an ACH/velocity probe with a maximum 2 ft reach for future ducting layouts.
+
+# ACH / Velocity Sensor power draw
+Product: ACH / Velocity Sensor
+Category: Sensor
+Keywords: ach, ach / velocity sensor, draw, pma-avm, power, power draw, sensor, velocity
+Answer: Velocity / ACH Sensor (PMA-AVM) reference: Approx. 4 in wide x 8 in tall x 1.5 in deep; wall-mounted; two rear Ethernet ports; draws 100mA; includes an ACH/velocity probe with a maximum 2 ft reach for future ducting layouts.
+
+# ACH / Velocity Sensor use case
+Product: ACH / Velocity Sensor
+Category: Sensor
+Keywords: ach, ach / velocity sensor, case, pma-avm, sensor, use, use case, velocity
+Answer: Velocity / ACH Sensor (PMA-AVM) reference: Approx. 4 in wide x 8 in tall x 1.5 in deep; wall-mounted; two rear Ethernet ports; draws 100mA; includes an ACH/velocity probe with a maximum 2 ft reach for future ducting layouts.
+
+# Particle Sensor dimensions
+Product: Particle Sensor
+Category: Sensor
+Keywords: dimensions, particle, particle sensor, pma-psm, sensor
+Answer: Particle Sensor (PMA-PSM) reference: Approx. 4 in wide x 8 in tall x 1.5 in deep; wall-mounted; two rear Ethernet ports; draws 120mA; uses a Honeywell particle sensor module.
+
+# Particle Sensor ethernet ports
+Product: Particle Sensor
+Category: Sensor
+Keywords: ethernet, ethernet ports, particle, particle sensor, pma-psm, ports, sensor
+Answer: Particle Sensor (PMA-PSM) reference: Approx. 4 in wide x 8 in tall x 1.5 in deep; wall-mounted; two rear Ethernet ports; draws 120mA; uses a Honeywell particle sensor module.
+
+# Particle Sensor wall mount
+Product: Particle Sensor
+Category: Sensor
+Keywords: mount, particle, particle sensor, pma-psm, sensor, wall, wall mount
+Answer: Particle Sensor (PMA-PSM) reference: Approx. 4 in wide x 8 in tall x 1.5 in deep; wall-mounted; two rear Ethernet ports; draws 120mA; uses a Honeywell particle sensor module.
+
+# Particle Sensor power draw
+Product: Particle Sensor
+Category: Sensor
+Keywords: draw, particle, particle sensor, pma-psm, power, power draw, sensor
+Answer: Particle Sensor (PMA-PSM) reference: Approx. 4 in wide x 8 in tall x 1.5 in deep; wall-mounted; two rear Ethernet ports; draws 120mA; uses a Honeywell particle sensor module.
+
+# Particle Sensor use case
+Product: Particle Sensor
+Category: Sensor
+Keywords: case, particle, particle sensor, pma-psm, sensor, use, use case
+Answer: Particle Sensor (PMA-PSM) reference: Approx. 4 in wide x 8 in tall x 1.5 in deep; wall-mounted; two rear Ethernet ports; draws 120mA; uses a Honeywell particle sensor module.
+
+# Cellular Module dimensions
+Product: Cellular Module
+Category: Communication
+Keywords: cellular, cellular module, communication, dimensions, module, pma-cm
+Answer: Cellular Module (PMA-CM) reference: Approx. 4 in wide x 8 in tall x 1.5 in deep; two Ethernet ports; draws 365mA; Monarch-Go cellular module; should have dedicated power or Power Bus.
+
+# Cellular Module ethernet ports
+Product: Cellular Module
+Category: Communication
+Keywords: cellular, cellular module, communication, ethernet, ethernet ports, module, pma-cm, ports
+Answer: Cellular Module (PMA-CM) reference: Approx. 4 in wide x 8 in tall x 1.5 in deep; two Ethernet ports; draws 365mA; Monarch-Go cellular module; should have dedicated power or Power Bus.
+
+# Cellular Module wall mount
+Product: Cellular Module
+Category: Communication
+Keywords: cellular, cellular module, communication, module, mount, pma-cm, wall, wall mount
+Answer: Cellular Module (PMA-CM) reference: Approx. 4 in wide x 8 in tall x 1.5 in deep; two Ethernet ports; draws 365mA; Monarch-Go cellular module; should have dedicated power or Power Bus.
+
+# Cellular Module power draw
+Product: Cellular Module
+Category: Communication
+Keywords: cellular, cellular module, communication, draw, module, pma-cm, power, power draw
+Answer: Cellular Module (PMA-CM) reference: Approx. 4 in wide x 8 in tall x 1.5 in deep; two Ethernet ports; draws 365mA; Monarch-Go cellular module; should have dedicated power or Power Bus.
+
+# Cellular Module use case
+Product: Cellular Module
+Category: Communication
+Keywords: case, cellular, cellular module, communication, module, pma-cm, use, use case
+Answer: Cellular Module (PMA-CM) reference: Approx. 4 in wide x 8 in tall x 1.5 in deep; two Ethernet ports; draws 365mA; Monarch-Go cellular module; should have dedicated power or Power Bus.
+
+# Power Bus dimensions
+Product: Power Bus
+Category: Power
+Keywords: bus, dimensions, pma-pb, power, power bus
+Answer: Power Bus (PMA-PB) reference: External powered bus with two Ethernet ports. Use when high-draw sensors or too many modules exceed the monitor expansion bus limit. In MonSuite logic, a Power Bus powers the connected chain/branch.
+
+# Power Bus ethernet ports
+Product: Power Bus
+Category: Power
+Keywords: bus, ethernet, ethernet ports, pma-pb, ports, power, power bus
+Answer: Power Bus (PMA-PB) reference: External powered bus with two Ethernet ports. Use when high-draw sensors or too many modules exceed the monitor expansion bus limit. In MonSuite logic, a Power Bus powers the connected chain/branch.
+
+# Power Bus wall mount
+Product: Power Bus
+Category: Power
+Keywords: bus, mount, pma-pb, power, power bus, wall, wall mount
+Answer: Power Bus (PMA-PB) reference: External powered bus with two Ethernet ports. Use when high-draw sensors or too many modules exceed the monitor expansion bus limit. In MonSuite logic, a Power Bus powers the connected chain/branch.
+
+# Power Bus power draw
+Product: Power Bus
+Category: Power
+Keywords: bus, draw, pma-pb, power, power bus, power draw
+Answer: Power Bus (PMA-PB) reference: External powered bus with two Ethernet ports. Use when high-draw sensors or too many modules exceed the monitor expansion bus limit. In MonSuite logic, a Power Bus powers the connected chain/branch.
+
+# Power Bus use case
+Product: Power Bus
+Category: Power
+Keywords: bus, case, pma-pb, power, power bus, use, use case
+Answer: Power Bus (PMA-PB) reference: External powered bus with two Ethernet ports. Use when high-draw sensors or too many modules exceed the monitor expansion bus limit. In MonSuite logic, a Power Bus powers the connected chain/branch.
+
+# PPM4 Charger dimensions
+Product: PPM4 Charger
+Category: Power
+Keywords: charger, dimensions, power, ppm4, ppm4 charger, ppm4chrgr
+Answer: PPM4 Charger (PPM4CHRGR) reference: Local single-device power accessory. In MonSuite logic, it can attach to one monitor or sensor and remove that device from upstream expansion-bus load. Confirm exact approved field use with engineering.
+
+# PPM4 Charger ethernet ports
+Product: PPM4 Charger
+Category: Power
+Keywords: charger, ethernet, ethernet ports, ports, power, ppm4, ppm4 charger, ppm4chrgr
+Answer: PPM4 Charger (PPM4CHRGR) reference: Local single-device power accessory. In MonSuite logic, it can attach to one monitor or sensor and remove that device from upstream expansion-bus load. Confirm exact approved field use with engineering.
+
+# PPM4 Charger wall mount
+Product: PPM4 Charger
+Category: Power
+Keywords: charger, mount, power, ppm4, ppm4 charger, ppm4chrgr, wall, wall mount
+Answer: PPM4 Charger (PPM4CHRGR) reference: Local single-device power accessory. In MonSuite logic, it can attach to one monitor or sensor and remove that device from upstream expansion-bus load. Confirm exact approved field use with engineering.
+
+# PPM4 Charger power draw
+Product: PPM4 Charger
+Category: Power
+Keywords: charger, draw, power, power draw, ppm4, ppm4 charger, ppm4chrgr
+Answer: PPM4 Charger (PPM4CHRGR) reference: Local single-device power accessory. In MonSuite logic, it can attach to one monitor or sensor and remove that device from upstream expansion-bus load. Confirm exact approved field use with engineering.
+
+# PPM4 Charger use case
+Product: PPM4 Charger
+Category: Power
+Keywords: case, charger, power, ppm4, ppm4 charger, ppm4chrgr, use, use case
+Answer: PPM4 Charger (PPM4CHRGR) reference: Local single-device power accessory. In MonSuite logic, it can attach to one monitor or sensor and remove that device from upstream expansion-bus load. Confirm exact approved field use with engineering.
+
+# PPM4 Manual reference chunk 1: This manual will outline the operation and functionality of
+Product: PPM4
+Category: Document Reference
+Keywords: abatement, added, additional, aids, and, archive, been, bracket, case, chunk, closed, connection, detail, differential, document, downloading, environments, firmware, functionality, hanging
+Answer: This manual will outline the operation and functionality of the Abatement Technologies Portable Pressure Monitor PPM4 in detail. Visual aids have been added for additional help in proper setup and installation as well as navigating the system’s interface. Rugged case suitable for harsh environments. Optionally operate with the case open or closed or with optional hanging bracket. USB port for on-site firmware upgrading and archive history downloading as well as optional web and mobile app connection for offsite monitoring Differential pressure measurement in the ranges of -25Pa (-0.1 inWC) to +25Pa (+0.1 inWC).
+
+# PPM4 Manual reference chunk 2: Note that this instrument is operated from an internal
+Product: PPM4
+Category: Document Reference
+Keywords: abatement, achieved, another, approximately, battery, before, charge, charged, charger, chunk, completely, conditioned, damage, depleted, discharges, document, even, every, from, full
+Answer: Note that this instrument is operated from an internal Lithium Polymer battery. This is a rechargeable battery which must be conditioned before use. When receiving the unit, turn the power on using the ON/OFF switch and leave it to operate in AC mode until the battery discharges completely. The screen and the LED will go off when the battery is depleted. The unit should then be charged until a full charge is achieved (approximately 7 hours). Note: Only use the Abatement supplied battery charger (MSS235). Use of another power supply can damage the unit. The unit is now ready for use. Please note that the battery should be fully charged every 6 months even if the instrument is not used.
+
+# PPM4 Manual reference chunk 3: The PPM4 pressure monitor operates in two different modes
+Product: PPM4
+Category: Document Reference
+Keywords: able, active, after, always, approximately, automatically, battery, charger, chosen, chunk, continuous, continuously, designed, different, differing, display, document, from, hours, inactivity
+Answer: The PPM4 pressure monitor operates in two different modes to satisfy differing requirements from the operator. These modes are the Battery Mode and the AC Power Mode. The AC Power Mode is designed for continuous operation when the operator wishes to be able to view the display at all times. In this mode, the display screen is always active and the LED indicator is ON continuously. This mode is optimally used with the Battery Charger installed and powered. If this Battery Mode is chosen with the on-screen menu and the unit is operated only from the battery, battery life is limited to approximately 8 hours. The Battery Mode is designed to preserve battery life for unattended operation. In this mode the display is automatically switched off after one minute of user inactivity. In this mode, the LED on the front of the unit will flash every 5 seconds to indicate that the unit is still operating and has not been turned off. The display will only re-appear in the event of an alarm event or if the screen is touched by the user. After touching the screen or pressing the power button, the display will appear but will switch off again after one minute. In Battery Mode, the unit will monitor pressures for up to 3days from a fully charged battery. Both modes are explained in detail later in this document. Note that pressure monitoring and Alarm Annunciation is identical in both modes. In addition, all events are saved in the internal archive in exactly the same manner for both modes. The difference between the modes is only in the appearance of the display.
+
+# PPM4 Manual reference chunk 4: The AC or Battery modes are selected through the
+Product: PPM4
+Category: Document Reference
+Keywords: administration, are, attached, battery, behavior, button, case, chunk, connected, document, finally, first, holding, hose, icon, input, knows, labeled, life, lost
+Answer: The AC or Battery modes are selected through the administration menu. Note that, if the unit is set in Battery Mode and the power supply is attached, the icon will still show as Battery Mode. In this case, the TFT screen stays ON at all times since the unit knows that it has a source of power. If power is lost, the screen will revert to its normal Battery Mode behavior. Finally, when the unit is turned off by holding the ON/OFF button, the LED will remain off at all times. In this mode, battery life is maximized when it is not necessary for the unit to record and monitor pressures. There are two pressure sensor input ports on the pressure monitor. The first input port, labeled REF, is used as a reference pressure. The other end of the hose connected to this port must be in an area outside the space being monitored. If the pressure monitor is located outside the room being monitored, no hose needs to be connected to the REFERENCE input. The other end of the hose from the room being monitored is connected to the input port labeled ROOM.
+
+# PPM4 Manual reference chunk 5: A USB connector is provided for downloading the history
+Product: PPM4
+Category: Document Reference
+Keywords: activate, approx, automatic, battery, button, charge, charger, charging, chunk, connect, connected, connector, designed, display, document, downloading, drives, file, firmware, flash
+Answer: A USB connector is provided for downloading the history file and for uploading new versions of firmware. The USB connector is designed for USB flash drives only. This switch is used to activate the display by a short press of the button. To switch the main power ON and OFF the ON/OFF button will need to be held for approx. 3 seconds. The mode can be observed by viewing the indicator LED on the front of the unit. The LED is on when power is ON. This power jack is used to connect the battery charger to the unit. While the charger is connected, battery charging is automatic. The unit will operate indefinitely with the charger connected. The battery will charge whether the unit is switched on or not while the charger is connected and powered.
+
+# PPM4 Manual reference chunk 6: To operate the unit after initial charging, connect the
+Product: PPM4
+Category: Document Reference
+Keywords: able, adaptor, advised, after, allow, base, battery, cable, case, charged, charger, charging, chunk, closed, connect, cover, desired, disconnects, display, document
+Answer: To operate the unit after initial charging, connect the 1/8” tubing to the ROOM and REF input ports using the supplied quick disconnects. The quick disconnects are supplied with a right-angled adaptor to allow operation with the cover closed. Slots are provided in the base of the case to allow the tubing, the power supply cable and the BMS cable to pass to the outside when closed lid operation is desired. To be able to keep the battery charged while operating, the Battery Charger cable must be inserted into the power jack. If the system is operating in Battery Mode, be advised that the display will turn off after 1 minute of inactivity (Battery Mode is explained later in this document). Operating in AC Power Mode will keep the display on at all times. The filters provided with the box should be placed in line with each input tube in a convenient location. The arrow on the filter must point towards the HHPM on both tubes. NOTE: Caution must be exercised when closing the lid to ensure that the tubes and cables are not pinched. They must pass through their allotted slots.
+
+# PPM4 Manual reference chunk 7: The pressure monitor settings may be accessed using the
+Product: PPM4
+Category: Document Reference
+Keywords: access, accessed, alarm, alarms, appear, audible, back, bottom, button, buttons, chunk, comprised, condition, connected, corner, document, external, five, gear, icon
+Answer: The pressure monitor settings may be accessed using the menu system. The menu system is comprised of a main menu screen and several sub screens. The main menu (shown on the right) is accessed by pushing the settings (gear) icon in the upper right corner of the main screen. The title of the menu is shown at the top. There are five submenu buttons in this menu screen which can be pushed to access the respective submenu. The BACK button is used for navigating to the previous menu. In an alarm condition, the STOP ALARM button will appear at the bottom of the main menu screen. Pressing the STOP ALARM button will silence the audible alarm as well as any external alarms through the web or mobile app if connected. The main screen will remain red until the differential pressure is within the user specified limit. The EXIT button is used for returning to the main screen. A detailed description of the menu structure and the available settings are outlined later in this document. The Room Settings menu will allow you to change various settings for the monitored room.
+
+# PPM4 Manual reference chunk 8: Calibrate after applying zero pressure to the inputs and
+Product: PPM4
+Category: Document Reference
+Keywords: above, acceptable, after, alarm, alarms, allows, and, anything, appear, appears, applying, button, calibrate, calibration, cause, change, chunk, click, completed, continue
+Answer: Calibrate after applying zero pressure to the inputs and waiting for the differential pressure to stabilize. The operator will be prompted to remove all pressure inputs and press a button to continue. The calibration will take place and will return to the zero calibration menu when completed. Set or change the room name. The room name appears on the Main Screen above the sensor readings. If you click this name, a menu will appear to change this name. The Sensor Settings sub menu allows the user to enable/disable sensors, enable/disable alarms, and set the alarm point values. Alarm point values sets the alarm limit of the acceptable pressure range. If the room type is negative, anything above this limit will cause the system to alarm. If the room type is positive anything below this limit will cause the system to alarm. Range: -9.960 Pa (-0.0400 inWC) ~ 9.960 Pa (0.0400 inWC). Factory default is set to 0.0000 inWC. The Preferences Menu screen is to set or change various interaction settings on the device.
+
+# PPM4 Manual reference chunk 9: Alarm Preferences will allow setting the alarm silence duration,
+Product: PPM4
+Category: Document Reference
+Keywords: accepted, accuracy, activated, adjust, after, alarm, alarms, allow, allows, altitude, always, audible, before, change, chunk, cloud, communications, condition, connected, data
+Answer: Alarm Preferences will allow setting the alarm silence duration, enable/disable the audible alarm, and set the delay before an alarm is activated after the room condition is outside the selected range. Pressure Units setting will set the sensor values to display in imperial or metric measurements. You can enable or disable the recording of sensor values and set the time intervals for recording room condition data. Note: The PPM4 will always send alarms to the cloud when connected, regardless of recording settings. Allows the operator to change the altitude setting of the pressure monitor to improve sensor accuracy. Only 1000 ft. increments are accepted (i.e. 900 ft. is not valid). Range: 0 – 9000 ft. Factory default is 1000 ft. Adjust the min and max of the scale for the pressure sensor values displayed on the main screen The Communications sub menu is to set the external data broadcasting settings and to setup the wireless/cellular and web connection. Set and configure BACnet settings to connect the device to the building management software
+
+# PPM4 Manual reference chunk 10: Note: These settings will need to be customized for
+Product: PPM4
+Category: Document Reference
+Keywords: allows, archive, changed, chunk, complete, connected, customized, destroy, device, display, document, does, download, downloaded, downloading, drive, editor, event, file, flash
+Answer: Note: These settings will need to be customized for the specific requirements of the BMS system the device is connected to. The history archive menu allows the operator to interact with the log history. The history will display the job number which was set when the event was recorded. The job number can be changed at startup and through the menu system. The operator will be prompted to plug in a USB flash drive for downloading. Offloading the historical information from the PPM4 does not destroy any information stored internally. The download process will start and the operator will be returned to the previous menu when the download is complete. Do not remove the USB device until the download is complete. The history is downloaded in a CSV format and can be viewed using any text-based editor. To view the file in a text editor, open the file titled “ARCHIVE.CSV”. All pressures recorded in the file are displayed in inWC units. Use only the USB Flash Drive supplied with the unit for this function.
+
+# PPM4 Manual reference chunk 11: This option allows the operator to erase all of
+Product: PPM4
+Category: Document Reference
+Keywords: added, adjust, all, allows, archive, archived, auto, based, battery, been, brightness, case, change, changing, chunk, clock, current, device, displaying, document
+Answer: This option allows the operator to erase all of the previously archived messages in the history. A new entry will be added to the archive history stating that the history has been erased. Allows user to set timer for screen going into rest mode, auto lock settings to set timer for locking the device, adjust brightness of screen, change the size of the text displaying pressure, as well as changing the language used in the software. Enable/Disable Knock Sensor which wakes the system up when its case is physically knocked. Enable/Disable Battery Mode which allows the system to maintain battery life for a longer period of time. Sets the current time with selectable seconds, minutes, and hours. The time used is based on a 24 Hr clock with, for example, 3:00PM being 15:00 hours. Enable/disable the password prompt for access to the main menu. When the operator enables the password the pressure monitor will automatically bring the user to the ENTER NEW PASSWORD screen. They must enter the same password twice to set the new password. Disabled as factory default.
+
+# PPM4 Manual reference chunk 12: The system setup menu provides access to all of
+Product: PPM4
+Category: Document Reference
+Keywords: abatement, about, access, all, allowing, appear, button, chunk, configuring, correct, description, detected, device, displays, document, file, files, firmware, five, follow
+Answer: The system setup menu provides access to all of the options for configuring the way the pressure monitor functions. Update firmware version by inserting USB into the USB port on the device, with correct files provided by Abatement Technologies. When a USB with the correct file is detected, a button will appear allowing users to update firmware. please wait three to five minutes for firmware to update. Update languages by inserting USB into the USB port on the device, with correct files provided by Abatement Technologies. When a USB with the correct file is detected, a button will appear allowing users to update firmware. please wait three to five minutes for firmware to update. Displays the follow information about the system: Description, Serial Number, Firmware Version, Board Communications, Display 5V, Display 3.3V, and Expansion Bus Voltage, these values cannot be changed and are for information purposes only. Fill out all required fields, ensure serial number matches the serial number on the device, (which can be found in the system menu on the PPM4) as well as device type:
+
+# PPM4 Manual reference chunk 13: Firstly, ensure the device is connected to WIFI or
+Product: PPM4
+Category: Document Reference
+Keywords: acceptance, after, alarm, alarms, allow, application, approx, cellular, chunk, connected, correct, create, credentials, device, devices, document, done, ensure, firstly, free
+Answer: Firstly, ensure the device is connected to WIFI or cellular, this can be done through the instructions in the respective menus. in the menu, input the login credentials, these are the same as the credentials used to sign into the web application. If credentials are correct, the system will give an acceptance message After approx. 2 minutes, the device will be moved to the Verified Devices section on the web application There are two levels of device viewing; 1) a free tier that will allow you to get alarms notifications when the device is in an alarm state, 2) a paid subscription tier that will allow you to receive live updates on a set time interval. This will allow you to view the sensor values of the PPM4 when the device is withing the alarm parameters. Create an alarm notification to email or SMS text, select the Add Alarm. From the device list select Add Notifications. In the Add Notification Setup fill in the information and settings on how the Alarm notification will be sent.
+
+# PPM4 Manual reference chunk 14: Once the account and device are setup on the
+Product: PPM4
+Category: Document Reference
+Keywords: account, and, apple, are, at-connect, calibration, chunk, components, consists, consumable, contact, could, credential, damaging, delayed, device, devices, differential, document, download
+Answer: Once the account and device are setup on the web portal, the device can be viewed from a mobile app. Use APPLE STORE or PLAY STORE to download the AT-CONNECT app. Login with the same credential as the web portal and view the devices registered to the account. The following outlines instructions on how to replace consumable components. Contact the manufacturer for replacement information. There are no user serviceable parts internal to this unit. Maintenance consists only of Zero Calibration as recommended and replacement of external filters. The inline filters should be used at all times while the pressure monitor is in operation. This will prevent any dust or moisture from damaging the internal sensors. Using a filter not specified by the manufacturer could result in delayed or incorrect differential pressure readings. Filter replacement is recommended to be done annually for very dirty environments. In normal, clean indoor environments, the filters can be used for up to 5 years.
+
+# PPM4 Manual reference chunk 15: To clean the TFT display use a soft, damp
+Product: PPM4
+Category: Document Reference
+Keywords: actions, additional, after, away, back, based, before, best, black, cables, cause, chain, chemical, chunk, clean, cleaners, cloth, confirm, connected, daisy
+Answer: To clean the TFT display use a soft, damp cloth to gently wipe away any dirt or oil. It is best to do this with the system turned off so that dirt and oil is easily identified on the black screen. Use a horizontal or vertical motion to wipe the display. After using the damp cloth, use a dry cloth to wipe away any traces of moisture that may be left on the display. Do not use chemical cleaners on the display. Such actions may cause permanent damage to the display. The back of the sensor has ethernet ports, it does not matter which port you use, and if you have additional sensors, you can daisy chain them using ethernet cables. Before enabling the sensor in the software, set the DIP switches on the sensor based on: After the sensor is connected, DIP switches are set, and the sensor is enabled in software, confirm that the sensor appears active in the room menu or sensor status screen.
+
+# PPM4 Manual reference chunk 16: Abatement Technologies Inc. (ATI) provides in-house services for calibration
+Product: PPM4
+Category: Document Reference
+Keywords: abatement, after, against, akkreditierungsstelle, also, approval, approximately, ati, available, calibration, calibrations, call, canada, charges, chunk, conform, cover, customer, dakks, defective
+Answer: Abatement Technologies Inc. (ATI) provides in-house services for calibration and repair of all pressure monitors purchased from ATI. Calibrations are traceable to the National Institute of Standards & Technology (NIST). DAKKS: DEUTSCHE AKKREDITIERUNGSSTELLE calibration is also available. If you would like to recalibrate or recertify your pressure monitor, please call our customer service department at 800-634-9091(US) or 800-827-6443 (Canada) for scheduling. Typical turnaround time is approximately 3 weeks after receipt at ATI. Non-warranty repairs will not be made without customer approval and a purchase order to cover repair charges. All models of room differential pressure monitors sold by ATI are warranted for a period of 1 year against defects in materials and workmanship. Goods found by ATI to be defective or not to conform to specification shall upon return be repaired, replaced* or refunded (at ATI’s discretion) without any additional charges provided that:
+
+# PPM4 Manual reference chunk 17: the product has not been subject to abuse, neglect,
+Product: PPM4
+Category: Document Reference
+Keywords: abuse, accident, advance, agencies, altered, anyone, applicable, authorized, been, charges, chunk, defect, destination, developed, document, examination, exceeding, except, from, furnished
+Answer: the product has not been subject to abuse, neglect, accident, incorrect power supply or installation wiring, improper installation/servicing or use in violation of instructions furnished by ATI; the product has not been repaired or altered by anyone except ATI or its authorized service agencies; examination by an authorized ATI service representative reveals a defect in materials or workmanship developed under normal installation, use and service; ATI is notified in advance and the product is returned to ATI. ATI will pay return transportation charges on returned goods not exceeding the transportation charges applicable to shipment from original destination.
+
+# PPM4 Manual reference chunk 18: ATI does not warrant that the goods sold are
+Product: PPM4
+Category: Document Reference
+Keywords: are, arising, ati, beyond, chunk, circumstances, conform, consequential, contingent, damages, defect, directly, disclaimed, document, does, event, expenses, express, expressly, extend
+Answer: ATI does not warrant that the goods sold are merchantable or fit for any particular purpose. ATI makes no warranties other than as stated in this paragraph. All other warranties, guaranties, or representations, express or implied, by operation of law or otherwise, are expressly disclaimed. Returned goods which are found by ATI to be free from defect and to conform to specifications shall be held for Purchaser’s shipping instructions, which instructions Purchaser shall furnish promptly upon request. ATI’s liability shall in no event extend beyond replacement, repair or refund of the purchase price and ATI shall not be liable under any circumstances for special, contingent or consequential damages, nor for loss, damages, or expenses directly or indirectly arising from the use of the goods, including without limitation, warehousing, labor, handling and service charges, die, equipment, or machine breakage, nor for costs, lost profits or loss of good will. The remedies set forth herein are exclusive.
+
+# PPM4 Manual reference chunk 19: *ATI reserves the right to replace with factory refurbished
+Product: PPM4
+Category: Document Reference
+Keywords: adaptable, alarm, ati, audible, barbs, based, battery, beyond, bits, chunk, condition, connect, connects, current, custom, data, date, days, display, document
+Answer: *ATI reserves the right to replace with factory refurbished units for goods returned beyond 90 days from date of purchase Custom alarm set points from -0.0400 InWC (-9.964 Pa) to 0.0400 InWC (9.964 Pa) at a resolution of 0.0001 InWC (0.025 Pa) Audible internal speaker with sound pressure level of 85dB at 10 cm; display warning (yellow for pre-alarm, red for alarm) 0.194” Quick Connect fitting (Quick Connects supplied with 1/8” barbs for 1/8” ID tubing); adaptable with 1/8” ID silicone tubing Data transmitted in CSV file via USB flash drive can be imported into any text based editor or spreadsheet program. 4 mega bits; >12000 logged events in non-volatile memory (no power or battery required) Date and time are shown with a logged event. Events are; alarm condition with current pressure, system startup, alarm reset, configuration change, low battery, archive erased, calibration, start “Battery Mode”, start “ON Mode”, start “OFF Mode”, pressure interval, next day **Approximate values based on current consumption and battery capacity with no sensors. The addition of sensors /
+
+# PPM4 Manual reference chunk 20: This device complies with part 15 of the FCC
+Product: PPM4
+Category: Document Reference
+Keywords: accept, between, body, button, canada, canadian, cause, chunk, clicking, compliance, complies, conditions, device, distance, document, equipment, evaluation, exemption, exposure, fcc
+Answer: This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions: (2) this device must accept any interference received, including interference that may cause undesired operation. This device complies with Industry Canada’s license-exempt RSSs. Operation is subject to the following two conditions: (2) this device must accept any interference, including interference that may cause undesired operation of the device. This device meets the exemption from the routine evaluation limits in section 2.5 of RSS102 and users can obtain Canadian information on RF exposure and compliance. This End equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body. The FCC / IC ID information can be found by clicking the main menu button on the display. Calibration Certification for Abatement Technologies Portable Differential Pressure Monitor
+
+# PPM4 Manual reference chunk 21: The unit accompanied by this manual has met all
+Product: PPM4
+Category: Document Reference
+Keywords: abatement, accompanied, all, available, based, before, below, brochure, calibration, changes, chunk, colors, confirmed, contained, date, designs, discontinue, document, documented, ensure
+Answer: The unit accompanied by this manual has met all specifications documented. Testing was performed to ensure this unit operates within these specifications. Calibration was performed and confirmed before shipping on the date shown below. All Rights Reserved. No reproduction of any portion of this work is permitted without the express written permission of Abatement Technologies, Inc. All illustrations and specifications contained in this brochure are based on the latest product information available at the time of printing. Abatement Technologies reserves the right to: (1) make changes at any time, without notice, to product designs, specifications and materials and colors, (2) introduce new products to the marketplace, and (3) discontinue products as it sees fit. MIB03010(Sep. 2024)
+
+# RPM Manual reference chunk 1: • Do not enable any sensor that is not
+Product: RPM
+Category: Document Reference
+Keywords: abatement, added, additional, affected, aids, alarm, any, assigned, automatically, been, built-in, cables, chunk, communication, connect, connected, connection, cycling, daisy-chaining, detail
+Answer: • Do not enable any sensor that is not physically connected, or the system will generate a communication error alarm. 7 • Try power cycling the affected sensors by unplugging and re-plugging their Ethernet cables. 7 • Some setups may require daisy-chaining left RJ45 to left RJ45 for proper detection. 7 This manual will outline the operation and functionality of the Abatement Technologies Room Pressure Monitor RPM in detail. Visual aids have been added for additional help in proper setup and installation as well as navigating the system’s interface. The RPM (Room Pressure Monitor) supports connection of up to 10 external sensors, with a maximum of 5 per room. The unit includes one built-in pressure sensor, which is automatically assigned to Room 1, Sensor 1. Important: Do not connect any RPM or sensor unit to a standard Ethernet network switch or router. This may damage both the RPM and network equipment.
+
+# RPM Manual reference chunk 2: Before connecting any components or applying power, plan your
+Product: RPM
+Category: Document Reference
+Keywords: additional, affected, alarm, any, applying, assigned, assignments, before, built-in, cable, cables, cannot, cat5e, chunk, communication, components, connected, connecting, cycling, daisy-chain
+Answer: Before connecting any components or applying power, plan your sensor layout. Each sensor must be assigned a room (1 or 2) and a sensor number (1–2). Set these assignments using the DIP switches on each sensor: *Note: Room 1, Sensor 1 is reserved for the built-in pressure sensor and cannot be assigned to an external sensor. Use standard straight-through Ethernet cables (Cat5e or higher). Maximum total cable distance from the RPM to the last sensor should not exceed 50 feet. Daisy-chain additional sensors by connecting an Ethernet cable from one sensor to the next. Do not enable any sensor that is not physically connected, or the system will generate a communication error alarm. Try power cycling the affected sensors by unplugging and re-plugging their Ethernet cables. Some setups may require daisy-chaining left RJ45 to left RJ45 for proper detection.
+
+# RPM Manual reference chunk 3: Once the unit is powered, connect the 1/8” tubing
+Product: RPM
+Category: Document Reference
+Keywords: 1/8, adaptor, allow, appear, arrow, base, both, cable, case, change, chunk, click, closed, connect, convenient, corner, cover, current, desired, disconnects
+Answer: Once the unit is powered, connect the 1/8” tubing to the ROOM and REF input ports using the supplied quick disconnects. The quick disconnects are supplied with a right-angled adaptor to allow operation with the cover closed. Slots are provided in the base of the case to allow the tubing, the power supply cable and the BMS cable to pass to the outside when closed lid operation is desired. The filters provided with the box should be placed in line with each input tube in a convenient location. The arrow on the filter must point towards the HHPM on both tubes. To change the JOB Number. Click the current Job Number in the upper left corner of the screen and an input menu will appear to change the job number.
+
+# RPM Manual reference chunk 4: The pressure monitor settings may be accessed using the
+Product: RPM
+Category: Document Reference
+Keywords: access, accessed, alarm, alarms, appear, audible, back, bottom, button, buttons, chunk, comprised, condition, connected, corner, document, external, five, gear, icon
+Answer: The pressure monitor settings may be accessed using the menu system. The menu system is comprised of a main menu screen and several sub screens. The main menu (shown on the right) is accessed by pushing the settings (gear) icon in the upper right corner of the main screen. The title of the menu is shown at the top. There are five submenu buttons in this menu screen which can be pushed to access the respective submenu. The BACK button is used for navigating to the previous menu. In an alarm condition, the STOP ALARM button will appear at the bottom of the main menu screen. Pressing the STOP ALARM button will silence the audible alarm as well as any external alarms through the web or mobile app if connected. The main screen will remain red until the differential pressure is within the user specified limit. The EXIT button is used for returning to the main screen. A detailed description of the menu structure and the available settings are outlined later in this document. The Room Settings menu will allow you to change various settings for the monitored room.
+
+# RPM Manual reference chunk 5: Calibrate after applying zero pressure to the inputs and
+Product: RPM
+Category: Document Reference
+Keywords: above, acceptable, after, alarm, alarms, allows, and, anything, appears, applying, below, button, calibrate, calibration, cause, change, chunk, completed, continue, differential
+Answer: Calibrate after applying zero pressure to the inputs and waiting for the differential pressure to stabilize. The operator will be prompted to remove all pressure inputs and press a button to continue. The calibration will take place and will return to the zero calibration menu when completed. Set or change the room name. The room name appears on the Main Screen above the sensor readings The Sensor Settings sub menu allows the user to enable/disable sensors, enable/disable alarms, and set the alarm point values. Alarm point values sets the alarm limit of the acceptable pressure range. If the room type is negative, anything above this limit will cause the system to alarm. If the room type is positive anything below this limit will cause the system to alarm. Range: -9.960 Pa (-0.0400 inWC) ~ 9.960 Pa (0.0400 inWC). Factory default is set to 0.0000 inWC. The Preferences Menu screen is to set or change various interaction settings on the device.
+
+# RPM Manual reference chunk 6: Alarm Preferences will allow setting the alarm silence duration,
+Product: RPM
+Category: Document Reference
+Keywords: according, account, activated, after, alarm, alarms, allow, allows, altitude, always, audible, before, change, chunk, cloud, condition, connected, delay, device, display
+Answer: Alarm Preferences will allow setting the alarm silence duration, enable/disable the audible alarm, and set the delay before an alarm is activated after the room condition is outside the selected range. Pressure Units setting will set the sensor values to display in imperial or metric measurements. Enable/Disable sensor value recording or set the time interval at which to record the room condition values. Type 1: Storing values on the device that can later be downloaded to a USB flash drive Note: the web app will only update according to the account setting and or subscription for the linked account. Note: The PPM4 will always send alarms to the cloud when connected, regardless of interval setup. Allows the operator to change the altitude setting of the pressure monitor to improve sensor accuracy. Only 1000 ft. increments are accepted (i.e. 900 ft. is not valid). Range: 0 – 9000 ft. Factory default is 1000 ft. Adjust the min and max of the scale for the pressure sensor values displayed on the main screen
+
+# RPM Manual reference chunk 7: The Communications sub menu is to set the external
+Product: RPM
+Category: Document Reference
+Keywords: allows, archive, bacnet, broadcasting, building, changed, chunk, communications, configure, connect, connected, connection, customized, data, device, display, document, event, external, history
+Answer: The Communications sub menu is to set the external data broadcasting settings and to setup the wireless/cellular and web connection. Set and configure BACnet settings to connect the device to the building management software Note: These settings will need to be customized for the specific requirements of the BMS system the device is connected to. The history archive menu allows the operator to interact with the log history. The history will display the job number which was set when the event was recorded. The job number can be changed at startup and through the menu system.
+
+# RPM Manual reference chunk 8: The operator will be prompted to plug in a
+Product: RPM
+Category: Document Reference
+Keywords: added, allows, archive, archived, chunk, complete, destroy, device, displayed, document, does, download, downloaded, downloading, drive, editor, entry, erase, file, flash
+Answer: The operator will be prompted to plug in a USB flash drive for downloading. Offloading the historical information from the PPM4 does not destroy any information stored internally. The download process will start and the operator will be returned to the previous menu when the download is complete. Do not remove the USB device until the download is complete. The history is downloaded in a CSV format and can be viewed using any text-based editor. To view the file in a text editor, open the file titled “ARCHIVE.CSV”. All pressures recorded in the file are displayed in inWC units. Use only the USB Flash Drive supplied with the unit for this function. This option allows the operator to erase all of the previously archived messages in the history. A new entry will be added to the archive history stating that the history has been erased. Allows user to set timer for screen going into rest mode, auto lock settings to set timer for locking the device, adjust brightness of screen, change the size of the text displaying pressure, as well as changing the language used in the software.
+
+# RPM Manual reference chunk 9: Set this option to on, and set the amount
+Product: RPM
+Category: Document Reference
+Keywords: access, after, amount, and, automatically, based, before, being, bring, chunk, clock, configuring, current, default, device, disabled, displayed, document, enable/disable, enables
+Answer: Set this option to on, and set the amount of time the system should wait before sleeping. After the time out has gone off, this is what will be displayed on screen. Sets the current time with selectable seconds, minutes, and hours. The time used is based on a 24 Hr clock with, for example, 3:00PM being 15:00 hours. Enable/disable the password prompt for access to the main menu. When the operator enables the password the pressure monitor will automatically bring the user to the ENTER NEW PASSWORD screen. They must enter the same password twice to set the new password. Disabled as factory default. The system setup menu provides access to all of the options for configuring the way the pressure monitor functions. Update firmware version by inserting USB into the USB port on the device, with correct files provided by Abatement Technologies. When a USB with the correct file is detected, a button will appear allowing users to update firmware. please wait three to five minutes for firmware to update.
+
+# RPM Manual reference chunk 10: Update languages by inserting USB into the USB port
+Product: RPM
+Category: Document Reference
+Keywords: abatement, about, allowing, appear, board, button, cannot, cellular, changed, chunk, communications, connected, correct, description, detected, device, display, displays, document, done
+Answer: Update languages by inserting USB into the USB port on the device, with correct files provided by Abatement Technologies. When a USB with the correct file is detected, a button will appear allowing users to update firmware. please wait three to five minutes for firmware to update. Displays the follow information about the system: Description, Serial Number, Firmware Version, Board Communications, Display 5V, Display 3.3V, and Expansion Bus Voltage, these values cannot be changed and are for information purposes only. Fill out all required fields, ensure serial number matches the serial number on the device, (which can be found in the system menu on the PPM4) as well as device type: Firstly, ensure the device is connected to WIFI or cellular, this can be done through the instructions in the respective menus. in the menu, input the login credentials, these are the same as the credentials used to sign into the web application. If credentials are correct, the system will give an acceptance message
+
+# RPM Manual reference chunk 11: After approx. 2 minutes, the device will be moved
+Product: RPM
+Category: Document Reference
+Keywords: account, after, alarm, alarms, allow, apple, application, approx, chunk, create, device, devices, document, email, fill, free, from, information, interval, levels
+Answer: After approx. 2 minutes, the device will be moved to the Verified Devices section on the web application There are two levels of device viewing; 1) a free tier that will allow you to get alarms notifications when the device is in an alarm state, 2) a paid subscription tier that will allow you to receive live updates on a set time interval. This will allow you to view the sensor values of the PPM4 when the device is withing the alarm parameters. Create an alarm notification to email or SMS text, select the Add Alarm. From the device list select Add Notifications. In the Add Notification Setup fill in the information and settings on how the Alarm notification will be sent. Once the account and device are setup on the web portal, the device can be viewed from a mobile app. Use APPLE STORE or PLAY STORE to download the AT-CONNECT app. Login with the same credential as the web portal and view the devices registered to the account. The following outlines instructions on how to replace consumable components. Contact the manufacturer for replacement information.
+
+# RPM Manual reference chunk 12: There are no user serviceable parts internal to this
+Product: RPM
+Category: Document Reference
+Keywords: annually, are, away, best, black, calibration, chunk, clean, cloth, consists, could, damaging, damp, delayed, differential, dirt, dirty, display, document, done
+Answer: There are no user serviceable parts internal to this unit. Maintenance consists only of Zero Calibration as recommended and replacement of external filters. The inline filters should be used at all times while the pressure monitor is in operation. This will prevent any dust or moisture from damaging the internal sensors. Using a filter not specified by the manufacturer could result in delayed or incorrect differential pressure readings. Filter replacement is recommended to be done annually for very dirty environments. In normal, clean indoor environments, the filters can be used for up to 5 years. To clean the TFT display use a soft, damp cloth to gently wipe away any dirt or oil. It is best to do this with the system turned off so that dirt and oil is easily identified on the black screen. Use a horizontal or vertical motion to wipe the display. After using the damp cloth, use a dry cloth to wipe away any traces of moisture that may be left on the display. Do not use chemical cleaners on the display. Such actions may cause permanent damage to the display.
+
+# RPM Manual reference chunk 13: Abatement Technologies Inc. (ATI) provides in-house services for calibration
+Product: RPM
+Category: Document Reference
+Keywords: abatement, after, against, akkreditierungsstelle, also, approval, approximately, ati, available, calibration, calibrations, call, canada, charges, chunk, conform, cover, customer, dakks, defective
+Answer: Abatement Technologies Inc. (ATI) provides in-house services for calibration and repair of all pressure monitors purchased from ATI. Calibrations are traceable to the National Institute of Standards & Technology (NIST). DAKKS: DEUTSCHE AKKREDITIERUNGSSTELLE calibration is also available. If you would like to recalibrate or recertify your pressure monitor, please call our customer service department at 800-634-9091(US) or 800-827-6443 (Canada) for scheduling. Typical turnaround time is approximately 3 weeks after receipt at ATI. Non-warranty repairs will not be made without customer approval and a purchase order to cover repair charges. All models of room differential pressure monitors sold by ATI are warranted for a period of 1 year against defects in materials and workmanship. Goods found by ATI to be defective or not to conform to specification shall upon return be repaired, replaced* or refunded (at ATI’s discretion) without any additional charges provided that:
+
+# RPM Manual reference chunk 14: the product has not been subject to abuse, neglect,
+Product: RPM
+Category: Document Reference
+Keywords: abuse, accident, advance, agencies, altered, anyone, applicable, authorized, been, charges, chunk, defect, destination, developed, document, examination, exceeding, except, from, furnished
+Answer: the product has not been subject to abuse, neglect, accident, incorrect power supply or installation wiring, improper installation/servicing or use in violation of instructions furnished by ATI; the product has not been repaired or altered by anyone except ATI or its authorized service agencies; examination by an authorized ATI service representative reveals a defect in materials or workmanship developed under normal installation, use and service; ATI is notified in advance and the product is returned to ATI. ATI will pay return transportation charges on returned goods not exceeding the transportation charges applicable to shipment from original destination.
+
+# RPM Manual reference chunk 15: ATI does not warrant that the goods sold are
+Product: RPM
+Category: Document Reference
+Keywords: are, arising, ati, beyond, chunk, circumstances, conform, consequential, contingent, damages, defect, directly, disclaimed, document, does, event, expenses, express, expressly, extend
+Answer: ATI does not warrant that the goods sold are merchantable or fit for any particular purpose. ATI makes no warranties other than as stated in this paragraph. All other warranties, guaranties, or representations, express or implied, by operation of law or otherwise, are expressly disclaimed. Returned goods which are found by ATI to be free from defect and to conform to specifications shall be held for Purchaser’s shipping instructions, which instructions Purchaser shall furnish promptly upon request. ATI’s liability shall in no event extend beyond replacement, repair or refund of the purchase price and ATI shall not be liable under any circumstances for special, contingent or consequential damages, nor for loss, damages, or expenses directly or indirectly arising from the use of the goods, including without limitation, warehousing, labor, handling and service charges, die, equipment, or machine breakage, nor for costs, lost profits or loss of good will. The remedies set forth herein are exclusive.
+
+# RPM Manual reference chunk 16: *ATI reserves the right to replace with factory refurbished
+Product: RPM
+Category: Document Reference
+Keywords: adaptable, alarm, ati, audible, barbs, based, battery, beyond, bits, chunk, condition, connect, connects, current, custom, data, date, days, display, document
+Answer: *ATI reserves the right to replace with factory refurbished units for goods returned beyond 90 days from date of purchase Custom alarm set points from -0.0400 InWC (-9.964 Pa) to 0.0400 InWC (9.964 Pa) at a resolution of 0.0001 InWC (0.025 Pa) Audible internal speaker with sound pressure level of 85dB at 10 cm; display warning (yellow for pre-alarm, red for alarm) 0.194” Quick Connect fitting (Quick Connects supplied with 1/8” barbs for 1/8” ID tubing); adaptable with 1/8” ID silicone tubing Data transmitted in CSV file via USB flash drive can be imported into any text based editor or spreadsheet program. 4 mega bits; >12000 logged events in non-volatile memory (no power or battery required) Date and time are shown with a logged event. Events are; alarm condition with current pressure, system startup, alarm reset, configuration change, low battery, archive erased, calibration, start “Battery Mode”, start “ON Mode”, start “OFF Mode”, pressure interval, next day **Approximate values based on current consumption and battery capacity with no sensors. The addition of sensors /
+
+# RPM Manual reference chunk 17: This device complies with part 15 of the FCC
+Product: RPM
+Category: Document Reference
+Keywords: accept, between, body, button, canada, canadian, cause, chunk, clicking, compliance, complies, conditions, device, distance, document, equipment, evaluation, exemption, exposure, fcc
+Answer: This device complies with part 15 of the FCC Rules. Operation is subject to the following two conditions: (2) this device must accept any interference received, including interference that may cause undesired operation. This device complies with Industry Canada’s license-exempt RSSs. Operation is subject to the following two conditions: (2) this device must accept any interference, including interference that may cause undesired operation of the device. This device meets the exemption from the routine evaluation limits in section 2.5 of RSS102 and users can obtain Canadian information on RF exposure and compliance. This End equipment should be installed and operated with a minimum distance of 20 cm between the radiator and your body. The FCC / IC ID information can be found by clicking the main menu button on the display. PPM3 Lithium Polymer Battery Pack, 3.7V, 2000 mAH with integrated control electronics PPM3 Accessory Kit, includes: 2 x quick-connect adapters for 1/8 ID tubing, 2 x tubes, 2 x 1/8" barb elbow connectors
+
+# RPM Manual reference chunk 18: Calibration Certification for Abatement Technologies Portable Differential Pressure Monitor
+Product: RPM
+Category: Document Reference
+Keywords: abatement, accompanied, before, below, calibration, certification, chunk, confirmed, date, differential, document, documented, ensure, for, manual, monitor, operates, performed, portable, pressure
+Answer: Calibration Certification for Abatement Technologies Portable Differential Pressure Monitor The unit accompanied by this manual has met all specifications documented. Testing was performed to ensure this unit operates within these specifications. Calibration was performed and confirmed before shipping on the date shown below. Calibration Certification for Abatement Technologies Portable Differential Pressure Monitor The unit accompanied by this manual has met all specifications documented. Testing was performed to ensure this unit operates within these specifications. Calibration was performed and confirmed before shipping on the date shown below.
+
+# RPM Manual reference chunk 19: All Rights Reserved. No reproduction of any portion of
+Product: RPM
+Category: Document Reference
+Keywords: abatement, all, any, available, based, brochure, changes, chunk, colors, contained, designs, discontinue, document, express, illustrations, information, introduce, latest, make, manual
+Answer: All Rights Reserved. No reproduction of any portion of this work is permitted without the express written permission of Abatement Technologies, Inc. All illustrations and specifications contained in this brochure are based on the latest product information available at the time of printing. Abatement Technologies reserves the right to: (1) make changes at any time, without notice, to product designs, specifications and materials and colors, (2) introduce new products to the marketplace, and (3) discontinue products as it sees fit. MIB03010(Sep. 2024)
+
+# Temperature & Humidity Sensor Quick Guide reference chunk 1: Readings display on the main screen once enabled and
+Product: Temp/RH Sensor
+Category: Document Reference
+Keywords: alarms, and, assigned, built-in, cable, cables, cannot, choose, chunk, cloud, configured, connect, daisy-chain, dip1, dip4, display, document, either, enabled, ethernet
+Answer: Readings display on the main screen once enabled and can be used for alarms and cloud reporting (if configured). Do NOT connect RPM/PPM4 sensors to a standard network switch/router (this is a sensor bus, not Ethernet networking). Plan which Room (1 or 2) and Sensor number you want this sensor to be assigned to. *Note: Room 1, Sensor 1 is reserved for the built-in pressure sensor and cannot be used by an external sensor. Recommended: Use Room 1, Sensor 2 (DIP4 OFF, DIP1 ON) unless you have a reason to choose otherwise. Connect an Ethernet cable from either RPM/PPM4 RJ45 port to either RJ45 port on the sensor. If you have multiple sensors, daisy-chain them sensor-to-sensor with Ethernet cables. From the main screen go to: Menu → Room Settings → Room 1 → Sensor Settings → Sensor Enable Tip: Do not enable a sensor that isn’t physically connected or you may get a communication error alarm. Important: Alarms only trigger if Room Status = Occupied Check: Menu → Room Settings → Room X → Room Status → Occupied
+
+# Temperature & Humidity Sensor Quick Guide reference chunk 2: Some RPM/PPM4 peripheral sensors can receive power from the
+Product: Temp/RH Sensor
+Category: Document Reference
+Keywords: abatement, appropriate, available, because, best, built-in, can, capacity, cellular, chunk, connected, count, document, does, exceed, exceeds, expansion, external, from, guide
+Answer: Some RPM/PPM4 peripheral sensors can receive power from the RPM/PPM4 expansion bus. However, the expansion bus has a maximum available capacity of 200 mA total for connected peripheral modules. The Cellular Module requires its own power supply because it exceeds the RPM/PPM4 expansion bus capacity. For best performance, Abatement Technologies recommends using the provided power supply for higher-current peripheral sensors, including: Temp/RH and external pressure sensors may be powered by the RPM/PPM4 expansion bus as long as the total connected peripheral load does not exceed 200 mA. Do not add an air velocity sensor, particle sensor, or cellular module to this setup without using the appropriate external power supply. Important: The built-in pressure sensor is internal to the RPM/PPM4 and does not count as an external sensor module on the expansion bus. To receive notifications of software and product updates you must register using this QR code.
+
+# Pressure Sensor Quick Guide reference chunk 1: • Adds pressure readings to your RPM/PPM4 for display,
+Product: Pressure Sensor
+Category: Document Reference
+Keywords: adds, alarming, assigned, before, built-in, cables, cannot, cat5e, chunk, cloud, configured, confirm, connect, correctly, depending, differential, display, document, ethernet, external
+Answer: • Adds pressure readings to your RPM/PPM4 for display, alarming, and cloud reporting, if configured. • Used to monitor room pressure differential in the monitored space. • Helps confirm whether a room is under negative, positive, or neutral pressure, depending on your setup. • 1x Pressure sensor • Cat5e or higher Ethernet cables • Pressure tubing, if required for your installation • RPM/PPM4 powered on • Do NOT connect RPM/PPM4 sensors to a standard network switch/router. This is a sensor bus, not Ethernet networking. • Plan which Room 1 or Room 2 and Sensor number you want this sensor assigned to. • Confirm the pressure tubing is routed correctly before relying on readings. *Note: Room 1, Sensor 1 is reserved for the built-in pressure sensor and cannot be used by an external sensor. Connect an Ethernet cable from either RPM/PPM4 RJ45 port to either RJ45 port on the pressure sensor. • Use straight-through Cat5e+ • Total distance from RPM/PPM4 to last sensor: ≤ 50 ft • Some setups may require left RJ45 to left RJ45 for proper detection.
+
+# Pressure Sensor Quick Guide reference chunk 2: • Install the pressure sensor in the area or
+Product: Pressure Sensor
+Category: Document Reference
+Keywords: access, according, affect, airflow, appears, area, areas, avoid, blocked, check, chunk, confirm, connected, connections, contact, correct, damage, direction, directly, disconnected
+Answer: • Install the pressure sensor in the area or room you want to monitor. • Mount the sensor where it is protected from damage and easy to access for service. • Avoid placing it: o Where tubing can be pinched, blocked, or disconnected o Directly in front of supply vents or strong airflow o In wet areas or where water spray may contact the sensor o In locations where vibration or impact may affect the sensor If the pressure sensor uses pressure ports or tubing, make sure the tubing is securely connected and not kinked. Confirm the reference side and room side are connected according to your pressure monitoring setup. Confirm the tubing is connected to the correct port for the pressure direction you want to measure. Tip: If the pressure value appears reversed, check the tubing connections and confirm the room/reference ports are not swapped. From the main screen go to: Menu → Room Settings → Room 1 → Sensor Settings → Sensor Enable Tip: Do not enable a sensor that isn’t physically connected or you may get a communication error alarm.
+
+# Pressure Sensor Quick Guide reference chunk 3: Pressure alarm limits should match the required pressure condition
+Product: Pressure Sensor
+Category: Document Reference
+Keywords: airflow, alarm, alarms, appear, cable, chaining, changes, chunk, cloud, condition, configured, confirm, connections, consistent, daisy-chained, document, door, enabled, ensure, ethernet
+Answer: Pressure alarm limits should match the required pressure condition for the room, such as negative pressure, positive pressure, or neutral pressure. • Return to the main screen and confirm pressure values appear. • Confirm the reading changes when the room pressure condition changes, such as when a door opens or airflow changes. • If cloud reporting is configured, confirm updates and alarms appear in your web portal/app. • Confirm DIP switches match the sensor slot you enabled. • Confirm all RJ45 connections are fully seated. • Try unplugging/replugging the sensor Ethernet cable. • If daisy-chained, ensure chaining is consistent. Try left-to-left RJ45 if needed. • Power-cycle the RPM/PPM4 if needed.
+
+# Pressure Sensor Quick Guide reference chunk 4: • Check that tubing is connected to the correct
+Product: Pressure Sensor
+Category: Document Reference
+Keywords: according, affect, after, airflow, allow, appears, appropriate, available, because, being, blocked, capacity, cellular, changes, check, chunk, condition, confirm, connected, connections
+Answer: • Check that tubing is connected to the correct pressure ports. • Confirm tubing is not pinched, blocked, loose, or leaking. • Check sensor placement and tubing location. Doors, vents, and airflow changes can affect readings. • Make sure the reference point is appropriate for the pressure condition being monitored. • Allow readings to stabilize after installation or after moving the sensor/tubing. • If the value appears reversed, swap or verify the room/reference tubing connections according to the installation requirements. Some RPM/PPM4 peripheral sensors can receive power from the RPM/PPM4 expansion bus. However, the expansion bus has a maximum available capacity of 200 mA total for connected peripheral modules. The Cellular Module requires its own power supply because it exceeds the RPM/PPM4 expansion bus capacity. For best performance, Abatement Technologies recommends using the provided power supply for higher-current peripheral sensors, including:
+
+# Pressure Sensor Quick Guide reference chunk 5: Temp/RH and external pressure sensors may be powered by
+Product: Pressure Sensor
+Category: Document Reference
+Keywords: and, appropriate, built-in, cellular, chunk, code, connected, count, document, does, exceed, expansion, external, guide, important, internal, load, long, may, module
+Answer: Temp/RH and external pressure sensors may be powered by the RPM/PPM4 expansion bus as long as the total connected peripheral load does not exceed 200 mA. Do not add an air velocity sensor, particle sensor, or cellular module to this setup without using the appropriate external power supply. Important: The built-in pressure sensor is internal to the RPM/PPM4 and does not count as an external sensor module on the expansion bus. To receive notifications of software and product updates you must register using this QR code.
+
+# ACH / Velocity Sensor Quick Guide reference chunk 1: Adds air velocity readings to your RPM/PPM4 for display,
+Product: ACH / Velocity Sensor
+Category: Document Reference
+Keywords: ach, adds, air, airflow, alarming, arrow, being, built-in, cable, cannot, chunk, cloud, configured, connect, direction, display, document, either, element, ethernet
+Answer: Adds air velocity readings to your RPM/PPM4 for display, alarming, and cloud reporting, if configured. Helps verify ventilation, airflow direction, and air movement levels where the sensor is installed. Do NOT connect RPM/PPM4 sensors to a standard network switch/router. This is a sensor bus, not Ethernet networking. Make sure the air velocity sensor is installed in a location where airflow can reach the sensing element properly. *Note: Room 1, Sensor 1 is reserved for the built-in pressure sensor and cannot be used by an external sensor. Connect an Ethernet cable from either RPM/PPM4 RJ45 port to either RJ45 port on the air velocity sensor. Position the sensor so the sensing element is exposed to the airflow being measured. If the sensor has an airflow direction arrow, probe opening, or sensing window, make sure it is oriented correctly. Too close to supply vents, exhaust grilles, or fans unless that airflow is the intended measurement point Tip: Do not enable a sensor that is not physically connected or you may get a communication error alarm.
+
+# ACH / Velocity Sensor Quick Guide reference chunk 2: Set the desired alarm thresholds for the air velocity
+Product: ACH / Velocity Sensor
+Category: Document Reference
+Keywords: abatement, ach, air, alarm, alarms, appear, available, avoid, because, best, capacity, cellular, chaining, chunk, close, cloud, configured, confirm, connected, consistent
+Answer: Set the desired alarm thresholds for the air velocity reading shown by your system. If cloud reporting is configured, confirm updates and alarms appear in your web portal or app. If daisy-chained, ensure chaining is consistent. Try left-to-left RJ45 if needed. Avoid placing the sensor too close to fans, vents, doors, or obstructions unless those are part of the intended measurement. Some RPM/PPM4 peripheral sensors can receive power from the RPM/PPM4 expansion bus. However, the expansion bus has a maximum available capacity of 200 mA total for connected peripheral modules. The Cellular Module requires its own power supply because it exceeds the RPM/PPM4 expansion bus capacity. For best performance, Abatement Technologies recommends using the provided power supply for higher-current peripheral sensors, including: Temp/RH and external pressure sensors may be powered by the RPM/PPM4 expansion bus as long as the total connected peripheral load does not exceed 200 mA.
+
+# ACH / Velocity Sensor Quick Guide reference chunk 3: Do not add an air velocity sensor, particle sensor,
+Product: ACH / Velocity Sensor
+Category: Document Reference
+Keywords: ach, add, air, appropriate, built-in, cellular, chunk, code, count, document, does, expansion, external, guide, important, internal, module, must, not, notifications
+Answer: Do not add an air velocity sensor, particle sensor, or cellular module to this setup without using the appropriate external power supply. Important: The built-in pressure sensor is internal to the RPM/PPM4 and does not count as an external sensor module on the expansion bus. To receive notifications of software and product updates you must register using this QR code.
+
+# Particle Sensor Quick Guide reference chunk 1: Adds particle readings to your RPM/PPM4 for display, alarming,
+Product: Particle Sensor
+Category: Document Reference
+Keywords: adds, alarming, built-in, cable, cannot, choose, chunk, cloud, communication, configured, connect, connected, direction, display, document, either, enable, error, ethernet, external
+Answer: Adds particle readings to your RPM/PPM4 for display, alarming, and cloud reporting (if configured). Do NOT connect RPM/PPM4 sensors to a standard network switch/router (this is a sensor bus, not Ethernet networking). *Note: Room 1, Sensor 1 is reserved for the built-in pressure sensor and cannot be used by an external sensor. Recommended: Use Room 1, Sensor 2 unless you have a reason to choose otherwise. Connect an Ethernet cable from either RPM/PPM4 RJ45 port to either RJ45 port on the particle sensor. (If your particle sensor has an intake direction, grill, or sampling port, keep it unobstructed.) From the main screen go to: Menu → Room Settings → Room 1 → Sensor Settings → Sensor Enable Tip: Do not enable a sensor that isn’t physically connected or you may get a communication error alarm. Set the desired alarm thresholds for the particle reading(s) shown by your system. Important: Alarms only trigger if Room Status = Occupied Check: Menu → Room Settings → Room X → Room Status → Occupied Check sensor placement (near doors, vents, work zones, or cleaning activity can spike readings)
+
+# Particle Sensor Quick Guide reference chunk 2: Some RPM/PPM4 peripheral sensors can receive power from the
+Product: Particle Sensor
+Category: Document Reference
+Keywords: abatement, appropriate, available, because, best, built-in, can, capacity, cellular, chunk, connected, count, document, does, exceed, exceeds, expansion, external, from, guide
+Answer: Some RPM/PPM4 peripheral sensors can receive power from the RPM/PPM4 expansion bus. However, the expansion bus has a maximum available capacity of 200 mA total for connected peripheral modules. The Cellular Module requires its own power supply because it exceeds the RPM/PPM4 expansion bus capacity. For best performance, Abatement Technologies recommends using the provided power supply for higher-current peripheral sensors, including: Temp/RH and external pressure sensors may be powered by the RPM/PPM4 expansion bus as long as the total connected peripheral load does not exceed 200 mA. Do not add an air velocity sensor, particle sensor, or cellular module to this setup without using the appropriate external power supply. Important: The built-in pressure sensor is internal to the RPM/PPM4 and does not count as an external sensor module on the expansion bus. To receive notifications of software and product updates you must register using this QR code.
+
+# Cellular Module Setup Quick Guide reference chunk 1: The modem uses a standard 3FF (micro-SIM) form factor.
+Product: Cellular Module
+Category: Document Reference
+Keywords: 3ff, allows, american, area, attach, bands, bell, best, block, canada, canadian, cards, carrier, carriers, cat-m1, cellular, chunk, commands, consumer, cross-border
+Answer: The modem uses a standard 3FF (micro-SIM) form factor. In practice, most Canadian and American SIM cards from major carriers will work, as long as the plan is provisioned for LTE-M (Cat-M1) data and the carrier supports the modem’s bands in your area. What works best: IoT/M2M data plans from major carriers in Canada and the U.S. (Rogers, Bell, Telus; Verizon, AT&T, T-Mobile) that explicitly include LTE-M. APN: You’ll need the carrier’s APN. Insert SIM → power on → set APN via AT commands, then attach. Roaming: Cross-border roaming is possible if your plan allows LTE-M roaming; otherwise, use a local SIM. eUICC/eSIM: Supported if delivered as a 3FF profile/SIM by your carrier and provisioned for LTE-M. Locked/Special SIMs: Consumer phone SIMs sometimes block IoT use or LTE-M; if attach fails, ask your carrier to enable LTE-M on the line. Once you have an activated SIM, you will need to ensure it is the correct size of MICRO or 15mm x 12mm. If your SIM is too small, adapters are available for purchase. If the sim is too large, the is usually a casing which can be removed to make it MICRO.
+
+# Cellular Module Setup Quick Guide reference chunk 2: You will need to access the black plate of
+Product: Cellular Module
+Category: Document Reference
+Keywords: able, access, according, apns, black, cable, card, carrier, carriers, cellular, chain, check, chunk, closely, direction, document, does, ethernet, first, gently
+Answer: You will need to access the black plate of your monarch-go module. Remove this black plate gently to reveal this metal plate for our SIM to be inserted. Gently slide the metal plate to unlock it. If you look very closely, you can see ‘lock’ and ‘open’ with which direction to push the plate Insert your SIM card into the slot. Slide the metal plate into locking position, the SIM card should not be able to move at all once locked. Plug the module into the PPM4 using the provided ethernet cable. Sides do not matter, where it is in the chain of sensors does not matter. Set the APN according to your carrier, if the first APN does not work, check to see if your carrier has others. Most carriers have multiple APNs.
+
+# Cellular Module Setup Quick Guide reference chunk 3: The Monarch Gois a pre-certified cellular + GPS/GNSS modem
+Product: Cellular Module
+Category: Document Reference
+Keywords: antennas, application, attaches, bridge, building, calculates, cat-m1, cellular, chunk, cloud, combines, commands, custom, data, device, document, embedded, enabled, enclosure, establishes
+Answer: The Monarch Gois a pre-certified cellular + GPS/GNSS modem packaged for quick prototyping and integration. It combines an LTE Cat-M1 radio (for low-power, wide-area data on Verizon’s network) with an integrated GNSS receiver and embedded antennas inside a small enclosure. The kit presents the modem over USB as a virtual COM port, so you can send standard AT commands from a terminal or your application without building a custom radio front end. Cellular link (LTE-M): Your device talks to the modem over UART (via the kit’s USB bridge) using AT commands. The modem attaches to the LTE-M network, establishes a data session, and moves IP packets (TCP/UDP/HTTP/MQTT, etc.) to your cloud or server. GNSS positioning: When enabled, the onboard GNSS calculates position fixes (e.g., GPS/Galileo). Your application reads NMEA/AT outputs for coordinates, speed, and time. Power management: The modem supports low-power modes (eDRX/PSM). You enable these via AT commands to trade off latency for battery life. A hardware RING/Wake line and URCs can wake your host when events occur.
+
+# Cellular Module Setup Quick Guide reference chunk 4: Integrated antennas: LTE and GNSS antennas are built in.
+Product: Cellular Module
+Category: Document Reference
+Keywords: above, affect, america, and, antenna, antennas, are, audio/video, avoid, bands, because, built, carriers, cellular, chunk, connectivity, constraints, cover, degrades, dense
+Answer: Integrated antennas: LTE and GNSS antennas are built in. Follow keep-out guidance (avoid metal directly above the enclosure) for reliable RF performance. Network & bands: LTE-M only (no 2G/3G/Cat-1). Primarily for Verizon bands in North America; roaming/other carriers may not be supported. Throughput & latency: Designed for telemetry, not streaming. Expect hundreds of kbps with variable latency—unsuitable for high-bandwidth or real-time audio/video. GNSS constraints: GNSS needs sky view; performance degrades indoors or under dense cover. Antenna placement: Because antennas are internal, enclosure materials and nearby metal strongly affect performance—respect placement guidelines. In short, this kit is a ready-to-use pathway to add low-power cellular connectivity and location to your device, ideal for sensors, asset trackers, and controllers that send small, periodic messages and can tolerate LTE-M latency characteristics.
+
+# Cellular Module Setup Quick Guide reference chunk 5: Some RPM/PPM4 peripheral sensors can receive power from the
+Product: Cellular Module
+Category: Document Reference
+Keywords: abatement, appropriate, available, because, best, built-in, can, capacity, cellular, chunk, connected, count, document, does, exceed, exceeds, expansion, external, from, guide
+Answer: Some RPM/PPM4 peripheral sensors can receive power from the RPM/PPM4 expansion bus. However, the expansion bus has a maximum available capacity of 200 mA total for connected peripheral modules. The Cellular Module requires its own power supply because it exceeds the RPM/PPM4 expansion bus capacity. For best performance, Abatement Technologies recommends using the provided power supply for higher-current peripheral sensors, including: Temp/RH and external pressure sensors may be powered by the RPM/PPM4 expansion bus as long as the total connected peripheral load does not exceed 200 mA. Do not add an air velocity sensor, particle sensor, or cellular module to this setup without using the appropriate external power supply. Important: The built-in pressure sensor is internal to the RPM/PPM4 and does not count as an external sensor module on the expansion bus. To receive notifications of software and product updates you must register using this QR code.
+
+# Cellular Module Setup Quick Guide reference chunk 1: The modem uses a standard 3FF (micro-SIM) form factor.
+Product: PPM4 Cellular
+Category: Document Reference
+Keywords: 3ff, allows, american, area, attach, bands, bell, best, block, canada, canadian, cards, carrier, carriers, cat-m1, cellular, chunk, commands, consumer, cross-border
+Answer: The modem uses a standard 3FF (micro-SIM) form factor. In practice, most Canadian and American SIM cards from major carriers will work, as long as the plan is provisioned for LTE-M (Cat-M1) data and the carrier supports the modem’s bands in your area. What works best: IoT/M2M data plans from major carriers in Canada and the U.S. (Rogers, Bell, Telus; Verizon, AT&T, T-Mobile) that explicitly include LTE-M. APN: You’ll need the carrier’s APN. Insert SIM → power on → set APN via AT commands, then attach. Roaming: Cross-border roaming is possible if your plan allows LTE-M roaming; otherwise, use a local SIM. eUICC/eSIM: Supported if delivered as a 3FF profile/SIM by your carrier and provisioned for LTE-M. Locked/Special SIMs: Consumer phone SIMs sometimes block IoT use or LTE-M; if attach fails, ask your carrier to enable LTE-M on the line. Once you have an activated SIM, you will need to ensure it is the correct size of MICRO or 15mm x 12mm. If your SIM is too small, adapters are available for purchase. If the sim is too large, the is usually a casing which can be removed to make it MICRO.
+
+# Cellular Module Setup Quick Guide reference chunk 2: you will need to access the back plate of
+Product: PPM4 Cellular
+Category: Document Reference
+Keywords: access, allows, american, area, attach, back, bands, bell, best, black, canada, canadian, cards, carrier, carriers, cat-m1, cellular, chunk, commands, cross-border
+Answer: you will need to access the back plate of your monarch-go module. Use a small screwdriver and remove this black plate gently. The modem uses a standard 3FF (micro-SIM) form factor. In practice, most Canadian and American SIM cards from major carriers will work, as long as the plan is provisioned for LTE-M (Cat-M1) data and the carrier supports the modem’s bands in your area. What works best: IoT/M2M data plans from major carriers in Canada and the U.S. (Rogers, Bell, Telus; Verizon, AT&T, T-Mobile) that explicitly include LTE-M. APN: You’ll need the carrier’s APN. Insert SIM → power on → set APN via AT commands, then attach. Roaming: Cross-border roaming is possible if your plan allows LTE-M roaming; otherwise, use a local SIM. eUICC/eSIM: Supported if delivered as a 3FF profile/SIM by your carrier and provisioned for LTE-M. Locked/Special SIMs: Consumer phone SIMs sometimes block IoT use or LTE-M; if attach fails, ask your carrier to enable LTE-M on the line.
+
+# Cellular Module Setup Quick Guide reference chunk 3: Once you have an activated SIM, you will need
+Product: PPM4 Cellular
+Category: Document Reference
+Keywords: able, access, activated, adapters, available, back, black, card, casing, cellular, chunk, correct, document, ensure, gently, guide, have, into, large, locked
+Answer: Once you have an activated SIM, you will need to ensure it is the correct size of MICRO or 15mm x 12mm. If your SIM is too small, adapters are available for purchase. If the sim is too large, the is usually a casing which can be removed to make it MICRO. you will need to access the back plate of your monarch-go module. Use a small screwdriver and remove this black plate gently. You will see a slot for a simcard. This is a sliding plate, use a screwdriver to gently slide this plate to unlock it. You will see a slot for a simcard. This is a sliding plate, use a screwdriver to gently slide this plate to unlock it. Slide the metal plate into locking position using a screwdriver, the SIM card should not be able to move at all once locked. Plug the module into the PPM4 using the provided ethernet cable. Sides do not matter, where it is in the chain of sensors does not matter. Slide the metal plate into locking position using a screwdriver, the SIM card should not be able to move at all once locked.
+
+# Cellular Module Setup Quick Guide reference chunk 4: Plug the module into the PPM4 using the provided
+Product: PPM4 Cellular
+Category: Document Reference
+Keywords: according, antennas, apns, cable, carrier, carriers, cat-m1, cellular, chain, check, chunk, combines, commands, data, document, does, embedded, enclosure, ethernet, first
+Answer: Plug the module into the PPM4 using the provided ethernet cable. Sides do not matter, where it is in the chain of sensors does not matter. Set the APN according to your carrier, if the first APN does not work, check to see if your carrier has others. Most carriers have multiple APNs. Set the APN according to your carrier, if the first APN does not work, check to see if your carrier has others. Most carriers have multiple APNs. The Monarch Gois a pre-certified cellular + GPS/GNSS modem packaged for quick prototyping and integration. It combines an LTE Cat-M1 radio (for low-power, wide-area data on Verizon’s network) with an integrated GNSS receiver and embedded antennas inside a small enclosure. The kit presents the modem over USB as a virtual COM port, so you can send standard AT commands from a terminal or your application without building a custom radio front end.
+
+# Cellular Module Setup Quick Guide reference chunk 5: Cellular link (LTE-M): Your device talks to the modem
+Product: PPM4 Cellular
+Category: Document Reference
+Keywords: above, antennas, application, attaches, avoid, battery, bridge, built, calculates, cellular, chunk, cloud, commands, coordinates, data, device, directly, document, edrx/psm, enable
+Answer: Cellular link (LTE-M): Your device talks to the modem over UART (via the kit’s USB bridge) using AT commands. The modem attaches to the LTE-M network, establishes a data session, and moves IP packets (TCP/UDP/HTTP/MQTT, etc.) to your cloud or server. GNSS positioning: When enabled, the onboard GNSS calculates position fixes (e.g., GPS/Galileo). Your application reads NMEA/AT outputs for coordinates, speed, and time. Power management: The modem supports low-power modes (eDRX/PSM). You enable these via AT commands to trade off latency for battery life. A hardware RING/Wake line and URCs can wake your host when events occur. Integrated antennas: LTE and GNSS antennas are built in. Follow keep-out guidance (avoid metal directly above the enclosure) for reliable RF performance. Network & bands: LTE-M only (no 2G/3G/Cat-1). Primarily for Verizon bands in North America; roaming/other carriers may not be supported. Throughput & latency: Designed for telemetry, not streaming. Expect hundreds of kbps with variable latency—unsuitable for high-bandwidth or real-time audio/video.
+
+# Cellular Module Setup Quick Guide reference chunk 6: Power & I/O levels: I/O is 1.8 V logic
+Product: PPM4 Cellular
+Category: Document Reference
+Keywords: adequate, antennas, application, building, bulk, bursts, capacitance, cat-m1, cellular, chunk, combines, commands, constraints, cover, current, custom, data, degrades, dense, device
+Answer: Power & I/O levels: I/O is 1.8 V logic at the module. If you later embed the modem, use level shifting for 3.3 V/5 V hosts and provide adequate bulk capacitance for TX current bursts. GNSS constraints: GNSS needs sky view; performance degrades indoors or under dense cover. The Monarch Gois a pre-certified cellular + GPS/GNSS modem packaged for quick prototyping and integration. It combines an LTE Cat-M1 radio (for low-power, wide-area data on Verizon’s network) with an integrated GNSS receiver and embedded antennas inside a small enclosure. The kit presents the modem over USB as a virtual COM port, so you can send standard AT commands from a terminal or your application without building a custom radio front end. Cellular link (LTE-M): Your device talks to the modem over UART (via the kit’s USB bridge) using AT commands. The modem attaches to the LTE-M network, establishes a data session, and moves IP packets (TCP/UDP/HTTP/MQTT, etc.) to your cloud or server.
+
+# Cellular Module Setup Quick Guide reference chunk 7: GNSS positioning: When enabled, the onboard GNSS calculates position
+Product: PPM4 Cellular
+Category: Document Reference
+Keywords: above, america, antennas, application, avoid, bands, battery, built, calculates, carriers, cellular, chunk, commands, coordinates, designed, directly, document, edrx/psm, enable, enabled
+Answer: GNSS positioning: When enabled, the onboard GNSS calculates position fixes (e.g., GPS/Galileo). Your application reads NMEA/AT outputs for coordinates, speed, and time. Power management: The modem supports low-power modes (eDRX/PSM). You enable these via AT commands to trade off latency for battery life. A hardware RING/Wake line and URCs can wake your host when events occur. Integrated antennas: LTE and GNSS antennas are built in. Follow keep-out guidance (avoid metal directly above the enclosure) for reliable RF performance. Network & bands: LTE-M only (no 2G/3G/Cat-1). Primarily for Verizon bands in North America; roaming/other carriers may not be supported. Throughput & latency: Designed for telemetry, not streaming. Expect hundreds of kbps with variable latency—unsuitable for high-bandwidth or real-time audio/video. Power & I/O levels: I/O is 1.8 V logic at the module. If you later embed the modem, use level shifting for 3.3 V/5 V hosts and provide adequate bulk capacitance for TX current bursts. GNSS constraints: GNSS needs sky view; performance degrades indoors or under dense cover.
+
+# Cellular Module Setup Quick Guide reference chunk 8: Antenna placement: Because antennas are internal, enclosure materials and
+Product: PPM4 Cellular
+Category: Document Reference
+Keywords: affect, and, antenna, antennas, are, asset, because, cellular, characteristics, chunk, connectivity, controllers, device, document, enclosure, guide, guidelines, ideal, internal, latency
+Answer: Antenna placement: Because antennas are internal, enclosure materials and nearby metal strongly affect performance—respect placement guidelines. In short, this kit is a ready-to-use pathway to add low-power cellular connectivity and location to your device, ideal for sensors, asset trackers, and controllers that send small, periodic messages and can tolerate LTE-M latency characteristics. Antenna placement: Because antennas are internal, enclosure materials and nearby metal strongly affect performance—respect placement guidelines. In short, this kit is a ready-to-use pathway to add low-power cellular connectivity and location to your device, ideal for sensors, asset trackers, and controllers that send small, periodic messages and can tolerate LTE-M latency characteristics.
+
+# PPM4 Firmware Update from Legacy Versions reference chunk 1: Important: If your PPM4 firmware is below version 1.6,
+Product: PPM4 Firmware
+Category: Document Reference
+Keywords: attempt, before, below, both, cause, chunk, copy, device, directly, document, each, errors, files, firmware, first, folder, folders, from, higher, important
+Answer: Important: If your PPM4 firmware is below version 1.6, you must first update to version 1.6 before proceeding to version 1.8. Do not attempt to update directly to version 1.8, as this may cause errors that require the device to be returned for reprogramming. You will see two folders, one for each software version (NOTE: your version may be 1.8 or higher than 1.7) Important: If your PPM4 firmware is below version 1.6, you must first update to version 1.6 before proceeding to version 1.8. Do not attempt to update directly to version 1.8, as this may cause errors that require the device to be returned for reprogramming. You will see two folders, one for each software version (NOTE: your version may be 1.8 or higher than 1.7) Go into the 1.6 folder and copy both of these files and paste them in the root (main) folder IMPORTANT: BE SURE TO USE 1.6 AND NOT 1.8 Important: Ensure you took files from 1.6, not 1.8, as updating directly to 1.8 may break the system If appropriate files are on the USB, a button will appear that says ‘Update firmware’
+
+# PPM4 Firmware Update from Legacy Versions reference chunk 2: After some seconds, the PPM4 will restart, check the
+Product: PPM4 Firmware
+Category: Document Reference
+Keywords: abatement, after, appear, appropriate, both, break, button, check, chunk, concerns, contact, copy, device, directly, document, double, ensure, files, firmware, folder
+Answer: After some seconds, the PPM4 will restart, check the system menu to ensure the system updated to 1.6 Go into the 1.6 folder and copy both of these files and paste them in the root (main) folder IMPORTANT: BE SURE TO USE 1.6 AND NOT 1.8 Important: Ensure you took files from 1.6, not 1.8, as updating directly to 1.8 may break the system If appropriate files are on the USB, a button will appear that says ‘Update firmware’ After some seconds, the PPM4 will restart, check the system menu to ensure the system updated to 1.6 Double check your serial number to ensure its matching what is printed on the box If you have any questions or concerns with this process please contact Abatement Technologies Warning: Once Firmware is upgraded, your device may stop communicating with the web platform. If this happens, follow the steps below. Double check your serial number to ensure its matching what is printed on the box If you have any questions or concerns with this process please contact Abatement Technologies
+
+# PPM4 Firmware Update from Legacy Versions reference chunk 3: Warning: Once Firmware is upgraded, your device may stop
+Product: PPM4 Firmware
+Category: Document Reference
+Keywords: added, below, chunk, communicating, correct, delete, device, document, existing, find, firmware, first, follow, from, happens, icon, legacy, may, need, next
+Answer: Warning: Once Firmware is upgraded, your device may stop communicating with the web platform. If this happens, follow the steps below. If your device was previously added to the platform, it will need to be re-added with the correct Device Type Find your device on the web platform, if this section says PPM, you will need to follow the next steps Using the red trashcan icon, first delete your existing device off of the platform If your device was previously added to the platform, it will need to be re-added with the correct Device Type Find your device on the web platform, if this section says PPM, you will need to follow the next steps Using the red trashcan icon, first delete your existing device off of the platform Fill out all required fields, ensure serial number matches the serial number on the device, (which can be found in the system menu on the PPM4) as well as device type: Fill out all required fields, ensure serial number matches the serial number on the device, (which can be found in the system menu on the PPM4) as well as device type:
+
+# PPM4 Firmware Update from Legacy Versions reference chunk 4: Firstly, ensure the device is connected to WIFI or
+Product: PPM4 Firmware
+Category: Document Reference
+Keywords: acceptance, after, application, approx, cellular, chunk, connected, correct, credentials, device, devices, document, done, ensure, firmware, firstly, from, give, input, instructions
+Answer: Firstly, ensure the device is connected to WIFI or cellular, this can be done through the instructions in the respective menus. in the menu, input the login credentials, these are the same as the credentials used to sign into the web application. If credentials are correct, the system will give an acceptance message Firstly, ensure the device is connected to WIFI or cellular, this can be done through the instructions in the respective menus. in the menu, input the login credentials, these are the same as the credentials used to sign into the web application. If credentials are correct, the system will give an acceptance message After approx. 2 minutes, the device will be moved to the Verified Devices section on the web application After approx. 2 minutes, the device will be moved to the Verified Devices section on the web application
+
+# PPM4 IoT System Architecture Explanation reference chunk 1: This diagram illustrates how the PPM4 IoT device, developed
+Product: PPM4 Cloud
+Category: Document Reference
+Keywords: alarm, architecture, back, below, bridgera, cellular, chunk, cloud, commands, communicates, communication, component, configured, connectivity, current, data, developed, device, diagram, document
+Answer: This diagram illustrates how the PPM4 IoT device, developed by Micro, communicates with the Bridgera web platform and a mobile app, with current Wi-Fi connectivity and a planned future cellular option. Below is an explanation of each component and its role. It sends JSON data when an alarm is triggered or at intervals (if configured for live updates). This diagram illustrates how the PPM4 IoT device, developed by Micro, communicates with the Bridgera web platform and a mobile app, with current Wi-Fi connectivity and a planned future cellular option. Below is an explanation of each component and its role. It sends JSON data when an alarm is triggered or at intervals (if configured for live updates). One-Way Communication: The platform does not send commands back to the PPM4—only receives data. The Bridgera platform interfaces with this database to retrieve and process data. Provides users with access to their PPM4 data through a mobile or web-based interface. One-Way Communication: The platform does not send commands back to the PPM4—only receives data.
+
+# PPM4 IoT System Architecture Explanation reference chunk 2: The Bridgera platform interfaces with this database to retrieve
+Product: PPM4 Cloud
+Category: Document Reference
+Keywords: access, alternative, architecture, bridgera, cellular, chunk, cloud, connectivity, control, current, data, database, device, document, ensures, explanation, flow, from, future, historical
+Answer: The Bridgera platform interfaces with this database to retrieve and process data. Provides users with access to their PPM4 data through a mobile or web-based interface. In the future, the PPM4 will support cellular connectivity as an alternative to Wi-Fi. Data would still flow to the Bridgera platform in the same way but using a cellular network instead of Wi-Fi. Sends JSON data via Wi-Fi (current) or Cellular (future) to the Bridgera web platform. This setup ensures a one-way data flow from the PPM4 to the cloud and then to the user, providing real-time monitoring and historical data without remote control of the device. In the future, the PPM4 will support cellular connectivity as an alternative to Wi-Fi. Data would still flow to the Bridgera platform in the same way but using a cellular network instead of Wi-Fi. Sends JSON data via Wi-Fi (current) or Cellular (future) to the Bridgera web platform. This setup ensures a one-way data flow from the PPM4 to the cloud and then to the user, providing real-time monitoring and historical data without remote control of the device.
+
+# PPM4 Mobile App Quickstart reference chunk 1: A verification code will be sent over email. Enter
+Product: PPM4 Mobile
+Category: Document Reference
+Keywords: another, app, chunk, code, document, email, enter, into, mobile, one-time, over, password, ppm4, quickstart, reference, sent, sign, this, verification, will
+Answer: A verification code will be sent over email. Enter this code into the mobile app. A verification code will be sent over email. Enter this code into the mobile app. Another email will be sent with a one-time password, use this to sign into the mobile app. Another email will be sent with a one-time password, use this to sign into the mobile app.
+
+# PPM4 Web / Cloud Quickstart reference chunk 1: In this guide i will go over how to
+Product: PPM4 Cloud
+Category: Document Reference
+Keywords: alarms, application, cellular, chunk, cloud, connected, device, document, done, emails, ensure, fields, fill, firstly, found, guide, have, how, instructions, matches
+Answer: In this guide i will go over how to get a PPM4 connected to the cloud VIA the Web Application and have it sending text messages and emails when the device alarms. In this guide i will go over how to get a PPM4 connected to the cloud VIA the Web Application and have it sending text messages and emails when the device alarms. Fill out all required fields, ensure serial number matches the serial number on the device, (which can be found in the system menu on the PPM4) as well as device type: Fill out all required fields, ensure serial number matches the serial number on the device, (which can be found in the system menu on the PPM4) as well as device type: Firstly, ensure the device is connected to WIFI or cellular, this can be done through the instructions in the respective menus. in the menu, input the login credentials, these are the same as the credentials used to sign into the web application. If credentials are correct, the system will give an acceptance message After approx. 2 minutes, the device will be moved to the Verified Devices section on the web application
+
+# PPM4 Web / Cloud Quickstart reference chunk 2: Firstly, ensure the device is connected to WIFI or
+Product: PPM4 Cloud
+Category: Document Reference
+Keywords: acceptance, after, alarm, alarming, application, approx, border, buzzer, cellular, chunk, click, cloud, connected, correct, credentials, definition, device, devices, document, done
+Answer: Firstly, ensure the device is connected to WIFI or cellular, this can be done through the instructions in the respective menus. in the menu, input the login credentials, these are the same as the credentials used to sign into the web application. If credentials are correct, the system will give an acceptance message After approx. 2 minutes, the device will be moved to the Verified Devices section on the web application Then we will make the PPM4 alarm, turning it onto occupied and setting the alarm points to force an alarm. You can tell it is alarming by the red border and buzzer sounding. Once an alarm is sent from PPM4, we can see a new alarm definition made in the Web Application, we can then go head and click Add Notification Then we will make the PPM4 alarm, turning it onto occupied and setting the alarm points to force an alarm. You can tell it is alarming by the red border and buzzer sounding. Once an alarm is sent from PPM4, we can see a new alarm definition made in the Web Application, we can then go head and click Add Notification
+
+# PPM4 Web / Cloud Quickstart reference chunk 3: This is where we will add our phone number,
+Product: PPM4 Cloud
+Category: Document Reference
+Keywords: add, chunk, cloud, comma, document, email, emails, more, number, our, phone, ppm4, quickstart, reference, separating, than, them, this, web, where
+Answer: This is where we will add our phone number, emails, ect. We can add more than one email or number by separating them with a comma This is where we will add our phone number, emails, ect. We can add more than one email or number by separating them with a comma
+
+# PPM4 Wi-Fi Quickstart reference chunk 1: To setup wifi on the PPM4 first you must
+Product: PPM4 Wi-Fi
+Category: Document Reference
+Keywords: after, available, brought, button, chunk, come, corner, document, first, gear, have, icon, input, menu, must, navigate, network, networks, password, ppm4
+Answer: To setup wifi on the PPM4 first you must navigate to to the settings by pressing the gear icon the top right corner of the screen To setup wifi on the PPM4 first you must navigate to to the settings by pressing the gear icon the top right corner of the screen After you have selected the gear icon, you will come to this settings screen, select the WIFI button After you have selected the gear icon, you will come to this settings screen, select the WIFI button You will be brought to the wifi screen, the menu will scan, then show available networks, select your network and input your password You will be brought to the wifi screen, the menu will scan, then show available networks, select your network and input your password
+
+# PPM4 Wi-Fi Troubleshooting reference chunk 1: 1. Device Connects but Fails to Validate This issue
+Product: PPM4 Wi-Fi
+Category: Document Reference
+Keywords: advanced, appear, arises, available, but, button, chunk, connect, connecting, connects, corporate, cycle, desired, device, displaying, document, does, down, enter, environments
+Answer: 1. Device Connects but Fails to Validate This issue typically arises when connecting to networks with advanced security measures, such as those found in hospitals or corporate environments. If the device successfully connects but does not validate, try the following steps: Once the device successfully validates on the hotspot, reconnect to the original network. 2. Wi-Fi Network Not Displaying If the desired Wi-Fi network does not appear in the available network list, follow these steps: - Power cycle the PPM4 device by holding down the power button for 10 seconds. This can help refresh the network scan. - If the network is still not visible, select the "HIDDEN SSID" option and manually enter your network name (SSID) to connect. 3. Device Still Will Not Connect If the device continues to experience connectivity issues, it may be necessary to involve your network’s IT team. Specifically, they may need to "greenlist" the PPM4 device, ensuring it is recognized and allowed on the network. Consider the following when diagnosing issues.
+
+# PPM4 Wi-Fi Troubleshooting reference chunk 2: 1. Device Connects but Fails to Validate This issue
+Product: PPM4 Wi-Fi
+Category: Document Reference
+Keywords: advanced, appear, arises, available, but, button, chunk, connect, connecting, connects, corporate, cycle, desired, device, displaying, document, does, down, enter, environments
+Answer: 1. Device Connects but Fails to Validate This issue typically arises when connecting to networks with advanced security measures, such as those found in hospitals or corporate environments. If the device successfully connects but does not validate, try the following steps: Once the device successfully validates on the hotspot, reconnect to the original network. 2. Wi-Fi Network Not Displaying If the desired Wi-Fi network does not appear in the available network list, follow these steps: - Power cycle the PPM4 device by holding down the power button for 10 seconds. This can help refresh the network scan. - If the network is still not visible, select the "HIDDEN SSID" option and manually enter your network name (SSID) to connect. 3. Device Still Will Not Connect If the device continues to experience connectivity issues, it may be necessary to involve your network’s IT team. Specifically, they may need to "greenlist" the PPM4 device, ensuring it is recognized and allowed on the network. Consider the following when diagnosing issues.
+
+# PPM4 screen is alarming
+Product: PPM4
+Category: Troubleshooting
+Keywords: alarming, fix, issue, ppm4, problem, screen, support, troubleshoot, troubleshooting
+Answer: If the PPM4 is alarming, review the room/pressure status, use STOP ALARM only to silence the audible alert, and correct the condition that caused pressure to move outside limits. The screen may remain red until values return within limits.
+
+# PPM4 cannot download log
+Product: PPM4
+Category: Troubleshooting
+Keywords: cannot, download, fix, issue, log, ppm4, problem, support, troubleshoot, troubleshooting
+Answer: For PPM4 log downloads, use the supplied USB drive if applicable, wait until the download completes, and do not remove the drive early. If data does not export, retry with the correct USB media and check the Data Log menu.
+
+# PPM4 wrong pressure readings
+Product: PPM4
+Category: Troubleshooting
+Keywords: fix, issue, ppm4, pressure, problem, readings, support, troubleshoot, troubleshooting, wrong
+Answer: If PPM4 pressure readings look wrong, check Room and Reference tubing, verify filters and tube orientation, confirm no tubes are pinched/blocked, avoid blowing into ports, and calibrate only according to procedure.
+
+# PPM4 cannot connect to cloud
+Product: PPM4
+Category: Troubleshooting
+Keywords: cannot, cloud, connect, fix, issue, ppm4, problem, support, troubleshoot, troubleshooting
+Answer: If PPM4 will not connect to cloud, verify Wi-Fi/cellular connection, device registration, credentials entered in Cloud Setup, and whether the network allows validation. Try a hotspot to rule out corporate network restrictions.
+
+# PPM4 sensor values missing
+Product: PPM4
+Category: Troubleshooting
+Keywords: fix, issue, missing, ppm4, problem, sensor, support, troubleshoot, troubleshooting, values
+Answer: If PPM4 sensor values do not appear, verify DIP switches, sensor enable settings, power, Ethernet cables, total cable distance, and consistent daisy-chain wiring. Do not use a standard network switch/router.
+
+# RPM screen is alarming
+Product: RPM
+Category: Troubleshooting
+Keywords: alarming, fix, issue, problem, rpm, screen, support, troubleshoot, troubleshooting
+Answer: If the RPM is alarming, review the room/pressure status, use STOP ALARM only to silence the audible alert, and correct the condition that caused pressure to move outside limits. The screen may remain red until values return within limits.
+
+# RPM cannot download log
+Product: RPM
+Category: Troubleshooting
+Keywords: cannot, download, fix, issue, log, problem, rpm, support, troubleshoot, troubleshooting
+Answer: For RPM log downloads, use the supplied USB drive if applicable, wait until the download completes, and do not remove the drive early. If data does not export, retry with the correct USB media and check the Data Log menu.
+
+# RPM wrong pressure readings
+Product: RPM
+Category: Troubleshooting
+Keywords: fix, issue, pressure, problem, readings, rpm, support, troubleshoot, troubleshooting, wrong
+Answer: If RPM pressure readings look wrong, check Room and Reference tubing, verify filters and tube orientation, confirm no tubes are pinched/blocked, avoid blowing into ports, and calibrate only according to procedure.
+
+# RPM cannot connect to cloud
+Product: RPM
+Category: Troubleshooting
+Keywords: cannot, cloud, connect, fix, issue, problem, rpm, support, troubleshoot, troubleshooting
+Answer: If RPM will not connect to cloud, verify Wi-Fi/cellular connection, device registration, credentials entered in Cloud Setup, and whether the network allows validation. Try a hotspot to rule out corporate network restrictions.
+
+# RPM sensor values missing
+Product: RPM
+Category: Troubleshooting
+Keywords: fix, issue, missing, problem, rpm, sensor, support, troubleshoot, troubleshooting, values
+Answer: If RPM sensor values do not appear, verify DIP switches, sensor enable settings, power, Ethernet cables, total cable distance, and consistent daisy-chain wiring. Do not use a standard network switch/router.
+
+# download PPM4 latest firmware v2.2
+Product: PPM4 Firmware
+Category: Firmware
+Keywords: download, firmware, hex, latest, package, ppm4, update, version
+Answer: Download the latest PPM4 v2.2 firmware package from the linked Google Drive folder. Before installing, verify current device version. If the PPM4 is below v1.8, update to v1.8 first, then update to v2.2.
+
+# download PPM4 v1.8 migration package
+Product: PPM4 Firmware
+Category: Firmware
+Keywords: download, firmware, hex, migration, package, ppm4, update, version
+Answer: Use the PPM4 v1.8 migration package when a PPM4 is below v1.8. This is the required intermediate step before updating to the latest v2.2 firmware package.
+
+# download RPM latest firmware
+Product: RPM Firmware
+Category: Firmware
+Keywords: download, firmware, hex, latest, mfw1042a, rpm, update, version
+Answer: Download the latest RPM firmware MFW1042A.hex from the linked Google Drive folder. RPM does not use the PPM4 below-1.8 migration warning; follow RPM firmware update steps without the PPM4-specific 1.8 requirement.
+
+# RPM firmware update instructions
+Product: RPM Firmware
+Category: Firmware
+Keywords: download, firmware, hex, instructions, latest, mfw1042a, rpm, update, version
+Answer: For RPM firmware updates, use the firmware update process from the general instructions: download the correct RPM firmware file, place it on the required USB media if the procedure calls for it, insert the media into the RPM, use the system/firmware update menu, keep power connected during update, and do not remove media or power until complete. Leave out the PPM4-only below-1.8 migration step.
+
+# open PPM4 Manual
+Product: PPM4
+Category: Document Link
+Keywords: document, download, guide, link, manual, open, ppm4
+Answer: Open the source document here: https://docs.google.com/document/d/16K9WVfojveqaZWyiTfti14W0QO2rAuhv/edit?usp=drive_link&ouid=106548179376433005372&rtpof=true&sd=true
+
+# open RPM Manual
+Product: RPM
+Category: Document Link
+Keywords: document, download, guide, link, manual, open, rpm
+Answer: Open the source document here: https://docs.google.com/document/d/1fQubA6975M3K3Zy80_ylF3fbROo8CGRp/edit?usp=drive_link&ouid=106548179376433005372&rtpof=true&sd=true
+
+# open Temperature & Humidity Sensor Quick Guide
+Product: Temperature & Humidity Sensor
+Category: Document Link
+Keywords: document, download, guide, humidity, link, manual, open, quick, sensor, temperature
+Answer: Open the source document here: https://docs.google.com/document/d/187dJ1pq8qR1vd6x7KAR6W52YVRUP3nwh/edit?usp=drive_link&ouid=106548179376433005372&rtpof=true&sd=true
+
+# open Pressure Sensor Quick Guide
+Product: Pressure Sensor
+Category: Document Link
+Keywords: document, download, guide, link, manual, open, pressure, quick, sensor
+Answer: Open the source document here: https://docs.google.com/document/d/1cOVjqPVg3SVflLI92JfK1A26HadMA2U1/edit?usp=drive_link&ouid=106548179376433005372&rtpof=true&sd=true
+
+# open ACH / Velocity Sensor Quick Guide
+Product: ACH / Velocity Sensor
+Category: Document Link
+Keywords: ach, document, download, guide, link, manual, open, quick, sensor, velocity
+Answer: Open the source document here: https://docs.google.com/document/d/1of_UXpkELLnhNzrOpBh5U6la_a6zu--D/edit?usp=drive_link&ouid=106548179376433005372&rtpof=true&sd=true
+
+# open Particle Sensor Quick Guide
+Product: Particle Sensor
+Category: Document Link
+Keywords: document, download, guide, link, manual, open, particle, quick, sensor
+Answer: Open the source document here: https://docs.google.com/document/d/1_AchivrGBuIcV7eezeRG6kt35pCYD_Gi/edit?usp=drive_link&ouid=106548179376433005372&rtpof=true&sd=true
+
+# open Cellular Module Setup Quick Guide
+Product: Cellular Module Setup
+Category: Document Link
+Keywords: cellular, document, download, guide, link, manual, module, open, quick, setup
+Answer: Open the source document here: https://docs.google.com/document/d/1tCA0fPUpyCAxweMY27g-f1R6prsBPAXw/edit?usp=drive_link&ouid=106548179376433005372&rtpof=true&sd=true
+
+# open PPM4 Wi-Fi Quickstart
+Product: PPM4
+Category: Document Link
+Keywords: document, download, guide, link, manual, open, ppm4, quickstart, wi-fi
+Answer: Open the source document here: https://docs.google.com/document/d/1JpLABNCgFCCLv9B4-8jeWvkZKoBfOzAr/edit?usp=drive_link&ouid=106548179376433005372&rtpof=true&sd=true
+
+# open PPM4 Wi-Fi Troubleshooting
+Product: PPM4
+Category: Document Link
+Keywords: document, download, guide, link, manual, open, ppm4, troubleshooting, wi-fi
+Answer: Open the source document here: https://docs.google.com/document/d/1WZFT6sMLPnqtEJO-vOJjuNciZxRpv15q/edit?usp=drive_link&ouid=106548179376433005372&rtpof=true&sd=true
+
+# open PPM4 Web / Cloud Quickstart
+Product: PPM4
+Category: Document Link
+Keywords: cloud, document, download, guide, link, manual, open, ppm4, quickstart, web
+Answer: Open the source document here: https://docs.google.com/document/d/1OUGNAgw2QJEc4o0Ttt8VNnsZ6mFidqpW/edit?usp=drive_link&ouid=106548179376433005372&rtpof=true&sd=true
+
+# open PPM4 Mobile App Quickstart
+Product: PPM4
+Category: Document Link
+Keywords: app, document, download, guide, link, manual, mobile, open, ppm4, quickstart
+Answer: Open the source document here: https://docs.google.com/document/d/1IdczrcXU-10oq0iUZ-pJ87er_bRnzA_s/edit?usp=drive_link&ouid=106548179376433005372&rtpof=true&sd=true
+
+# open PPM4 Firmware Update from Legacy Versions
+Product: PPM4
+Category: Document Link
+Keywords: document, download, firmware, from, guide, legacy, link, manual, open, ppm4, update, versions
+Answer: Open the source document here: https://docs.google.com/document/d/1BCYDkR25AoWeSo8lBoprmWYNMCVQYGc1/edit?usp=drive_link&ouid=106548179376433005372&rtpof=true&sd=true
+
+# open PPM4 IoT System Architecture Explanation
+Product: PPM4
+Category: Document Link
+Keywords: architecture, document, download, explanation, guide, iot, link, manual, open, ppm4, system
+Answer: Open the source document here: https://docs.google.com/document/d/1JR-OmSaLPIXCY7Ds2-RPone73w-YLcUE/edit?usp=drive_link&ouid=106548179376433005372&rtpof=true&sd=true
+
+# open PPM4 v1.8 migration package
+Product: PPM4
+Category: Document Link
+Keywords: document, download, guide, link, manual, migration, open, package, ppm4
+Answer: Open the source document here: https://drive.google.com/drive/folders/1zbe6LWL4vL5nDFQAxEny_WbbvBt20efu?usp=drive_link
+
+# open RPM latest firmware MFW1042A.hex
+Product: RPM
+Category: Document Link
+Keywords: document, download, firmware, guide, hex, latest, link, manual, mfw1042a, open, rpm
+Answer: Open the source document here: https://drive.google.com/drive/folders/1yc95dsKmsmHNuY4kqDxwt7MDEy9ZaTdO?usp=sharing
+
+# AT Connect mobile app overview
+Product: AT Connect
+Category: Mobile App
+Keywords: at connect, app, mobile, play store, push notifications, ppm4, rpm, cloud, phone
+Answer: AT Connect is the mobile app path for connecting PPM4 or RPM so users can see online pressure data and receive app push notifications for alarms. For alarm notifications, direct users to install the mobile app first instead of relying on SMS or email. The web portal is still useful for reviewing and downloading saved data.
+
+# add PPM4 or RPM to AT Connect
+Product: AT Connect
+Category: Device Setup
+Keywords: add device, ppm4, rpm, connect device, online data, cloud setup, at connect
+Answer: Install AT Connect on the user’s phone, sign in or create the customer account, then add the PPM4 or RPM device in the app. After adding the device, verify that the monitor appears online and recent pressure data is updating. Use the same account in the web portal when browser access or downloadable data is needed.
+
+# enable push notifications in AT Connect
+Product: AT Connect
+Category: Notifications
+Keywords: push notifications, alarm notifications, phone alerts, app alerts, notifications, alarm, at connect
+Answer: For alarm alerts, use the AT Connect mobile app and allow push notifications when the phone asks for permission. If the user is not receiving phone alerts, check the phone notification settings for AT Connect and confirm alarms are visible in the app or web portal. Push notifications should be the main recommendation over SMS or email.
+
+# download online data from AT Connect web portal
+Product: AT Connect
+Category: Web Portal
+Keywords: web portal, connect.abatement.com, download data, online data, history, records, pressure data
+Answer: Use connect.abatement.com for browser access to online records, downloads, and review. The mobile app should be recommended first for push alarm notifications, while the web portal is best for reviewing and downloading saved pressure data and history.
+
+# alarm history and notifications in AT Connect
+Product: AT Connect
+Category: Alarms
+Keywords: alarm history, alarms, notifications, pressure alarm, history, push notification, at connect
+Answer: AT Connect should be used to review alarm history and receive alarm notifications from connected PPM4 or RPM devices. For active alerting, guide users to install the mobile app and enable push notifications. For reviewing or downloading history, use the app or connect.abatement.com.
+
+# AT Connect cloud and mobile troubleshooting
+Product: AT Connect
+Category: Troubleshooting
+Keywords: troubleshooting, not online, not updating, notifications not working, cloud, mobile, app, wifi, cellular
+Answer: If AT Connect is not updating, verify the monitor is connected by Wi-Fi or cellular, confirm the device appears online, and check whether recent data is visible in the app or web portal. If alarm push notifications are not working, check phone notification permission for AT Connect. For live hospital/job-site pressure issues or missing records, make a support ticket with device serial number, job number, screenshots, and what the monitor shows locally.
+
+# How the Scrubber Selector chooses a scrubber
+Product: Scrubber Selector
+Category: Scrubber Sizing
+Keywords: scrubber selector, how it works, recommendation logic, location, project type, hazard, goal, room size, ach, cfm, pressure monitor
+Answer: The Scrubber Selector asks for location, project type, hazard or concern, primary goal, room size, setup details, power, and site/cabinet preference. It then chooses a rule set, calculates room volume, target ACH, design CFM, ducting derating, effective scrubber CFM, quantity, achieved ACH, electrical load, and whether pressure monitoring/documentation should be recommended. The output is an estimating recommendation, not a compliance stamp.
+
+# Scrubber sizing: ACH and CFM calculation
+Product: Scrubber Selector
+Category: Scrubber Sizing
+Keywords: ach, cfm, room volume, sizing, scrubber quantity, air changes per hour, calculate scrubber, design ach
+Answer: Scrubber sizing starts with room volume: length × width × height. Required CFM is calculated as ACH × room volume ÷ 60. MonSuite then applies a safety factor and ducting/filter derating, divides the design CFM by effective scrubber CFM, and rounds up to the next whole unit. Always round up: 1.2 units means 2 units.
+
+# When a scrubber also needs a pressure monitor
+Product: Scrubber Selector
+Category: Pressure Monitoring
+Keywords: pressure monitor, negative pressure, positive pressure, containment, prove pressure, ppm4, rpm, air scrubber, monitor required, alarm logging
+Answer: A scrubber or negative air machine creates airflow, but it does not prove the room is holding the required pressure relationship. If the goal is negative pressure, positive pressure, healthcare isolation, healthcare construction containment, asbestos containment, or project documentation, recommend a calibrated pressure monitor such as RPM or PPM4. The monitor provides the live pressure reading, alarm, and record that the space stayed under control.
+
+# H2KM vs BD2K: metal vs plastic cabinet choice
+Product: Scrubbers
+Category: Product Selection
+Keywords: h2km, h2kma, bd2k, bulldog, metal, plastic, cabinet, residential, wet area, finished space, scratch, 2,000 cfm, same class
+Answer: H2KM/H2KMA and BD2K-XHP/BD2K-XHPA are treated as the same 2,000 CFM class in MonSuite. Use BD2K when the plastic cabinet is better: residential work, finished spaces where metal could scratch surfaces, or wet/damp restoration areas. Use H2KM/H2KMA as the metal-cabinet workhorse everywhere else, especially general commercial, healthcare, industrial, and abatement work.
+
+# Real scrubber lineup in MonSuite
+Product: Scrubbers
+Category: Product Selection
+Keywords: real scrubbers, main lineup, hc800, pred750, h2km, bd2k, pas2400, pas5000, scrubber list, abatement scrubbers
+Answer: MonSuite’s real scrubber lineup includes HC800FD/HC800FDUV, PREDATOR PRED750, H2KM/H2KMA, BD2K-XHP/BD2K-XHPA, PAS2400, and PAS5000. The selector uses PRED750 for smaller portable jobs, H2KM or BD2K for the 2,000 CFM class, PAS2400 when high 120V airflow and mobility/stairs matter, and PAS5000 for major large-containment jobs with confirmed 230V/30A power.
+
+# When to choose PRED750
+Product: PRED750
+Category: Product Selection
+Keywords: pred750, predator, 750 cfm, portable, small room, lightweight, 10 inch duct, carbon, vapor lock, residential
+Answer: Choose PRED750 when the job needs a smaller portable scrubber around the 750 CFM class. It is lighter than the large units, uses 120V/15A power, supports negative pressure, recirculation, and positive-pressure support, and has 10-inch nominal inlet/outlet duct connections. It is a good fit for smaller rooms, localized containment, and jobs where a 2,000+ CFM unit is too large.
+
+# When to choose PAS2400
+Product: PAS2400
+Category: Product Selection
+Keywords: pas2400, 2100 cfm, stair climber, 120v, high airflow, stainless, mobility, stairs, h1980p, 12 inch duct
+Answer: Choose PAS2400 when the job needs high airflow on 120V and mobility matters. It is a 2,100 CFM high-speed unit with a transport dolly/stair-climber style setup, stainless cabinet, 120V/15A circuit requirement, and 12-inch duct adapter support. It can be a better fit than a box-style 2,000 CFM unit when access, movement, or stairs are important.
+
+# PAS5000: large-containment scrubber with 230V power requirement
+Product: PAS5000
+Category: Product Selection
+Keywords: pas5000, 4000 cfm, 230v, 30a, large containment, power warning, big scrubber, high airflow, 14 inch outlet, h2080p
+Answer: PAS5000 is the large-containment option in the selector: 4,000 CFM class airflow with 230V/30A power and up to 21A normal operating draw. Do not recommend PAS5000 for a user who only has 120V available. If power is unknown, it can appear with a warning that 230V/30A power must be confirmed before the recommendation is relied on.
+
+# Carbon/VOC filter guidance for scrubbers
+Product: Scrubbers
+Category: Filters
+Keywords: carbon, voc, odor, vapor lock, ovg, smell, gas, vl2024, vl2002, vl1002, hepa not odor
+Answer: HEPA filters capture particles; they do not remove gases, odors, vapors, or VOCs by themselves. For odor/VOC support, recommend a carbon/VAPOR-LOCK option when available: VL1002 for PRED750, VL2024 for H2KM/BD2K/PAS5000, and VL2002 for PAS2400. Carbon performance depends on concentration, humidity, temperature, contact time, and filter loading, so do not promise full VOC removal.
+
+# Ducting and filter loading reduce scrubber airflow
+Product: Scrubbers
+Category: Ducting
+Keywords: ducting, derating, flex duct, rigid duct, bends, airflow loss, filter loading, reduced voltage, cfm loss
+Answer: Actual installed airflow can be lower than rated airflow because of duct length, bends, flexible duct, filter loading, reduced voltage, blocked inlets/outlets, and site conditions. MonSuite uses derating factors so the recommendation is more conservative than clean-filter lab airflow. Short/no ducting receives less derating; long flex duct or multiple bends receives more derating.
+
+# No fake scrubbers in the selector
+Product: Scrubber Selector
+Category: Data Quality
+Keywords: real scrubbers, no fake scrubbers, fake, demo, mock, not real, scrubber list
+Answer: No. The production Scrubber Selector now uses real Abatement equipment only: PRED750, HC800FD/HC800FDUV, BD2K-XHP/XHPA, H2KM/H2KMA, PAS2400, and PAS5000. Earlier mock/demo scrubbers have been removed from the recommendation list so sales users are not shown fake products during real customer conversations.
+
+# Scrubber power selection: 120V vs 230V
+Product: Scrubbers
+Category: Electrical
+Keywords: 120v, 230v, 240v, 15a, 30a, power, circuit, amps, pas5000, pas2400, h2km, bd2k, pred750
+Answer: Power availability is a major selector filter. PRED750, H2KM/H2KMA, BD2K, and PAS2400 are treated as 120V units with 15A circuit planning, though each has its own amp draw. PAS5000 is the large 230V/30A unit and should not be recommended when the user only has 120V. If power is unknown, MonSuite warns the user to confirm circuits before relying on the recommendation.
+
+# What to include in a scrubber support ticket
+Product: Scrubbers
+Category: Support
+Keywords: support ticket, scrubber ticket, freshdesk, support, not working, low airflow, filter light, pressure fail, quote review
+Answer: For scrubber sizing, airflow, pressure, filter, or power questions that affect a real job, make a support ticket. Include project type, hazard, room size, target ACH/pressure if known, exhaust setup, duct length/bends, power available, scrubber model, serial number if available, filter setup, photos/sketch, and whether a pressure monitor is being used.
+
+# Scrubber Selector real sales logic
+Product: Scrubber Selector
+Category: Scrubbers
+Keywords: scrubber selector, real scrubbers, sales recommendation, how many scrubbers, scrubber sizing, no fake, real products only
+Answer: The Scrubber Selector uses real Abatement products only: PRED750, HC800FD/HC800FDUV, BD2K-XHP/XHPA, H2KM/H2KMA, PAS2400, and PAS5000. It asks for project type, hazard, goal, room dimensions, exhaust route, power, and site/cabinet fit. It calculates room volume, target ACH, safety factor, design CFM, ducting derating, effective CFM per unit, quantity required, estimated achieved ACH, and electrical load. It also recommends whether a pressure monitor should be quoted.
+
+# Real scrubber lineup and when to use each one
+Product: Scrubbers
+Category: Product Selection
+Keywords: PRED750, HC800FD, BD2K, H2KM, PAS2400, PAS5000, which scrubber, scrubber lineup, sales fit
+Answer: Use PRED750 for smaller rooms, residential work, and compact containment. Use HC800FD/HC800FDUV for healthcare-style occupied spaces, temporary isolation support, and cleaner HEPA air purification applications. Use BD2K for residential, finished-space, wet/damp, or scratch-sensitive 2,000 CFM class jobs. Use H2KM/H2KMA as the metal-cabinet 2,000 CFM workhorse for commercial, industrial, healthcare construction, and abatement. Use PAS2400 for high-CFM 120V jobs where mobility or stairs matter. Use PAS5000 for very large containments only when 230V/30A power and site access are confirmed.
+
+# When the scrubber selector recommends a pressure monitor
+Product: Scrubber Selector
+Category: Pressure Monitoring
+Keywords: pressure monitor, scrubber, negative pressure, positive pressure, containment, need monitor, quote monitor
+Answer: Quote or strongly recommend a pressure monitor whenever the project involves airborne isolation, healthcare construction containment, positive-pressure clean-space protection, asbestos containment, or any goal that includes negative or positive pressure. Scrubbers create airflow; the pressure monitor proves whether the room or containment is actually holding the intended pressure relationship. For simple recirculating air cleaning only, the monitor is usually optional unless documentation is requested.

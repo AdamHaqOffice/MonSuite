@@ -1,5 +1,466 @@
 [
   {
+    "id": "scrubber-main-lineup-selection",
+    "title": "How to choose between PRED750, H2KM, BD2K, PAS2400, and PAS5000",
+    "product": "Scrubber Selector",
+    "category": "Product Selection",
+    "sourceTitle": "MonSuite Scrubber Selector",
+    "sourceUrl": "/scrubber-selector",
+    "confidence": "curated",
+    "keywords": [
+      "scrubber selector",
+      "PRED750",
+      "H2KM",
+      "BD2K",
+      "PAS2400",
+      "PAS5000",
+      "which scrubber",
+      "residential",
+      "wet",
+      "metal",
+      "plastic"
+    ],
+    "questions": [
+      "Which scrubber should I choose?",
+      "What are the main scrubbers?",
+      "H2KM vs BD2K vs PAS2400",
+      "Which scrubber for residential?",
+      "Which scrubber for large containment?"
+    ],
+    "answer": "Use PRED750 for smaller/portable 750 CFM-class jobs. Use H2KM/H2KMA as the main metal 2,000 CFM workhorse for most commercial/industrial/heavy containment jobs. Use BD2K-XHP/XHPA when the same 2,000 CFM-class work benefits from a plastic cabinet, especially finished residential areas, scratch-sensitive spaces, or wet/damp restoration work. Use PAS2400 when 2,100 CFM and 120V power are needed with better mobility/stair handling. Use PAS5000 for very large containments where 4,000 CFM is useful and 230V/30A power is available.",
+    "notes": "Curated product selection guidance for MonSuite."
+  },
+  {
+    "id": "scrubber-pas5000-overview",
+    "title": "PAS5000 4,000 CFM large scrubber overview",
+    "product": "PAS5000",
+    "category": "Scrubber Selector",
+    "sourceTitle": "PAS5000 Instruction Manual",
+    "sourceUrl": "/scrubber-selector",
+    "confidence": "grounded",
+    "keywords": [
+      "PAS5000",
+      "4000 CFM",
+      "230 VAC",
+      "30 amp",
+      "21 amps",
+      "large containment",
+      "galvanized steel",
+      "H242406-99",
+      "VL2024",
+      "H2080P"
+    ],
+    "questions": [
+      "What is the PAS5000?",
+      "How much airflow does PAS5000 have?",
+      "What power does PAS5000 need?",
+      "When should I use PAS5000?"
+    ],
+    "answer": "PAS5000 is the large real Abatement HEPA-AIRE portable air filtration unit for major containments. It is rated at 4,000 CFM with clean filters and requires 230 VAC, 60 Hz, single phase, 30A power; normal operation draws up to about 21A. It uses two H242406-99 HEPA filters, two H2002 pleated filters, optional H2001 polypad pre-filters, and optional VL2024 carbon filters. Use it only when the job has the access, power, and scale to justify a 332 lb high-airflow unit.",
+    "notes": "Added from PAS5000 manual."
+  },
+  {
+    "id": "scrubber-pas2400-overview",
+    "title": "PAS2400 2,100 CFM portable air scrubber overview",
+    "product": "PAS2400",
+    "category": "Scrubber Selector",
+    "sourceTitle": "PAS2400 Instruction Manual",
+    "sourceUrl": "/scrubber-selector",
+    "confidence": "grounded",
+    "keywords": [
+      "PAS2400",
+      "2100 CFM",
+      "700 CFM",
+      "120 VAC",
+      "15 amp",
+      "12 amps",
+      "stair climber",
+      "stainless steel",
+      "H1980P",
+      "VL2002"
+    ],
+    "questions": [
+      "What is the PAS2400?",
+      "How much airflow does PAS2400 have?",
+      "What power does PAS2400 need?",
+      "Is PAS2400 good for stairs?"
+    ],
+    "answer": "PAS2400 is a real Abatement HEPA-AIRE portable air scrubber with 700 CFM low speed and 2,100 CFM high speed clean-filter airflow. It runs on 120 VAC/60 Hz with a minimum 15A circuit and draws 12A or less. It has a stainless steel two-module design, transport dolly, stair climber assembly, and an included H1980P 12-inch manifold that can attach to intake or exhaust. Use it when higher airflow is needed on 120V power and mobility/stairs matter.",
+    "notes": "Added from PAS2400 manual."
+  },
+  {
+    "id": "scrubber-bd2k-overview",
+    "title": "BD2K-XHP / BD2K-XHPA plastic scrubber overview",
+    "product": "BD2K-XHP / BD2K-XHPA",
+    "category": "Scrubber Selector",
+    "sourceTitle": "BD2K-XHP/BD2K-XHPA Instruction Manual",
+    "sourceUrl": "/scrubber-selector",
+    "confidence": "grounded",
+    "keywords": [
+      "BD2K",
+      "BD2K-XHP",
+      "BD2K-XHPA",
+      "Bulldog",
+      "2100 CFM",
+      "1400 CFM",
+      "plastic cabinet",
+      "residential",
+      "wet areas",
+      "H242406-99",
+      "VL2024"
+    ],
+    "questions": [
+      "What is BD2K?",
+      "When should I choose BD2K?",
+      "Is BD2K better for residential?",
+      "Is BD2K plastic?",
+      "BD2K vs H2KM"
+    ],
+    "answer": "BD2K-XHP/BD2K-XHPA is the plastic-cabinet BULLDOG portable air filtration unit in the same general class as H2KM. MonSuite treats it as the preferred 2,000 CFM-class option for residential/finished spaces where metal could scratch surfaces, and for wet/damp restoration areas where plastic is preferred. Use H2KM metal everywhere else unless the job specifically benefits from the BD2K plastic cabinet.",
+    "notes": "Added from scanned BD2K manual and product-fit guidance."
+  },
+  {
+    "id": "scrubber-h2km-h2kma-overview",
+    "title": "H2KM / H2KMA 2,000 CFM metal scrubber overview",
+    "product": "H2KM / H2KMA",
+    "category": "Scrubber Selector",
+    "sourceTitle": "H2KM/H2KMA Instruction Manual",
+    "sourceUrl": "/scrubber-selector",
+    "confidence": "grounded",
+    "keywords": [
+      "H2KM",
+      "H2KMA",
+      "2000 CFM",
+      "1300 CFM",
+      "metal cabinet",
+      "galvanized steel",
+      "H2001",
+      "H2002",
+      "H242406-99",
+      "VL2024"
+    ],
+    "questions": [
+      "What is the H2KM?",
+      "What is the H2KMA?",
+      "How much airflow does H2KM have?",
+      "When should I choose H2KM instead of BD2K?"
+    ],
+    "answer": "H2KM/H2KMA is a real Abatement HEPA-AIRE portable air filtration unit in the 2,000 CFM class. It is the metal-cabinet workhorse: 1,300 CFM low speed and 2,000 CFM high speed with clean filters, 120 VAC/15A power, 10A or less normal operating amps, and 20 ga galvanized steel cabinet construction. Use H2KM/H2KMA for most commercial, industrial, healthcare construction, abatement, and general containment jobs where a metal cabinet is appropriate. For finished residential spaces, scratch-sensitive areas, or wet/damp restoration work, choose BD2K plastic instead.",
+    "notes": "Added from H2KM/H2KMA manual and product-fit guidance."
+  },
+  {
+    "id": "scrubber-pred750-electrical-ducting",
+    "title": "PRED750 electrical and ducting notes",
+    "product": "PRED750",
+    "category": "Setup",
+    "sourceTitle": "PRED750 Instruction Manual",
+    "sourceUrl": "/scrubber-selector",
+    "confidence": "grounded",
+    "keywords": [
+      "PRED750",
+      "120 VAC",
+      "15 amp",
+      "1.9 amps",
+      "10 inch duct",
+      "ducting",
+      "GFCI",
+      "stackable"
+    ],
+    "questions": [
+      "What power does PRED750 need?",
+      "What duct size is PRED750?",
+      "How many amps does PRED750 draw?",
+      "Can PRED750 be ducted?"
+    ],
+    "answer": "PRED750 is listed in MonSuite with 120 VAC, 60 Hz, 15A circuit requirements, normal operating amps of 1.9A or less, and integrated 10-inch nominal inlet and outlet connections. Use the shortest ducting possible, minimize bends, prefer rigid duct where practical, and keep flex duct taut because ducting and restrictions reduce airflow.",
+    "notes": "Added from PRED750_MN-AJ 2024.04.08 manual."
+  },
+  {
+    "id": "scrubber-pred750-filters",
+    "title": "PRED750 filters and carbon option",
+    "product": "PRED750",
+    "category": "Filters",
+    "sourceTitle": "PRED750 Instruction Manual",
+    "sourceUrl": "/scrubber-selector",
+    "confidence": "grounded",
+    "keywords": [
+      "PRED750",
+      "F621",
+      "H502",
+      "H161606-99",
+      "VL1002",
+      "VAPOR-LOCK",
+      "carbon",
+      "HEPA",
+      "VOC",
+      "odor"
+    ],
+    "questions": [
+      "What filters does the PRED750 use?",
+      "Does PRED750 have carbon filter option?",
+      "Can PRED750 remove odors?",
+      "What is the HEPA part number for PRED750?"
+    ],
+    "answer": "PRED750 supplied filter stages are F621 1-inch coarse pre-filter, H502 2-inch pleated pre-filter, and H161606-99 HEPA filter. For low concentrations of odors, vapors, gases, or VOC support, use the optional VL1002 VAPOR-LOCK carbon filter. HEPA captures particles; carbon is the option for odor/VOC support.",
+    "notes": "Added from PRED750_MN-AJ 2024.04.08 manual."
+  },
+  {
+    "id": "scrubber-pred750-overview",
+    "title": "PRED750 portable air scrubber overview",
+    "product": "PRED750",
+    "category": "Scrubber Selector",
+    "sourceTitle": "PRED750 Instruction Manual",
+    "sourceUrl": "/scrubber-selector",
+    "confidence": "grounded",
+    "keywords": [
+      "PRED750",
+      "PREDATOR",
+      "portable air scrubber",
+      "negative pressure",
+      "recirculation",
+      "positive pressure",
+      "750 CFM",
+      "HEPA"
+    ],
+    "questions": [
+      "What is the PRED750?",
+      "Tell me about the PRED750 scrubber",
+      "Can the PRED750 be used for negative pressure?",
+      "What airflow does PRED750 have?"
+    ],
+    "answer": "The PREDATOR PRED750 is a real Abatement Technologies portable air scrubber now included in the Scrubber Selector. It uses staged pre-filtration plus HEPA filtration, has a variable-speed clean-filter airflow range of 200 to 750 CFM, and can be configured for negative pressure, recirculation, or positive pressure support when ducting and site setup are appropriate. Pressure must still be verified with a calibrated pressure monitor when pressure control is claimed.",
+    "notes": "Added from PRED750_MN-AJ 2024.04.08 manual."
+  },
+  {
+    "id": "pressure-guide-at-connect-remote-monitoring",
+    "title": "use AT Connect for pressure alarms and records",
+    "product": "AT Connect",
+    "category": "Remote Monitoring",
+    "sourceTitle": "Pressure Monitoring Guide",
+    "sourceUrl": "/pressure-monitoring",
+    "confidence": "grounded",
+    "keywords": [
+      "at connect",
+      "app",
+      "push notification",
+      "alarm history",
+      "online data",
+      "pressure data",
+      "web portal"
+    ],
+    "questions": [
+      "How do I get pressure alarms on my phone?",
+      "How do I see alarm history online?",
+      "Can I download pressure data online?",
+      "Should I use AT Connect app or web?"
+    ],
+    "answer": "Use the AT Connect mobile app first when push alarm notifications matter. Connected PPM4 and RPM units can save data online, show alarm history, and support online review/downloads. The web portal is useful for downloads and records, but the app should be used for phone-based push notifications.",
+    "notes": ""
+  },
+  {
+    "id": "pressure-guide-pressure-failure-causes",
+    "title": "what causes pressure failure",
+    "product": "Pressure Guide",
+    "category": "Troubleshooting",
+    "sourceTitle": "Pressure Monitoring Guide",
+    "sourceUrl": "/pressure-monitoring",
+    "confidence": "grounded",
+    "keywords": [
+      "pressure failure",
+      "alarm",
+      "doors",
+      "barriers",
+      "filters",
+      "hvac",
+      "tubing",
+      "ducts"
+    ],
+    "questions": [
+      "Why did pressure fail?",
+      "Why is my room not holding pressure?",
+      "Why is the pressure alarm going off?",
+      "What should I check when pressure is unstable?"
+    ],
+    "answer": "Common pressure failure causes include doors left open, bad seals, torn barriers, clogged filters, undersized HEPA units, failed fans, blocked ducts, too much entry/exit traffic, HVAC imbalance, incorrect tubing setup, wind, or stack effect. Continuous monitoring matters because a manual reading only shows one moment.",
+    "notes": ""
+  },
+  {
+    "id": "pressure-guide-hepa-vs-merv",
+    "title": "HEPA versus MERV filtration",
+    "product": "Pressure Guide",
+    "category": "Filtration",
+    "sourceTitle": "Pressure Monitoring Guide",
+    "sourceUrl": "/pressure-monitoring",
+    "confidence": "grounded",
+    "keywords": [
+      "hepa",
+      "merv",
+      "filter",
+      "filtration",
+      "air scrubber",
+      "hvac"
+    ],
+    "questions": [
+      "What is the difference between HEPA and MERV?",
+      "Does MERV mean HEPA?",
+      "What filtration should I use for containment?"
+    ],
+    "answer": "MERV ratings usually apply to building HVAC filters. HEPA is higher-efficiency filtration used for containment, isolation support, remediation, negative air machines, and portable air cleaning. A HEPA unit moves and filters air; a pressure monitor verifies whether the space is holding the correct pressure relationship.",
+    "notes": ""
+  },
+  {
+    "id": "pressure-guide-ach-math",
+    "title": "basic ACH math",
+    "product": "Pressure Guide",
+    "category": "ACH Calculator",
+    "sourceTitle": "Pressure Monitoring Guide",
+    "sourceUrl": "/pressure-monitoring",
+    "confidence": "grounded",
+    "keywords": [
+      "ach formula",
+      "cfm formula",
+      "room volume",
+      "calculate ach",
+      "calculate cfm"
+    ],
+    "questions": [
+      "How do I calculate ACH?",
+      "How do I calculate CFM needed?",
+      "What is the ACH formula?",
+      "How much CFM do I need for 12 ACH?"
+    ],
+    "answer": "Room volume is length \u00d7 width \u00d7 height. ACH = (CFM \u00d7 60) / room volume. CFM needed = (target ACH \u00d7 room volume) / 60. This estimates airflow only and does not prove pressure, containment, or compliance.",
+    "notes": ""
+  },
+  {
+    "id": "pressure-guide-ach-vs-pressure",
+    "title": "ACH versus pressure",
+    "product": "Pressure Guide",
+    "category": "ACH",
+    "sourceTitle": "Pressure Monitoring Guide",
+    "sourceUrl": "/pressure-monitoring",
+    "confidence": "grounded",
+    "keywords": [
+      "ach",
+      "air changes",
+      "cfm",
+      "pressure",
+      "ventilation",
+      "dilution"
+    ],
+    "questions": [
+      "What is ACH?",
+      "Is ACH the same as pressure?",
+      "Can a room have ACH but fail pressure?",
+      "Can negative pressure have poor ventilation?"
+    ],
+    "answer": "ACH means Air Changes per Hour. It describes how many times the air in a room is replaced or cleaned in one hour. ACH is about dilution and air cleaning. Pressure is about air direction. They are related, but they are not the same thing.",
+    "notes": ""
+  },
+  {
+    "id": "pressure-guide-common-pressure-targets",
+    "title": "common pressure targets",
+    "product": "Pressure Guide",
+    "category": "Pressure Targets",
+    "sourceTitle": "Pressure Monitoring Guide",
+    "sourceUrl": "/pressure-monitoring",
+    "confidence": "grounded",
+    "keywords": [
+      "pressure targets",
+      "pa",
+      "in w.g.",
+      "-2.5 pa",
+      "-7.5 pa",
+      "-0.01",
+      "-0.02",
+      "-0.03"
+    ],
+    "questions": [
+      "What pressure target should I use?",
+      "What is a common isolation room pressure?",
+      "What is a common construction containment pressure?",
+      "What is -0.01 in water?"
+    ],
+    "answer": "Common reference points include US airborne isolation around -2.5 Pa / -0.01 in. w.g., Canadian airborne isolation around -7.5 Pa / -0.03 in. w.g., and construction or abatement containment around -5 Pa / -0.02 in. w.g. Always confirm the actual target with the facility policy, project specification, consultant, and AHJ.",
+    "notes": ""
+  },
+  {
+    "id": "pressure-guide-positive-pressure",
+    "title": "positive pressure explanation",
+    "product": "Pressure Guide",
+    "category": "Positive Pressure",
+    "sourceTitle": "Pressure Monitoring Guide",
+    "sourceUrl": "/pressure-monitoring",
+    "confidence": "grounded",
+    "keywords": [
+      "positive pressure",
+      "operating room",
+      "sterile storage",
+      "protective environment",
+      "clean space"
+    ],
+    "questions": [
+      "What is positive pressure?",
+      "Why use positive pressure?",
+      "What spaces need positive pressure?",
+      "How does positive pressure protect a clean room?"
+    ],
+    "answer": "Positive pressure means air is being pushed out of the protected space. It is used when the space itself needs protection from outside contamination, such as operating rooms, sterile storage, protective environments, clean rooms, pharmacies, and sensitive clinical spaces.",
+    "notes": ""
+  },
+  {
+    "id": "pressure-guide-negative-pressure",
+    "title": "negative pressure explanation",
+    "product": "Pressure Guide",
+    "category": "Negative Pressure",
+    "sourceTitle": "Pressure Monitoring Guide",
+    "sourceUrl": "/pressure-monitoring",
+    "confidence": "grounded",
+    "keywords": [
+      "negative pressure",
+      "isolation",
+      "containment",
+      "infection",
+      "dust",
+      "asbestos",
+      "mold",
+      "silica"
+    ],
+    "questions": [
+      "What is negative pressure?",
+      "Why use negative pressure?",
+      "How does negative pressure protect a hallway?",
+      "What rooms need negative pressure?"
+    ],
+    "answer": "Negative pressure means air is being pulled into a room or containment area. It is used when air inside the space may be dirty, infectious, dusty, or hazardous. The goal is to keep contaminated air from escaping into surrounding clean or occupied areas.",
+    "notes": ""
+  },
+  {
+    "id": "pressure-guide-pressure-monitoring-purpose",
+    "title": "what pressure monitors do",
+    "product": "Pressure Guide",
+    "category": "Pressure Monitoring",
+    "sourceTitle": "Pressure Monitoring Guide",
+    "sourceUrl": "/pressure-monitoring",
+    "confidence": "grounded",
+    "keywords": [
+      "pressure",
+      "monitoring",
+      "negative pressure",
+      "positive pressure",
+      "air direction",
+      "containment"
+    ],
+    "questions": [
+      "What does a pressure monitor do?",
+      "Does a pressure monitor clean air?",
+      "Does pressure monitoring prove ACH?",
+      "What is the purpose of pressure monitoring?"
+    ],
+    "answer": "Pressure monitors confirm whether air is moving in the intended direction between two spaces. They show whether a room or containment is negative or positive compared with a reference area. They do not clean air, filter air, or prove ACH by themselves.",
+    "notes": ""
+  },
+  {
     "id": "support-ticket-what-to-include-pressure-issue",
     "title": "what to include in a pressure support ticket",
     "product": "MonSuite",
@@ -9292,5 +9753,787 @@
     ],
     "answer": "Open the source document here: https://drive.google.com/drive/folders/1yc95dsKmsmHNuY4kqDxwt7MDEy9ZaTdO?usp=sharing",
     "notes": ""
+  },
+  {
+    "id": "at-connect-mobile-app-overview",
+    "title": "AT Connect mobile app overview",
+    "product": "AT Connect",
+    "category": "Mobile App",
+    "sourceTitle": "AT Connect Google Play",
+    "sourceUrl": "https://play.google.com/store/apps/details?id=com.app.atconnect&hl=en_CA",
+    "confidence": "grounded",
+    "keywords": [
+      "at connect",
+      "app",
+      "mobile",
+      "play store",
+      "push notifications",
+      "ppm4",
+      "rpm",
+      "cloud",
+      "phone"
+    ],
+    "questions": [
+      "What is AT Connect?",
+      "Where do I get the AT Connect app?",
+      "How do I get alarm notifications on my phone?",
+      "How do I connect PPM4 to the app?",
+      "How do I connect RPM to the app?",
+      "AT Connect mobile app?"
+    ],
+    "answer": "AT Connect is the mobile app path for connecting PPM4 or RPM so users can see online pressure data and receive app push notifications for alarms. For alarm notifications, direct users to install the mobile app first instead of relying on SMS or email. The web portal is still useful for reviewing and downloading saved data.",
+    "notes": ""
+  },
+  {
+    "id": "at-connect-add-ppm4-rpm-device",
+    "title": "add PPM4 or RPM to AT Connect",
+    "product": "AT Connect",
+    "category": "Device Setup",
+    "sourceTitle": "AT Connect",
+    "sourceUrl": "/at-connect",
+    "confidence": "grounded",
+    "keywords": [
+      "add device",
+      "ppm4",
+      "rpm",
+      "connect device",
+      "online data",
+      "cloud setup",
+      "at connect"
+    ],
+    "questions": [
+      "How do I add a PPM4 to AT Connect?",
+      "How do I add an RPM to AT Connect?",
+      "How do I get my monitor online?",
+      "How do I save pressure data online?"
+    ],
+    "answer": "Install AT Connect on the user\u2019s phone, sign in or create the customer account, then add the PPM4 or RPM device in the app. After adding the device, verify that the monitor appears online and recent pressure data is updating. Use the same account in the web portal when browser access or downloadable data is needed.",
+    "notes": ""
+  },
+  {
+    "id": "at-connect-enable-push-notifications",
+    "title": "enable push notifications in AT Connect",
+    "product": "AT Connect",
+    "category": "Notifications",
+    "sourceTitle": "AT Connect Google Play",
+    "sourceUrl": "https://play.google.com/store/apps/details?id=com.app.atconnect&hl=en_CA",
+    "confidence": "grounded",
+    "keywords": [
+      "push notifications",
+      "alarm notifications",
+      "phone alerts",
+      "app alerts",
+      "notifications",
+      "alarm",
+      "at connect"
+    ],
+    "questions": [
+      "How do I turn on push notifications?",
+      "Why am I not getting alarm notifications?",
+      "How do I get phone alerts from AT Connect?",
+      "Should users use email or push notifications?"
+    ],
+    "answer": "For alarm alerts, use the AT Connect mobile app and allow push notifications when the phone asks for permission. If the user is not receiving phone alerts, check the phone notification settings for AT Connect and confirm alarms are visible in the app or web portal. Push notifications should be the main recommendation over SMS or email.",
+    "notes": ""
+  },
+  {
+    "id": "at-connect-web-portal-download-data",
+    "title": "download online data from AT Connect web portal",
+    "product": "AT Connect",
+    "category": "Web Portal",
+    "sourceTitle": "AT Connect Web Portal",
+    "sourceUrl": "https://connect.abatement.com",
+    "confidence": "grounded",
+    "keywords": [
+      "web portal",
+      "connect.abatement.com",
+      "download data",
+      "online data",
+      "history",
+      "records",
+      "pressure data"
+    ],
+    "questions": [
+      "Where do I download pressure data online?",
+      "What is connect.abatement.com?",
+      "How do I open AT Connect on the web?",
+      "Can I download records from AT Connect?"
+    ],
+    "answer": "Use connect.abatement.com for browser access to online records, downloads, and review. The mobile app should be recommended first for push alarm notifications, while the web portal is best for reviewing and downloading saved pressure data and history.",
+    "notes": ""
+  },
+  {
+    "id": "at-connect-alarm-history-and-notifications",
+    "title": "alarm history and notifications in AT Connect",
+    "product": "AT Connect",
+    "category": "Alarms",
+    "sourceTitle": "AT Connect",
+    "sourceUrl": "/at-connect",
+    "confidence": "grounded",
+    "keywords": [
+      "alarm history",
+      "alarms",
+      "notifications",
+      "pressure alarm",
+      "history",
+      "push notification",
+      "at connect"
+    ],
+    "questions": [
+      "Can AT Connect show alarm history?",
+      "Can users see alarm history online?",
+      "Will AT Connect notify users when there is an alarm?",
+      "How do I review alarms from PPM4 or RPM?"
+    ],
+    "answer": "AT Connect should be used to review alarm history and receive alarm notifications from connected PPM4 or RPM devices. For active alerting, guide users to install the mobile app and enable push notifications. For reviewing or downloading history, use the app or connect.abatement.com.",
+    "notes": ""
+  },
+  {
+    "id": "at-connect-cloud-mobile-troubleshooting",
+    "title": "AT Connect cloud and mobile troubleshooting",
+    "product": "AT Connect",
+    "category": "Troubleshooting",
+    "sourceTitle": "AT Connect",
+    "sourceUrl": "/at-connect",
+    "confidence": "grounded",
+    "keywords": [
+      "troubleshooting",
+      "not online",
+      "not updating",
+      "notifications not working",
+      "cloud",
+      "mobile",
+      "app",
+      "wifi",
+      "cellular"
+    ],
+    "questions": [
+      "Why is AT Connect not updating?",
+      "Why is my device not online?",
+      "Why are push notifications not working?",
+      "Why is pressure showing locally but not online?"
+    ],
+    "answer": "If AT Connect is not updating, verify the monitor is connected by Wi-Fi or cellular, confirm the device appears online, and check whether recent data is visible in the app or web portal. If alarm push notifications are not working, check phone notification permission for AT Connect. For live hospital/job-site pressure issues or missing records, make a support ticket with device serial number, job number, screenshots, and what the monitor shows locally.",
+    "notes": ""
+  },
+  {
+    "id": "scrubber-selector-how-it-works-v31",
+    "title": "How the Scrubber Selector chooses a scrubber",
+    "product": "Scrubber Selector",
+    "category": "Scrubber Sizing",
+    "sourceTitle": "Scrubber Selector",
+    "sourceUrl": "/scrubber-selector",
+    "confidence": "grounded",
+    "keywords": [
+      "scrubber selector",
+      "how it works",
+      "recommendation logic",
+      "location",
+      "project type",
+      "hazard",
+      "goal",
+      "room size",
+      "ach",
+      "cfm",
+      "pressure monitor"
+    ],
+    "questions": [
+      "How does the scrubber selector work?",
+      "How does MonSuite pick a scrubber?",
+      "What information does the scrubber selector use?",
+      "Why did it recommend this scrubber?",
+      "How does AbateBot choose scrubbers?"
+    ],
+    "answer": "The Scrubber Selector asks for location, project type, hazard or concern, primary goal, room size, setup details, power, and site/cabinet preference. It then chooses a rule set, calculates room volume, target ACH, design CFM, ducting derating, effective scrubber CFM, quantity, achieved ACH, electrical load, and whether pressure monitoring/documentation should be recommended. The output is an estimating recommendation, not a compliance stamp.",
+    "steps": [
+      "Ask what work is being done: healthcare isolation, construction, asbestos, mold, silica, general air cleaning, odor/VOC, or not sure.",
+      "Ask what hazard is being controlled: infection, dust, asbestos, mold, silica, lead, odor/VOC, smoke, general particulate, or unknown.",
+      "Ask the goal: clean/recirculate air, create negative pressure, create positive pressure, or both.",
+      "Calculate room volume and CFM needed from ACH.",
+      "Rank compatible scrubbers by airflow, filtration, pressure intent, power, cabinet/site fit, and priority."
+    ],
+    "relatedQuestions": [
+      "How many scrubbers do I need?",
+      "Which scrubber should I choose?",
+      "Do I need a pressure monitor with a scrubber?",
+      "What does ACH mean?"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "scrubber-sizing-ach-cfm-calculation",
+    "title": "Scrubber sizing: ACH and CFM calculation",
+    "product": "Scrubber Selector",
+    "category": "Scrubber Sizing",
+    "sourceTitle": "Pressure Guide",
+    "sourceUrl": "/pressure-monitoring",
+    "confidence": "grounded",
+    "keywords": [
+      "ach",
+      "cfm",
+      "room volume",
+      "sizing",
+      "scrubber quantity",
+      "air changes per hour",
+      "calculate scrubber",
+      "design ach"
+    ],
+    "questions": [
+      "How many scrubbers do I need?",
+      "How do I size a scrubber?",
+      "How do I calculate ACH?",
+      "How do I calculate CFM needed?",
+      "What is the scrubber sizing formula?",
+      "How much airflow do I need?"
+    ],
+    "answer": "Scrubber sizing starts with room volume: length \u00d7 width \u00d7 height. Required CFM is calculated as ACH \u00d7 room volume \u00f7 60. MonSuite then applies a safety factor and ducting/filter derating, divides the design CFM by effective scrubber CFM, and rounds up to the next whole unit. Always round up: 1.2 units means 2 units.",
+    "steps": [
+      "Calculate room volume: length \u00d7 width \u00d7 height.",
+      "Choose target ACH from the project type/spec, or use the conservative default when unknown.",
+      "Calculate design CFM: room volume \u00d7 design ACH \u00f7 60.",
+      "Apply derating for ducting, flex duct, bends, filter loading, and site conditions.",
+      "Divide design CFM by effective scrubber CFM and round up."
+    ],
+    "relatedQuestions": [
+      "What is ACH?",
+      "Why does ducting reduce airflow?",
+      "Which scrubber should I choose?",
+      "Do I need a pressure monitor?"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "scrubber-pressure-monitor-recommendation",
+    "title": "When a scrubber also needs a pressure monitor",
+    "product": "Scrubber Selector",
+    "category": "Pressure Monitoring",
+    "sourceTitle": "Pressure Guide",
+    "sourceUrl": "/pressure-monitoring",
+    "confidence": "grounded",
+    "keywords": [
+      "pressure monitor",
+      "negative pressure",
+      "positive pressure",
+      "containment",
+      "prove pressure",
+      "ppm4",
+      "rpm",
+      "air scrubber",
+      "monitor required",
+      "alarm logging"
+    ],
+    "questions": [
+      "Do I need a pressure monitor with a scrubber?",
+      "Does a scrubber prove negative pressure?",
+      "When should I recommend RPM or PPM4 with a scrubber?",
+      "Can the scrubber prove containment?",
+      "Do negative air machines need pressure monitoring?"
+    ],
+    "answer": "A scrubber or negative air machine creates airflow, but it does not prove the room is holding the required pressure relationship. If the goal is negative pressure, positive pressure, healthcare isolation, healthcare construction containment, asbestos containment, or project documentation, recommend a calibrated pressure monitor such as RPM or PPM4. The monitor provides the live pressure reading, alarm, and record that the space stayed under control.",
+    "steps": [
+      "Use scrubber sizing for airflow and ACH.",
+      "Use a pressure monitor to verify negative or positive pressure.",
+      "Recommend alarms/logging when the project involves healthcare, abatement, inspection records, or live containment.",
+      "If pressure fails, troubleshoot doors, barriers, leaks, HVAC, ducting, filter loading, and fan status.",
+      "For active job-site issues, make a support ticket with photos, readings, and serial numbers."
+    ],
+    "relatedQuestions": [
+      "How do I maintain negative pressure?",
+      "How do I set pressure alarm points?",
+      "How do I record pressure history?",
+      "How does the Scrubber Selector work?"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "scrubber-h2km-vs-bd2k-cabinet-choice",
+    "title": "H2KM vs BD2K: metal vs plastic cabinet choice",
+    "product": "Scrubbers",
+    "category": "Product Selection",
+    "sourceTitle": "Scrubber Selector",
+    "sourceUrl": "/scrubber-selector",
+    "confidence": "grounded",
+    "keywords": [
+      "h2km",
+      "h2kma",
+      "bd2k",
+      "bulldog",
+      "metal",
+      "plastic",
+      "cabinet",
+      "residential",
+      "wet area",
+      "finished space",
+      "scratch",
+      "2,000 cfm",
+      "same class"
+    ],
+    "questions": [
+      "Should I choose H2KM or BD2K?",
+      "What is the difference between H2KM and BD2K?",
+      "Which scrubber is better for residential?",
+      "Which scrubber is better for wet areas?",
+      "Is BD2K the plastic version of H2KM?",
+      "When should I use the metal scrubber?"
+    ],
+    "answer": "H2KM/H2KMA and BD2K-XHP/BD2K-XHPA are treated as the same 2,000 CFM class in MonSuite. Use BD2K when the plastic cabinet is better: residential work, finished spaces where metal could scratch surfaces, or wet/damp restoration areas. Use H2KM/H2KMA as the metal-cabinet workhorse everywhere else, especially general commercial, healthcare, industrial, and abatement work.",
+    "steps": [
+      "Choose BD2K for residential, finished, scratch-sensitive, or wet/damp work.",
+      "Choose H2KM/H2KMA for general commercial, industrial, healthcare, and abatement work.",
+      "Both are high-capacity 2,000 CFM class scrubbers in the selector.",
+      "Confirm filter setup, ducting, power, and site constraints before final recommendation."
+    ],
+    "relatedQuestions": [
+      "Which scrubber should I choose?",
+      "When should I use PAS2400?",
+      "Do I need a pressure monitor with a scrubber?",
+      "What fake products are in the selector?"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "scrubber-real-main-lineup-summary",
+    "title": "Real scrubber lineup in MonSuite",
+    "product": "Scrubbers",
+    "category": "Product Selection",
+    "sourceTitle": "Scrubber Selector",
+    "sourceUrl": "/scrubber-selector",
+    "confidence": "grounded",
+    "keywords": [
+      "real scrubbers",
+      "main lineup",
+      "hc800",
+      "pred750",
+      "h2km",
+      "bd2k",
+      "pas2400",
+      "pas5000",
+      "scrubber list",
+      "abatement scrubbers"
+    ],
+    "questions": [
+      "What real scrubbers are in MonSuite?",
+      "What scrubbers can the selector recommend?",
+      "What are the main Abatement scrubbers?",
+      "List the real scrubbers in the selector."
+    ],
+    "answer": "MonSuite\u2019s real scrubber lineup includes HC800FD/HC800FDUV, PREDATOR PRED750, H2KM/H2KMA, BD2K-XHP/BD2K-XHPA, PAS2400, and PAS5000. The selector uses PRED750 for smaller portable jobs, H2KM or BD2K for the 2,000 CFM class, PAS2400 when high 120V airflow and mobility/stairs matter, and PAS5000 for major large-containment jobs with confirmed 230V/30A power.",
+    "steps": [
+      "Small portable class: PRED750.",
+      "Healthcare/portable purification class: HC800FD/HC800FDUV.",
+      "2,000 CFM class: H2KM/H2KMA or BD2K-XHP/BD2K-XHPA.",
+      "High 120V mobility class: PAS2400.",
+      "Large 230V containment class: PAS5000."
+    ],
+    "relatedQuestions": [
+      "Should I choose H2KM or BD2K?",
+      "When should I choose PAS5000?",
+      "When should I choose PRED750?",
+      "How many scrubbers do I need?"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "scrubber-pred750-when-to-choose",
+    "title": "When to choose PRED750",
+    "product": "PRED750",
+    "category": "Product Selection",
+    "sourceTitle": "PRED750 Manual",
+    "sourceUrl": "/scrubber-selector",
+    "confidence": "grounded",
+    "keywords": [
+      "pred750",
+      "predator",
+      "750 cfm",
+      "portable",
+      "small room",
+      "lightweight",
+      "10 inch duct",
+      "carbon",
+      "vapor lock",
+      "residential"
+    ],
+    "questions": [
+      "When should I use PRED750?",
+      "Is PRED750 good for small rooms?",
+      "What is PRED750 airflow?",
+      "What filters does PRED750 use?",
+      "Is PRED750 portable?"
+    ],
+    "answer": "Choose PRED750 when the job needs a smaller portable scrubber around the 750 CFM class. It is lighter than the large units, uses 120V/15A power, supports negative pressure, recirculation, and positive-pressure support, and has 10-inch nominal inlet/outlet duct connections. It is a good fit for smaller rooms, localized containment, and jobs where a 2,000+ CFM unit is too large.",
+    "steps": [
+      "Use for smaller rooms or localized containment.",
+      "Use PRED750 when 750 CFM class airflow is enough after derating.",
+      "Use HEPA for particulate control and VL1002 carbon option for low-concentration odor/VOC support.",
+      "Use a pressure monitor if the job claims negative or positive pressure."
+    ],
+    "relatedQuestions": [
+      "How many scrubbers do I need?",
+      "Do I need a pressure monitor with PRED750?",
+      "What is the difference between PRED750 and H2KM?"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "scrubber-pas2400-when-to-choose-v31",
+    "title": "When to choose PAS2400",
+    "product": "PAS2400",
+    "category": "Product Selection",
+    "sourceTitle": "PAS2400 Manual",
+    "sourceUrl": "/scrubber-selector",
+    "confidence": "grounded",
+    "keywords": [
+      "pas2400",
+      "2100 cfm",
+      "stair climber",
+      "120v",
+      "high airflow",
+      "stainless",
+      "mobility",
+      "stairs",
+      "h1980p",
+      "12 inch duct"
+    ],
+    "questions": [
+      "When should I choose PAS2400?",
+      "Is PAS2400 good for stairs?",
+      "What is PAS2400 airflow?",
+      "Does PAS2400 run on 120V?",
+      "Should I choose PAS2400 or H2KM?"
+    ],
+    "answer": "Choose PAS2400 when the job needs high airflow on 120V and mobility matters. It is a 2,100 CFM high-speed unit with a transport dolly/stair-climber style setup, stainless cabinet, 120V/15A circuit requirement, and 12-inch duct adapter support. It can be a better fit than a box-style 2,000 CFM unit when access, movement, or stairs are important.",
+    "steps": [
+      "Use PAS2400 for high airflow on 120V.",
+      "Give it a selection boost when stairs, tight access, or movement around a site matter.",
+      "Confirm the circuit is free of other loads because it can draw up to 12A.",
+      "Use a pressure monitor when the goal is negative or positive pressure containment."
+    ],
+    "relatedQuestions": [
+      "Should I choose H2KM or BD2K?",
+      "When should I choose PAS5000?",
+      "How much power does PAS2400 need?"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "scrubber-pas5000-power-warning-large-containment",
+    "title": "PAS5000: large-containment scrubber with 230V power requirement",
+    "product": "PAS5000",
+    "category": "Product Selection",
+    "sourceTitle": "PAS5000 Manual",
+    "sourceUrl": "/scrubber-selector",
+    "confidence": "grounded",
+    "keywords": [
+      "pas5000",
+      "4000 cfm",
+      "230v",
+      "30a",
+      "large containment",
+      "power warning",
+      "big scrubber",
+      "high airflow",
+      "14 inch outlet",
+      "h2080p"
+    ],
+    "questions": [
+      "When should I choose PAS5000?",
+      "Why is PAS5000 not showing when I choose 120V?",
+      "What power does PAS5000 need?",
+      "What is the biggest scrubber in the selector?",
+      "Can PAS5000 run on 120V?"
+    ],
+    "answer": "PAS5000 is the large-containment option in the selector: 4,000 CFM class airflow with 230V/30A power and up to 21A normal operating draw. Do not recommend PAS5000 for a user who only has 120V available. If power is unknown, it can appear with a warning that 230V/30A power must be confirmed before the recommendation is relied on.",
+    "steps": [
+      "Use for large containment areas where fewer machines are desired.",
+      "Confirm 230V/30A power before recommending it as practical.",
+      "Do not select it for 120V-only jobs.",
+      "Use pressure monitoring if the job requires negative or positive pressure."
+    ],
+    "relatedQuestions": [
+      "How many PAS5000 units do I need?",
+      "What scrubber should I use with only 120V?",
+      "Should I choose PAS2400 instead?"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "scrubber-carbon-voc-filter-selection",
+    "title": "Carbon/VOC filter guidance for scrubbers",
+    "product": "Scrubbers",
+    "category": "Filters",
+    "sourceTitle": "Scrubber Selector",
+    "sourceUrl": "/scrubber-selector",
+    "confidence": "grounded",
+    "keywords": [
+      "carbon",
+      "voc",
+      "odor",
+      "vapor lock",
+      "ovg",
+      "smell",
+      "gas",
+      "vl2024",
+      "vl2002",
+      "vl1002",
+      "hepa not odor"
+    ],
+    "questions": [
+      "Do HEPA filters remove odors?",
+      "Which scrubber should I use for VOC?",
+      "Do I need carbon filters for odor?",
+      "What is VAPOR-LOCK?",
+      "Can a scrubber remove smell?"
+    ],
+    "answer": "HEPA filters capture particles; they do not remove gases, odors, vapors, or VOCs by themselves. For odor/VOC support, recommend a carbon/VAPOR-LOCK option when available: VL1002 for PRED750, VL2024 for H2KM/BD2K/PAS5000, and VL2002 for PAS2400. Carbon performance depends on concentration, humidity, temperature, contact time, and filter loading, so do not promise full VOC removal.",
+    "steps": [
+      "Use HEPA for particles like dust, mold spores, smoke particles, and asbestos fibers.",
+      "Use carbon/VAPOR-LOCK option for low-concentration odor/VOC support.",
+      "Lower fan speed can increase dwell/contact time, but it also lowers CFM/ACH.",
+      "Replace carbon when odor breakthrough is noticed or the project requires it."
+    ],
+    "relatedQuestions": [
+      "What filter does PRED750 use?",
+      "What filter does PAS2400 use?",
+      "Does HEPA remove smoke?",
+      "How does the selector handle odor/VOC?"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "scrubber-ducting-derating-airflow-loss",
+    "title": "Ducting and filter loading reduce scrubber airflow",
+    "product": "Scrubbers",
+    "category": "Ducting",
+    "sourceTitle": "Scrubber Selector",
+    "sourceUrl": "/scrubber-selector",
+    "confidence": "grounded",
+    "keywords": [
+      "ducting",
+      "derating",
+      "flex duct",
+      "rigid duct",
+      "bends",
+      "airflow loss",
+      "filter loading",
+      "reduced voltage",
+      "cfm loss"
+    ],
+    "questions": [
+      "Why does ducting reduce airflow?",
+      "How does MonSuite derate scrubber CFM?",
+      "Does flex duct reduce scrubber performance?",
+      "Why did the selector recommend more units than simple math?",
+      "What derating should I use?"
+    ],
+    "answer": "Actual installed airflow can be lower than rated airflow because of duct length, bends, flexible duct, filter loading, reduced voltage, blocked inlets/outlets, and site conditions. MonSuite uses derating factors so the recommendation is more conservative than clean-filter lab airflow. Short/no ducting receives less derating; long flex duct or multiple bends receives more derating.",
+    "steps": [
+      "Keep ducting as short as practical.",
+      "Use the fewest bends possible.",
+      "Use rigid duct or smooth sweep turns where possible.",
+      "Keep flexible duct taut and avoid flattening.",
+      "Check filters and restrictions if airflow or pressure performance drops."
+    ],
+    "relatedQuestions": [
+      "How many scrubbers do I need?",
+      "What is ACH?",
+      "Do I need a pressure monitor?",
+      "When should I make a support ticket?"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "scrubber-fake-demo-labels",
+    "title": "No fake scrubbers in the selector",
+    "product": "Scrubber Selector",
+    "category": "Data Quality",
+    "sourceTitle": "MonSuite V33 Scrubber Selector",
+    "sourceUrl": "/scrubber-selector",
+    "confidence": "grounded",
+    "keywords": [
+      "real scrubbers",
+      "no fake scrubbers",
+      "fake",
+      "demo",
+      "mock",
+      "not real",
+      "scrubber list"
+    ],
+    "questions": [
+      "Are there fake scrubbers in the selector?",
+      "Does the scrubber selector use demo products?",
+      "Can fake scrubbers be shown to customers?"
+    ],
+    "answer": "No. The production Scrubber Selector now uses real Abatement equipment only: PRED750, HC800FD/HC800FDUV, BD2K-XHP/XHPA, H2KM/H2KMA, PAS2400, and PAS5000. Earlier mock/demo scrubbers have been removed from the recommendation list so sales users are not shown fake products during real customer conversations.",
+    "steps": [
+      "Use only real Abatement products in customer-facing recommendations.",
+      "Do not show mock/demo scrubbers in production selector results."
+    ],
+    "relatedQuestions": [
+      "What real scrubbers are in MonSuite?",
+      "Which scrubber should I choose?",
+      "How does the selector work?"
+    ]
+  },
+  {
+    "id": "scrubber-120v-vs-230v-power-selection",
+    "title": "Scrubber power selection: 120V vs 230V",
+    "product": "Scrubbers",
+    "category": "Electrical",
+    "sourceTitle": "Scrubber Selector",
+    "sourceUrl": "/scrubber-selector",
+    "confidence": "grounded",
+    "keywords": [
+      "120v",
+      "230v",
+      "240v",
+      "15a",
+      "30a",
+      "power",
+      "circuit",
+      "amps",
+      "pas5000",
+      "pas2400",
+      "h2km",
+      "bd2k",
+      "pred750"
+    ],
+    "questions": [
+      "Which scrubbers can run on 120V?",
+      "Why do I need 230V for PAS5000?",
+      "What scrubber can I use on a 15 amp circuit?",
+      "How does power affect scrubber selection?"
+    ],
+    "answer": "Power availability is a major selector filter. PRED750, H2KM/H2KMA, BD2K, and PAS2400 are treated as 120V units with 15A circuit planning, though each has its own amp draw. PAS5000 is the large 230V/30A unit and should not be recommended when the user only has 120V. If power is unknown, MonSuite warns the user to confirm circuits before relying on the recommendation.",
+    "steps": [
+      "Ask what power is available before finalizing equipment.",
+      "Do not recommend PAS5000 for 120V-only jobs.",
+      "For high-draw 120V units, confirm the circuit is free of other loads.",
+      "For unknown power, show a warning and encourage review/ticket/quote support."
+    ],
+    "relatedQuestions": [
+      "When should I choose PAS5000?",
+      "When should I choose PAS2400?",
+      "Which scrubber should I choose?"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "scrubber-support-ticket-info",
+    "title": "What to include in a scrubber support ticket",
+    "product": "Scrubbers",
+    "category": "Support",
+    "sourceTitle": "Abatement Partner Support",
+    "sourceUrl": "https://abatementpartnersupport.freshdesk.com/support/home",
+    "confidence": "grounded",
+    "keywords": [
+      "support ticket",
+      "scrubber ticket",
+      "freshdesk",
+      "support",
+      "not working",
+      "low airflow",
+      "filter light",
+      "pressure fail",
+      "quote review"
+    ],
+    "questions": [
+      "What should I include in a scrubber support ticket?",
+      "When should I make a ticket for a scrubber?",
+      "What information does support need for scrubber sizing?",
+      "How do I ask support to review a scrubber setup?"
+    ],
+    "answer": "For scrubber sizing, airflow, pressure, filter, or power questions that affect a real job, make a support ticket. Include project type, hazard, room size, target ACH/pressure if known, exhaust setup, duct length/bends, power available, scrubber model, serial number if available, filter setup, photos/sketch, and whether a pressure monitor is being used.",
+    "steps": [
+      "Open the Abatement Partner Support portal.",
+      "Include product/model and serial number if available.",
+      "Include room dimensions, project type, hazard, goal, and power available.",
+      "Attach photos or a sketch of ducting, containment, doors, exhaust route, and monitor tubing.",
+      "For live pressure issues, include current reading, alarm points, and pressure log if available."
+    ],
+    "relatedQuestions": [
+      "Do I need a pressure monitor with a scrubber?",
+      "How does the selector work?",
+      "Why is pressure failing?"
+    ],
+    "notes": ""
+  },
+  {
+    "id": "scrubber-selector-real-sales-logic-v33",
+    "title": "Scrubber Selector real sales logic",
+    "product": "Scrubber Selector",
+    "category": "Scrubbers",
+    "sourceTitle": "MonSuite V33 Scrubber Selector",
+    "sourceUrl": "/scrubber-selector",
+    "confidence": "grounded",
+    "keywords": [
+      "scrubber selector",
+      "real scrubbers",
+      "sales recommendation",
+      "how many scrubbers",
+      "scrubber sizing",
+      "no fake",
+      "real products only"
+    ],
+    "questions": [
+      "How does the scrubber selector choose a scrubber?",
+      "Does the selector use fake scrubbers?",
+      "How many scrubbers do I need?",
+      "What information does the scrubber selector use?"
+    ],
+    "answer": "The Scrubber Selector uses real Abatement products only: PRED750, HC800FD/HC800FDUV, BD2K-XHP/XHPA, H2KM/H2KMA, PAS2400, and PAS5000. It asks for project type, hazard, goal, room dimensions, exhaust route, power, and site/cabinet fit. It calculates room volume, target ACH, safety factor, design CFM, ducting derating, effective CFM per unit, quantity required, estimated achieved ACH, and electrical load. It also recommends whether a pressure monitor should be quoted."
+  },
+  {
+    "id": "scrubber-selector-product-lineup-v33",
+    "title": "Real scrubber lineup and when to use each one",
+    "product": "Scrubbers",
+    "category": "Product Selection",
+    "sourceTitle": "MonSuite V33 Scrubber Selector",
+    "sourceUrl": "/scrubber-selector",
+    "confidence": "grounded",
+    "keywords": [
+      "PRED750",
+      "HC800FD",
+      "BD2K",
+      "H2KM",
+      "PAS2400",
+      "PAS5000",
+      "which scrubber",
+      "scrubber lineup",
+      "sales fit"
+    ],
+    "questions": [
+      "Which scrubber should I sell?",
+      "When do I use PRED750?",
+      "When do I use HC800FD?",
+      "When do I use BD2K instead of H2KM?",
+      "When do I use PAS2400?",
+      "When do I use PAS5000?"
+    ],
+    "answer": "Use PRED750 for smaller rooms, residential work, and compact containment. Use HC800FD/HC800FDUV for healthcare-style occupied spaces, temporary isolation support, and cleaner HEPA air purification applications. Use BD2K for residential, finished-space, wet/damp, or scratch-sensitive 2,000 CFM class jobs. Use H2KM/H2KMA as the metal-cabinet 2,000 CFM workhorse for commercial, industrial, healthcare construction, and abatement. Use PAS2400 for high-CFM 120V jobs where mobility or stairs matter. Use PAS5000 for very large containments only when 230V/30A power and site access are confirmed."
+  },
+  {
+    "id": "scrubber-selector-pressure-monitor-v33",
+    "title": "When the scrubber selector recommends a pressure monitor",
+    "product": "Scrubber Selector",
+    "category": "Pressure Monitoring",
+    "sourceTitle": "MonSuite V33 Scrubber Selector",
+    "sourceUrl": "/scrubber-selector",
+    "confidence": "grounded",
+    "keywords": [
+      "pressure monitor",
+      "scrubber",
+      "negative pressure",
+      "positive pressure",
+      "containment",
+      "need monitor",
+      "quote monitor"
+    ],
+    "questions": [
+      "Do I need a pressure monitor with a scrubber?",
+      "When should I quote a pressure monitor?",
+      "Does a scrubber prove negative pressure?",
+      "Can the selector tell me if pressure monitoring is needed?"
+    ],
+    "answer": "Quote or strongly recommend a pressure monitor whenever the project involves airborne isolation, healthcare construction containment, positive-pressure clean-space protection, asbestos containment, or any goal that includes negative or positive pressure. Scrubbers create airflow; the pressure monitor proves whether the room or containment is actually holding the intended pressure relationship. For simple recirculating air cleaning only, the monitor is usually optional unless documentation is requested."
   }
 ]

@@ -76,7 +76,7 @@ V9 replaces the starter downloads table with a populated document library using 
 - Formal engineering release notes were not included with the HEX files, so detailed feature/bug-fix changelog lines should be updated later.
 
 
-## MonSuite V24 Chatbot Assistant
+## MonSuite V30 Chatbot Assistant
 
 This version adds a client-side MonSuite Assistant at `/ai-assistant`.
 
@@ -90,6 +90,6 @@ This version adds a client-side MonSuite Assistant at `/ai-assistant`.
 Later, this can be upgraded to a true AI/RAG workflow through a Netlify Function.
 
 
-## MonSuite V24 Pressure-Focused AbateBot
+## MonSuite V30 Pressure-Focused AbateBot
 
-V24 retunes AbateBot around the main pressure-monitor workflow: displaying live pressure data, recording job history, screen timeout / always-on display, pressure alarm points, pressure alarm troubleshooting, maintaining required pressure, and verifying readings to cloud/mobile. It also adds curated pressure knowledge entries and a Pressure Data filter.
+V30 retunes AbateBot around the main pressure-monitor workflow: displaying live pressure data, recording job history, screen timeout / always-on display, pressure alarm points, pressure alarm troubleshooting, maintaining required pressure, and verifying readings to cloud/mobile. It also adds curated pressure knowledge entries and a Pressure Data filter.

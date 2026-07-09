@@ -9,21 +9,21 @@ import { firmwareWarnings, latestFirmware } from '../data/firmwareCatalog.js';
 
 const SUPPORT_URL = 'https://abatementpartnersupport.freshdesk.com/support/home';
 const DEFAULT_SUGGESTIONS = [
-  'How do I display and record pressure data?',
-  'How do I keep the display always on?',
-  'How do I set pressure alarm points?',
-  'How do I maintain negative pressure?',
+  'How does the Scrubber Selector choose a scrubber?',
+  'Which scrubber should I choose?',
+  'Should I choose H2KM or BD2K?',
+  'How many scrubbers do I need?',
+  'Do I need a pressure monitor with a scrubber?',
+  'What scrubber can I use on 120V?',
   'How do I verify pressure readings to the cloud?',
-  'How do I see pressure in the mobile app?',
-  'Why is my pressure alarm going off?',
   'When should I make a support ticket?',
 ];
 
 const GUIDED_MODES = [
-  { title: 'Pressure data', prompt: 'How do I display and record pressure data?', badge: 'Core use' },
-  { title: 'Display always on', prompt: 'How do I keep the display always on?', badge: 'Screen' },
-  { title: 'Alarm points', prompt: 'How do I set pressure alarm points?', badge: 'Alarms' },
-  { title: 'Cloud/mobile verify', prompt: 'How do I verify pressure readings to the cloud and mobile app?', badge: 'Reporting' },
+  { title: 'Scrubber selector', prompt: 'How does the Scrubber Selector choose a scrubber?', badge: 'Sizing' },
+  { title: 'Choose scrubber', prompt: 'Which scrubber should I choose?', badge: 'Products' },
+  { title: 'Pressure + scrubber', prompt: 'Do I need a pressure monitor with a scrubber?', badge: 'Containment' },
+  { title: 'AT Connect', prompt: 'How do I verify pressure readings to the cloud and mobile app?', badge: 'Reporting' },
   { title: 'Make a ticket', prompt: 'When should I make a support ticket?', badge: 'Escalate' },
 ];
 
@@ -33,6 +33,8 @@ const FILTERS = [
   { id: 'alarms', label: 'Alarms' },
   { id: 'cloud', label: 'Cloud/Mobile' },
   { id: 'display', label: 'Display' },
+  { id: 'scrubbers', label: 'Scrubbers' },
+  { id: 'selector', label: 'Selector' },
   { id: 'rpm', label: 'RPM' },
   { id: 'ppm4', label: 'PPM4' },
   { id: 'sensors', label: 'Sensors' },
@@ -47,6 +49,7 @@ const FILTERS = [
 const STOP_WORDS = new Set([
   'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'can', 'do', 'does', 'for', 'from', 'how', 'i', 'in', 'is', 'it',
   'me', 'my', 'of', 'on', 'or', 'set', 'the', 'this', 'to', 'up', 'use', 'what', 'when', 'where', 'why', 'with',
+  'should', 'choose', 'pick', 'need', 'needs', 'want', 'wants', 'best', 'better', 'one', 'ones', 'unit', 'units',
 ]);
 
 const POWER_PARTS = [
@@ -117,6 +120,8 @@ function entryMatchesFilter(entry, filter) {
   if (filter === 'power') return /power|ma|charger|bus|chain/.test(text);
   if (filter === 'wifi') return /wifi|network|cloud|mobile app/.test(text);
   if (filter === 'alarms') return /alarm|threshold|limit|beep|audible|notification|setpoint|set point/.test(text);
+  if (filter === 'scrubbers') return /scrubber|air filtration|negative air|hepa aire|hepa care|pred750|h2km|h2kma|bd2k|bulldog|pas2400|pas5000|hc800|carbon|vapor lock|ach|cfm/.test(text);
+  if (filter === 'selector') return /selector|recommend|sizing|size|ach|cfm|room volume|project type|hazard|goal|which scrubber/.test(text);
   return text.includes(filter);
 }
 
@@ -133,6 +138,11 @@ const INTENT_GROUPS = {
   pressureMaintain: ['maintain', 'holding', 'hold', 'keep', 'stable', 'stabilize', 'dropping', 'losing pressure', 'negative pressure', 'containment'],
   pressureVerify: ['verify', 'validate', 'cloud', 'mobile', 'app', 'web app', 'reporting', 'online', 'connected', 'connect'],
   pressureAlarmPoints: ['alarm point', 'alarm points', 'setpoint', 'set point', 'set points', 'threshold', 'thresholds', 'limit', 'limits', 'high limit', 'low limit'],
+  scrubber: ['scrubber', 'scrubbers', 'air scrubber', 'negative air', 'negative air machine', 'air filtration', 'afd', 'hepa aire', 'hepa care'],
+  scrubberSizing: ['how many', 'size', 'sizing', 'calculate', 'ach', 'cfm', 'air changes', 'room volume', 'flow rate', 'airflow'],
+  scrubberSelection: ['which scrubber', 'choose scrubber', 'pick scrubber', 'recommend scrubber', 'best scrubber', 'h2km or bd2k', 'pas2400 or h2km'],
+  scrubberFilters: ['filter', 'filters', 'hepa', 'carbon', 'vapor lock', 'voc', 'odor', 'smell', 'ovg'],
+  scrubberDucting: ['duct', 'ducting', 'flex duct', 'bends', 'inlet', 'outlet', 'collar', 'adapter', 'manifold'],
 };
 
 const PRODUCT_WORDS = {
@@ -142,6 +152,13 @@ const PRODUCT_WORDS = {
   ach: ['ach', 'velocity', 'airflow'],
   particle: ['particle'],
   pressure: ['pressure', 'differential pressure', 'negative pressure', 'positive pressure', 'room pressure'],
+  scrubber: ['scrubber', 'air scrubber', 'negative air', 'air filtration', 'afd'],
+  pred750: ['pred750', 'predator'],
+  h2km: ['h2km', 'h2kma'],
+  bd2k: ['bd2k', 'bulldog', 'xhp', 'xhpa'],
+  pas2400: ['pas2400'],
+  pas5000: ['pas5000'],
+  hc800: ['hc800', 'hc800fd', 'hc800fduv', 'hepa care'],
 };
 
 function includesAny(text, words) {
@@ -170,6 +187,11 @@ function analyzeQuery(query) {
     wantsPressureMaintain: includesAny(text, INTENT_GROUPS.pressureMaintain),
     wantsPressureVerify: includesAny(text, INTENT_GROUPS.pressureVerify),
     wantsPressureAlarmPoints: includesAny(text, INTENT_GROUPS.pressureAlarmPoints),
+    wantsScrubber: includesAny(text, INTENT_GROUPS.scrubber) || /pred750|h2km|h2kma|bd2k|bulldog|pas2400|pas5000|hc800/.test(text),
+    wantsScrubberSizing: includesAny(text, INTENT_GROUPS.scrubberSizing),
+    wantsScrubberSelection: includesAny(text, INTENT_GROUPS.scrubberSelection),
+    wantsScrubberFilters: includesAny(text, INTENT_GROUPS.scrubberFilters),
+    wantsScrubberDucting: includesAny(text, INTENT_GROUPS.scrubberDucting),
   };
 }
 
@@ -254,6 +276,54 @@ function pressureIntentAdjustment(entry, profile) {
   return adjustment;
 }
 
+function scrubberIntentAdjustment(entry, profile) {
+  const text = buildSearchText(entry);
+  const title = normalize(entry.title);
+  const category = normalize(entry.category);
+  let adjustment = 0;
+
+  const scrubberLikeQuestion = profile.wantsScrubber || profile.wantsScrubberSizing || profile.wantsScrubberSelection || profile.wantsScrubberFilters || profile.wantsScrubberDucting;
+  if (!scrubberLikeQuestion) return 0;
+
+  const isScrubberAnswer = /scrubber|air filtration|negative air|pred750|h2km|h2kma|bd2k|bulldog|pas2400|pas5000|hc800|hepa aire|hepa care|ach|cfm|vapor lock|carbon/.test(text);
+  if (isScrubberAnswer) adjustment += 85;
+  if (!isScrubberAnswer && !/pressure monitor|negative pressure|positive pressure/.test(text)) adjustment -= 55;
+
+  if (profile.wantsScrubberSelection) {
+    if (/choose|selection|lineup|h2km|bd2k|pas2400|pas5000|pred750|hc800|real scrubber/.test(text)) adjustment += 150;
+    if (/firmware|wifi|cellular|sensor power/.test(category)) adjustment -= 80;
+  }
+
+  if (profile.wantsScrubberSizing) {
+    if (/ach|cfm|room volume|sizing|quantity|required airflow|design cfm|air changes/.test(text)) adjustment += 165;
+    if (/firmware|alarm points|screen timeout/.test(text)) adjustment -= 65;
+  }
+
+  if (profile.wantsScrubberFilters) {
+    if (/hepa|carbon|vapor lock|voc|odor|ovg|filter/.test(text)) adjustment += 150;
+  }
+
+  if (profile.wantsScrubberDucting) {
+    if (/duct|ducting|inlet|outlet|collar|adapter|manifold|derating|airflow loss|bends/.test(text)) adjustment += 145;
+  }
+
+  if (profile.text.includes('h2km') && profile.text.includes('bd2k')) {
+    if (title.includes('h2km vs bd2k') || text.includes('plastic cabinet') || text.includes('metal cabinet')) adjustment += 240;
+  }
+  if ((profile.text.includes('residential') || profile.text.includes('wet') || profile.text.includes('plastic') || profile.text.includes('scratch')) && /bd2k|plastic cabinet|h2km vs bd2k/.test(text)) adjustment += 190;
+  if (profile.text.includes('pas5000') || profile.text.includes('4000 cfm') || profile.text.includes('230v') || profile.text.includes('30a')) {
+    if (/pas5000|230v|30a|4000 cfm/.test(text)) adjustment += 180;
+  }
+  if (profile.text.includes('pas2400') || profile.text.includes('stairs') || profile.text.includes('mobility')) {
+    if (/pas2400|stair|mobility|2100 cfm/.test(text)) adjustment += 170;
+  }
+  if (profile.text.includes('pred750') || profile.text.includes('750 cfm')) {
+    if (/pred750|predator|750 cfm/.test(text)) adjustment += 170;
+  }
+
+  return adjustment;
+}
+
 function sourceQualityAdjustment(entry, query) {
   let adjustment = 0;
   const category = normalize(entry.category);
@@ -328,6 +398,7 @@ function scoreEntry(entry, query) {
   score += productAlignmentBonus(entry, profile);
   score += alarmIntentAdjustment(entry, profile);
   score += pressureIntentAdjustment(entry, profile);
+  score += scrubberIntentAdjustment(entry, profile);
   score += sourceQualityAdjustment(entry, query);
 
   return Math.max(0, score);
@@ -667,8 +738,30 @@ function buildPressureMonitoringRule(query) {
   });
 }
 
+function buildScrubberSelectorRule(query) {
+  const profile = analyzeQuery(query);
+  const text = profile.text;
+  const scrubberContext = profile.wantsScrubber || profile.wantsScrubberSizing || profile.wantsScrubberSelection || profile.wantsScrubberFilters || profile.wantsScrubberDucting;
+  if (!scrubberContext) return null;
+
+  if (/ticket|support|freshdesk|quote review|review.*setup|send.*team/.test(text)) return cloneKnowledgeRule('scrubber-support-ticket-info', { __ticketRecommended: true, __severity: 'warning' });
+  if (/fake|demo|mock|not real/.test(text)) return cloneKnowledgeRule('scrubber-fake-demo-labels');
+  if ((text.includes('h2km') && text.includes('bd2k')) || /residential|finished|scratch|plastic|wet|damp|metal cabinet/.test(text)) return cloneKnowledgeRule('scrubber-h2km-vs-bd2k-cabinet-choice');
+  if (/pas5000|4000 cfm|230v|30a|large containment|biggest/.test(text)) return cloneKnowledgeRule('scrubber-pas5000-power-warning-large-containment', { __severity: /120v|15a/.test(text) ? 'warning' : 'info' });
+  if (/pas2400|2100 cfm|stair|stairs|mobility|tight access/.test(text)) return cloneKnowledgeRule('scrubber-pas2400-when-to-choose-v31');
+  if (/pred750|predator|750 cfm|small room|small scrubber/.test(text)) return cloneKnowledgeRule('scrubber-pred750-when-to-choose');
+  if (/carbon|voc|odor|smell|ovg|vapor lock|gas|vapou?r/.test(text)) return cloneKnowledgeRule('scrubber-carbon-voc-filter-selection');
+  if (/duct|ducting|flex|bend|bends|derat|airflow loss|inlet|outlet|collar|adapter|manifold/.test(text)) return cloneKnowledgeRule('scrubber-ducting-derating-airflow-loss');
+  if (/how many|size|sizing|calculate|ach|cfm|air changes|room volume|required airflow/.test(text)) return cloneKnowledgeRule('scrubber-sizing-ach-cfm-calculation');
+  if (/pressure monitor|negative pressure|positive pressure|containment|prove|verify pressure|monitor/.test(text)) return cloneKnowledgeRule('scrubber-pressure-monitor-recommendation');
+  if (/120v|230v|240v|15a|20a|30a|power|circuit|amps/.test(text)) return cloneKnowledgeRule('scrubber-120v-vs-230v-power-selection');
+  if (/what.*real|list|lineup|main scrubber|all scrubbers|real scrubbers/.test(text)) return cloneKnowledgeRule('scrubber-real-main-lineup-summary');
+
+  return cloneKnowledgeRule('scrubber-selector-how-it-works-v31');
+}
+
 function searchBrain(query, filter = 'all', limit = 5) {
-  const specialRule = buildTicketRoutingAnswer(query) || buildPowerCalculatorAnswer(query) || buildPpm4FirmwareRule(query) || buildPressureMonitoringRule(query) || buildAlarmRoutingAnswer(query);
+  const specialRule = buildScrubberSelectorRule(query) || buildTicketRoutingAnswer(query) || buildPowerCalculatorAnswer(query) || buildPpm4FirmwareRule(query) || buildPressureMonitoringRule(query) || buildAlarmRoutingAnswer(query);
 
   const scored = chatbotBrain
     .filter((entry) => entryMatchesFilter(entry, filter))
@@ -682,6 +775,38 @@ function searchBrain(query, filter = 'all', limit = 5) {
   }
 
   return scored;
+}
+
+
+function AbateBotRobot({ compact = false }) {
+  return (
+    <div className={`abatebot-robot-graphic ${compact ? 'compact' : ''}`} aria-hidden="true">
+      <svg viewBox="0 0 220 220" role="img">
+        <defs>
+          <linearGradient id="botStroke" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stopColor="#0b6fc6" />
+            <stop offset="1" stopColor="#27a7ff" />
+          </linearGradient>
+          <linearGradient id="botFill" x1="0" x2="1" y1="0" y2="1">
+            <stop offset="0" stopColor="rgba(255,255,255,.98)" />
+            <stop offset="1" stopColor="rgba(221,239,255,.92)" />
+          </linearGradient>
+        </defs>
+        <path d="M110 28v24" className="bot-line" />
+        <circle cx="110" cy="23" r="7" className="bot-dot" />
+        <rect x="48" y="54" width="124" height="100" rx="34" className="bot-head" />
+        <path d="M43 96h-18c-7 0-12 5-12 12v16c0 7 5 12 12 12h18" className="bot-line" />
+        <path d="M177 96h18c7 0 12 5 12 12v16c0 7-5 12-12 12h-18" className="bot-line" />
+        <circle cx="83" cy="106" r="10" className="bot-eye-svg" />
+        <circle cx="137" cy="106" r="10" className="bot-eye-svg" />
+        <path d="M86 132c14 11 34 11 48 0" className="bot-smile" />
+        <path d="M74 170h72" className="bot-line soft" />
+        <path d="M89 170v20" className="bot-line soft" />
+        <path d="M131 170v20" className="bot-line soft" />
+        <path d="M74 190h72" className="bot-line soft" />
+      </svg>
+    </div>
+  );
 }
 
 function ResultSource({ entry }) {
@@ -815,38 +940,7 @@ function AssistantAnswer({ answer, onAskSuggestion, feedback, onFeedbackChange }
 
         <TicketRecommendation question={answer.question} entry={best} />
 
-        {relatedQuestions.length > 0 && (
-          <div className="related-question-strip">
-            <span>Related questions</span>
-            <div>
-              {relatedQuestions.map((question) => (
-                <button key={question} type="button" onClick={() => onAskSuggestion(question)}>{question}</button>
-              ))}
-            </div>
-          </div>
-        )}
-
-        <FeedbackRow value={feedback} onChange={onFeedbackChange} />
       </div>
-
-      {related.length > 0 && (
-        <div className="related-results">
-          <h3>Related matches</h3>
-          {related.map((entry) => {
-            const meta = confidenceMeta(entry.__score);
-            return (
-              <details className="related-card" key={entry.id}>
-                <summary>
-                  <span>{entry.title}</span>
-                  <small>{entry.product} · {meta.label}</small>
-                </summary>
-                <p>{entry.answer}</p>
-                <ResultSource entry={entry} />
-              </details>
-            );
-          })}
-        </div>
-      )}
     </div>
   );
 }
@@ -867,7 +961,7 @@ export default function ChatbotPage({ user, onLogout, theme, onToggleTheme }) {
     const cleanQuestion = questionText.trim();
     if (!cleanQuestion) return;
 
-    const results = searchBrain(cleanQuestion, activeFilter, 5);
+    const results = searchBrain(cleanQuestion, activeFilter, 4);
     const item = {
       id: `${Date.now()}-${Math.random().toString(16).slice(2)}`,
       question: cleanQuestion,
@@ -875,7 +969,7 @@ export default function ChatbotPage({ user, onLogout, theme, onToggleTheme }) {
       filter: activeFilter,
     };
 
-    setHistory((current) => [item, ...current].slice(0, 12));
+    setHistory((current) => [...current, item].slice(-12));
     setQuery('');
   }
 
@@ -886,129 +980,79 @@ export default function ChatbotPage({ user, onLogout, theme, onToggleTheme }) {
 
   return (
     <AppShell user={user} onLogout={onLogout} theme={theme} onToggleTheme={onToggleTheme}>
-      <main className="page-wrap chatbot-page">
-        <section className="hero-card chatbot-hero chatbot-hero-sleek">
+      <main className="page-wrap chatbot-page chatbot-page-clean">
+        <section className="hero-card chatbot-hero clean-chatbot-hero">
           <div>
             <p className="eyebrow">Ask AbateBot</p>
-            <h1>Ask AbateBot about pressure display, recording, alarms, cloud, and mobile.</h1>
+            <h1>Technical answers without the clutter.</h1>
             <p>
-              AbateBot is now tuned around the main monitor workflow: displaying live pressure, recording job history, setting alarm points, maintaining required pressure, and verifying cloud/mobile reporting.
+              Ask about scrubber sizing, pressure monitoring, alarm setup, AT Connect, PPM4, RPM, sensors, firmware, cloud reporting, or support tickets. AbateBot searches the MonSuite brain and returns the best answer with a source link when available.
             </p>
           </div>
-          <div className="hero-panel assistant-stats abatebot-panel pro-bot-panel">
-            <div className="abatebot-avatar sleek-bot" aria-hidden="true">
-              <span className="bot-orbit" />
-              <span className="bot-antenna" />
-              <span className="bot-eye left" />
-              <span className="bot-eye right" />
-              <span className="bot-mouth" />
-            </div>
-            <span>Knowledge base</span>
-            <strong>{stats.entries} entries</strong>
-            <small>{stats.variants.toLocaleString()} question variants · {stats.products} products/topics</small>
+          <div className="clean-bot-showcase">
+            <AbateBotRobot />
+            <strong>AbateBot</strong>
+            <small>{stats.entries} knowledge entries · {stats.variants.toLocaleString()} question variants</small>
           </div>
         </section>
 
-        <section className="chatbot-shell enhanced-chatbot-shell">
-          <section className="chatbot-main">
-            <div className="guided-mode-row">
-              {GUIDED_MODES.map((mode) => (
-                <button key={mode.title} className="guided-mode-card" onClick={() => askQuestion(mode.prompt)}>
-                  <strong>{mode.title}</strong>
-                  <small>{mode.badge}</small>
-                  <span>{mode.prompt}</span>
-                </button>
-              ))}
-            </div>
-
-            <div className="filter-chip-row">
-              {FILTERS.map((filter) => (
-                <button
-                  key={filter.id}
-                  type="button"
-                  className={activeFilter === filter.id ? 'active' : ''}
-                  onClick={() => setActiveFilter(filter.id)}
-                >
-                  {filter.label}
-                </button>
-              ))}
-            </div>
-
-            <form className="assistant-search enhanced-search" onSubmit={handleSubmit}>
-              <label htmlFor="assistant-question">Ask AbateBot a product or setup question</label>
-              <div className="assistant-input-row">
-                <input
-                  id="assistant-question"
-                  value={query}
-                  onChange={(event) => setQuery(event.target.value)}
-                  placeholder="Example: how do I set job number on RPM?"
-                />
-                <button className="button primary" type="submit">Ask AbateBot</button>
+        <section className="clean-chat-shell">
+          <div className="chat-window-card">
+            <div className="chat-window-header">
+              <div>
+                <strong>AbateBot</strong>
+                <small>MonSuite product assistant</small>
               </div>
-              <small>
-                Active focus: <strong>{FILTERS.find((filter) => filter.id === activeFilter)?.label}</strong>. AbateBot uses local search plus pressure, alarm, firmware, and power-rule helpers.
-              </small>
-            </form>
-
-            <div className="suggestion-list">
-              {DEFAULT_SUGGESTIONS.map((suggestion) => (
-                <button key={suggestion} onClick={() => askQuestion(suggestion)}>{suggestion}</button>
-              ))}
+              <span>Online</span>
             </div>
 
-            {history.length ? (
-              <div className="chat-history">
-                {history.map((item) => (
-                  <article className="chat-turn" key={item.id}>
-                    <div className="user-question">
-                      <span>You asked</span>
-                      <strong>{item.question}</strong>
-                      {item.filter && item.filter !== 'all' ? <small>Filtered to {FILTERS.find((filter) => filter.id === item.filter)?.label}</small> : null}
-                    </div>
+            <div className="chat-message-list">
+              {!history.length && (
+                <div className="bot-message-row welcome-message">
+                  <AbateBotRobot compact />
+                  <div className="bot-message-bubble">
+                    <strong>Hi, I’m AbateBot.</strong>
+                    <p>
+                      Ask me things like “Which scrubber should I choose?”, “Do I need a pressure monitor?”, “How many scrubbers do I need?”, “How do I set pressure alarms?”, or “How do I connect AT Connect for push notifications?”
+                    </p>
+                  </div>
+                </div>
+              )}
+
+              {history.map((item) => (
+                <article className="chat-turn clean-chat-turn" key={item.id}>
+                  <div className="user-message-row">
+                    <div className="user-message-bubble">{item.question}</div>
+                  </div>
+                  <div className="bot-message-row">
+                    <AbateBotRobot compact />
                     <AssistantAnswer
                       answer={item}
                       onAskSuggestion={askQuestion}
                       feedback={feedback[item.id] || null}
                       onFeedbackChange={(value) => setFeedback((current) => ({ ...current, [item.id]: value }))}
                     />
-                  </article>
-                ))}
-              </div>
-            ) : (
-              <div className="assistant-empty-state polished-empty-state">
-                <strong>Hi, I’m AbateBot. Ask about displaying pressure, recording pressure history, screen timeout, alarm points, maintaining pressure, cloud verification, mobile app reporting, sensors, firmware, or setup rules.</strong>
-                <p>
-                  Good first tests: “How do I set pressure alarm points?”, “How do I verify pressure readings to the cloud?”, or “When should I make a support ticket?”
-                </p>
-              </div>
-            )}
-          </section>
+                  </div>
+                </article>
+              ))}
+            </div>
 
-          <aside className="chatbot-sidebar">
-            <div className="assistant-side-card ticket-side-card">
-              <strong>Make a ticket</strong>
-              <p>Use a ticket for live hospital jobs, failed pressure readings, alarm issues, missing history, cloud/mobile verification problems, or anything the bot does not clearly solve.</p>
-              <a className="button primary small full" href={SUPPORT_URL} target="_blank" rel="noreferrer">Make a ticket</a>
+            <form className="clean-chat-input" onSubmit={handleSubmit}>
+              <label className="sr-only" htmlFor="assistant-question">Ask AbateBot</label>
+              <input
+                id="assistant-question"
+                value={query}
+                onChange={(event) => setQuery(event.target.value)}
+                placeholder="Ask AbateBot a question..."
+              />
+              <button className="button primary" type="submit">Send</button>
+            </form>
+
+            <div className="clean-chat-footer-note">
+              <span>For live hospital jobs, failed pressure readings, missing records, or cloud/mobile issues, AbateBot may recommend making a ticket.</span>
+              <a href={SUPPORT_URL} target="_blank" rel="noreferrer">Make a ticket ↗</a>
             </div>
-            <div className="assistant-side-card">
-              <strong>Core pressure workflows</strong>
-              <ul>
-                <li>Display live pressure readings</li>
-                <li>Record and export job history</li>
-                <li>Set pressure alarm points</li>
-                <li>Verify cloud/mobile reporting</li>
-              </ul>
-            </div>
-            <div className="assistant-side-card warning-card">
-              <strong>Best uses</strong>
-              <p>Use AbateBot for pressure display, recording history, alarm points, maintaining required pressure, cloud/mobile verification, firmware warnings, and finding the right Google Doc fast.</p>
-            </div>
-            <div className="assistant-side-card">
-              <strong>Escalation</strong>
-              <p>When in doubt, make a ticket. AbateBot is useful for first-pass guidance, but support should review issues that affect pressure readings, records, alarms, cloud/mobile reporting, or active hospital work.</p>
-              <a className="button secondary small full" href={SUPPORT_URL} target="_blank" rel="noreferrer">Make a ticket</a>
-            </div>
-          </aside>
+          </div>
         </section>
       </main>
     </AppShell>

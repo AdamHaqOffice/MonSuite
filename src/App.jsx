@@ -19,6 +19,9 @@ import SetupBuilderPage from './pages/SetupBuilderPage.jsx';
 import ChatbotPage from './pages/ChatbotPage.jsx';
 import SystemBuilderPage from './pages/SystemBuilderPage.jsx';
 import NewsPage from './pages/NewsPage.jsx';
+import ScrubberSelectorPage from './pages/ScrubberSelectorPage.jsx';
+import ATConnectPage from './pages/ATConnectPage.jsx';
+import PressureMonitoringPage from './pages/PressureMonitoringPage.jsx';
 
 const allowedEmailDomains = import.meta.env.VITE_ALLOWED_EMAIL_DOMAINS
   ?.split(',')
@@ -197,6 +200,30 @@ export default function App() {
         element={(
           <ProtectedRoute user={user} loading={loading}>
             <NewsPage user={user} {...protectedPageProps} />
+          </ProtectedRoute>
+        )}
+      />
+      <Route
+        path="/scrubber-selector"
+        element={(
+          <ProtectedRoute user={user} loading={loading}>
+            <ScrubberSelectorPage user={user} {...protectedPageProps} />
+          </ProtectedRoute>
+        )}
+      />
+      <Route
+        path="/at-connect"
+        element={(
+          <ProtectedRoute user={user} loading={loading}>
+            <ATConnectPage user={user} {...protectedPageProps} />
+          </ProtectedRoute>
+        )}
+      />
+      <Route
+        path="/pressure-monitoring"
+        element={(
+          <ProtectedRoute user={user} loading={loading}>
+            <PressureMonitoringPage user={user} {...protectedPageProps} />
           </ProtectedRoute>
         )}
       />

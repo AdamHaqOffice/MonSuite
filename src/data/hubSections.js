@@ -8,6 +8,35 @@ export const hubSections = [
     icon: '◫',
     theme: 'products',
   },
+
+  {
+    title: 'Scrubber Selector',
+    eyebrow: 'Air cleaning estimator',
+    description: 'Estimate scrubber quantity, installed CFM, achieved ACH, accessories, pressure-monitor needs, electrical warnings, and jurisdiction notes.',
+    path: '/scrubber-selector',
+    status: 'New',
+    icon: '⌁',
+    theme: 'scrubber',
+  },
+
+  {
+    title: 'AT Connect',
+    eyebrow: 'Mobile + web',
+    description: 'Help users connect PPM4 or RPM to the AT Connect app for push alarm notifications, online pressure data, alarm history, and web downloads.',
+    path: '/at-connect',
+    status: 'New',
+    icon: '◉',
+    theme: 'atconnect',
+  },
+  {
+    title: 'Pressure Guide',
+    eyebrow: 'Training + reference',
+    description: 'Explain pressure monitoring, ACH, HEPA filtration, containment, hospital use cases, construction use cases, and useful standards/resources.',
+    path: '/pressure-monitoring',
+    status: 'New',
+    icon: '⇄',
+    theme: 'pressure',
+  },
   {
     title: 'Manuals & Downloads',
     eyebrow: 'Documents',

@@ -1,7 +1,7 @@
 {
-  "name": "monsuite-v24",
+  "name": "monsuite-v33-real-scrubber-selector",
   "private": true,
-  "version": "24.0.0",
+  "version": "33.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
