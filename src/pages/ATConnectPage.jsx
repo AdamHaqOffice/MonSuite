@@ -68,10 +68,9 @@ export default function ATConnectPage({ user, onLogout, theme, onToggleTheme }) 
         <section className="hero-card at-connect-hero">
           <div>
             <p className="eyebrow">AT Connect</p>
-            <h1>Connect PPM4 and RPM to the app for online data and push alarm notifications.</h1>
+            <h1>AT Connect</h1>
             <p>
-              AT Connect lets users add their PPM4 or RPM, save pressure data online, review alarm history,
-              download records, and receive alarm notifications. For alerts, push users toward the mobile app first.
+              Connect PPM4 and RPM units to online data, alarm history, reports, and mobile push notifications. Use the app for alerts and the web portal for records.
             </p>
             <div className="at-connect-actions">
               <a className="button primary" href={PLAY_STORE_URL} target="_blank" rel="noreferrer">Get AT Connect on Google Play</a>

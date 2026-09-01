@@ -22,6 +22,9 @@ import NewsPage from './pages/NewsPage.jsx';
 import ScrubberSelectorPage from './pages/ScrubberSelectorPage.jsx';
 import ATConnectPage from './pages/ATConnectPage.jsx';
 import PressureMonitoringPage from './pages/PressureMonitoringPage.jsx';
+import SettingsPage from './pages/SettingsPage.jsx';
+import { getAdminModeEnabled, setAdminModeEnabled, userCanUseAdminMode } from './utils/adminContent.js';
+import { APP_VERSION } from './data/appInfo.js';
 
 const allowedEmailDomains = import.meta.env.VITE_ALLOWED_EMAIL_DOMAINS
   ?.split(',')
@@ -72,6 +75,8 @@ export default function App() {
   const [loading, setLoading] = useState(true);
   const [authError, setAuthError] = useState('');
   const [theme, setTheme] = useState(getStoredTheme);
+  const [adminMode, setAdminMode] = useState(getAdminModeEnabled);
+  const [updateAvailable, setUpdateAvailable] = useState(false);
 
   useEffect(() => {
     document.documentElement.dataset.theme = theme;
@@ -102,6 +107,57 @@ export default function App() {
 
     return unsubscribe;
   }, []);
+
+
+
+
+  useEffect(() => {
+    const handleUpdateReady = () => setUpdateAvailable(true);
+    window.addEventListener('monsuite-update-ready', handleUpdateReady);
+
+    fetch(`/version.json?ts=${Date.now()}`, { cache: 'no-store' })
+      .then((response) => response.ok ? response.json() : null)
+      .then((data) => {
+        if (data?.version && data.version !== APP_VERSION) setUpdateAvailable(true);
+      })
+      .catch(() => {});
+
+    return () => window.removeEventListener('monsuite-update-ready', handleUpdateReady);
+  }, []);
+
+  async function handleRefreshApp() {
+    try {
+      if ('serviceWorker' in navigator) {
+        const registration = await navigator.serviceWorker.getRegistration();
+        registration?.waiting?.postMessage({ type: 'SKIP_WAITING' });
+      }
+      if ('caches' in window) {
+        const keys = await caches.keys();
+        await Promise.all(keys.filter((key) => key.startsWith('monsuite-')).map((key) => caches.delete(key)));
+      }
+    } catch {
+      // Reload even if cache cleanup is blocked by the browser.
+    }
+    window.location.reload();
+  }
+
+  useEffect(() => {
+    if (!user || !userCanUseAdminMode(user)) {
+      setAdminMode(false);
+      return;
+    }
+    setAdminMode(getAdminModeEnabled());
+  }, [user]);
+
+  function handleSetAdminMode(enabled) {
+    if (!userCanUseAdminMode(user)) {
+      setAdminMode(false);
+      setAdminModeEnabled(false);
+      return;
+    }
+    setAdminMode(enabled);
+    setAdminModeEnabled(enabled);
+  }
 
   const authActions = useMemo(() => ({
     async loginWithGoogle() {
@@ -138,6 +194,11 @@ export default function App() {
     onLogout: authActions.logout,
     theme,
     onToggleTheme: themeControls.onToggleTheme,
+    adminMode,
+    canUseAdminMode: userCanUseAdminMode(user),
+    onSetAdminMode: handleSetAdminMode,
+    updateAvailable,
+    onRefreshApp: handleRefreshApp,
   };
 
   return (
@@ -227,6 +288,15 @@ export default function App() {
           </ProtectedRoute>
         )}
       />
+
+      <Route
+        path="/settings"
+        element={(
+          <ProtectedRoute user={user} loading={loading}>
+            <SettingsPage user={user} {...protectedPageProps} />
+          </ProtectedRoute>
+        )}
+      />
       <Route
         path="/support"
         element={(
@@ -247,7 +317,7 @@ export default function App() {
         path="/setup-builder"
         element={(
           <ProtectedRoute user={user} loading={loading}>
-            <SetupBuilderPage user={user} {...protectedPageProps} />
+            <ScrubberSelectorPage user={user} {...protectedPageProps} />
           </ProtectedRoute>
         )}
       />

@@ -10,9 +10,9 @@ export const hubSections = [
   },
 
   {
-    title: 'Scrubber Selector',
-    eyebrow: 'Air cleaning estimator',
-    description: 'Estimate scrubber quantity, installed CFM, achieved ACH, accessories, pressure-monitor needs, electrical warnings, and jurisdiction notes.',
+    title: 'Airflow Planner',
+    eyebrow: 'Scrubbers + layout',
+    description: 'Draw the room, place monitors, sensors, ducts, and scrubbers, then generate a practical equipment report with scrubber count and monitor recommendation.',
     path: '/scrubber-selector',
     status: 'New',
     icon: '⌁',
@@ -85,10 +85,10 @@ export const hubSections = [
   },
   {
     title: 'Setup Configurator',
-    eyebrow: 'CAD-lite',
-    description: 'Desktop/tablet tool to draw rooms, place monitors and sensors, connect tubing and ethernet, and build a parts list.',
+    eyebrow: 'Combined planner',
+    description: 'Now opens the same Airflow Planner so room size, layout, scrubbers, ducting, and monitor needs stay connected.',
     path: '/setup-builder',
-    status: 'Desktop',
+    status: 'Updated',
     icon: '▦',
     theme: 'setup',
     desktopOnly: true,

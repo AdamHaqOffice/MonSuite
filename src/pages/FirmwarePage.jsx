@@ -1,5 +1,12 @@
+import { useEffect, useMemo, useState } from 'react';
 import AppShell from '../components/AppShell.jsx';
-import { firmwareHistory, firmwareWarnings, latestFirmware } from '../data/firmwareCatalog.js';
+import { firmwareHistory, firmwareRevisionFiles, firmwareWarnings, latestFirmware } from '../data/firmwareCatalog.js';
+import {
+  addAdminFirmwareHistory,
+  deleteAdminContentItem,
+  subscribeAdminContent,
+  updateAdminContentItem,
+} from '../utils/adminContent.js';
 
 function hasLink(value) {
   return Boolean(value && value.trim());
@@ -13,6 +20,23 @@ function ActionLink({ href, children, primary = false }) {
       {children}
     </a>
   );
+}
+
+function splitLines(value) {
+  return value.split('\n').map((line) => line.trim()).filter(Boolean);
+}
+
+function emptyFirmwareForm() {
+  return {
+    product: 'PPM4',
+    version: '',
+    status: 'Admin added',
+    published: true,
+    releaseDate: new Date().toISOString().slice(0, 10),
+    packageUrl: '',
+    files: '',
+    changes: '',
+  };
 }
 
 function WarningBanner({ warning }) {
@@ -44,8 +68,10 @@ function LatestFirmwareCard({ item }) {
 
       <div className="firmware-actions-row">
         <ActionLink href={item.downloadUrl} primary>Download latest</ActionLink>
+        <ActionLink href={item.driveUrl}>Open Drive folder</ActionLink>
         {item.migrationUrl !== undefined && <ActionLink href={item.migrationUrl}>Download v1.8 first</ActionLink>}
         {item.instructionsUrl !== undefined && <ActionLink href={item.instructionsUrl}>Instructions</ActionLink>}
+        <ActionLink href={item.revisionUrl}>Revision history</ActionLink>
       </div>
 
       <div className="firmware-file-list">
@@ -102,19 +128,21 @@ function HistoryCard({ release }) {
       <p className="firmware-meta">Release date: {release.releaseDate}</p>
       <div className="firmware-actions-row compact-actions">
         <ActionLink href={release.packageUrl}>Download package</ActionLink>
+        <ActionLink href={release.driveUrl}>Open Drive folder</ActionLink>
         {release.instructionsUrl !== undefined && <ActionLink href={release.instructionsUrl}>Instructions</ActionLink>}
+        <ActionLink href={release.revisionUrl}>Revision history</ActionLink>
       </div>
       <div className="history-columns">
         <div>
           <h4>Files</h4>
           <ul>
-            {release.files.map((file) => <li key={file}>{file}</li>)}
+            {(release.files || []).map((file) => <li key={file}>{file}</li>)}
           </ul>
         </div>
         <div>
           <h4>Changes / notes</h4>
           <ul>
-            {release.changes.map((change) => <li key={change}>{change}</li>)}
+            {(release.changes || []).map((change) => <li key={change}>{change}</li>)}
           </ul>
         </div>
       </div>
@@ -131,20 +159,104 @@ function HistoryCard({ release }) {
   );
 }
 
-export default function FirmwarePage({ user, onLogout, theme, onToggleTheme }) {
+export default function FirmwarePage({ user, onLogout, theme, onToggleTheme, adminMode, canUseAdminMode }) {
+  const [adminHistory, setAdminHistory] = useState([]);
+  const [adminSource, setAdminSource] = useState('Loading');
+  const [form, setForm] = useState(emptyFirmwareForm);
+  const [saving, setSaving] = useState(false);
+
+  useEffect(() => subscribeAdminContent('firmwareHistory', (items, meta) => {
+    setAdminHistory(items);
+    setAdminSource(meta.source);
+  }), []);
+
+  const visibleAdminHistory = useMemo(() => (
+    adminMode ? adminHistory : adminHistory.filter((release) => release.published !== false)
+  ), [adminHistory, adminMode]);
+
+  const allHistory = useMemo(() => [...visibleAdminHistory, ...firmwareHistory], [visibleAdminHistory]);
+
+  function updateField(field, value) {
+    setForm((current) => ({ ...current, [field]: value }));
+  }
+
+  async function handleSubmit(event) {
+    event.preventDefault();
+    if (!form.product.trim() || !form.version.trim()) return;
+    setSaving(true);
+    try {
+      await addAdminFirmwareHistory({
+        product: form.product.trim(),
+        version: form.version.trim(),
+        status: form.status.trim() || 'Admin added',
+        published: form.published,
+        releaseDate: form.releaseDate || new Date().toISOString().slice(0, 10),
+        packageUrl: form.packageUrl.trim(),
+        instructionsUrl: '',
+        files: splitLines(form.files),
+        changes: splitLines(form.changes),
+      });
+      setForm(emptyFirmwareForm());
+    } finally {
+      setSaving(false);
+    }
+  }
+
+  async function togglePublished(release) {
+    await updateAdminContentItem('firmwareHistory', release.id, { published: release.published === false });
+  }
+
+  async function removeItem(release) {
+    const ok = window.confirm(`Delete firmware entry: ${release.product} ${release.version}?`);
+    if (!ok) return;
+    await deleteAdminContentItem('firmwareHistory', release.id);
+  }
+
   return (
-    <AppShell user={user} onLogout={onLogout} theme={theme} onToggleTheme={onToggleTheme}>
+    <AppShell user={user} onLogout={onLogout} theme={theme} onToggleTheme={onToggleTheme} adminMode={adminMode} canUseAdminMode={canUseAdminMode}>
       <main className="page-wrap firmware-page-wrap">
-        <section className="section-heading page-title firmware-title-block">
+        <section className="section-heading page-title firmware-title-block compact-human-hero">
           <p className="eyebrow">Firmware center</p>
-          <h1>Firmware & feature updates</h1>
-          <p>
-            Download the latest PPM4 and RPM firmware packages, review update-path warnings,
-            and track version history/change notes for each firmware file.
-          </p>
+          <h1>Firmware</h1>
+          <p>Latest packages, update warnings, and practical change notes.</p>
         </section>
 
         {firmwareWarnings.map((warning) => <WarningBanner warning={warning} key={warning.id} />)}
+
+        {adminMode && (
+          <section className="admin-editor-panel">
+            <div className="section-subhead compact-admin-head">
+              <div>
+                <p className="eyebrow">Admin mode</p>
+                <h2>Add firmware change-log entry</h2>
+              </div>
+              <p>{adminSource === 'Firestore' ? 'Publishing to Firestore. Published entries appear for all users.' : 'Using local staging because Firestore is not available/configured.'}</p>
+            </div>
+            <form className="admin-form" onSubmit={handleSubmit}>
+              <label><span>Product</span><input value={form.product} onChange={(e) => updateField('product', e.target.value)} placeholder="PPM4 / RPM" /></label>
+              <label><span>Version</span><input value={form.version} onChange={(e) => updateField('version', e.target.value)} placeholder="2.4" /></label>
+              <label><span>Status</span><input value={form.status} onChange={(e) => updateField('status', e.target.value)} placeholder="Latest / Previous / Draft" /></label>
+              <label><span>Release date</span><input type="date" value={form.releaseDate} onChange={(e) => updateField('releaseDate', e.target.value)} /></label>
+              <label className="admin-check-row"><input type="checkbox" checked={form.published} onChange={(e) => updateField('published', e.target.checked)} /><span>Publish to users</span></label>
+              <label className="full-span"><span>Package URL</span><input value={form.packageUrl} onChange={(e) => updateField('packageUrl', e.target.value)} placeholder="Google Drive folder/file link" /></label>
+              <label className="full-span"><span>Files, one per line</span><textarea value={form.files} onChange={(e) => updateField('files', e.target.value)} placeholder="MFW1027A.hex — REV.2.4\nMFW1027L.hex — REV.2.4" /></label>
+              <label className="full-span"><span>Changes, one per line</span><textarea value={form.changes} onChange={(e) => updateField('changes', e.target.value)} placeholder="Fixed...\nAdded..." /></label>
+              <button className="button primary" type="submit" disabled={saving}>{saving ? 'Saving...' : 'Add firmware entry'}</button>
+            </form>
+
+            {adminHistory.length ? (
+              <div className="admin-manage-list">
+                {adminHistory.map((release) => (
+                  <div className="admin-manage-row" key={release.id}>
+                    <div><strong>{release.product} {release.version}</strong><small>{release.releaseDate} · {release.storageSource || adminSource} · {release.published === false ? 'Hidden' : 'Published'}</small></div>
+                    <button className="button secondary small" type="button" onClick={() => togglePublished(release)}>{release.published === false ? 'Publish' : 'Hide'}</button>
+                    <button className="button secondary small danger" type="button" onClick={() => removeItem(release)}>Delete</button>
+                  </div>
+                ))}
+              </div>
+            ) : null}
+          </section>
+        )}
 
         <section className="firmware-section-block">
           <div className="section-subhead">
@@ -152,11 +264,30 @@ export default function FirmwarePage({ user, onLogout, theme, onToggleTheme }) {
               <p className="eyebrow">Current downloads</p>
               <h2>Latest firmware packages</h2>
             </div>
-            <p>Use the package download first. Individual HEX files are also listed for verification or manual USB preparation.</p>
+            <p>Use the package download first. Individual HEX files are listed for verification or manual USB preparation.</p>
           </div>
 
           <div className="firmware-latest-grid">
             {latestFirmware.map((item) => <LatestFirmwareCard item={item} key={item.id} />)}
+          </div>
+        </section>
+
+        <section className="firmware-section-block revision-file-block">
+          <div className="section-subhead">
+            <div>
+              <p className="eyebrow">Source notes</p>
+              <h2>Revision history files</h2>
+            </div>
+            <p>Original engineering change-log text files are included in the app package for reference.</p>
+          </div>
+          <div className="revision-file-grid">
+            {firmwareRevisionFiles.map((file) => (
+              <a className="revision-file-card" href={file.href} target="_blank" rel="noreferrer" key={file.id}>
+                <strong>{file.title}</strong>
+                <span>{file.product}</span>
+                <p>{file.summary}</p>
+              </a>
+            ))}
           </div>
         </section>
 
@@ -167,13 +298,12 @@ export default function FirmwarePage({ user, onLogout, theme, onToggleTheme }) {
               <h2>Version history & change log</h2>
             </div>
             <p>
-              Formal engineering release notes were not included with the uploaded HEX files, so the change lists below
-              include detected version/package changes and placeholders for detailed feature or bug-fix notes.
+              Change notes below are pulled from supplied revision history where available and summarized for sales/support use.
             </p>
           </div>
 
           <div className="firmware-history-list">
-            {firmwareHistory.map((release) => <HistoryCard release={release} key={release.id} />)}
+            {allHistory.map((release) => <HistoryCard release={release} key={release.id} />)}
           </div>
         </section>
       </main>

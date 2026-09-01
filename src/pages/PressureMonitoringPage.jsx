@@ -36,10 +36,9 @@ export default function PressureMonitoringPage({ user, onLogout, theme, onToggle
         <section className="hero-card pressure-hero">
           <div>
             <p className="eyebrow">Pressure monitoring guide</p>
-            <h1>Pressure Monitoring, Airflow, and Containment</h1>
+            <h1>Pressure Guide</h1>
             <p>
-              Hospitals and construction sites use pressure monitoring to confirm whether air is moving in the intended direction between spaces.
-              The monitor does not clean air or prove ACH by itself — it shows whether a room or containment is holding negative or positive pressure compared with a reference area.
+              Practical notes for explaining negative pressure, positive pressure, ACH, scrubbers, alarms, and what a monitor can prove on a job site.
             </p>
             <div className="hero-action-row">
               <a className="button primary" href="/at-connect">Connect a monitor</a>

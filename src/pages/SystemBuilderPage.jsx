@@ -165,7 +165,7 @@ export default function SystemBuilderPage({ user, onLogout, theme, onToggleTheme
         <section className="hero-card mobile-hero">
           <div>
             <p className="eyebrow">Mobile builder</p>
-            <h1>Build a system without the CAD screen.</h1>
+            <h1>System Builder</h1>
             <p>
               Pick a monitor, add sensors, and MonSuite will calculate expansion-bus load,
               recommend dedicated power, and generate a quick parts list.

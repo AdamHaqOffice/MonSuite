@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import { getAuth, GoogleAuthProvider } from 'firebase/auth';
+import { getFirestore } from 'firebase/firestore';
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
@@ -12,13 +13,15 @@ const missingFirebaseConfig = Object.values(firebaseConfig).some((value) => !val
 
 let app = null;
 let auth = null;
+let db = null;
 let googleProvider = null;
 
 if (!missingFirebaseConfig) {
   app = initializeApp(firebaseConfig);
   auth = getAuth(app);
+  db = getFirestore(app);
   googleProvider = new GoogleAuthProvider();
   googleProvider.setCustomParameters({ prompt: 'select_account' });
 }
 
-export { app, auth, googleProvider, missingFirebaseConfig };
+export { app, auth, db, googleProvider, missingFirebaseConfig };

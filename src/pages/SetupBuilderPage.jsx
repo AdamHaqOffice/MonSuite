@@ -1165,7 +1165,7 @@ export default function SetupBuilderPage({ user, onLogout, theme, onToggleTheme 
         <section className="setup-header">
           <div>
             <p className="eyebrow">Setup Configurator MVP</p>
-            <h1>Build monitor layouts on a grid.</h1>
+            <h1>Layout Designer</h1>
             <p>
               Draw walls and doors, place monitors, sensors, chargers, and Power Bus modules,
               connect ethernet/tubing/local power, then review the generated parts list and power warnings.

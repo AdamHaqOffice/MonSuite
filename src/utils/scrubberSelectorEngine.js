@@ -221,7 +221,7 @@ export function classifyDuctProfile(input) {
   const exhaustSetup = input.exhaustSetup || 'unknown';
 
   if (exhaustSetup === 'recirculate' || input.hasDucting === 'no') return 'none';
-  if (ductLength >= 50 || bends >= 4 || ductType === 'flex') return 'long';
+  if (ductLength >= 50 || bends >= 4 || ductType === 'flex' || ductType === 'flexible') return 'long';
   if (ductLength > 0 && ductLength <= 15 && bends <= 1) return 'short';
   return 'normal';
 }
@@ -274,6 +274,7 @@ function requiresCarbon(input, rule) {
 
 export function productCompatible(product, input, rule) {
   if (!product.isRealProduct) return false;
+  if (product.id === 'abatement_hc800fd_series') return false; // V37 planner core quote lineup uses five scrubbers: PRED750, BD2K, H2KM, PAS2400, PAS5000.
   if (requiresCarbon(input, rule) && !product.filtration?.carbonOption) return false;
   if (rule?.filter?.toLowerCase().includes('hepa') && !product.filtration?.hepa) return false;
   if (input.hazard === 'asbestos' && product.appLogic?.useForAsbestos === false) return false;

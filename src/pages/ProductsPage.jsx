@@ -76,7 +76,7 @@ export default function ProductsPage({ user, onLogout, theme, onToggleTheme }) {
         <section className="products-hero">
           <div>
             <p className="eyebrow">Product knowledge</p>
-            <h1>RPM, PPM4, and sensor product hub.</h1>
+            <h1>Products</h1>
             <p>
               A cleaner sales/support product section built from the uploaded manuals, quick guides, module pamphlets,
               product photos, power notes, and setup rules.

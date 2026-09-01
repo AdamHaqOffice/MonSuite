@@ -1968,7 +1968,7 @@
       "Help with ppm4 firmware update warning?",
       "PPM4 Firmware PPM4 firmware update warning?"
     ],
-    "answer": "Critical MonSuite rule: if PPM4 firmware is below v1.8, update to v1.8 first before going to the latest v2.2 package. Do not jump directly from older firmware to the latest version unless engineering instructions explicitly say it is safe.",
+    "answer": "Critical MonSuite rule: if PPM4 firmware is below v1.8, update to v1.8 first before going to the latest v2.3 package. Do not jump directly from older firmware to the latest version unless engineering instructions explicitly say it is safe.",
     "notes": ""
   },
   {
@@ -9104,11 +9104,11 @@
     "notes": ""
   },
   {
-    "id": "ppm4-firmware-firmware-download-ppm4-latest-firmware-v2-2",
-    "title": "download PPM4 latest firmware v2.2",
+    "id": "ppm4-firmware-firmware-download-ppm4-latest-firmware-v2-3",
+    "title": "download PPM4 latest firmware v2.3",
     "product": "PPM4 Firmware",
     "category": "Firmware",
-    "sourceTitle": "PPM4 latest v2.2 firmware package",
+    "sourceTitle": "PPM4 latest v2.3 firmware package",
     "sourceUrl": "https://drive.google.com/drive/folders/1G31Pw49zJN4nCom3H1NmfeJK_QSiSh6K?usp=sharing",
     "confidence": "grounded",
     "keywords": [
@@ -9122,18 +9122,18 @@
       "version"
     ],
     "questions": [
-      "download PPM4 latest firmware v2.2?",
+      "download PPM4 latest firmware v2.3?",
       "Where do I get PPM4 Firmware?",
       "How do I update PPM4 Firmware?",
       "Firmware link for PPM4 Firmware?",
       "Download PPM4 Firmware?",
-      "How do I download ppm4 latest firmware v2.2?",
-      "How to download ppm4 latest firmware v2.2?",
-      "What do I need to know about download ppm4 latest firmware v2.2?",
-      "Help with download ppm4 latest firmware v2.2?",
-      "PPM4 Firmware download PPM4 latest firmware v2.2?"
+      "How do I download ppm4 latest firmware v2.3?",
+      "How to download ppm4 latest firmware v2.3?",
+      "What do I need to know about download ppm4 latest firmware v2.3?",
+      "Help with download ppm4 latest firmware v2.3?",
+      "PPM4 Firmware download PPM4 latest firmware v2.3?"
     ],
-    "answer": "Download the latest PPM4 v2.2 firmware package from the linked Google Drive folder. Before installing, verify current device version. If the PPM4 is below v1.8, update to v1.8 first, then update to v2.2.",
+    "answer": "Download the latest PPM4 v2.3 firmware package from the linked Google Drive folder. Before installing, verify current device version. If the PPM4 is below v1.8, update to v1.8 first, then update to v2.3.",
     "notes": ""
   },
   {
@@ -9166,7 +9166,7 @@
       "Help with download ppm4 v1.8 migration package?",
       "PPM4 Firmware download PPM4 v1.8 migration package?"
     ],
-    "answer": "Use the PPM4 v1.8 migration package when a PPM4 is below v1.8. This is the required intermediate step before updating to the latest v2.2 firmware package.",
+    "answer": "Use the PPM4 v1.8 migration package when a PPM4 is below v1.8. This is the required intermediate step before updating to the latest v2.3 firmware package.",
     "notes": ""
   },
   {
@@ -10535,5 +10535,293 @@
       "Can the selector tell me if pressure monitoring is needed?"
     ],
     "answer": "Quote or strongly recommend a pressure monitor whenever the project involves airborne isolation, healthcare construction containment, positive-pressure clean-space protection, asbestos containment, or any goal that includes negative or positive pressure. Scrubbers create airflow; the pressure monitor proves whether the room or containment is actually holding the intended pressure relationship. For simple recirculating air cleaning only, the monitor is usually optional unless documentation is requested."
+  },
+  {
+    "id": "ppm4-firmware-v2-3-latest-v34",
+    "title": "PPM4 latest firmware v2.3",
+    "product": "PPM4 Firmware",
+    "category": "Firmware",
+    "sourceTitle": "PPM4 v2.3 firmware package and MFW1027A revision history",
+    "sourceUrl": "/firmware",
+    "confidence": "grounded",
+    "keywords": [
+      "PPM4",
+      "firmware",
+      "2.3",
+      "MFW1027A",
+      "MFW1027L",
+      "latest",
+      "download",
+      "revision history",
+      "1.8 migration"
+    ],
+    "questions": [
+      "What is the latest PPM4 firmware?",
+      "Where do I download PPM4 v2.3?",
+      "Do I still need v1.8 before v2.3?",
+      "What files are in the PPM4 v2.3 package?"
+    ],
+    "answer": "The latest PPM4 package in MonSuite is v2.3. It includes MFW1027A.hex and MFW1027L.hex. Keep the critical update-path rule: if the PPM4 is below v1.8, update to v1.8 first, verify the device, then install v2.3. The Firmware page includes the package, Drive link, instructions, and MFW1027A revision history."
+  },
+  {
+    "id": "rpm-firmware-v0-6-changelog-v34",
+    "title": "RPM firmware REV.0.6 change log",
+    "product": "RPM Firmware",
+    "category": "Firmware",
+    "sourceTitle": "MFW1042A revision history",
+    "sourceUrl": "/firmware/REV_MFW1042A.txt",
+    "confidence": "grounded",
+    "keywords": [
+      "RPM",
+      "firmware",
+      "0.6",
+      "MFW1042A",
+      "room name",
+      "sensor name",
+      "screen always on",
+      "archive no message",
+      "RTC mutex"
+    ],
+    "questions": [
+      "What changed in RPM firmware 0.6?",
+      "What is the latest RPM revision history?",
+      "Does RPM firmware have screen always on?",
+      "Did RPM add room names?"
+    ],
+    "answer": "RPM firmware REV.0.6 adds larger configuration fields, room names, longer sensor names, room-name menu/display updates, improved toggle visibility, cloud authentication silence menu, screen timeout/screen-always-on menu items, and incorporates PPM4 fixes for cellular-module lockout, RTC mutex handling, and the archive No Message issue."
+  },
+  {
+    "id": "monsuite-admin-mode-v34",
+    "title": "MonSuite admin mode and publishing",
+    "product": "MonSuite",
+    "category": "Admin",
+    "sourceTitle": "MonSuite Settings",
+    "sourceUrl": "/settings",
+    "confidence": "app-behavior",
+    "keywords": [
+      "admin",
+      "settings",
+      "add news",
+      "add firmware",
+      "add manual",
+      "downloads",
+      "work account",
+      "firestore",
+      "publish",
+      "hide",
+      "delete"
+    ],
+    "questions": [
+      "How do I turn on admin mode?",
+      "Can I add news in MonSuite?",
+      "Can I add firmware changes?",
+      "Can I add manuals without code?",
+      "Does Admin Mode publish to everyone?",
+      "Why is Admin Mode using local staging?",
+      "How do I hide an admin post?"
+    ],
+    "answer": "Approved admin accounts can open Settings and turn on Admin Mode. In V36, admin forms for News, Firmware, and Downloads write to Firebase/Firestore when Firestore is configured and rules allow it. Published items appear to all MonSuite users; hidden items are visible only in Admin Mode. If Firestore is not available, MonSuite falls back to local staging on that browser so drafts can still be tested."
+  },
+  {
+    "id": "scrubber-selector-sales-summary-v36",
+    "title": "Scrubber Selector sales summary",
+    "product": "Scrubber Selector",
+    "category": "Scrubbers",
+    "sourceTitle": "MonSuite Scrubber Selector",
+    "sourceUrl": "/scrubber-selector",
+    "confidence": "app-behavior",
+    "keywords": [
+      "scrubber selector",
+      "sales summary",
+      "copy summary",
+      "quote notes",
+      "download summary",
+      "ticket",
+      "recommendation"
+    ],
+    "questions": [
+      "How do I create a scrubber quote note?",
+      "Can MonSuite copy a scrubber recommendation?",
+      "Where is the sales summary for scrubbers?",
+      "Can I download a scrubber selector result?"
+    ],
+    "answer": "Use Scrubber Selector and fill in the job type, hazard, goal, site/cabinet fit, room size, air route, power, and documentation need. MonSuite generates a sales answer with scrubber quantity, model, estimated effective CFM, estimated ACH, pressure-monitor recommendation, assumptions, quote accessories, and verification notes. Use Copy summary, Download .txt, or Open ticket to move the result into a quote/ticket workflow."
+  },
+  {
+    "id": "scrubber-selector-real-products-only-v36",
+    "title": "Real scrubber products only",
+    "product": "Scrubber Selector",
+    "category": "Scrubbers",
+    "sourceTitle": "MonSuite Scrubber Selector",
+    "sourceUrl": "/scrubber-selector",
+    "confidence": "app-behavior",
+    "keywords": [
+      "real scrubbers only",
+      "product list",
+      "PRED750",
+      "HC800FD",
+      "BD2K",
+      "H2KM",
+      "PAS2400",
+      "PAS5000"
+    ],
+    "questions": [
+      "What scrubbers are in the selector?",
+      "Which real scrubbers does MonSuite use?",
+      "Are there any test scrubbers in the selector?"
+    ],
+    "answer": "The production Scrubber Selector uses real Abatement equipment only: PRED750, HC800FD/HC800FDUV, BD2K-XHP/XHPA, H2KM/H2KMA, PAS2400, and PAS5000. The recommendation engine filters and ranks those units by room volume, target ACH, safety factor, ducting derating, job type, hazard, cabinet/site fit, and power availability."
+  },
+  {
+    "id": "scrubber-selector-pressure-monitor-v36",
+    "title": "Pressure monitor recommendation in Scrubber Selector",
+    "product": "Scrubber Selector",
+    "category": "Pressure Monitoring",
+    "sourceTitle": "MonSuite Scrubber Selector",
+    "sourceUrl": "/scrubber-selector",
+    "confidence": "app-behavior",
+    "keywords": [
+      "pressure monitor",
+      "negative pressure",
+      "positive pressure",
+      "scrubber",
+      "quote it",
+      "logs",
+      "documentation"
+    ],
+    "questions": [
+      "When does the scrubber selector recommend a pressure monitor?",
+      "Do I need a monitor with a scrubber?",
+      "Why does MonSuite say quote a monitor?"
+    ],
+    "answer": "Scrubber Selector recommends quoting a pressure monitor when the job involves negative pressure, positive pressure, healthcare isolation/construction, asbestos, containment documentation, or logs/reports. Scrubbers move/filter air, but a pressure monitor verifies the pressure relationship. If the job is recirculating air cleaning only and no pressure relationship is claimed, the monitor recommendation can be optional."
+  },
+  {
+    "id": "monsuite-pwa-update-tools-v36",
+    "title": "MonSuite update and cache tools",
+    "product": "MonSuite",
+    "category": "Settings",
+    "sourceTitle": "MonSuite Settings",
+    "sourceUrl": "/settings",
+    "confidence": "app-behavior",
+    "keywords": [
+      "update",
+      "cache",
+      "pwa",
+      "old version",
+      "settings",
+      "refresh app",
+      "version"
+    ],
+    "questions": [
+      "Why am I seeing an old version of MonSuite?",
+      "How do I update the PWA?",
+      "Where is the app version?",
+      "How do I clear MonSuite cache without clearing all cookies?"
+    ],
+    "answer": "MonSuite shows the app version in the top bar and Settings. Settings includes Refresh app and Clear MonSuite cache tools. These clear MonSuite site cache/service-worker cache without clearing unrelated browser cookies or work-site data. Use this when the installed PWA or browser tab is still showing an older deployed version."
+  },
+  {
+    "id": "airflow-planner-combined-v37",
+    "title": "Combined scrubber selector and setup planner",
+    "product": "MonSuite",
+    "category": "Scrubbers",
+    "sourceTitle": "MonSuite Airflow Planner",
+    "sourceUrl": "/scrubber-selector",
+    "confidence": "app-behavior",
+    "keywords": [
+      "airflow planner",
+      "scrubber selector",
+      "setup builder",
+      "get report",
+      "layout",
+      "drag scrubber",
+      "room volume",
+      "planner"
+    ],
+    "questions": [
+      "Where did the scrubber selector go?",
+      "How do I use the airflow planner?",
+      "How do I get a report?",
+      "Can I draw the room and calculate scrubbers?"
+    ],
+    "answer": "The Scrubber Selector and Setup Configurator are now combined into the Airflow Planner. Enter the job details, set or draw the room dimensions, drag monitors, sensors, ducts, and real scrubbers onto the layout, then use Get report. The report estimates room volume, design CFM, scrubber quantity, pressure-monitor need, power warnings, and confirmation notes."
+  },
+  {
+    "id": "airflow-planner-room-volume-v37",
+    "title": "Room volume and layout interaction",
+    "product": "MonSuite",
+    "category": "Scrubbers",
+    "sourceTitle": "MonSuite Airflow Planner",
+    "sourceUrl": "/scrubber-selector",
+    "confidence": "app-behavior",
+    "keywords": [
+      "volume",
+      "room size",
+      "draw box",
+      "walls",
+      "resize",
+      "length",
+      "width",
+      "height",
+      "calculate room"
+    ],
+    "questions": [
+      "How does MonSuite calculate room volume?",
+      "Can I enter room volume directly?",
+      "Can I draw walls to set the room size?"
+    ],
+    "answer": "MonSuite calculates room volume from length \u00d7 width \u00d7 height. In the Airflow Planner, changing the dimensions resizes the room box. Users can also enter a known cubic-foot volume and press Draw box; MonSuite estimates a room footprint using the current height and shape ratio. Dragging the right or bottom room handles updates length and width, which recalculates volume and scrubber sizing live."
+  },
+  {
+    "id": "airflow-planner-duct-types-v37",
+    "title": "Duct options in the airflow planner",
+    "product": "MonSuite",
+    "category": "Scrubbers",
+    "sourceTitle": "MonSuite Airflow Planner",
+    "sourceUrl": "/scrubber-selector",
+    "confidence": "app-behavior",
+    "keywords": [
+      "duct",
+      "ducting",
+      "round duct",
+      "square duct",
+      "flexible duct",
+      "flex duct",
+      "derating",
+      "airflow loss"
+    ],
+    "questions": [
+      "What duct types are in the planner?",
+      "Does flexible duct affect the recommendation?",
+      "Why does ducting reduce airflow?"
+    ],
+    "answer": "The Airflow Planner includes round, square, and flexible duct objects. Duct type, duct length, bends, and filter loading affect the airflow derating used in the scrubber calculation. Flexible duct and long/bent runs are treated more conservatively because they usually create more static resistance and reduce installed airflow."
+  },
+  {
+    "id": "airflow-planner-site-filtering-v37",
+    "title": "Site conditions filter available scrubbers",
+    "product": "MonSuite",
+    "category": "Scrubbers",
+    "sourceTitle": "MonSuite Airflow Planner",
+    "sourceUrl": "/scrubber-selector",
+    "confidence": "app-behavior",
+    "keywords": [
+      "wet area",
+      "residential",
+      "finished space",
+      "hide units",
+      "BD2K",
+      "H2KM",
+      "plastic",
+      "metal",
+      "dry units"
+    ],
+    "questions": [
+      "Why are some scrubbers hidden?",
+      "Why does wet area show BD2K?",
+      "Should I use H2KM or BD2K?"
+    ],
+    "answer": "The Airflow Planner filters draggable scrubbers based on site condition. For wet/damp, residential, finished, or scratch-sensitive spaces, it prioritizes plastic-cabinet units like BD2K and compact options like PRED750. For dry commercial, industrial, healthcare construction, abatement, and general jobsite work, it allows the metal workhorse units such as H2KM, PAS2400, and PAS5000 when appropriate."
   }
 ]

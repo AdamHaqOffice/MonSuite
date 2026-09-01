@@ -1,4 +1,30 @@
 export const monitorNews = [
+
+  {
+    id: 'ppm4-firmware-v2-3-added',
+    title: 'PPM4 firmware v2.3 added to MonSuite',
+    category: 'Firmware',
+    date: '2026-07-10',
+    status: 'Updated',
+    summary: 'The Firmware section now lists PPM4 v2.3 as the latest package and includes supplied MFW1027A/MFW1042A revision history for clearer change logs.',
+    details: [
+      'PPM4 latest package is now shown as v2.3 with MFW1027A.hex and MFW1027L.hex.',
+      'The PPM4 below-v1.8 migration warning remains in place: update to v1.8 first, then install the latest package.',
+      'RPM revision history has been added through REV.0.6 for change-log visibility.',
+    ],
+  },
+  {
+    id: 'admin-mode-staging-added',
+    title: 'Admin mode added for content staging',
+    category: 'MonSuite',
+    date: '2026-07-10',
+    status: 'New',
+    summary: 'Approved admin accounts can turn on Admin Mode from Settings to stage news, firmware change-log entries, and manual/download links.',
+    details: [
+      'Admin mode is currently browser-local for safe staging and testing.',
+      'The next production step is connecting these forms to Firebase/Firestore so admin edits publish to everyone.',
+    ],
+  },
   {
     id: 'coming-soon-rugged-rpm-case',
     title: 'Coming soon: Rugged case for RPM',
@@ -73,9 +99,9 @@ export const monitorNews = [
     category: 'Firmware',
     date: '2026-06-18',
     status: 'Important',
-    summary: 'PPM4 units below v1.8 must update to v1.8 first before moving to the latest v2.2 package.',
+    summary: 'PPM4 units below v1.8 must update to v1.8 first before moving to the latest v2.3 package.',
     details: [
-      'Do not jump directly from a pre-1.8 PPM4 firmware version to v2.2.',
+      'Do not jump directly from a pre-1.8 PPM4 firmware version to v2.3.',
       'Use the v1.8 migration package first, confirm the version, then install the latest package.',
     ],
   },

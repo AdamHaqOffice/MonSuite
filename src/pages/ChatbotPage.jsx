@@ -544,7 +544,7 @@ function buildPowerCalculatorAnswer(query) {
 function buildPpm4FirmwareRule(query) {
   const normalized = normalize(query);
   const mentionsPpm4 = normalized.includes('ppm4') || normalized.includes('portable pressure monitor');
-  const mentionsFirmware = ['firmware', 'version', 'update', 'upgrade', '1.8', '2.2', 'legacy'].some((term) => normalized.includes(term));
+  const mentionsFirmware = ['firmware', 'version', 'update', 'upgrade', '1.8', '2.3', 'legacy'].some((term) => normalized.includes(term));
   if (!mentionsPpm4 || !mentionsFirmware) return null;
 
   const warning = firmwareWarnings.find((item) => item.id === 'ppm4-below-1-8');
@@ -558,14 +558,14 @@ function buildPpm4FirmwareRule(query) {
     sourceTitle: 'PPM4 Firmware Update Instructions',
     sourceUrl: latest?.instructionsUrl || '',
     confidence: 'rule',
-    keywords: ['ppm4', 'firmware', '1.8', '2.2'],
+    keywords: ['ppm4', 'firmware', '1.8', '2.3'],
     questions: [],
-    answer: warning?.message || 'If the PPM4 is below v1.8, update to v1.8 first. Then install the latest v2.2 package.',
+    answer: warning?.message || 'If the PPM4 is below v1.8, update to v1.8 first. Then install the latest v2.3 package.',
     steps: warning?.steps || [],
-    relatedQuestions: ['Where do I download PPM4 v2.2?', 'Where do I get the v1.8 migration package?', 'How do I check PPM4 firmware version?'],
+    relatedQuestions: ['Where do I download PPM4 v2.3?', 'Where do I get the v1.8 migration package?', 'How do I check PPM4 firmware version?'],
     downloads: [
       { label: 'PPM4 v1.8 migration package', url: latest?.migrationUrl || '' },
-      { label: 'PPM4 latest v2.2 package', url: latest?.downloadUrl || '' },
+      { label: 'PPM4 latest v2.3 package', url: latest?.downloadUrl || '' },
     ],
     __score: 9998,
     __forcedWarning: true,
@@ -984,9 +984,9 @@ export default function ChatbotPage({ user, onLogout, theme, onToggleTheme }) {
         <section className="hero-card chatbot-hero clean-chatbot-hero">
           <div>
             <p className="eyebrow">Ask AbateBot</p>
-            <h1>Technical answers without the clutter.</h1>
+            <h1>AbateBot</h1>
             <p>
-              Ask about scrubber sizing, pressure monitoring, alarm setup, AT Connect, PPM4, RPM, sensors, firmware, cloud reporting, or support tickets. AbateBot searches the MonSuite brain and returns the best answer with a source link when available.
+              Ask product, setup, firmware, scrubber, pressure monitoring, AT Connect, and support questions. AbateBot searches the MonSuite knowledge base and returns the closest answer with a source when available.
             </p>
           </div>
           <div className="clean-bot-showcase">

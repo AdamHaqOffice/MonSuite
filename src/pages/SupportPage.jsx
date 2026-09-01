@@ -8,7 +8,7 @@ export default function SupportPage({ user, onLogout, theme, onToggleTheme }) {
       <main className="page-wrap narrow">
         <section className="support-card">
           <p className="eyebrow">Support escalation</p>
-          <h1>Need technical help?</h1>
+          <h1>Support</h1>
           <p>
             Use the existing ticketing system for product support, setup questions, firmware issues, or engineering review.
           </p>

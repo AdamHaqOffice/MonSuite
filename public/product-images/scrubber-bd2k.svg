@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 420 280" role="img" aria-label="BD2K scrubber illustration">
+  <rect width="420" height="280" rx="28" fill="#0f2238"/>
+  <rect x="95" y="44" width="230" height="176" rx="18" fill="#f2f6fb" stroke="#ffffff" stroke-opacity="0.42" stroke-width="3"/>
+  <rect x="122" y="72" width="176" height="96" rx="12" fill="#223247" opacity="0.16"/>
+  <circle cx="162" cy="120" r="30" fill="#0f2238" opacity="0.24"/>
+  <circle cx="256" cy="120" r="30" fill="#0f2238" opacity="0.24"/>
+  <rect x="134" y="180" width="152" height="18" rx="9" fill="#0f2238" opacity="0.20"/>
+  <circle cx="145" cy="224" r="13" fill="#222"/><circle cx="275" cy="224" r="13" fill="#222"/>
+  <text x="210" y="252" text-anchor="middle" fill="#ffffff" font-family="Arial, sans-serif" font-size="34" font-weight="700">BD2K</text>
+</svg>

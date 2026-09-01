@@ -1,7 +1,47 @@
 export const downloadTypes = ['All', 'Manual', 'Quick Guide', 'Troubleshooting', 'Firmware', 'Architecture'];
-export const downloadProducts = ["All", "ACH / Velocity Sensor", "Cellular Module", "PPM4", "Particle Sensor", "Pressure Sensor", "RPM", "Temp/RH Sensor"];
+export const downloadProducts = ["All", "ACH / Velocity Sensor", "Cellular Module", "Firmware", "PPM4", "Particle Sensor", "Pressure Sensor", "RPM", "Temp/RH Sensor"];
 
 export const downloads = [
+
+  {
+    id: `ppm4-firmware-v2-3-package`,
+    title: `PPM4 Firmware v2.3 Package`,
+    product: `PPM4`,
+    type: `Firmware`,
+    status: `Current`,
+    version: `2.3`,
+    updated: `2026-07-10`,
+    size: `4.0 MB`,
+    href: '/firmware/2.3-firmware.zip',
+    description: `Latest PPM4 v2.3 firmware package containing MFW1027A.hex and MFW1027L.hex. Units below v1.8 must still update to v1.8 first.`,
+    sourcePath: `2.3-firmware.zip`,
+  },
+  {
+    id: `ppm4-mfw1027a-revision-history`,
+    title: `MFW1027A PPM4 Firmware Revision History`,
+    product: `PPM4`,
+    type: `Firmware`,
+    status: `Current`,
+    version: `Revision History`,
+    updated: `2026-07-10`,
+    size: `TXT`,
+    href: '/firmware/REV_MFW1027A.txt',
+    description: `Engineering revision history for PPM4 MFW1027A firmware, summarized in the Firmware section.`,
+    sourcePath: `REV_MFW1027A.txt`,
+  },
+  {
+    id: `rpm-mfw1042a-revision-history`,
+    title: `MFW1042A RPM Firmware Revision History`,
+    product: `RPM`,
+    type: `Firmware`,
+    status: `Current`,
+    version: `Revision History`,
+    updated: `2026-07-10`,
+    size: `TXT`,
+    href: '/firmware/REV_MFW1042A.txt',
+    description: `Engineering revision history for RPM MFW1042A firmware, including the REV.0.6 change notes.`,
+    sourcePath: `REV_MFW1042A.txt`,
+  },
   {
     id: `ppm4-manual`,
     title: `PPM4 Portable Pressure Monitor Owner Manual`,

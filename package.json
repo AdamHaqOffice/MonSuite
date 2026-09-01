@@ -1,7 +1,7 @@
 {
-  "name": "monsuite-v33-real-scrubber-selector",
+  "name": "monsuite-v37-combined-airflow-planner",
   "private": true,
-  "version": "33.0.0",
+  "version": "37.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",
