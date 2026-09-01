@@ -1,15 +1,17 @@
-# MonSuite V36
+# MonSuite V38
 
-MonSuite is an internal Abatement Technologies support/sales portal for monitor products, firmware, manuals, pressure monitoring guidance, AT Connect, AbateBot, setup planning, and scrubber selection.
+MonSuite is an internal Abatement Technologies support/sales portal for monitor products, firmware, manuals, pressure monitoring guidance, AT Connect, AbateBot, setup planning, and air scrubber recommendations.
 
-## V36 highlights
+## V38 highlights
 
-- Sales-ready Scrubber Selector using real Abatement scrubbers only.
-- Copyable and downloadable scrubber sales summary for quotes, tickets, and follow-ups.
-- Admin Mode can publish News, Downloads, and Firmware History to Firebase/Firestore when configured.
-- Local admin staging fallback remains available when Firestore is not configured.
-- Visible app version, update banner, refresh tool, and MonSuite-only cache clearing.
-- Human design cleanup: smaller headers, less marketing copy, calmer cards and panels.
+- Reorganized the combined Airflow Planner so it is usable as a real sales/support workspace.
+- Left side is now the report form, center is the large planning canvas, and right side is the live recommendation/report panel.
+- Moved scrubbers, monitors, sensors, and duct options into a clean equipment dock above the canvas.
+- Made the layout canvas larger with clearer room sizing and visible resize handles.
+- Placed equipment can now be dragged around after it is dropped, with a visible remove control.
+- Added quick actions to place the recommended scrubber count and add an RPM when pressure monitoring is recommended.
+- Added a layout check that compares the actual drawn plan against the recommended scrubber quantity.
+- Kept the real scrubber list only and preserved site-condition filtering for residential/wet areas.
 
 ## Admin publishing
 

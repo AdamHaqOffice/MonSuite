@@ -1,7 +1,7 @@
 {
-  "name": "monsuite-v37-combined-airflow-planner",
+  "name": "monsuite-v38-airflow-planner-usability",
   "private": true,
-  "version": "37.0.0",
+  "version": "38.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",

@@ -1,0 +1,19 @@
+MonSuite V38 changed files only
+
+Unzip this package. Copy/drag the contents into the root of your MonSuite GitHub repo so the paths line up exactly, for example:
+
+src/pages/ScrubberSelectorPage.jsx
+src/data/chatbotBrain.json
+public/sw.js
+
+This package does NOT contain the entire app. It only contains the files changed from V37 to the fixed V38 package.
+
+Optional cleanup in GitHub:
+Delete these old extra brain mirror files if they still exist:
+- src/data/abatebotBrainV36.txt
+- src/data/abatebotBrainV37.txt
+
+The actual AbateBot brain file the app uses is:
+- src/data/chatbotBrain.json
+
+After upload, commit the changes and let Netlify redeploy.
