@@ -8670,3 +8670,424 @@ html[data-theme='dark'] .admin-manage-row small {
     justify-content: center;
   }
 }
+
+/* V39 Airflow Planner real usability redesign */
+.airflow-planner-v39 {
+  max-width: none;
+  padding: 14px clamp(12px, 1.6vw, 24px) 24px;
+}
+
+.planner-v39-shell {
+  display: grid;
+  grid-template-columns: 345px minmax(0, 1fr);
+  gap: 14px;
+  max-width: 1900px;
+  margin: 0 auto;
+  align-items: start;
+}
+
+.planner-v39-sidebar {
+  position: sticky;
+  top: 84px;
+  max-height: calc(100vh - 102px);
+  display: grid;
+  gap: 10px;
+  min-width: 0;
+}
+
+.planner-v39-brand-card,
+.planner-v39-form-card,
+.planner-v39-workspace,
+.planner-v39-equipment-dock,
+.planner-v39-canvas-card,
+.planner-v39-live-card,
+.planner-v39-strip-card {
+  border: 1px solid rgba(83, 101, 124, 0.18);
+  background: rgba(255, 255, 255, 0.96);
+  box-shadow: 0 10px 26px rgba(15, 36, 58, 0.055);
+}
+
+.planner-v39-brand-card {
+  padding: 13px 14px;
+  border-radius: 14px;
+}
+
+.planner-v39-brand-card h1 {
+  margin: 2px 0 4px;
+  font-size: 1.32rem;
+  letter-spacing: -0.02em;
+}
+
+.planner-v39-brand-card p:not(.eyebrow) {
+  margin: 0;
+  color: var(--text-muted, #657489);
+  font-size: 0.86rem;
+  line-height: 1.38;
+}
+
+.planner-v39-form-card {
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.planner-v39-form-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(83, 101, 124, 0.14);
+}
+
+.planner-v39-form-head h2 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.planner-v39-form-scroll {
+  overflow: auto;
+  padding: 10px 12px 12px;
+  max-height: calc(100vh - 305px);
+}
+
+.planner-v39-section {
+  border: 1px solid rgba(83, 101, 124, 0.14);
+  border-radius: 12px;
+  background: rgba(248, 251, 254, 0.65);
+  margin-bottom: 10px;
+  overflow: hidden;
+}
+
+.planner-v39-section summary {
+  cursor: pointer;
+  padding: 9px 11px;
+  font-size: 0.8rem;
+  font-weight: 850;
+  letter-spacing: 0.02em;
+  color: var(--brand-black, #0f172a);
+  background: rgba(255,255,255,0.78);
+  border-bottom: 1px solid rgba(83, 101, 124, 0.1);
+}
+
+.planner-v39-section .planner-field,
+.planner-v39-section .planner-two-col,
+.planner-v39-section .planner-three-col,
+.planner-v39-section .planner-dimension-grid {
+  margin: 9px 11px;
+}
+
+.airflow-planner-v39 .planner-field {
+  gap: 4px;
+  font-size: 0.78rem;
+}
+
+.airflow-planner-v39 .planner-field input,
+.airflow-planner-v39 .planner-field select,
+.airflow-planner-v39 .planner-field textarea {
+  min-height: 34px;
+  border-radius: 8px;
+  padding: 7px 8px;
+  font-size: 0.82rem;
+  box-shadow: none;
+}
+
+.airflow-planner-v39 .planner-two-col,
+.airflow-planner-v39 .planner-dimension-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.airflow-planner-v39 .planner-three-col {
+  grid-template-columns: 1.12fr 0.7fr 0.7fr;
+  gap: 8px;
+}
+
+.planner-v39-left-actions {
+  padding: 12px;
+  display: grid;
+  gap: 8px;
+  border-top: 1px solid rgba(83, 101, 124, 0.14);
+  background: rgba(248, 251, 254, 0.78);
+}
+
+.planner-v39-workspace {
+  border-radius: 16px;
+  padding: 12px;
+  min-width: 0;
+}
+
+.planner-v39-commandbar {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(180px, 1fr)) auto;
+  gap: 10px;
+  align-items: stretch;
+  margin-bottom: 10px;
+}
+
+.planner-v39-live-card {
+  border-radius: 12px;
+  padding: 10px 12px;
+  min-width: 0;
+}
+
+.planner-v39-live-card span {
+  display: block;
+  color: var(--text-muted, #66788d);
+  font-size: 0.72rem;
+  font-weight: 850;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.planner-v39-live-card strong {
+  display: block;
+  margin-top: 2px;
+  font-size: 1.05rem;
+  letter-spacing: -0.015em;
+}
+
+.planner-v39-live-card small {
+  display: block;
+  margin-top: 2px;
+  color: var(--text-muted, #66788d);
+}
+
+.planner-v39-command-actions {
+  display: flex;
+  align-items: stretch;
+  justify-content: flex-end;
+  gap: 8px;
+  flex-wrap: wrap;
+  min-width: 245px;
+}
+
+.planner-v39-command-actions .button {
+  min-height: 34px;
+}
+
+.planner-v39-command-actions .button:disabled,
+.planner-v39-left-actions .button:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.planner-v39-equipment-dock {
+  border-radius: 14px;
+  padding: 10px;
+  margin-bottom: 10px;
+  display: grid;
+  gap: 8px;
+  background: rgba(248, 251, 254, 0.86);
+}
+
+.planner-v39-dock-row {
+  display: grid;
+  grid-template-columns: 132px minmax(0, 1fr);
+  gap: 10px;
+  align-items: center;
+}
+
+.planner-v39-dock-label strong {
+  display: block;
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.planner-v39-dock-label span {
+  display: block;
+  margin-top: 2px;
+  font-size: 0.71rem;
+  color: var(--text-muted, #66788d);
+  line-height: 1.22;
+}
+
+.planner-v39-dock-items {
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  padding: 1px 0 3px;
+  scrollbar-width: thin;
+}
+
+.planner-v39-dock-items .planner-dock-item {
+  flex: 0 0 150px;
+  min-height: 54px;
+  display: grid;
+  grid-template-columns: 34px 1fr;
+  align-items: center;
+  gap: 7px;
+  padding: 7px;
+  border-radius: 10px;
+  text-align: left;
+}
+
+.planner-v39-dock-items .planner-dock-item .palette-icon {
+  width: 31px;
+  height: 31px;
+  border-radius: 8px;
+  font-size: 0.62rem;
+}
+
+.planner-v39-dock-items .planner-dock-item strong {
+  font-size: 0.79rem;
+}
+
+.planner-v39-dock-items .planner-dock-item small {
+  font-size: 0.67rem;
+  line-height: 1.12;
+}
+
+.planner-v39-dock-items.ducts .planner-dock-item {
+  flex-basis: 170px;
+}
+
+.planner-v39-canvas-card {
+  border-radius: 16px;
+  padding: 12px;
+}
+
+.airflow-planner-v39 .planner-canvas-v38,
+.airflow-planner-v39 .planner-canvas {
+  min-height: calc(100vh - 352px);
+  height: min(760px, calc(100vh - 352px));
+  border-radius: 12px;
+  border: 1px solid rgba(88, 108, 130, 0.24);
+  overflow: auto;
+  background:
+    linear-gradient(rgba(0, 116, 188, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 116, 188, 0.06) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(249,252,255,1), rgba(241,246,251,0.98));
+  background-size: 28px 28px;
+}
+
+.airflow-planner-v39 .planner-room-v38 {
+  left: 64px;
+  top: 54px;
+  border: 4px solid rgba(28, 47, 67, 0.78);
+  background: rgba(255, 255, 255, 0.48);
+}
+
+.airflow-planner-v39 .room-label {
+  font-size: 0.84rem;
+}
+
+.airflow-planner-v39 .room-resize-handle.right {
+  width: 20px;
+  height: 78px;
+  right: -12px;
+}
+
+.airflow-planner-v39 .room-resize-handle.bottom {
+  width: 78px;
+  height: 20px;
+  bottom: -12px;
+}
+
+.airflow-planner-v39 .placed-equipment-v38 {
+  border-radius: 10px;
+}
+
+.planner-v39-help-row {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  margin-top: 8px;
+  color: var(--text-muted, #66788d);
+  font-size: 0.78rem;
+}
+
+.planner-v39-report-strip {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.planner-v39-strip-card {
+  border-radius: 13px;
+  padding: 11px;
+  min-height: 82px;
+}
+
+.planner-v39-strip-card strong {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.84rem;
+}
+
+.planner-v39-strip-card p {
+  margin: 0;
+  color: var(--text-muted, #66788d);
+  font-size: 0.82rem;
+  line-height: 1.32;
+}
+
+.planner-v39-strip-card.ok {
+  border-color: rgba(46, 125, 82, 0.24);
+  background: rgba(231, 247, 238, 0.78);
+}
+
+.planner-v39-strip-card.needs-work {
+  border-color: rgba(207, 127, 16, 0.28);
+  background: rgba(255, 246, 229, 0.9);
+}
+
+.planner-v39-strip-card.basis {
+  background: rgba(239, 246, 255, 0.8);
+}
+
+.planner-v39-disclaimer {
+  max-width: 1900px;
+  margin: 12px auto 0;
+}
+
+@media (max-width: 1280px) {
+  .planner-v39-shell,
+  .planner-v39-commandbar,
+  .planner-v39-report-strip {
+    grid-template-columns: 1fr;
+  }
+
+  .planner-v39-sidebar {
+    position: static;
+    max-height: none;
+  }
+
+  .planner-v39-form-scroll {
+    max-height: none;
+  }
+
+  .planner-v39-command-actions {
+    justify-content: flex-start;
+  }
+
+  .airflow-planner-v39 .planner-canvas-v38,
+  .airflow-planner-v39 .planner-canvas {
+    min-height: 640px;
+    height: 640px;
+  }
+}
+
+@media (max-width: 740px) {
+  .planner-v39-dock-row,
+  .airflow-planner-v39 .planner-two-col,
+  .airflow-planner-v39 .planner-three-col,
+  .airflow-planner-v39 .planner-dimension-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .planner-v39-command-actions .button,
+  .planner-v39-left-actions .button {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .planner-v39-help-row {
+    display: grid;
+  }
+}

@@ -1,12 +1,12 @@
-export const APP_VERSION = '38.0.0';
-export const APP_BUILD_NAME = 'Airflow Planner Usability Pass';
+export const APP_VERSION = '39.0.0';
+export const APP_BUILD_NAME = 'Airflow Planner Layout Fix';
 export const APP_BUILD_DATE = '2026-09-01';
 
 export const appReleaseNotes = [
-  'Reorganized the combined Airflow Planner so the form, equipment dock, layout canvas, and live report each have clear space.',
-  'Moved scrubbers, monitors, sensors, and duct options into a horizontal equipment dock above the canvas.',
-  'Made the layout canvas larger and added draggable placed equipment with visible remove controls.',
-  'Added quick actions to place recommended scrubbers and add an RPM when pressure monitoring is recommended.',
-  'Improved the report panel with a layout check that compares the drawn plan against the recommended scrubber count.',
-  'Updated PWA cache version for the V38 planner usability release.'
+  'Rebuilt the Airflow Planner workspace so the report form stays on the left and the canvas gets the full remaining width.',
+  'Removed the always-visible right report column that was squeezing the layout.',
+  'Moved scrubbers, monitors, sensors, and ducts into horizontal dock rows above the plan area.',
+  'Kept Get report on the left and added report actions without taking space away from the canvas.',
+  'Increased the drawn room scale and canvas working area for real setup planning.',
+  'Updated PWA cache version for the V39 layout fix.'
 ];

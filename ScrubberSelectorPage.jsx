@@ -308,10 +308,10 @@ export default function ScrubberSelectorPage({ user, onLogout, theme, onToggleTh
   const roomLength = Math.max(numberValue(form.length, 30), 1);
   const roomWidth = Math.max(numberValue(form.width, 20), 1);
   const roomHeight = Math.max(numberValue(form.height, 10), 1);
-  const displayScale = Math.min(680 / roomLength, 460 / roomWidth, 18);
+  const displayScale = Math.min(1040 / roomLength, 690 / roomWidth, 24);
   const roomStyle = {
-    width: `${Math.max(260, roomLength * displayScale)}px`,
-    height: `${Math.max(190, roomWidth * displayScale)}px`,
+    width: `${Math.max(360, roomLength * displayScale)}px`,
+    height: `${Math.max(250, roomWidth * displayScale)}px`,
   };
 
   function updateField(field, value) {
@@ -535,177 +535,188 @@ export default function ScrubberSelectorPage({ user, onLogout, theme, onToggleTh
 
   return (
     <AppShell user={user} onLogout={onLogout} theme={theme} onToggleTheme={onToggleTheme} adminMode={adminMode} canUseAdminMode={canUseAdminMode}>
-      <main className="page-wrap airflow-planner-page airflow-planner-v38">
-        <section className="planner-v38-titlebar">
-          <div>
-            <p className="eyebrow">Airflow planner</p>
-            <h1>Setup + scrubber report</h1>
-          </div>
-          <p>Enter the job info, draw the room, place equipment, then generate a recommendation report.</p>
-        </section>
-
-        <section className="planner-v38-layout">
-          <aside className="planner-left-panel planner-v38-panel planner-v38-form-panel">
-            <div className="planner-v38-panel-head">
-              <div>
-                <p className="eyebrow">Report form</p>
-                <h2>Job inputs</h2>
-              </div>
-              <button className="button primary small" type="button" onClick={() => setShowReport(true)}>Get report</button>
+      <main className="page-wrap airflow-planner-page airflow-planner-v39">
+        <section className="planner-v39-shell">
+          <aside className="planner-v39-sidebar" aria-label="Airflow planner report form">
+            <div className="planner-v39-brand-card">
+              <p className="eyebrow">Airflow planner</p>
+              <h1>Setup report</h1>
+              <p>Enter the job details on the left. Build the room and equipment plan on the right. MonSuite updates the scrubber and monitor recommendation as you work.</p>
             </div>
 
-            <div className="planner-v38-form-scroll">
-              <div className="planner-v38-fieldset">
-                <h3>Location</h3>
-                <Field label="Country / region">
-                  <div className="planner-two-col">
-                    <select value={form.country} onChange={(event) => updateField('country', event.target.value)}>
-                      <option>United States</option>
-                      <option>Canada</option>
-                      <option>Other</option>
-                    </select>
-                    <select value={form.stateProvince} onChange={(event) => updateField('stateProvince', event.target.value)}>
-                      {locations.map((location) => <option key={location} value={location}>{location}</option>)}
-                      {form.country === 'Other' ? <option>Other / Not sure</option> : null}
-                    </select>
-                  </div>
-                </Field>
-                <Field label="City / facility" note="Optional. Used only in the report text.">
-                  <input value={form.city} onChange={(event) => updateField('city', event.target.value)} placeholder="Optional" />
-                </Field>
+            <div className="planner-v39-form-card">
+              <div className="planner-v39-form-head">
+                <div>
+                  <p className="eyebrow">Report form</p>
+                  <h2>Job inputs</h2>
+                </div>
+                <button className="button primary small" type="button" onClick={() => setShowReport(true)}>Get report</button>
               </div>
 
-              <div className="planner-v38-fieldset">
-                <h3>Application</h3>
-                <Field label="Project/application" required>
-                  <select value={form.projectType} onChange={(event) => updateField('projectType', event.target.value)}>
-                    {projectTypes.map((option) => <option key={option.id} value={option.id}>{option.label}</option>)}
-                  </select>
-                </Field>
-                <Field label="Hazard / concern" required>
-                  <select value={form.hazard} onChange={(event) => updateField('hazard', event.target.value)}>
-                    {hazardOptions.map((option) => <option key={option.id} value={option.id}>{option.label}</option>)}
-                  </select>
-                </Field>
-                <Field label="Goal" required>
-                  <select value={form.primaryGoal} onChange={(event) => updateField('primaryGoal', event.target.value)}>
-                    {primaryGoalOptions.map((option) => <option key={option.id} value={option.id}>{option.label}</option>)}
-                  </select>
-                </Field>
-                <Field label="Site condition" note="Changes which scrubbers are available to drag.">
-                  <select value={form.siteEnvironment} onChange={(event) => updateField('siteEnvironment', event.target.value)}>
-                    {siteEnvironmentOptions.map((option) => <option key={option.id} value={option.id}>{option.label}</option>)}
-                  </select>
-                </Field>
-              </div>
+              <div className="planner-v39-form-scroll">
+                <details className="planner-v39-section" open>
+                  <summary>1. Location</summary>
+                  <Field label="Country / region">
+                    <div className="planner-two-col">
+                      <select value={form.country} onChange={(event) => updateField('country', event.target.value)}>
+                        <option>United States</option>
+                        <option>Canada</option>
+                        <option>Other</option>
+                      </select>
+                      <select value={form.stateProvince} onChange={(event) => updateField('stateProvince', event.target.value)}>
+                        {locations.map((location) => <option key={location} value={location}>{location}</option>)}
+                        {form.country === 'Other' ? <option>Other / Not sure</option> : null}
+                      </select>
+                    </div>
+                  </Field>
+                  <Field label="City / facility" note="Optional. Used only in the report text.">
+                    <input value={form.city} onChange={(event) => updateField('city', event.target.value)} placeholder="Optional" />
+                  </Field>
+                </details>
 
-              <div className="planner-v38-fieldset">
-                <h3>Room size</h3>
-                <Field label="Known room volume" note="Optional. Enter ft³ and MonSuite will redraw the room from the current height/shape ratio.">
-                  <div className="planner-volume-input">
-                    <input value={form.knownVolume} onChange={(event) => updateField('knownVolume', event.target.value)} placeholder="ft³" inputMode="decimal" />
-                    <button className="button secondary small" type="button" onClick={applyKnownVolume}>Draw</button>
-                  </div>
-                </Field>
-                <div className="planner-dimension-grid">
-                  <Field label="Length"><input value={form.length} onChange={(event) => updateField('length', event.target.value)} inputMode="decimal" /></Field>
-                  <Field label="Width"><input value={form.width} onChange={(event) => updateField('width', event.target.value)} inputMode="decimal" /></Field>
-                  <Field label="Height"><input value={form.height} onChange={(event) => updateField('height', event.target.value)} inputMode="decimal" /></Field>
-                  <Field label="Units">
-                    <select value={form.unitSystem} onChange={(event) => updateField('unitSystem', event.target.value)}>
-                      {unitSystemOptions.map((option) => <option key={option.id} value={option.id}>{option.label}</option>)}
+                <details className="planner-v39-section" open>
+                  <summary>2. Application</summary>
+                  <Field label="Project/application" required>
+                    <select value={form.projectType} onChange={(event) => updateField('projectType', event.target.value)}>
+                      {projectTypes.map((option) => <option key={option.id} value={option.id}>{option.label}</option>)}
                     </select>
                   </Field>
-                </div>
+                  <Field label="Hazard / concern" required>
+                    <select value={form.hazard} onChange={(event) => updateField('hazard', event.target.value)}>
+                      {hazardOptions.map((option) => <option key={option.id} value={option.id}>{option.label}</option>)}
+                    </select>
+                  </Field>
+                  <Field label="Goal" required>
+                    <select value={form.primaryGoal} onChange={(event) => updateField('primaryGoal', event.target.value)}>
+                      {primaryGoalOptions.map((option) => <option key={option.id} value={option.id}>{option.label}</option>)}
+                    </select>
+                  </Field>
+                  <Field label="Site condition" note="Filters the equipment list. Wet/residential jobs hide metal-heavy dry-job units.">
+                    <select value={form.siteEnvironment} onChange={(event) => updateField('siteEnvironment', event.target.value)}>
+                      {siteEnvironmentOptions.map((option) => <option key={option.id} value={option.id}>{option.label}</option>)}
+                    </select>
+                  </Field>
+                </details>
+
+                <details className="planner-v39-section" open>
+                  <summary>3. Room size</summary>
+                  <Field label="Known room volume" note="Optional. Enter ft³ and press Draw to resize the room box.">
+                    <div className="planner-volume-input">
+                      <input value={form.knownVolume} onChange={(event) => updateField('knownVolume', event.target.value)} placeholder="ft³" inputMode="decimal" />
+                      <button className="button secondary small" type="button" onClick={applyKnownVolume}>Draw</button>
+                    </div>
+                  </Field>
+                  <div className="planner-dimension-grid planner-v39-dims">
+                    <Field label="Length"><input value={form.length} onChange={(event) => updateField('length', event.target.value)} inputMode="decimal" /></Field>
+                    <Field label="Width"><input value={form.width} onChange={(event) => updateField('width', event.target.value)} inputMode="decimal" /></Field>
+                    <Field label="Height"><input value={form.height} onChange={(event) => updateField('height', event.target.value)} inputMode="decimal" /></Field>
+                    <Field label="Units">
+                      <select value={form.unitSystem} onChange={(event) => updateField('unitSystem', event.target.value)}>
+                        {unitSystemOptions.map((option) => <option key={option.id} value={option.id}>{option.label}</option>)}
+                      </select>
+                    </Field>
+                  </div>
+                </details>
+
+                <details className="planner-v39-section" open>
+                  <summary>4. Ducting, power, documentation</summary>
+                  <Field label="Ducting">
+                    <div className="planner-three-col">
+                      <select value={form.ductType} onChange={(event) => { setSelectedDuctType(event.target.value); updateField('ductType', event.target.value); }}>
+                        <option value="round">Round</option>
+                        <option value="square">Square</option>
+                        <option value="flexible">Flexible</option>
+                      </select>
+                      <input value={form.ductLength} onChange={(event) => updateField('ductLength', event.target.value)} placeholder="ft" inputMode="decimal" />
+                      <input value={form.ductBends} onChange={(event) => updateField('ductBends', event.target.value)} placeholder="bends" inputMode="numeric" />
+                    </div>
+                  </Field>
+                  <Field label="Exhaust setup">
+                    <select value={form.exhaustSetup} onChange={(event) => updateField('exhaustSetup', event.target.value)}>
+                      <option value="outside">Exhaust outside / out of containment</option>
+                      <option value="adjacent">Exhaust to adjacent area</option>
+                      <option value="recirculate">Recirculate in same space</option>
+                    </select>
+                  </Field>
+                  <Field label="Power available">
+                    <select value={form.powerAvailable} onChange={(event) => updateField('powerAvailable', event.target.value)}>
+                      {powerOptions.map((option) => <option key={option.id} value={option.id}>{option.label}</option>)}
+                    </select>
+                  </Field>
+                  <div className="planner-two-col">
+                    <Field label="Target ACH"><input value={form.targetAch} onChange={(event) => updateField('targetAch', event.target.value)} placeholder="Auto" inputMode="decimal" /></Field>
+                    <Field label="Pressure target"><input value={form.targetPressure} onChange={(event) => updateField('targetPressure', event.target.value)} placeholder="Auto/spec" /></Field>
+                  </div>
+                  <Field label="Documentation required?">
+                    <select value={form.needDocumentation} onChange={(event) => updateField('needDocumentation', event.target.value)}>
+                      <option value="unknown">Unknown / decide from project</option>
+                      <option value="yes">Yes</option>
+                      <option value="no">No</option>
+                    </select>
+                  </Field>
+                </details>
               </div>
 
-              <div className="planner-v38-fieldset compact">
-                <h3>Air / power</h3>
-                <Field label="Ducting">
-                  <div className="planner-three-col">
-                    <select value={form.ductType} onChange={(event) => { setSelectedDuctType(event.target.value); updateField('ductType', event.target.value); }}>
-                      <option value="round">Round</option>
-                      <option value="square">Square</option>
-                      <option value="flexible">Flexible</option>
-                    </select>
-                    <input value={form.ductLength} onChange={(event) => updateField('ductLength', event.target.value)} placeholder="ft" inputMode="decimal" />
-                    <input value={form.ductBends} onChange={(event) => updateField('ductBends', event.target.value)} placeholder="bends" inputMode="numeric" />
-                  </div>
-                </Field>
-                <Field label="Exhaust setup">
-                  <select value={form.exhaustSetup} onChange={(event) => updateField('exhaustSetup', event.target.value)}>
-                    <option value="outside">Exhaust outside / out of containment</option>
-                    <option value="adjacent">Exhaust to adjacent area</option>
-                    <option value="recirculate">Recirculate in same space</option>
-                  </select>
-                </Field>
-                <Field label="Power available">
-                  <select value={form.powerAvailable} onChange={(event) => updateField('powerAvailable', event.target.value)}>
-                    {powerOptions.map((option) => <option key={option.id} value={option.id}>{option.label}</option>)}
-                  </select>
-                </Field>
-                <div className="planner-two-col">
-                  <Field label="Target ACH"><input value={form.targetAch} onChange={(event) => updateField('targetAch', event.target.value)} placeholder="Auto" inputMode="decimal" /></Field>
-                  <Field label="Pressure target"><input value={form.targetPressure} onChange={(event) => updateField('targetPressure', event.target.value)} placeholder="Auto/spec" /></Field>
-                </div>
-                <Field label="Documentation required?">
-                  <select value={form.needDocumentation} onChange={(event) => updateField('needDocumentation', event.target.value)}>
-                    <option value="unknown">Unknown / decide from project</option>
-                    <option value="yes">Yes</option>
-                    <option value="no">No</option>
-                  </select>
-                </Field>
+              <div className="planner-v39-left-actions">
+                <button className="button primary full-width" type="button" onClick={() => setShowReport(true)}>Get report</button>
+                <button className="button secondary full-width" type="button" onClick={copyReport}>{copied ? 'Copied' : 'Copy report'}</button>
+                <button className="button secondary full-width" type="button" onClick={downloadReport}>Download .txt</button>
               </div>
             </div>
           </aside>
 
-          <section className="planner-canvas-panel planner-v38-panel planner-v38-design-panel">
-            <div className="planner-v38-design-head">
-              <div>
-                <p className="eyebrow">Layout</p>
-                <h2>Plan area</h2>
+          <section className="planner-v39-workspace" aria-label="Airflow layout workspace">
+            <div className="planner-v39-commandbar">
+              <div className="planner-v39-live-card">
+                <span>Lead recommendation</span>
+                <strong>{top ? `${top.quantity} × ${top.product.shortName}` : 'Complete inputs'}</strong>
+                <small>{top ? `${formatNumber(top.totalEffectiveCfm, 0)} CFM · ${formatNumber(top.estimatedAch, 1)} ACH` : 'Room and application required'}</small>
               </div>
-              <div className="planner-v38-design-actions">
+              <div className="planner-v39-live-card">
+                <span>Room volume</span>
+                <strong>{formatNumber(result.calculations.roomVolume, 0)} ft³</strong>
+                <small>{form.length} × {form.width} × {form.height} {form.unitSystem}</small>
+              </div>
+              <div className="planner-v39-live-card">
+                <span>Monitor</span>
+                <strong>{result.monitorRequirement === 'optional' ? 'Optional' : 'Recommended'}</strong>
+                <small>{result.rule?.pressureDirection || 'Project-specific'}</small>
+              </div>
+              <div className="planner-v39-command-actions">
                 <button className="button secondary small" type="button" onClick={addRecommendedToPlan} disabled={!top || hasRecommendedLayout}>Add recommended units</button>
                 <button className="button secondary small" type="button" onClick={addPressureMonitorToPlan} disabled={!placedMonitorNeeded}>Add RPM</button>
                 <button className="button secondary small" type="button" onClick={() => setPlacedItems([])}>Clear layout</button>
+                <button className="button primary small" type="button" onClick={() => setShowReport(true)}>Get report</button>
               </div>
             </div>
 
-            <div className="planner-live-summary planner-v38-stats">
-              <Stat label="Volume" value={`${formatNumber(result.calculations.roomVolume, 0)} ft³`} sub={`${form.length} × ${form.width} × ${form.height} ${form.unitSystem}`} />
-              <Stat label="Design CFM" value={`${formatNumber(result.calculations.designCfm, 0)} CFM`} sub={`${formatNumber(result.calculations.targetAch, 1)} ACH target`} />
-              <Stat label="Pressure" value={result.monitorRequirement === 'optional' ? 'Optional' : 'Monitor needed'} sub={result.rule?.pressureDirection || 'Project-specific'} />
-              <Stat label="Lead" value={top ? `${top.quantity} × ${top.product.shortName}` : '—'} sub={top ? `${formatNumber(top.totalEffectiveCfm, 0)} CFM` : 'Complete inputs'} />
-            </div>
-
-            <div className="planner-v38-dock">
-              <div className="planner-v38-dock-group scrubbers">
-                <div className="planner-v38-dock-title">
+            <div className="planner-v39-equipment-dock" aria-label="Draggable equipment">
+              <div className="planner-v39-dock-row">
+                <div className="planner-v39-dock-label">
                   <strong>Scrubbers</strong>
-                  {hiddenDryUnits ? <small>Filtered for residential/wet work</small> : <small>Real units only</small>}
+                  <span>{hiddenDryUnits ? 'Filtered for wet/residential work' : 'Real units only'}</span>
                 </div>
-                <div className="planner-v38-dock-scroll scrubber-scroll">
+                <div className="planner-v39-dock-items">
                   {allowedScrubbers.map((product) => <ScrubberTile key={product.id} product={product} />)}
                 </div>
               </div>
 
-              <div className="planner-v38-dock-group monitors">
-                <div className="planner-v38-dock-title">
+              <div className="planner-v39-dock-row">
+                <div className="planner-v39-dock-label">
                   <strong>Monitors + sensors</strong>
-                  <small>Power warnings update from placed sensors</small>
+                  <span>Power warning updates from placed sensors</span>
                 </div>
-                <div className="planner-v38-dock-scroll">
+                <div className="planner-v39-dock-items">
                   {monitorItems.map((item) => <EquipmentTile key={item.id} item={item} />)}
                 </div>
               </div>
 
-              <div className="planner-v38-dock-group ducts">
-                <div className="planner-v38-dock-title">
+              <div className="planner-v39-dock-row compact">
+                <div className="planner-v39-dock-label">
                   <strong>Ducts</strong>
-                  <small>Square, round, flexible</small>
+                  <span>Round, square, flexible</span>
                 </div>
-                <div className="planner-v38-dock-scroll">
+                <div className="planner-v39-dock-items ducts">
                   {ductItems.map((item) => (
                     <button key={item.id} className={`planner-palette-item planner-dock-item duct-${item.id} ${selectedDuctType === item.id ? 'active' : ''}`} draggable onClick={() => { setSelectedDuctType(item.id); updateField('ductType', item.id); }} onDragStart={(event) => startDrag(event, item)} type="button">
                       <span className="palette-icon">{item.icon}</span>
@@ -717,7 +728,7 @@ export default function ScrubberSelectorPage({ user, onLogout, theme, onToggleTh
               </div>
             </div>
 
-            <div className="planner-canvas-wrap planner-canvas-wrap-v38">
+            <div className="planner-v39-canvas-card">
               <RoomCanvas
                 canvasRef={canvasRef}
                 form={form}
@@ -731,78 +742,35 @@ export default function ScrubberSelectorPage({ user, onLogout, theme, onToggleTh
                 endMovePlaced={endMovePlaced}
                 removePlaced={removePlaced}
               />
-              <div className="planner-canvas-help planner-v38-help-row">
-                <span>Drag equipment from the dock. Drag placed equipment to move it. Resize the room with the blue handles.</span>
+              <div className="planner-canvas-help planner-v39-help-row">
+                <span>Drag equipment into the room. Drag placed items to move them. Use the blue handles to resize the room and update volume.</span>
                 <span>{placedItems.length} item(s) on layout</span>
               </div>
             </div>
+
+            <div className="planner-v39-report-strip">
+              <div className={`planner-v39-strip-card ${hasRecommendedLayout ? 'ok' : 'needs-work'}`}>
+                <strong>Layout check</strong>
+                {top ? (
+                  hasRecommendedLayout
+                    ? <p>Plan includes the recommended {top.quantity} × {top.product.shortName}.</p>
+                    : <p>Plan is short {Math.max(0, top.quantity - topPlacedCount)} × {top.product.shortName}. Add recommended units or drag units into the room.</p>
+                ) : <p>Complete the inputs to check the layout.</p>}
+              </div>
+              <div className={`planner-v39-strip-card ${placedMonitorNeeded ? 'needs-work' : 'ok'}`}>
+                <strong>{result.monitorRequirement === 'optional' ? 'Pressure monitor optional' : 'Pressure monitor recommended'}</strong>
+                <p>{placedMonitorNeeded ? 'No PPM4/RPM is currently placed.' : result.monitorLabel}</p>
+              </div>
+              <div className={`planner-v39-strip-card ${placedSummary.sensorLoad > placedSummary.effectiveLimit ? 'needs-work' : ''}`}>
+                <strong>Monitor/sensor bus load</strong>
+                <p>{placedSummary.sensorLoad}mA shown / {placedSummary.effectiveLimit}mA planning capacity.</p>
+              </div>
+              <div className="planner-v39-strip-card basis">
+                <strong>{form.stateProvince} planning basis</strong>
+                <p>{result.rule?.name || 'Project-specific'} · {formatNumber(result.calculations.targetAch, 1)} ACH · {result.rule?.pressureDirection || 'Pressure direction varies'}</p>
+              </div>
+            </div>
           </section>
-
-          <aside className="planner-report-panel planner-v38-panel planner-v38-report-panel">
-            <div className="planner-v38-panel-head">
-              <div>
-                <p className="eyebrow">Live recommendation</p>
-                <h2>Report</h2>
-              </div>
-            </div>
-
-            {(result.errors?.length || !top) ? (
-              <div className="planner-warning-box">
-                {result.errors.map((error) => <p key={error}>⚠ {error}</p>)}
-              </div>
-            ) : (
-              <>
-                <div className="planner-primary-card planner-v38-primary-card">
-                  <span>Lead recommendation</span>
-                  <h2>{top.quantity} × {top.product.shortName}</h2>
-                  <p>{top.product.displayName}</p>
-                  <div className="planner-mini-stats">
-                    <span>{formatNumber(top.totalEffectiveCfm, 0)} CFM</span>
-                    <span>{formatNumber(top.estimatedAch, 1)} ACH</span>
-                    <span>{formatNumber(top.totalAmps, 1)}A</span>
-                  </div>
-                </div>
-
-                <div className={`planner-layout-check ${hasRecommendedLayout ? 'ok' : 'needs-work'}`}>
-                  <strong>Layout check</strong>
-                  {hasRecommendedLayout ? (
-                    <p>The plan includes the recommended {top.quantity} × {top.product.shortName}.</p>
-                  ) : (
-                    <p>Plan is short {Math.max(0, top.quantity - topPlacedCount)} × {top.product.shortName}. Use “Add recommended units” or drag units into the room.</p>
-                  )}
-                </div>
-
-                <div className="planner-standard-box">
-                  <strong>{form.stateProvince} planning basis</strong>
-                  <p>{result.rule?.name || 'Project-specific'} · {formatNumber(result.calculations.targetAch, 1)} ACH · {result.rule?.pressureDirection || 'Pressure direction varies'}</p>
-                  <small>{result.jurisdictionNote}</small>
-                </div>
-
-                <div className={`planner-monitor-box ${placedMonitorNeeded ? 'needs-monitor' : ''}`}>
-                  <strong>{result.monitorRequirement === 'optional' ? 'Pressure monitor optional' : 'Pressure monitor recommended'}</strong>
-                  <p>{result.monitorLabel}</p>
-                  {placedMonitorNeeded ? <small>No PPM4/RPM is currently placed on the layout.</small> : null}
-                </div>
-
-                <div className={`planner-power-box ${placedSummary.sensorLoad > placedSummary.effectiveLimit ? 'over-limit' : ''}`}>
-                  <strong>Monitor/sensor bus load</strong>
-                  <p>{placedSummary.sensorLoad}mA shown / {placedSummary.effectiveLimit}mA planning capacity</p>
-                  {placedSummary.sensorLoad > placedSummary.effectiveLimit ? <small>Over limit. Add local power/Power Bus or reduce sensors.</small> : <small>Still confirm actual wiring and local power plan.</small>}
-                </div>
-
-                <div className="planner-warnings-list">
-                  {[...(top.warnings || []), ...(placedMonitorNeeded ? ['Pressure monitoring is recommended but no PPM4/RPM has been placed on the plan.'] : [])].slice(0, 6).map((warning) => <p key={warning}>⚠ {warning}</p>)}
-                </div>
-              </>
-            )}
-
-            <div className="planner-report-actions">
-              <button className="button primary full-width" type="button" onClick={() => setShowReport(true)}>Get report</button>
-              <button className="button secondary full-width" type="button" onClick={copyReport}>{copied ? 'Copied' : 'Copy report'}</button>
-              <button className="button secondary full-width" type="button" onClick={downloadReport}>Download .txt</button>
-              <a className="button secondary full-width" href={`${supportPortalUrl}?description=${encodeURIComponent(reportText)}`} target="_blank" rel="noreferrer">Open ticket</a>
-            </div>
-          </aside>
         </section>
 
         {showReport ? (
@@ -819,13 +787,15 @@ export default function ScrubberSelectorPage({ user, onLogout, theme, onToggleTh
               <div className="planner-report-actions horizontal">
                 <button className="button primary" type="button" onClick={copyReport}>{copied ? 'Copied' : 'Copy report'}</button>
                 <button className="button secondary" type="button" onClick={downloadReport}>Download .txt</button>
+                <a className="button secondary" href={`${supportPortalUrl}?description=${encodeURIComponent(reportText)}`} target="_blank" rel="noreferrer">Open ticket</a>
               </div>
             </div>
           </div>
         ) : null}
 
-        <p className="selector-disclaimer planner-disclaimer planner-v38-disclaimer">{selectorDisclaimer}</p>
+        <p className="selector-disclaimer planner-disclaimer planner-v39-disclaimer">{selectorDisclaimer}</p>
       </main>
     </AppShell>
+  );
   );
 }

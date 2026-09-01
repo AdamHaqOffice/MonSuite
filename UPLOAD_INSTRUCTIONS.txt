@@ -1,19 +1,13 @@
-MonSuite V38 changed files only
+MonSuite V39 changed files only
 
-Unzip this package. Copy/drag the contents into the root of your MonSuite GitHub repo so the paths line up exactly, for example:
+Upload/copy these files into the root of the MonSuite GitHub repo so they overwrite the matching paths:
 
 src/pages/ScrubberSelectorPage.jsx
-src/data/chatbotBrain.json
+src/styles.css
+src/data/appInfo.js
+public/version.json
 public/sw.js
+package.json
+README.md
 
-This package does NOT contain the entire app. It only contains the files changed from V37 to the fixed V38 package.
-
-Optional cleanup in GitHub:
-Delete these old extra brain mirror files if they still exist:
-- src/data/abatebotBrainV36.txt
-- src/data/abatebotBrainV37.txt
-
-The actual AbateBot brain file the app uses is:
-- src/data/chatbotBrain.json
-
-After upload, commit the changes and let Netlify redeploy.
+This is the layout fix. If the page still shows the old three-column squeezed view, then src/pages/ScrubberSelectorPage.jsx or src/styles.css did not overwrite in GitHub.
