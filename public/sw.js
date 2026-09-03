@@ -1,4 +1,4 @@
-const CACHE_NAME = 'monsuite-shell-v37';
+const CACHE_NAME = 'monsuite-shell-v39';
 const APP_SHELL = [
   '/',
   '/hub',

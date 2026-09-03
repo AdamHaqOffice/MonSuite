@@ -19,12 +19,12 @@ import SetupBuilderPage from './pages/SetupBuilderPage.jsx';
 import ChatbotPage from './pages/ChatbotPage.jsx';
 import SystemBuilderPage from './pages/SystemBuilderPage.jsx';
 import NewsPage from './pages/NewsPage.jsx';
-import ScrubberSelectorPage from './pages/ScrubberSelectorPage.jsx';
+import ScrubberSelectorPage from '../ScrubberSelectorPage.jsx';
 import ATConnectPage from './pages/ATConnectPage.jsx';
 import PressureMonitoringPage from './pages/PressureMonitoringPage.jsx';
 import SettingsPage from './pages/SettingsPage.jsx';
 import { getAdminModeEnabled, setAdminModeEnabled, userCanUseAdminMode } from './utils/adminContent.js';
-import { APP_VERSION } from './data/appInfo.js';
+import { APP_VERSION } from '../appInfo.js';
 
 const allowedEmailDomains = import.meta.env.VITE_ALLOWED_EMAIL_DOMAINS
   ?.split(',')

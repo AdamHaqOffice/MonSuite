@@ -1,5 +1,5 @@
 import { useMemo, useRef, useState } from 'react';
-import AppShell from '../components/AppShell.jsx';
+import AppShell from './src/components/AppShell.jsx';
 import {
   canadaProvinces,
   hazardOptions,
@@ -12,8 +12,8 @@ import {
   supportPortalUrl,
   unitSystemOptions,
   usStates,
-} from '../data/scrubberSelectorData.js';
-import { formatNumber, getScrubberRecommendation } from '../utils/scrubberSelectorEngine.js';
+} from './src/data/scrubberSelectorData.js';
+import { formatNumber, getScrubberRecommendation } from './src/utils/scrubberSelectorEngine.js';
 
 const defaultForm = {
   country: 'United States',
@@ -796,6 +796,5 @@ export default function ScrubberSelectorPage({ user, onLogout, theme, onToggleTh
         <p className="selector-disclaimer planner-disclaimer planner-v39-disclaimer">{selectorDisclaimer}</p>
       </main>
     </AppShell>
-  );
   );
 }
