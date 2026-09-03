@@ -1,12 +1,12 @@
-export const APP_VERSION = '39.0.0';
-export const APP_BUILD_NAME = 'Airflow Planner Layout Fix';
-export const APP_BUILD_DATE = '2026-09-01';
+export const APP_VERSION = '40.0.0';
+export const APP_BUILD_NAME = 'Unified CAD Airflow Planner';
+export const APP_BUILD_DATE = '2026-09-03';
 
 export const appReleaseNotes = [
-  'Rebuilt the Airflow Planner workspace so the report form stays on the left and the canvas gets the full remaining width.',
-  'Removed the always-visible right report column that was squeezing the layout.',
-  'Moved scrubbers, monitors, sensors, and ducts into horizontal dock rows above the plan area.',
-  'Kept Get report on the left and added report actions without taking space away from the canvas.',
-  'Increased the drawn room scale and canvas working area for real setup planning.',
-  'Updated PWA cache version for the V39 layout fix.'
+  'Restored the full CAD-style setup builder with device graphics, walls, doors, and connection tools.',
+  'Combined monitors, sensors, power components, real scrubber models, and ducting in one workspace.',
+  'Added a synchronized system specification below the drawing for job, room, equipment, duct, power, and parts data.',
+  'Made drawn duct runs measurable and editable so changing length or size updates the visual plan.',
+  'Added bidirectional room and equipment controls so users can write a system or draw it.',
+  'Updated PWA cache version for the V40 unified planner.'
 ];

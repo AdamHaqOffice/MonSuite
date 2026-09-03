@@ -1,7 +1,7 @@
 {
-  "name": "monsuite-v39-airflow-planner-layout-fix",
+  "name": "monsuite-v40-unified-cad-planner",
   "private": true,
-  "version": "39.0.0",
+  "version": "40.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",

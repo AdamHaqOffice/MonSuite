@@ -9,6 +9,7 @@ import {
   POWER_RECOMMENDATION_THRESHOLD_MA,
   PROBE_MAX_LENGTH_FT,
 } from '../data/setupInventory.js';
+import { scrubberProducts } from '../data/scrubberSelectorData.js';
 
 const DEFAULT_SCALE_LABEL = '1 grid square = 1 ft';
 const DEFAULT_CANVAS_SIZE = { width: 1120, height: 720 };
@@ -21,13 +22,53 @@ const DEFAULT_DUCT_FORM = {
   lengthFt: 8,
 };
 
+const DEFAULT_PROJECT_FORM = {
+  projectName: '',
+  customer: '',
+  roomName: '',
+  ceilingHeightFt: 10,
+  targetAch: 6,
+  pressureTarget: '-0.02 inWC',
+  notes: '',
+};
+
+const scrubberInventoryItems = scrubberProducts
+  .filter((product) => product.isRealProduct)
+  .map((product) => ({
+    sku: product.shortName,
+    name: product.displayName,
+    shortName: product.shortName,
+    category: 'Airflow',
+    dimensions: { widthIn: 30, heightIn: 28, depthIn: 24 },
+    mount: ['floor', 'portable'],
+    ethernetPorts: 0,
+    ductPorts: product.ducting?.intakeDuctable && product.ducting?.exhaustDuctable ? 2 : 1,
+    tubingPorts: [],
+    pressureCapable: false,
+    powerSource: false,
+    powerDrawMa: 0,
+    airScrubber: true,
+    airflowCfm: product.airflow?.appDefaultCfm || product.airflow?.maxRatedCfm || 0,
+    electricalAmps: product.electrical?.normalOperatingAmpsMax || 0,
+    description: `${product.shortName} · ${product.airflow?.appDefaultCfm || product.airflow?.maxRatedCfm || 0} CFM · ${product.ducting?.inletSize || 'intake'} / ${product.ducting?.outletSize || 'exhaust'}.`,
+  }));
+
+const plannerInventoryItems = [
+  ...inventoryItems.filter((item) => item.sku !== 'AIR-SCRUBBER'),
+  ...scrubberInventoryItems,
+];
+
+function findPlannerInventoryItem(sku) {
+  return plannerInventoryItems.find((item) => item.sku === sku) || findInventoryItem(sku);
+}
+
 function getCanvasItemSize(catalogItem) {
   if (!catalogItem) return { width: 72, height: 72 };
 
   if (catalogItem.sku === 'PPM4') return { width: 132, height: 104 };
   if (catalogItem.sku === 'AT-RPM-RTS') return { width: 126, height: 82 };
   if (catalogItem.sku === 'PMA-PB') return { width: 92, height: 64 };
-  if (catalogItem.sku === 'AIR-SCRUBBER') return { width: 116, height: 76 };
+  if (catalogItem.airScrubber) return { width: 128, height: 86 };
   if (catalogItem.sku === 'PPM4CHRGR') return { width: 50, height: 58 };
   if (catalogItem.category === 'Sensor' || catalogItem.category === 'Communication') return { width: 58, height: 116 };
   return { width: 72, height: 72 };
@@ -129,9 +170,10 @@ function getDuctCatalog(item) {
 
 function getCatalogForPlacedItem(item) {
   if (!item) return null;
+  if (item.catalog) return item.catalog;
   if (item.isProbe) return getProbeCatalog(item);
   if (item.isDuct) return getDuctCatalog(item);
-  return findInventoryItem(item.sku);
+  return findPlannerInventoryItem(item.sku);
 }
 
 function getPlacedItemCenter(placedItem) {
@@ -705,6 +747,8 @@ export default function SetupBuilderPage({ user, onLogout, theme, onToggleTheme 
   const [ductModalOpen, setDuctModalOpen] = useState(false);
   const [ductForm, setDuctForm] = useState(DEFAULT_DUCT_FORM);
   const [pendingDuct, setPendingDuct] = useState(null);
+  const [projectForm, setProjectForm] = useState(DEFAULT_PROJECT_FORM);
+  const [formAddSku, setFormAddSku] = useState('PPM4');
 
   const selectedItem = placedItems.find((item) => item.id === selectedId);
   const selectedCatalogItem = selectedItem ? getCatalogForPlacedItem(selectedItem) : null;
@@ -715,6 +759,41 @@ export default function SetupBuilderPage({ user, onLogout, theme, onToggleTheme 
     selectedItem && !selectedItem.isProbe && !selectedItem.isDuct ? getPowerInfoForItem(selectedItem.id, placedItems, connections) : null
   ), [selectedItem, placedItems, connections]);
   const locallyPoweredItemIds = useMemo(() => getLocallyPoweredItemIds(connections, placedItems), [connections, placedItems]);
+  const drawingMetrics = useMemo(() => {
+    const points = [
+      ...walls.flatMap((wall) => [wall.from, wall.to]),
+      ...placedItems.map((item) => ({ x: item.x, y: item.y })),
+      ...placedItems.map((item) => ({ x: item.x + item.width, y: item.y + item.height })),
+    ];
+    if (!points.length) return { lengthFt: 0, widthFt: 0, areaSqFt: 0, volumeFt3: 0 };
+    const xs = points.map((point) => point.x);
+    const ys = points.map((point) => point.y);
+    const lengthFt = Math.max(1, Math.round((Math.max(...xs) - Math.min(...xs)) / GRID_SIZE));
+    const widthFt = Math.max(1, Math.round((Math.max(...ys) - Math.min(...ys)) / GRID_SIZE));
+    const areaSqFt = lengthFt * widthFt;
+    return { lengthFt, widthFt, areaSqFt, volumeFt3: areaSqFt * Math.max(1, Number(projectForm.ceilingHeightFt) || 10) };
+  }, [walls, placedItems, projectForm.ceilingHeightFt]);
+  const drawingSchedule = useMemo(() => {
+    const counts = new Map();
+    placedItems.filter((item) => !item.isProbe && !item.isDuct).forEach((item) => {
+      const catalog = getCatalogForPlacedItem(item);
+      if (!catalog) return;
+      const current = counts.get(catalog.sku) || { sku: catalog.sku, name: catalog.name, qty: 0 };
+      current.qty += 1;
+      counts.set(catalog.sku, current);
+    });
+    return [...counts.values()];
+  }, [placedItems]);
+  const ductItems = useMemo(() => placedItems.filter((item) => item.isDuct), [placedItems]);
+  const ductConnections = useMemo(() => connections.filter((connection) => connection.type === 'duct').map((connection) => ({
+    ...connection,
+    measuredLengthFt: lineLengthFeet(connection, placedItems),
+  })), [connections, placedItems]);
+  const totalDuctFeet = useMemo(() => (
+    ductItems.reduce((sum, item) => sum + (Number(item.lengthFt) || 0), 0)
+    + ductConnections.reduce((sum, item) => sum + item.measuredLengthFt, 0)
+  ), [ductItems, ductConnections]);
+  const requiredCfm = Math.round((drawingMetrics.volumeFt3 * Math.max(0, Number(projectForm.targetAch) || 0)) / 60);
 
   function handleInventoryDragStart(event, item) {
     event.dataTransfer.setData('application/monsuite-item', item.sku);
@@ -723,6 +802,122 @@ export default function SetupBuilderPage({ user, onLogout, theme, onToggleTheme 
 
   function updateDuctFormField(field, value) {
     setDuctForm((current) => ({ ...current, [field]: value }));
+  }
+
+  function updateProjectField(field, value) {
+    setProjectForm((current) => ({ ...current, [field]: value }));
+  }
+
+  function updatePlacedDuct(itemId, patch) {
+    setPlacedItems((items) => items.map((item) => {
+      if (item.id !== itemId || !item.isDuct) return item;
+      const next = { ...item, ...patch };
+      const size = getDuctSizeFromForm({
+        shape: next.ductShape,
+        diameterIn: next.diameterIn,
+        widthIn: next.widthIn,
+        heightIn: next.heightIn,
+        lengthFt: next.lengthFt,
+      });
+      const rotated = next.rotation % 180 !== 0;
+      return {
+        ...next,
+        label: next.ductShape === 'square' ? 'Square Duct' : 'Round Duct',
+        sku: `DUCT-${String(next.ductShape || 'round').toUpperCase()}`,
+        width: rotated ? size.height : size.width,
+        height: rotated ? size.width : size.height,
+      };
+    }));
+    setNotice('Duct specification and drawing updated.');
+  }
+
+  function updateDrawnDuct(connectionId, patch) {
+    const current = connections.find((connection) => connection.id === connectionId);
+    if (!current) return;
+    if (patch.lengthFt !== undefined) {
+      const desiredFeet = Math.max(1, Number(patch.lengthFt) || 1);
+      const points = getResolvedConnectionPoints(current, placedItems);
+      const dx = points.to.x - points.from.x;
+      const dy = points.to.y - points.from.y;
+      const magnitude = Math.sqrt(dx * dx + dy * dy) || 1;
+      const ux = magnitude === 1 && dx === 0 ? 1 : dx / magnitude;
+      const uy = magnitude === 1 && dy === 0 ? 0 : dy / magnitude;
+      const targetCenter = { x: points.from.x + ux * desiredFeet * GRID_SIZE, y: points.from.y + uy * desiredFeet * GRID_SIZE };
+      if (current.to.itemId) {
+        const target = placedItems.find((item) => item.id === current.to.itemId);
+        const canvasSize = getCanvasSize(canvasRef.current);
+        if (target) {
+          setPlacedItems((items) => constrainProbes(items.map((item) => item.id === target.id ? {
+            ...item,
+            x: clamp(snap(targetCenter.x - item.width / 2), 0, canvasSize.width - item.width),
+            y: clamp(snap(targetCenter.y - item.height / 2), 0, canvasSize.height - item.height),
+          } : item), canvasSize));
+        }
+      } else {
+        setConnections((items) => items.map((connection) => connection.id === connectionId ? {
+          ...connection, ...patch, to: { ...connection.to, x: snap(targetCenter.x), y: snap(targetCenter.y) },
+        } : connection));
+        setNotice('Drawn duct length and geometry updated.');
+        return;
+      }
+    }
+    setConnections((items) => items.map((connection) => connection.id === connectionId ? { ...connection, ...patch } : connection));
+    setNotice('Drawn duct specification updated.');
+  }
+
+  function addEquipmentFromForm(sku = formAddSku) {
+    const catalogItem = findPlannerInventoryItem(sku);
+    if (!catalogItem) return;
+    const canvasSize = getCanvasSize(canvasRef.current);
+    const { width, height } = getCanvasItemSize(catalogItem);
+    const index = placedItems.filter((item) => !item.isProbe).length;
+    const newItem = {
+      id: makeId('item'), sku: catalogItem.sku, label: catalogItem.shortName,
+      x: clamp(snap(GRID_SIZE * (2 + (index % 12))), 0, canvasSize.width - width),
+      y: clamp(snap(GRID_SIZE * (2 + (Math.floor(index / 12) * 5))), 0, canvasSize.height - height),
+      width, height, rotation: 0,
+    };
+    const additions = [newItem];
+    if (catalogItem.createsProbe) {
+      additions.push({
+        id: makeId('probe'), sku: 'ACH-PROBE', label: catalogItem.probeLabel || 'Probe', parentId: newItem.id, isProbe: true,
+        x: clamp(snap(newItem.x + newItem.width + GRID_SIZE), 0, canvasSize.width - 28), y: newItem.y,
+        width: 28, height: 28, rotation: 0,
+      });
+    }
+    setPlacedItems((items) => constrainProbes([...items, ...additions], canvasSize));
+    setSelectedId(newItem.id);
+    setNotice(`${catalogItem.name} added from the specification.`);
+  }
+
+  function removeEquipmentFromForm(sku) {
+    const target = [...placedItems].reverse().find((item) => item.sku === sku && !item.isProbe && !item.isDuct);
+    if (!target) return;
+    const removalIds = new Set([target.id, ...placedItems.filter((item) => item.parentId === target.id).map((item) => item.id)]);
+    setPlacedItems((items) => items.filter((item) => !removalIds.has(item.id)));
+    setConnections((items) => items.filter((connection) => !removalIds.has(connection.from.itemId) && !removalIds.has(connection.to.itemId)));
+    setNotice(`${target.label} removed from the specification and drawing.`);
+  }
+
+  function drawRoomFromForm() {
+    if (!canvasRef.current) return;
+    const canvasSize = getCanvasSize(canvasRef.current);
+    const lengthFt = Math.max(4, Number(projectForm.roomLengthFt) || drawingMetrics.lengthFt || 30);
+    const widthFt = Math.max(4, Number(projectForm.roomWidthFt) || drawingMetrics.widthFt || 20);
+    const origin = { x: GRID_SIZE * 2, y: GRID_SIZE * 2 };
+    const roomWidth = Math.min(lengthFt * GRID_SIZE, canvasSize.width - GRID_SIZE * 4);
+    const roomHeight = Math.min(widthFt * GRID_SIZE, canvasSize.height - GRID_SIZE * 4);
+    const a = origin;
+    const b = { x: origin.x + roomWidth, y: origin.y };
+    const c = { x: origin.x + roomWidth, y: origin.y + roomHeight };
+    const d = { x: origin.x, y: origin.y + roomHeight };
+    setWalls([
+      { id: makeId('wall'), from: a, to: b },
+      { id: makeId('wall'), from: b, to: c },
+      { id: makeId('wall'), from: c, to: d },
+      { id: makeId('wall'), from: d, to: a },
+    ]);
+    setNotice(`Room drawn at ${lengthFt}ft × ${widthFt}ft. Drag wall endpoints for custom geometry.`);
   }
 
   function createPendingDuct() {
@@ -782,7 +977,7 @@ export default function SetupBuilderPage({ user, onLogout, theme, onToggleTheme 
     }
 
     const sku = event.dataTransfer.getData('application/monsuite-item');
-    const catalogItem = findInventoryItem(sku);
+    const catalogItem = findPlannerInventoryItem(sku);
     if (!catalogItem) return;
 
     const { width, height } = getCanvasItemSize(catalogItem);
@@ -905,6 +1100,10 @@ export default function SetupBuilderPage({ user, onLogout, theme, onToggleTheme 
           id: makeId('ductline'),
           type: 'duct',
           label: 'DUCT',
+          ductShape: 'round',
+          diameterIn: 10,
+          widthIn: 12,
+          heightIn: 12,
           from: { ...activeStart.point },
           to: point,
         }]);
@@ -1050,6 +1249,10 @@ export default function SetupBuilderPage({ user, onLogout, theme, onToggleTheme 
           id: makeId('ductline'),
           type: 'duct',
           label: 'DUCT',
+          ductShape: 'round',
+          diameterIn: 10,
+          widthIn: 12,
+          heightIn: 12,
           from: { ...activeStart.point },
           to: { ...point },
         }]);
@@ -1122,7 +1325,7 @@ export default function SetupBuilderPage({ user, onLogout, theme, onToggleTheme 
   }
 
   function saveDraft() {
-    const draft = { placedItems, connections, walls, doors, savedAt: new Date().toISOString() };
+    const draft = { placedItems, connections, walls, doors, projectForm, savedAt: new Date().toISOString() };
     localStorage.setItem('monsuite-setup-draft', JSON.stringify(draft));
     setNotice('Draft saved in this browser.');
   }
@@ -1141,6 +1344,7 @@ export default function SetupBuilderPage({ user, onLogout, theme, onToggleTheme 
       setConnections(draft.connections || []);
       setWalls(draft.walls || []);
       setDoors(draft.doors || []);
+      setProjectForm({ ...DEFAULT_PROJECT_FORM, ...(draft.projectForm || {}) });
       setNotice('Draft loaded.');
     } catch {
       setNotice('Saved draft could not be loaded.');
@@ -1148,7 +1352,7 @@ export default function SetupBuilderPage({ user, onLogout, theme, onToggleTheme 
   }
 
   function exportJson() {
-    const draft = { placedItems, connections, walls, doors, partsList, powerWarnings, scale: DEFAULT_SCALE_LABEL };
+    const draft = { projectForm, drawingMetrics, requiredCfm, totalDuctFeet, placedItems, connections, walls, doors, partsList, powerWarnings, scale: DEFAULT_SCALE_LABEL };
     const blob = new Blob([JSON.stringify(draft, null, 2)], { type: 'application/json' });
     const url = URL.createObjectURL(blob);
     const link = document.createElement('a');
@@ -1187,7 +1391,7 @@ export default function SetupBuilderPage({ user, onLogout, theme, onToggleTheme 
           <aside className="setup-panel inventory-panel">
             <div className="panel-heading">
               <span>Inventory</span>
-              <strong>{inventoryItems.length} items</strong>
+              <strong>{plannerInventoryItems.length} items</strong>
             </div>
 
             <div className="tool-group tool-grid">
@@ -1227,7 +1431,7 @@ export default function SetupBuilderPage({ user, onLogout, theme, onToggleTheme 
             <p className="panel-help">Drag products onto the canvas. Sensors and ethernet-capable devices auto-connect to the last ethernet device when possible. Manual ethernet still works the same. ACH sensors auto-create a probe that must stay within 2 ft.</p>
 
             <div className="inventory-list">
-              {inventoryItems.map((item) => (
+              {plannerInventoryItems.map((item) => (
                 <div
                   className={`inventory-card ${item.category?.toLowerCase() || ''}`}
                   draggable
@@ -1317,6 +1521,7 @@ export default function SetupBuilderPage({ user, onLogout, theme, onToggleTheme 
                       )}
                       <line
                         className={`connection-line ${connection.type}`}
+                        style={connection.type === 'duct' ? { strokeWidth: Math.max(8, Math.min(22, Number(connection.ductShape === 'square' ? connection.heightIn : connection.diameterIn) || 10)) } : undefined}
                         x1={points.from.x}
                         y1={points.from.y}
                         x2={points.to.x}
@@ -1358,7 +1563,7 @@ export default function SetupBuilderPage({ user, onLogout, theme, onToggleTheme 
                             x={(points.from.x + points.to.x) / 2}
                             y={(points.from.y + points.to.y) / 2 - 11}
                           >
-                            DUCT · {length}ft
+                            {connection.ductShape === 'square' ? `${connection.widthIn || 12}×${connection.heightIn || 12}in` : `Ø${connection.diameterIn || 10}in`} DUCT · {length}ft
                           </text>
                         </>
                       )}
@@ -1439,6 +1644,28 @@ export default function SetupBuilderPage({ user, onLogout, theme, onToggleTheme 
                   <div><dt>Tubing</dt><dd>{selectedCatalogItem.pressureCapable ? 'Room / Ref capable' : 'Not tubing capable'}</dd></div>
                 </dl>
                 <p>{selectedCatalogItem.description}</p>
+                {selectedItem.isDuct && (
+                  <div className="selected-duct-editor">
+                    <strong>Edit duct</strong>
+                    <label>
+                      Shape
+                      <select value={selectedItem.ductShape} onChange={(event) => updatePlacedDuct(selectedItem.id, { ductShape: event.target.value })}>
+                        <option value="round">Round</option>
+                        <option value="square">Rectangular</option>
+                      </select>
+                    </label>
+                    {selectedItem.ductShape === 'round' ? (
+                      <label>Diameter (in)<input type="number" min="4" value={selectedItem.diameterIn} onChange={(event) => updatePlacedDuct(selectedItem.id, { diameterIn: event.target.value })} /></label>
+                    ) : (
+                      <div className="duct-inline-grid">
+                        <label>Width (in)<input type="number" min="4" value={selectedItem.widthIn} onChange={(event) => updatePlacedDuct(selectedItem.id, { widthIn: event.target.value })} /></label>
+                        <label>Height (in)<input type="number" min="4" value={selectedItem.heightIn} onChange={(event) => updatePlacedDuct(selectedItem.id, { heightIn: event.target.value })} /></label>
+                      </div>
+                    )}
+                    <label>Length (ft)<input type="number" min="1" value={selectedItem.lengthFt} onChange={(event) => updatePlacedDuct(selectedItem.id, { lengthFt: event.target.value })} /></label>
+                    <small>Changing length or size updates this duct on the drawing immediately.</small>
+                  </div>
+                )}
                 <div className="selected-actions">
                   {!selectedItem.isProbe && <button className="button secondary small" onClick={rotateSelectedItem}>Rotate</button>}
                   <button className="button secondary small danger" onClick={removeSelectedItem}>Remove</button>
@@ -1513,6 +1740,97 @@ export default function SetupBuilderPage({ user, onLogout, theme, onToggleTheme 
               </ul>
             </div>
           </aside>
+        </section>
+
+        <section className="system-spec-panel" aria-label="System specification">
+          <header className="system-spec-header">
+            <div>
+              <p className="eyebrow">Live system specification</p>
+              <h2>Write it or draw it—both stay synchronized</h2>
+              <p>The drawing controls quantities and measured runs. Form changes update room geometry and duct objects.</p>
+            </div>
+            <div className="system-spec-metrics">
+              <span><b>{drawingMetrics.lengthFt} × {drawingMetrics.widthFt} ft</b> drawn footprint</span>
+              <span><b>{drawingMetrics.volumeFt3.toLocaleString()} ft³</b> room volume</span>
+              <span><b>{requiredCfm.toLocaleString()} CFM</b> at {projectForm.targetAch} ACH</span>
+              <span><b>{totalDuctFeet} ft</b> total duct</span>
+            </div>
+          </header>
+
+          <div className="system-spec-grid">
+            <section className="spec-card project-spec-card">
+              <div className="panel-heading compact"><span>Job & room</span><strong>Editable</strong></div>
+              <div className="spec-form-grid">
+                <label>Project<input value={projectForm.projectName} onChange={(event) => updateProjectField('projectName', event.target.value)} placeholder="Project name" /></label>
+                <label>Customer<input value={projectForm.customer} onChange={(event) => updateProjectField('customer', event.target.value)} placeholder="Customer" /></label>
+                <label>Room / area<input value={projectForm.roomName} onChange={(event) => updateProjectField('roomName', event.target.value)} placeholder="Containment A" /></label>
+                <label>Ceiling height (ft)<input type="number" min="1" value={projectForm.ceilingHeightFt} onChange={(event) => updateProjectField('ceilingHeightFt', event.target.value)} /></label>
+                <label>Room length (ft)<input type="number" min="4" value={projectForm.roomLengthFt || drawingMetrics.lengthFt || ''} onChange={(event) => updateProjectField('roomLengthFt', event.target.value)} /></label>
+                <label>Room width (ft)<input type="number" min="4" value={projectForm.roomWidthFt || drawingMetrics.widthFt || ''} onChange={(event) => updateProjectField('roomWidthFt', event.target.value)} /></label>
+                <label>Target ACH<input type="number" min="0" step="0.5" value={projectForm.targetAch} onChange={(event) => updateProjectField('targetAch', event.target.value)} /></label>
+                <label>Pressure target<input value={projectForm.pressureTarget} onChange={(event) => updateProjectField('pressureTarget', event.target.value)} /></label>
+              </div>
+              <button className="button secondary small" type="button" onClick={drawRoomFromForm}>Draw room from dimensions</button>
+              <label className="spec-notes">Notes<textarea rows="3" value={projectForm.notes} onChange={(event) => updateProjectField('notes', event.target.value)} placeholder="Access, exhaust location, circuits, installation notes…" /></label>
+            </section>
+
+            <section className="spec-card">
+              <div className="panel-heading compact"><span>Equipment schedule</span><strong>{drawingSchedule.reduce((sum, row) => sum + row.qty, 0)} devices</strong></div>
+              <div className="spec-add-row">
+                <select value={formAddSku} onChange={(event) => setFormAddSku(event.target.value)}>
+                  {plannerInventoryItems.map((item) => <option key={item.sku} value={item.sku}>{item.shortName} · {item.name}</option>)}
+                </select>
+                <button className="button secondary small" type="button" onClick={() => addEquipmentFromForm()}>Add</button>
+              </div>
+              {drawingSchedule.length ? drawingSchedule.map((row) => (
+                <div className="spec-row equipment-spec-row" key={row.sku}>
+                  <b>{row.qty}×</b><span>{row.name}<small>{row.sku}</small></span>
+                  <div><button type="button" onClick={() => removeEquipmentFromForm(row.sku)}>−</button><button type="button" onClick={() => addEquipmentFromForm(row.sku)}>+</button></div>
+                </div>
+              )) : <p className="panel-help">Drag equipment onto the plan and it will appear here.</p>}
+              <div className={`spec-status ${powerWarnings.length ? 'warning' : 'ok'}`}>
+                <strong>{powerWarnings.length ? `${powerWarnings.length} power issue${powerWarnings.length === 1 ? '' : 's'}` : 'Power layout passes current checks'}</strong>
+                <span>{connections.filter((item) => item.type === 'ethernet').length} Ethernet · {connections.filter((item) => item.type === 'tubing').length} tubing · {connections.filter((item) => item.type === 'power').length} local power</span>
+              </div>
+            </section>
+
+            <section className="spec-card duct-schedule-card">
+              <div className="panel-heading compact"><span>Duct schedule</span><strong>{ductItems.length + ductConnections.length} runs</strong></div>
+              {ductItems.map((duct, index) => (
+                <div className="duct-spec-row" key={duct.id}>
+                  <button type="button" onClick={() => setSelectedId(duct.id)}>D{index + 1}</button>
+                  <select value={duct.ductShape} onChange={(event) => updatePlacedDuct(duct.id, { ductShape: event.target.value })}><option value="round">Round</option><option value="square">Rectangular</option></select>
+                  {duct.ductShape === 'round' ? (
+                    <label>Ø <input type="number" min="4" value={duct.diameterIn} onChange={(event) => updatePlacedDuct(duct.id, { diameterIn: event.target.value })} /> in</label>
+                  ) : (
+                    <label><input type="number" min="4" value={duct.widthIn} onChange={(event) => updatePlacedDuct(duct.id, { widthIn: event.target.value })} /> × <input type="number" min="4" value={duct.heightIn} onChange={(event) => updatePlacedDuct(duct.id, { heightIn: event.target.value })} /> in</label>
+                  )}
+                  <label><input type="number" min="1" value={duct.lengthFt} onChange={(event) => updatePlacedDuct(duct.id, { lengthFt: event.target.value })} /> ft</label>
+                </div>
+              ))}
+              {ductConnections.map((duct, index) => (
+                <div className="duct-spec-row drawn" key={duct.id}>
+                  <button type="button">L{index + 1}</button>
+                  <select value={duct.ductShape || 'round'} onChange={(event) => updateDrawnDuct(duct.id, { ductShape: event.target.value })}><option value="round">Round</option><option value="square">Rectangular</option></select>
+                  {(duct.ductShape || 'round') === 'round' ? (
+                    <label>Ø <input type="number" min="4" value={duct.diameterIn || 10} onChange={(event) => updateDrawnDuct(duct.id, { diameterIn: event.target.value })} /> in</label>
+                  ) : (
+                    <label><input type="number" min="4" value={duct.widthIn || 12} onChange={(event) => updateDrawnDuct(duct.id, { widthIn: event.target.value })} /> × <input type="number" min="4" value={duct.heightIn || 12} onChange={(event) => updateDrawnDuct(duct.id, { heightIn: event.target.value })} /> in</label>
+                  )}
+                  <label><input type="number" min="1" value={duct.measuredLengthFt} onChange={(event) => updateDrawnDuct(duct.id, { lengthFt: event.target.value })} /> ft</label>
+                </div>
+              ))}
+              {!ductItems.length && !ductConnections.length ? <p className="panel-help">Create a measured duct or draw a duct connection. Its size and length will appear here.</p> : null}
+            </section>
+
+            <section className="spec-card">
+              <div className="panel-heading compact"><span>Generated parts</span><strong>{partsList.length} lines</strong></div>
+              <div className="compact-parts-list">
+                {partsList.map((part) => <div className="spec-row" key={part.sku}><b>{part.qty}×</b><span>{part.name}<small>{part.sku} · {part.note || part.category}</small></span></div>)}
+                {!partsList.length ? <p className="panel-help">The complete parts list builds itself from the drawing.</p> : null}
+              </div>
+            </section>
+          </div>
         </section>
 
         {ductModalOpen && (
