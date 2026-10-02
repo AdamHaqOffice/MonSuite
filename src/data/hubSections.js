@@ -10,6 +10,16 @@ export const hubSections = [
   },
 
   {
+    title: 'Projects',
+    eyebrow: 'Import + report',
+    description: 'Create ICRA / healthcare construction monitoring projects, import Abatement Link CSV exports, detect excursions, document corrective actions, and generate final project reports.',
+    path: '/projects',
+    status: 'New',
+    icon: '▣',
+    theme: 'projects',
+  },
+
+  {
     title: 'Airflow Planner',
     eyebrow: 'Scrubbers + layout',
     description: 'Draw the room, place monitors, sensors, ducts, and scrubbers, then generate a practical equipment report with scrubber count and monitor recommendation.',

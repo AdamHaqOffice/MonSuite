@@ -3,6 +3,7 @@ const APP_SHELL = [
   '/',
   '/hub',
   '/products',
+  '/projects',
   '/downloads',
   '/firmware',
   '/support',
