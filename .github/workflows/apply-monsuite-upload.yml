@@ -1,0 +1,31 @@
+name: Apply MonSuite upload
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.monsuite_upload/bundle.part4'
+
+permissions:
+  contents: write
+
+jobs:
+  apply:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - name: Apply project bundle
+        run: |
+          cat .monsuite_upload/bundle.part1 .monsuite_upload/bundle.part2 .monsuite_upload/bundle.part3 .monsuite_upload/bundle.part4 | base64 -d > /tmp/monsuite-feature-bundle.tgz
+          tar -xzf /tmp/monsuite-feature-bundle.tgz -C .
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add src/pages/ProjectsPage.jsx src/utils/projectCsvImport.js src/utils/projectStorage.js src/projects.css src/App.jsx src/components/AppShell.jsx src/data/appInfo.js src/data/hubSections.js public/sw.js public/version.json PROJECTS_ICRA_IMPLEMENTATION_NOTES.md
+          git diff --cached --quiet && exit 0
+          git commit -m "Add Projects ICRA CSV foundation"
+          git push
+      - name: Validate build
+        run: |
+          npm install --package-lock=false
+          npm run build
