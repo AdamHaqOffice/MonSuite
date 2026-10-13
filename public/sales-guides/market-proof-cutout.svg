@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="760" viewBox="0 0 1200 760" role="img" aria-labelledby="title desc">
+  <title id="title">Market proof for connected monitoring and reports</title>
+  <desc id="desc">Infographic showing competitor-backed market value: live dashboard, alerts, acknowledgement, reports, and audit history.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#061A2F"/>
+      <stop offset="0.58" stop-color="#0B355D"/>
+      <stop offset="1" stop-color="#0B5FA5"/>
+    </linearGradient>
+    <linearGradient id="card" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity="0.18"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity="0.07"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="18" stdDeviation="18" flood-color="#001125" flood-opacity="0.35"/>
+    </filter>
+  </defs>
+  <rect width="1200" height="760" rx="48" fill="url(#bg)"/>
+  <circle cx="1070" cy="70" r="180" fill="#25B7F0" opacity="0.18"/>
+  <circle cx="95" cy="680" r="220" fill="#79D8FF" opacity="0.13"/>
+
+  <text x="70" y="92" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="700" fill="#8BE1FF" letter-spacing="2">MARKET SIGNAL</text>
+  <text x="70" y="145" font-family="Inter, Arial, sans-serif" font-size="58" font-weight="800" fill="#FFFFFF">Customers are buying proof,</text>
+  <text x="70" y="207" font-family="Inter, Arial, sans-serif" font-size="58" font-weight="800" fill="#FFFFFF">not just pressure readings.</text>
+  <text x="72" y="252" font-family="Inter, Arial, sans-serif" font-size="24" fill="#D8F4FF">Omni IQ, INCUE, Rapid Room, eGate, TSI Link, and Setra all sell toward</text>
+  <text x="72" y="286" font-family="Inter, Arial, sans-serif" font-size="24" fill="#D8F4FF">connected visibility, automatic records, alerts, and professional reports.</text>
+
+  <g filter="url(#shadow)">
+    <rect x="70" y="340" width="330" height="250" rx="28" fill="url(#card)" stroke="#7EDCFF" stroke-opacity="0.45"/>
+    <rect x="435" y="340" width="330" height="250" rx="28" fill="url(#card)" stroke="#7EDCFF" stroke-opacity="0.45"/>
+    <rect x="800" y="340" width="330" height="250" rx="28" fill="url(#card)" stroke="#7EDCFF" stroke-opacity="0.45"/>
+  </g>
+
+  <text x="105" y="398" font-family="Inter, Arial, sans-serif" font-size="84" font-weight="800" fill="#8BE1FF">1</text>
+  <text x="185" y="388" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800" fill="#FFFFFF">Live visibility</text>
+  <text x="105" y="448" font-family="Inter, Arial, sans-serif" font-size="21" fill="#D8F4FF">Dashboard, device status,</text>
+  <text x="105" y="480" font-family="Inter, Arial, sans-serif" font-size="21" fill="#D8F4FF">data freshness, and trends.</text>
+  <text x="105" y="536" font-family="Inter, Arial, sans-serif" font-size="18" fill="#9DDFF8">MonSuite sells the story.</text>
+  <text x="105" y="564" font-family="Inter, Arial, sans-serif" font-size="18" fill="#9DDFF8">Abatement Link owns the data.</text>
+
+  <text x="470" y="398" font-family="Inter, Arial, sans-serif" font-size="84" font-weight="800" fill="#8BE1FF">2</text>
+  <text x="550" y="388" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800" fill="#FFFFFF">Response record</text>
+  <text x="470" y="448" font-family="Inter, Arial, sans-serif" font-size="21" fill="#D8F4FF">Alerts, acknowledgement,</text>
+  <text x="470" y="480" font-family="Inter, Arial, sans-serif" font-size="21" fill="#D8F4FF">escalation, corrective actions.</text>
+  <text x="470" y="536" font-family="Inter, Arial, sans-serif" font-size="18" fill="#9DDFF8">This is the audit trail</text>
+  <text x="470" y="564" font-family="Inter, Arial, sans-serif" font-size="18" fill="#9DDFF8">competitors use to win.</text>
+
+  <text x="835" y="398" font-family="Inter, Arial, sans-serif" font-size="84" font-weight="800" fill="#8BE1FF">3</text>
+  <text x="915" y="388" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="800" fill="#FFFFFF">Reports</text>
+  <text x="835" y="448" font-family="Inter, Arial, sans-serif" font-size="21" fill="#D8F4FF">Daily, excursion, data</text>
+  <text x="835" y="480" font-family="Inter, Arial, sans-serif" font-size="21" fill="#D8F4FF">availability, and final reports.</text>
+  <text x="835" y="536" font-family="Inter, Arial, sans-serif" font-size="18" fill="#9DDFF8">The finished paperwork</text>
+  <text x="835" y="564" font-family="Inter, Arial, sans-serif" font-size="18" fill="#9DDFF8">is part of the product.</text>
+
+  <rect x="70" y="638" width="1060" height="66" rx="22" fill="#ffffff" opacity="0.12"/>
+  <text x="104" y="680" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="800" fill="#FFFFFF">MonSuite job:</text>
+  <text x="268" y="680" font-family="Inter, Arial, sans-serif" font-size="24" fill="#D8F4FF">help sales explain value, pick the package, and hand off the plan.</text>
+</svg>

@@ -52,6 +52,12 @@ const featureCards = [
     icon: '⬇',
     body: 'Use connect.abatement.com when users need browser access, reporting, or downloaded online records.',
   },
+  {
+    title: 'Projects and reports',
+    eyebrow: 'Future Link workflow',
+    icon: '▣',
+    body: 'Project monitoring, ICRA records, alert acknowledgements, corrective actions, and audit reports should live in Abatement Link where the live device data already belongs.',
+  },
 ];
 
 const troubleshooting = [
@@ -103,6 +109,18 @@ export default function ATConnectPage({ user, onLogout, theme, onToggleTheme }) 
               <p>{card.body}</p>
             </article>
           ))}
+        </section>
+
+        <section className="at-connect-card abatement-link-projects-card">
+          <p className="eyebrow">Project records</p>
+          <h2>Use Abatement Link for live projects.</h2>
+          <p>
+            MonSuite no longer contains the ICRA / Projects reporting workspace. Live project monitoring, alert acknowledgement, escalation, corrective actions, user tracking, and final project reports belong in Abatement Link because that is where the device data, users, and alarm records already live.
+          </p>
+          <div className="at-connect-actions">
+            <a className="button primary" href={WEB_PORTAL_URL} target="_blank" rel="noreferrer">Open Abatement Link</a>
+            <a className="button secondary" href={SUPPORT_URL} target="_blank" rel="noreferrer">Project support ticket</a>
+          </div>
         </section>
 
         <section className="at-connect-layout">

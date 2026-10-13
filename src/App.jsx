@@ -23,7 +23,6 @@ import ScrubberSelectorPage from './pages/ScrubberSelectorPage.jsx';
 import ATConnectPage from './pages/ATConnectPage.jsx';
 import PressureMonitoringPage from './pages/PressureMonitoringPage.jsx';
 import SettingsPage from './pages/SettingsPage.jsx';
-import ProjectsPage from './pages/ProjectsPage.jsx';
 import { getAdminModeEnabled, setAdminModeEnabled, userCanUseAdminMode } from './utils/adminContent.js';
 import { APP_VERSION } from './data/appInfo.js';
 
@@ -243,9 +242,9 @@ export default function App() {
       />
       <Route
         path="/projects"
-        element={( 
+        element={(
           <ProtectedRoute user={user} loading={loading}>
-            <ProjectsPage user={user} {...protectedPageProps} />
+            <Navigate to="/at-connect" replace />
           </ProtectedRoute>
         )}
       />

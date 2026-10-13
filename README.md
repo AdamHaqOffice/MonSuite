@@ -1,25 +1,33 @@
-# MonSuite V39
+# MonSuite V45 — AbateBot PPM4/RPM Manual Deep Brain
 
-MonSuite is an internal Abatement Technologies support/sales portal for monitor products, firmware, manuals, pressure monitoring guidance, AT Connect, AbateBot, setup planning, and air scrubber recommendations.
+This package expands AbateBot with deep how-to coverage from the PPM4 and RPM owner manuals while keeping the V44 Airflow Planner polish intact.
 
-## V38 highlights
+# MonSuite V44 — Airflow Planner Flow Polish
 
-- Reorganized the combined Airflow Planner so it is usable as a real sales/support workspace.
-- Left side is now the report form, center is the large planning canvas, and right side is the live recommendation/report panel.
-- Moved scrubbers, monitors, sensors, and duct options into a clean equipment dock above the canvas.
-- Made the layout canvas larger with clearer room sizing and visible resize handles.
-- Placed equipment can now be dragged around after it is dropped, with a visible remove control.
-- Added quick actions to place the recommended scrubber count and add an RPM when pressure monitoring is recommended.
-- Added a layout check that compares the actual drawn plan against the recommended scrubber quantity.
-- Kept the real scrubber list only and preserved site-condition filtering for residential/wet areas.
+MonSuite is a sales, support, product-knowledge, firmware/documentation, setup-planning, and AbateBot portal for Abatement Technologies monitoring and air-scrubber workflows.
 
-## Admin publishing
+## V44 focus
 
-See `FIREBASE_ADMIN_MODE_SETUP.md` for Firestore collections and suggested rules.
+V44 makes the Airflow Planner easier to use from start to finish:
 
-## Build
+1. Pick a real job preset.
+2. Enter project/application, hazard, goal, site condition, location, and power.
+3. Enter room dimensions or known volume.
+4. Review real scrubber recommendations.
+5. Select the setup to build around.
+6. Build the recommended layout with one click or drag equipment manually.
+7. Add monitoring when pressure/reporting is expected.
+8. Preview, copy, download, or send the customer handoff report.
 
-```bash
-npm install
-npm run build
-```
+## What changed from V43
+
+- Added a workflow rail: Job → Room → Select → Layout → Monitor → Report.
+- Added setup readiness scoring and next-action guidance.
+- Added a selected setup summary panel with fit reasons and watchouts.
+- Added a one-click Build recommended setup action.
+- Improved the customer handoff report wording and organization.
+- Collapsed the product-fit cheat sheet so it supports the workflow without crowding the planner.
+
+## Upload note
+
+Use the changed-files-only package when updating GitHub. Copy the contents into the root of the MonSuite repo and let files overwrite existing files.

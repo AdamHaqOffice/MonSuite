@@ -7,14 +7,29 @@ import {
   pressureGlossary,
   pressureTargets,
 } from '../data/pressureMonitoringGuide.js';
+import {
+  abatementLinkProjectValue,
+  calculateRoi,
+  competitorMatrix,
+  formatCurrency,
+  marketValuePillars,
+  roiDefaultInputs,
+  salesPlaybooks,
+  sampleReports,
+} from '../data/salesGuideData.js';
 
 function formatNumber(value, digits = 0) {
   if (!Number.isFinite(value)) return '—';
   return new Intl.NumberFormat('en-US', { maximumFractionDigits: digits }).format(value);
 }
 
+function updateNumberField(setter, field, value) {
+  setter((current) => ({ ...current, [field]: value }));
+}
+
 export default function PressureMonitoringPage({ user, onLogout, theme, onToggleTheme }) {
   const [calc, setCalc] = useState({ length: 12, width: 16, height: 9, targetAch: 12 });
+  const [roi, setRoi] = useState(roiDefaultInputs);
 
   const achMath = useMemo(() => {
     const length = Number(calc.length) || 0;
@@ -26,30 +41,194 @@ export default function PressureMonitoringPage({ user, onLogout, theme, onToggle
     return { volume, cfm };
   }, [calc]);
 
-  function updateCalc(field, value) {
-    setCalc((current) => ({ ...current, [field]: value }));
-  }
+  const roiMath = useMemo(() => calculateRoi(roi), [roi]);
 
   return (
     <AppShell user={user} onLogout={onLogout} theme={theme} onToggleTheme={onToggleTheme}>
-      <main className="page-wrap pressure-page">
-        <section className="hero-card pressure-hero">
+      <main className="page-wrap pressure-page sales-guide-page">
+        <section className="hero-card pressure-hero sales-guide-hero">
           <div>
-            <p className="eyebrow">Pressure monitoring guide</p>
-            <h1>Pressure Guide</h1>
+            <p className="eyebrow">Applications + sales guide</p>
+            <h1>Pressure, reporting, and competitor-backed sales value.</h1>
             <p>
-              Practical notes for explaining negative pressure, positive pressure, ACH, scrubbers, alarms, and what a monitor can prove on a job site.
+              A consolidated guide for explaining pressure monitoring, Abatement Link Projects, competitor positioning, reports, ROI, and job-specific playbooks without adding more top-level sections to MonSuite.
             </p>
             <div className="hero-action-row">
-              <a className="button primary" href="/at-connect">Connect a monitor</a>
-              <a className="button secondary" href="/scrubber-selector">Open Scrubber Selector</a>
+              <a className="button primary" href="/scrubber-selector">Open Airflow Planner</a>
+              <a className="button secondary" href="https://connect.abatement.com" target="_blank" rel="noreferrer">Open Abatement Link ↗</a>
             </div>
           </div>
           <div className="hero-panel pressure-proof-panel">
-            <span>Core purpose</span>
-            <strong>Prove air direction</strong>
-            <small>Live status · alarms · history · documentation</small>
+            <span>Sales position</span>
+            <strong>Sell proof, not just readings.</strong>
+            <small>Live status · alerts · reports · accountability</small>
           </div>
+        </section>
+
+        <section className="sales-guide-cutout-card">
+          <img src="/sales-guides/market-proof-cutout.svg" alt="Market proof infographic for connected monitoring and reports" />
+        </section>
+
+        <section className="section-heading">
+          <p className="eyebrow">Market-backed value</p>
+          <h2>What customers are already being trained to expect</h2>
+          <p>
+            Competitors are not only selling pressure monitors. They are selling visibility, automatic documentation, response workflows, and professional reports. MonSuite should help sales explain that value, while Abatement Link owns the live data and project record.
+          </p>
+        </section>
+
+        <section className="sales-pillar-grid">
+          {marketValuePillars.map((pillar) => (
+            <article className="sales-pillar-card" key={pillar.title}>
+              <h3>{pillar.title}</h3>
+              <p>{pillar.description}</p>
+              <small>{pillar.proof}</small>
+            </article>
+          ))}
+        </section>
+
+        <section className="section-heading">
+          <p className="eyebrow">Abatement Link Projects</p>
+          <h2>The live monitoring and reporting story belongs in Abatement Link</h2>
+          <p>
+            MonSuite should point customers toward Abatement Link Projects for live project dashboards, alerts, acknowledgements, escalation, corrective actions, user tracking, and report history.
+          </p>
+        </section>
+
+        <section className="feature-comparison-grid">
+          {abatementLinkProjectValue.map((item) => (
+            <article className="feature-comparison-card" key={item.feature}>
+              <span>Abatement Link</span>
+              <h3>{item.feature}</h3>
+              <p>{item.customerValue}</p>
+              <small>{item.salesNote}</small>
+            </article>
+          ))}
+        </section>
+
+        <section className="section-heading">
+          <p className="eyebrow">Competitive battlecard</p>
+          <h2>Competitor-backed reasons to build and sell the system</h2>
+          <p>
+            Use this as an internal talk track. It is not a legal claim or public comparison sheet; it is a practical reminder of what the market is already offering or clearly moving toward.
+          </p>
+        </section>
+
+        <section className="competitor-grid">
+          {competitorMatrix.map((competitor) => (
+            <article className="competitor-card" key={competitor.company}>
+              <div className="competitor-card-head">
+                <span>Competitor</span>
+                <h3>{competitor.company}</h3>
+              </div>
+              <p>{competitor.marketSignal}</p>
+              <div className="tag-row">
+                {competitor.offers.map((offer) => <span key={offer}>{offer}</span>)}
+              </div>
+              <div className="battlecard-note">
+                <strong>Our response</strong>
+                <p>{competitor.monsuiteResponse}</p>
+              </div>
+              <small>{competitor.battlecard}</small>
+            </article>
+          ))}
+        </section>
+
+        <section className="section-heading">
+          <p className="eyebrow">Report gallery</p>
+          <h2>Reports customers understand before they buy</h2>
+          <p>
+            These should ultimately be generated by Abatement Link, but MonSuite can show sales what the customer is actually buying: daily records, excursion documentation, data availability, corrective actions, and final handoff packages.
+          </p>
+        </section>
+
+        <section className="report-gallery-grid">
+          {sampleReports.map((report) => (
+            <article className="report-gallery-card" key={report.title}>
+              <h3>{report.title}</h3>
+              <p>{report.bestFor}</p>
+              <ul>
+                {report.includes.map((line) => <li key={line}>{line}</li>)}
+              </ul>
+              <strong>{report.whyItSells}</strong>
+            </article>
+          ))}
+        </section>
+
+        <section className="calculator-card roi-calculator-card">
+          <div>
+            <p className="eyebrow">Labor-savings calculator</p>
+            <h2>Estimate the cost of manual rounds and paper/admin work</h2>
+            <p>
+              This is a sales conversation tool, not an accounting model. It helps show why connected monitoring, automatic records, alerts, and reports have real value beyond the device hardware.
+            </p>
+          </div>
+          <div className="calc-grid roi-input-grid">
+            <label>
+              Projects / year
+              <input type="number" min="0" value={roi.projectsPerYear} onChange={(event) => updateNumberField(setRoi, 'projectsPerYear', event.target.value)} />
+            </label>
+            <label>
+              Days / project
+              <input type="number" min="0" value={roi.daysPerProject} onChange={(event) => updateNumberField(setRoi, 'daysPerProject', event.target.value)} />
+            </label>
+            <label>
+              Rounds / day
+              <input type="number" min="0" value={roi.roundsPerDay} onChange={(event) => updateNumberField(setRoi, 'roundsPerDay', event.target.value)} />
+            </label>
+            <label>
+              Minutes / round
+              <input type="number" min="0" value={roi.minutesPerRound} onChange={(event) => updateNumberField(setRoi, 'minutesPerRound', event.target.value)} />
+            </label>
+            <label>
+              Admin minutes / day
+              <input type="number" min="0" value={roi.adminMinutesPerDay} onChange={(event) => updateNumberField(setRoi, 'adminMinutesPerDay', event.target.value)} />
+            </label>
+            <label>
+              Loaded hourly cost
+              <input type="number" min="0" value={roi.hourlyRate} onChange={(event) => updateNumberField(setRoi, 'hourlyRate', event.target.value)} />
+            </label>
+          </div>
+          <div className="calc-result-strip roi-result-strip">
+            <div>
+              <span>Manual rounds</span>
+              <strong>{formatNumber(roiMath.yearlyMonitoringHours, 1)} hr/yr</strong>
+            </div>
+            <div>
+              <span>Admin/report work</span>
+              <strong>{formatNumber(roiMath.yearlyAdminHours, 1)} hr/yr</strong>
+            </div>
+            <div>
+              <span>Estimated labor value</span>
+              <strong>{formatCurrency(roiMath.laborCost)}</strong>
+            </div>
+          </div>
+        </section>
+
+        <section className="section-heading">
+          <p className="eyebrow">Use-case playbooks</p>
+          <h2>Question lists and sales guidance by job type</h2>
+        </section>
+
+        <section className="playbook-grid">
+          {salesPlaybooks.map((playbook) => (
+            <article className="playbook-card" key={playbook.id}>
+              <p className="eyebrow">Playbook</p>
+              <h3>{playbook.title}</h3>
+              <p>{playbook.pain}</p>
+              <div className="playbook-columns">
+                <div>
+                  <strong>Ask</strong>
+                  <ul>{playbook.ask.map((item) => <li key={item}>{item}</li>)}</ul>
+                </div>
+                <div>
+                  <strong>Recommend</strong>
+                  <ul>{playbook.recommend.map((item) => <li key={item}>{item}</li>)}</ul>
+                </div>
+              </div>
+              <small><b>Do not promise:</b> {playbook.doNotPromise}</small>
+            </article>
+          ))}
         </section>
 
         <section className="pressure-principle-grid">
@@ -127,19 +306,19 @@ export default function PressureMonitoringPage({ user, onLogout, theme, onToggle
           <div className="calc-grid">
             <label>
               Length ft
-              <input type="number" min="1" value={calc.length} onChange={(event) => updateCalc('length', event.target.value)} />
+              <input type="number" min="1" value={calc.length} onChange={(event) => updateNumberField(setCalc, 'length', event.target.value)} />
             </label>
             <label>
               Width ft
-              <input type="number" min="1" value={calc.width} onChange={(event) => updateCalc('width', event.target.value)} />
+              <input type="number" min="1" value={calc.width} onChange={(event) => updateNumberField(setCalc, 'width', event.target.value)} />
             </label>
             <label>
               Height ft
-              <input type="number" min="1" value={calc.height} onChange={(event) => updateCalc('height', event.target.value)} />
+              <input type="number" min="1" value={calc.height} onChange={(event) => updateNumberField(setCalc, 'height', event.target.value)} />
             </label>
             <label>
               Target ACH
-              <input type="number" min="1" value={calc.targetAch} onChange={(event) => updateCalc('targetAch', event.target.value)} />
+              <input type="number" min="1" value={calc.targetAch} onChange={(event) => updateNumberField(setCalc, 'targetAch', event.target.value)} />
             </label>
           </div>
           <div className="calc-result-strip">
@@ -164,38 +343,8 @@ export default function PressureMonitoringPage({ user, onLogout, theme, onToggle
           <article>
             <h3>HEPA vs MERV</h3>
             <p>
-              HEPA filters are common in negative air machines, air scrubbers, isolation support, asbestos containment, mold remediation, and hospital construction zones.
-              MERV ratings are mostly used for building HVAC filters. MERV 13 is commonly discussed for improved building ventilation; HEPA is higher-efficiency filtration for portable air cleaning and containment work.
+              HEPA filters are common in negative air machines, air scrubbers, isolation support, asbestos containment, mold remediation, and hospital construction zones. MERV ratings are mostly used for building HVAC filters.
             </p>
-          </article>
-        </section>
-
-        <section className="workflow-grid">
-          <article className="workflow-card hospital">
-            <p className="eyebrow">Hospitals</p>
-            <h2>How hospitals use pressure monitoring</h2>
-            <p>
-              Hospitals use pressure relationships to protect patients, staff, clean spaces, and occupied clinical areas. A pressure monitor gives infection control and facilities teams a visible, recordable answer to one question: is the room or work zone still in the correct pressure relationship?
-            </p>
-            <ul>
-              <li>Airborne isolation rooms and temporary isolation</li>
-              <li>Operating rooms and protective environments</li>
-              <li>Construction zones beside occupied clinical areas</li>
-              <li>Pressure alarms, daily/continuous logs, and documentation</li>
-            </ul>
-          </article>
-          <article className="workflow-card construction">
-            <p className="eyebrow">Construction + abatement</p>
-            <h2>How job sites use pressure monitoring</h2>
-            <p>
-              Construction, remediation, and abatement sites use pressure monitoring to control contamination. The fan or negative air machine creates the pressure; the pressure monitor proves whether the setup is holding over time.
-            </p>
-            <ol>
-              <li>Build and seal the containment area.</li>
-              <li>Use HEPA negative air machines or scrubbers as specified.</li>
-              <li>Maintain negative pressure to the surrounding clean area.</li>
-              <li>Monitor continuously and keep logs for the project file.</li>
-            </ol>
           </article>
         </section>
 
@@ -217,9 +366,9 @@ export default function PressureMonitoringPage({ user, onLogout, theme, onToggle
         <section className="connect-pressure-card">
           <div>
             <p className="eyebrow">Remote alarms + records</p>
-            <h2>Use AT Connect when alarm history and online pressure data matter.</h2>
+            <h2>Use AT Connect and Abatement Link when alarm history and online pressure data matter.</h2>
             <p>
-              For connected PPM4 or RPM jobs, use the AT Connect mobile app first so users can receive push alarm notifications on their phone. The web portal is useful for reviewing and downloading records online.
+              Use the AT Connect mobile app first for connected monitor setup and phone push alarm notifications. Abatement Link is the right home for live projects, project reports, user tracking, and audit records.
             </p>
           </div>
           <div className="connect-action-stack">

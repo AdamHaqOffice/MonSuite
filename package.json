@@ -1,7 +1,7 @@
 {
-  "name": "monsuite-v40-unified-cad-planner",
+  "name": "monsuite-v45-abatebot-manual-brain",
   "private": true,
-  "version": "40.0.0",
+  "version": "45.0.0",
   "type": "module",
   "scripts": {
     "dev": "vite",

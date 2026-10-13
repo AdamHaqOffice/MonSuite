@@ -1,0 +1,5 @@
+PROJECTS_ICRA_IMPLEMENTATION_NOTES.md
+src/data/projectTemplates.js
+src/pages/ProjectsPage.jsx
+src/utils/projectCsvImport.js
+src/utils/projectStorage.js

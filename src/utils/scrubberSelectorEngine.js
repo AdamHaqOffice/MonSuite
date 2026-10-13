@@ -274,7 +274,6 @@ function requiresCarbon(input, rule) {
 
 export function productCompatible(product, input, rule) {
   if (!product.isRealProduct) return false;
-  if (product.id === 'abatement_hc800fd_series') return false; // V37 planner core quote lineup uses five scrubbers: PRED750, BD2K, H2KM, PAS2400, PAS5000.
   if (requiresCarbon(input, rule) && !product.filtration?.carbonOption) return false;
   if (rule?.filter?.toLowerCase().includes('hepa') && !product.filtration?.hepa) return false;
   if (input.hazard === 'asbestos' && product.appLogic?.useForAsbestos === false) return false;
@@ -403,6 +402,51 @@ function siteFitScore(product, input) {
   return score;
 }
 
+
+function buildFitReasons(product, input, rule, rec, ductProfile) {
+  const reasons = [];
+  const productId = product.id;
+  const site = input.siteEnvironment || 'commercial_industrial';
+  const margin = rec.estimatedAch / Math.max(rec.targetAch, 1);
+
+  if (product.bestUse) reasons.push(product.bestUse);
+
+  if (site === 'residential_finished' || site === 'wet_damp_restoration') {
+    if (productId === 'abatement_bd2k_xhp_xhpa') reasons.push('Plastic 2,000 CFM class cabinet is the strongest fit for wet, residential, finished, or scratch-sensitive restoration work.');
+    if (productId === 'abatement_pred750') reasons.push('Compact/lightweight option is useful when the job is small, access is tight, or a large 2,000 CFM unit is overkill.');
+    if (productId === 'abatement_h2km_h2kma') reasons.push('Metal cabinet is rugged, but BD2K is usually the better first choice for wet or finished residential work.');
+  }
+
+  if (site === 'healthcare_construction') {
+    if (productId === 'abatement_hc800fd_series') reasons.push('Healthcare-style HEPA cabinet, lower amp draw, and clean presentation make this a strong fit for occupied healthcare spaces and temporary isolation support.');
+    if (productId === 'abatement_h2km_h2kma') reasons.push('Metal 2,000 CFM workhorse is a strong fit for healthcare construction containment and rugged jobsite use.');
+    if (productId === 'abatement_pas2400') reasons.push('High-capacity 120V unit is useful when healthcare construction needs more airflow without moving to 230V equipment.');
+  }
+
+  if (site === 'large_containment') {
+    if (productId === 'abatement_pas5000') reasons.push('Large-containment 4,000 CFM class unit reduces machine count when 230V/30A power and access are confirmed.');
+    if (productId === 'abatement_pas2400') reasons.push('High-capacity 120V option is useful when the job needs more airflow but 230V power is not confirmed.');
+  }
+
+  if (input.projectType === 'asbestos' || input.hazard === 'asbestos') reasons.push('Asbestos/regulated work needs project-specific procedures and documentation; equipment sizing is only one part of the control plan.');
+  if (input.hazard === 'odor_voc' || input.projectType === 'odor_voc') reasons.push(product.filtration?.carbonOption ? 'Carbon option is available for odor/VOC support; HEPA alone does not remove gases or odors.' : 'Avoid for odor/VOC-only jobs unless a compatible carbon option is confirmed.');
+  if (rule?.monitorRequired) reasons.push('Because pressure containment/documentation is expected, pair the scrubber plan with PPM4/RPM/Abatement Link as appropriate.');
+  if (ductProfile === 'long') reasons.push('Long/flexible ducting reduces delivered airflow; the recommendation uses conservative derating and should be field-verified.');
+  if (margin >= 1 && margin <= 1.75) reasons.push('Airflow is close to the design target without excessive oversizing.');
+  if (margin > 2.75) reasons.push('This option exceeds the design target by a wide margin; confirm noise, power, footprint, and cost before quoting.');
+
+  return Array.from(new Set(reasons)).slice(0, 6);
+}
+
+function fitLabel(product, input, rec) {
+  const margin = rec.estimatedAch / Math.max(rec.targetAch, 1);
+  if (!rec.meetsTarget) return 'Short of target';
+  if ((product.electrical?.voltageVac || 120) > 130 && input.powerAvailable === 'unknown') return 'Power must be confirmed';
+  if (margin > 2.75) return 'High airflow / possible overkill';
+  if (rec.quantity === 1) return 'Clean single-unit fit';
+  return 'Meets design target';
+}
+
 function scoreRecommendation(rec, input, designCfm) {
   let score = rec.meetsTarget ? 1000 : -500;
   const margin = rec.estimatedAch / Math.max(rec.targetAch, 1);
@@ -504,10 +548,17 @@ export function getScrubberRecommendation(input) {
       const estimatedAch = roomVolume ? (totalEffectiveCfm * 60) / roomVolume : 0;
       const totalAmps = quantity * (product.electrical?.normalOperatingAmpsMax || 0);
       const estimatedWatts = totalAmps * (power.volts || product.electrical?.voltageVac || 120);
+      const planningCircuitLimit = power.planningLimitAmps || (input.powerAvailable === 'multiple' ? 16 : null);
+      const circuitsNeeded = planningCircuitLimit ? Math.max(1, Math.ceil(totalAmps / planningCircuitLimit)) : null;
+      const totalWeightLb = quantity * (product.physical?.weightLb || 0);
+      const margin = estimatedAch / Math.max(targetAch, 1);
       const warnings = [];
 
       if (power.planningLimitAmps && totalAmps > power.planningLimitAmps) {
-        warnings.push(`Electrical load estimate is ${totalAmps.toFixed(1)}A, above the ${power.label} continuous planning limit of ${power.planningLimitAmps}A. Confirm multiple circuits or electrical plan.`);
+        warnings.push(`Electrical load estimate is ${totalAmps.toFixed(1)}A, above the ${power.label} continuous planning limit of ${power.planningLimitAmps}A. Plan roughly ${circuitsNeeded} dedicated circuit(s) or confirm the electrical plan.`);
+      }
+      if (input.powerAvailable === 'multiple' && circuitsNeeded && circuitsNeeded > 1) {
+        warnings.push(`Multiple-circuit planning estimate: ${circuitsNeeded} separate 120V circuits may be needed for this equipment load. Confirm with site/electrician before quoting.`);
       }
       if (!power.planningLimitAmps && input.powerAvailable === 'unknown') {
         warnings.push('Power availability is unknown. Confirm circuit availability before relying on this setup.');
@@ -537,16 +588,21 @@ export function getScrubberRecommendation(input) {
         estimatedAch,
         totalAmps,
         estimatedWatts,
+        totalWeightLb,
+        circuitsNeeded,
         targetAch,
+        margin,
         meetsTarget: estimatedAch >= targetAch,
         warnings,
         accessories: buildAccessories(input, rule, product, monitorRequirement),
       };
+      rec.fitLabel = fitLabel(product, input, rec);
+      rec.fitReasons = buildFitReasons(product, input, rule, rec, ductProfile);
       rec.score = scoreRecommendation(rec, input, designCfm);
       return rec;
     })
     .sort((a, b) => b.score - a.score)
-    .slice(0, 3);
+    .slice(0, 6);
 
   const topRecommendation = recommendations[0] || null;
   const salesAnswer = topRecommendation

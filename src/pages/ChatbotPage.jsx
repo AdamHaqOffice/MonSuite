@@ -331,8 +331,10 @@ function sourceQualityAdjustment(entry, query) {
   const normalizedQuery = normalize(query);
 
   if (entry.confidence === 'grounded') adjustment += 14;
-  if (category.includes('document reference')) adjustment -= 32;
-  if (title.includes('reference chunk') && !normalizedQuery.includes('manual') && !normalizedQuery.includes('document')) adjustment -= 28;
+  if (entry.id?.startsWith('v45-manual-')) adjustment += 46;
+  if (/manual how-to|battery|power|tubing|setup|alarms|calibration|communications|data logging|maintenance|sensors|troubleshooting|administration|firmware/.test(category)) adjustment += 18;
+  if (category.includes('document reference')) adjustment -= 58;
+  if (title.includes('reference chunk') && !normalizedQuery.includes('manual') && !normalizedQuery.includes('document')) adjustment -= 48;
   if (entry.answer?.length > 700 && !normalizedQuery.includes('detail')) adjustment -= 8;
 
   return adjustment;
