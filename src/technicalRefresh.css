@@ -86,3 +86,10 @@
 .firmware-console-summary strong { font-family:ui-monospace,SFMono-Regular,Consolas,monospace; font-size:1.6rem; color:#ddf5ff; }
 .firmware-file-checksum { display:block; font-size:.68rem; opacity:.7; max-width:240px; overflow-wrap:anywhere; }
 @media(max-width:720px) { .firmware-console-summary {grid-template-columns:repeat(2,minmax(0,1fr));} }
+
+.technical-strength-gap { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:15px; margin:32px 0; }
+.technical-position-card { padding:24px; background:#eaf6f4; border:1px solid #aed4cc; border-radius:12px; }
+.technical-position-card.warning { background:#fffaed; border-color:#e9d5a0; }
+.technical-position-card h3 { color:#183b50; margin:8px 0; }
+.technical-position-card small { color:#5c7185; }
+@media(max-width:750px) { .technical-strength-gap { grid-template-columns:1fr; } }
