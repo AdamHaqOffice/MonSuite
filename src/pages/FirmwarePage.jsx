@@ -83,7 +83,7 @@ function LatestFirmwareCard({ item }) {
               <small>{file.role}</small>
               <em>{file.version}</em>
             </div>
-            <span>{file.size}</span>
+            <span>{file.size}<small className="firmware-file-checksum">{file.checksum || "Checksum not provided"}</small></span>
             {hasLink(file.url) ? <a href={file.url} target="_blank" rel="noreferrer">file</a> : null}
           </div>
         ))}
@@ -217,9 +217,15 @@ export default function FirmwarePage({ user, onLogout, theme, onToggleTheme, adm
     <AppShell user={user} onLogout={onLogout} theme={theme} onToggleTheme={onToggleTheme} adminMode={adminMode} canUseAdminMode={canUseAdminMode}>
       <main className="page-wrap firmware-page-wrap technical-firmware-page">
         <section className="section-heading page-title firmware-title-block compact-human-hero technical-firmware-hero">
-          <p className="eyebrow">SOFTWARE DELIVERY / DEVICE FIRMWARE center</p>
+          <p className="eyebrow">DEVICE SOFTWARE / RELEASE ENGINEERING</p>
           <h1>Firmware Repository</h1>
-          <p>Latest packages, update warnings, and practical change notes.</p>
+          <p>Device firmware builds, release artifacts, hardware compatibility, migration dependencies and engineering revision records.</p>
+          <div className="firmware-console-summary">
+            <span><small>TRACKED PRODUCTS</small><strong>{latestFirmware.length}</strong></span>
+            <span><small>RELEASE ENTRIES</small><strong>{firmwareHistory.length + adminHistory.length}</strong></span>
+            <span><small>MIGRATION ADVISORIES</small><strong>{firmwareWarnings.length}</strong></span>
+            <span><small>REVISION DOCUMENTS</small><strong>{firmwareRevisionFiles.length}</strong></span>
+          </div>
         </section>
 
         {firmwareWarnings.map((warning) => <WarningBanner warning={warning} key={warning.id} />)}
