@@ -323,11 +323,7 @@ export default function App() {
       />
       <Route
         path="/setup-builder"
-        element={(
-          <ProtectedRoute user={user} loading={loading}>
-            <SetupBuilderPage user={user} {...protectedPageProps} />
-          </ProtectedRoute>
-        )}
+        element={<Navigate to="/scrubber-selector" replace />}
       />
       <Route
         path="/parts-costing"
