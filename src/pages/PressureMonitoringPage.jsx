@@ -30,6 +30,8 @@ const technicalFeatures = [
   { label: 'BACnet / third-party integration', detail: 'Building-management and integration protocols', ours: 'Model dependent', pattern: /bacnet|third.party/i },
 ];
 
+function updateNumberField(setter, field, value) { setter((current) => ({ ...current, [field]: value })); }
+
 export default function PressureMonitoringPage({ user, onLogout, theme, onToggleTheme }) {
   const [calc, setCalc] = useState({ length: 12, width: 16, height: 9, targetAch: 12 });
 
