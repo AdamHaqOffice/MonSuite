@@ -1,3 +1,4 @@
+import '../technicalRefresh.css';
 import { useEffect, useMemo, useState } from 'react';
 import AppShell from '../components/AppShell.jsx';
 import { firmwareHistory, firmwareRevisionFiles, firmwareWarnings, latestFirmware } from '../data/firmwareCatalog.js';
@@ -214,10 +215,10 @@ export default function FirmwarePage({ user, onLogout, theme, onToggleTheme, adm
 
   return (
     <AppShell user={user} onLogout={onLogout} theme={theme} onToggleTheme={onToggleTheme} adminMode={adminMode} canUseAdminMode={canUseAdminMode}>
-      <main className="page-wrap firmware-page-wrap">
-        <section className="section-heading page-title firmware-title-block compact-human-hero">
-          <p className="eyebrow">Firmware center</p>
-          <h1>Firmware</h1>
+      <main className="page-wrap firmware-page-wrap technical-firmware-page">
+        <section className="section-heading page-title firmware-title-block compact-human-hero technical-firmware-hero">
+          <p className="eyebrow">SOFTWARE DELIVERY / DEVICE FIRMWARE center</p>
+          <h1>Firmware Repository</h1>
           <p>Latest packages, update warnings, and practical change notes.</p>
         </section>
 
@@ -262,7 +263,7 @@ export default function FirmwarePage({ user, onLogout, theme, onToggleTheme, adm
           <div className="section-subhead">
             <div>
               <p className="eyebrow">Current downloads</p>
-              <h2>Latest firmware packages</h2>
+              <h2>Production release artifacts</h2>
             </div>
             <p>Use the package download first. Individual HEX files are listed for verification or manual USB preparation.</p>
           </div>
@@ -295,10 +296,10 @@ export default function FirmwarePage({ user, onLogout, theme, onToggleTheme, adm
           <div className="section-subhead">
             <div>
               <p className="eyebrow">Release history</p>
-              <h2>Version history & change log</h2>
+              <h2>Version history / release changelog</h2>
             </div>
             <p>
-              Change notes below are pulled from supplied revision history where available and summarized for sales/support use.
+              Revision records and compatibility details are based on the supplied release documentation. Validate device model, hardware revision, and migration requirements before flashing.
             </p>
           </div>
 
