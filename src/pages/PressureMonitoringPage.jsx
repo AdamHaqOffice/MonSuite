@@ -95,6 +95,21 @@ export default function PressureMonitoringPage({ user, onLogout, theme, onToggle
           </div>
         </section>
 
+        <section className="technical-strength-gap">
+          <div className="technical-position-card">
+            <p className="eyebrow">RELATIVE STRENGTH / ABATEMENT</p>
+            <h3>Portable deployment + modular equipment</h3>
+            <p>PPM4 offers a portable pressure-monitoring workflow, while RPM and expansion sensors support more permanent multi-parameter setups. This creates configuration flexibility across temporary containment and fixed environments.</p>
+            <small>Compare each competitor by product SKU and installation model rather than treating every cloud platform as equivalent hardware.</small>
+          </div>
+          <div className="technical-position-card warning">
+            <p className="eyebrow">GAPS / NOT YET VERIFIED</p>
+            <h3>Workflow depth and automated documentation</h3>
+            <p>Several vendors describe scheduled reports, alarm acknowledgement, escalation, or audit histories. Those functions need release-specific verification in Abatement Link before we can claim feature parity.</p>
+            <small>An “unconfirmed” matrix cell is not evidence of a competitor weakness.</small>
+          </div>
+        </section>
+
         <section className="technical-gap-panel">
           <p className="eyebrow">GAPS / CONFIRMATION BACKLOG</p>
           <h2>Priority areas to validate in Abatement Link</h2>
