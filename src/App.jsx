@@ -19,7 +19,7 @@ import SetupBuilderPage from './pages/SetupBuilderPage.jsx';
 import ChatbotPage from './pages/ChatbotPage.jsx';
 import SystemBuilderPage from './pages/SystemBuilderPage.jsx';
 import NewsPage from './pages/NewsPage.jsx';
-import ScrubberSelectorPage from './pages/ScrubberSelectorPage.jsx';
+
 import ATConnectPage from './pages/ATConnectPage.jsx';
 import PressureMonitoringPage from './pages/PressureMonitoringPage.jsx';
 import SettingsPage from './pages/SettingsPage.jsx';
@@ -276,7 +276,7 @@ export default function App() {
         path="/scrubber-selector"
         element={(
           <ProtectedRoute user={user} loading={loading}>
-            <ScrubberSelectorPage user={user} {...protectedPageProps} />
+            <SetupBuilderPage user={user} {...protectedPageProps} />
           </ProtectedRoute>
         )}
       />
@@ -325,7 +325,7 @@ export default function App() {
         path="/setup-builder"
         element={(
           <ProtectedRoute user={user} loading={loading}>
-            <ScrubberSelectorPage user={user} {...protectedPageProps} />
+            <SetupBuilderPage user={user} {...protectedPageProps} />
           </ProtectedRoute>
         )}
       />
