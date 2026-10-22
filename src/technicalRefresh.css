@@ -79,3 +79,10 @@
 .technical-firmware-page .firmware-file-row { background:#f2f7fb; border:1px solid #dfebf3; border-radius:6px; padding:9px; margin:5px 0; }
 @media(max-width:1050px) { .airflow-desktop-workspace .setup-workspace { grid-template-columns:190px minmax(0,1fr)!important; } .airflow-desktop-workspace .setup-workspace>aside:last-child { grid-column:1/-1; } }
 @media(max-width:700px) { .airflow-desktop-workspace .setup-workspace { grid-template-columns:1fr!important; } .airflow-desktop-workspace .setup-canvas { min-height:520px; height:520px; } .technical-step-grid { grid-template-columns:1fr; } .technical-compare-hero { padding:22px; } }
+
+.firmware-console-summary { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin-top:22px; }
+.firmware-console-summary span { display:flex; flex-direction:column; gap:8px; padding:14px 18px; background:#213c59; border:1px solid #436481; border-radius:9px; }
+.firmware-console-summary small { font-size:.68rem; color:#b6cee3; letter-spacing:.08em; font-weight:800; }
+.firmware-console-summary strong { font-family:ui-monospace,SFMono-Regular,Consolas,monospace; font-size:1.6rem; color:#ddf5ff; }
+.firmware-file-checksum { display:block; font-size:.68rem; opacity:.7; max-width:240px; overflow-wrap:anywhere; }
+@media(max-width:720px) { .firmware-console-summary {grid-template-columns:repeat(2,minmax(0,1fr));} }
