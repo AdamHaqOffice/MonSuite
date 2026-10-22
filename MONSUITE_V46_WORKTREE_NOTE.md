@@ -1,0 +1,1 @@
+MonSuite technical refresh branch: planner consolidated under /scrubber-selector, quick setup and on-demand report, technical comparison and firmware console. Review before merging.
