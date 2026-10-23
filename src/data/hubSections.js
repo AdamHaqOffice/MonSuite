@@ -21,7 +21,7 @@ export const hubSections = [
 
   {
     title: 'Airflow Planner',
-    eyebrow: 'Scrubbers + layout',
+    eyebrow: 'Desktop CAD + scrubber sizing',
     description: 'Draw the room, place monitors, sensors, ducts, and scrubbers, then generate a practical equipment report with scrubber count and monitor recommendation.',
     path: '/scrubber-selector',
     status: 'New',
@@ -39,9 +39,9 @@ export const hubSections = [
     theme: 'atconnect',
   },
   {
-    title: 'Applications & Sales Guide',
-    eyebrow: 'Competitors + reports',
-    description: 'Explain pressure monitoring, Abatement Link Projects, competitor positioning, reports, ROI, and market-backed sales playbooks.',
+    title: 'Technical Comparison',
+    eyebrow: 'Feature matrix + product engineering',
+    description: 'Review documented competitor capabilities, technical strengths, gaps, and product response with a feature-by-feature comparison.',
     path: '/pressure-monitoring',
     status: 'New',
     icon: '⇄',

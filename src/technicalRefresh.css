@@ -1,0 +1,95 @@
+
+/* MonSuite technical workspace refresh; desktop-first tooling */
+.airflow-desktop-workspace { max-width:none!important; width:100%; padding:22px clamp(16px,2vw,42px) 60px; box-sizing:border-box; background:linear-gradient(145deg,#081322,#111f33); color:#e7f2ff; }
+.airflow-desktop-workspace .setup-header { max-width:none; display:flex; align-items:center; justify-content:space-between; gap:24px; border-bottom:1px solid #26394f; padding:8px 0 22px; margin-bottom:20px; }
+.airflow-desktop-workspace .setup-header h1 { font-size:clamp(1.75rem,3vw,2.65rem); margin:3px 0 8px; letter-spacing:-.035em; }
+.airflow-desktop-workspace .setup-header p { max-width:740px; color:#a6bdd5; }
+.airflow-desktop-workspace .setup-header-actions { display:flex; flex-wrap:wrap; align-items:center; gap:8px; }
+.airflow-desktop-workspace .setup-header-actions select { width:auto; min-height:36px; background:#101f32; color:#e2efff; border:1px solid #395371; border-radius:8px; padding:7px 12px; }
+.airflow-desktop-workspace .setup-workspace { width:100%; max-width:none; display:grid!important; grid-template-columns:220px minmax(0,1fr) 260px!important; align-items:stretch; gap:12px; }
+.airflow-desktop-workspace .inventory-panel, .airflow-desktop-workspace .setup-workspace > aside { max-width:none; min-width:0; background:#102036; border:1px solid #294059; border-radius:12px; }
+.airflow-desktop-workspace .canvas-column { min-width:0; }
+.airflow-desktop-workspace .setup-canvas { min-height:calc(100vh - 290px); height:calc(100vh - 290px); max-height:none; border:1px solid #3d5874; border-radius:10px; background-color:#091727; box-shadow:inset 0 0 0 1px #1d354e,0 18px 50px #0004; }
+.airflow-desktop-workspace .canvas-toolbar { display:flex; align-items:center; flex-wrap:wrap; gap:12px; background:#10243a; border:1px solid #2e4964; border-radius:10px; margin-bottom:10px; padding:9px 14px; color:#bad0e4; }
+.airflow-desktop-workspace .canvas-toolbar strong { flex:1; font-weight:500; font-size:.8rem; }
+.airflow-desktop-workspace .system-spec-panel { max-width:none; margin-top:72px; scroll-margin-top:20px; background:#102036; color:#e5eef9; border:1px solid #304660; border-radius:16px; }
+.airflow-desktop-workspace .system-spec-header h2 { color:#e6f0fb; }
+.airflow-desktop-workspace .system-spec-header p { color:#a9c1d7; }
+.airflow-desktop-workspace .spec-card { background:#15283e; color:#dceafa; border:1px solid #304860; border-radius:12px; }
+.airflow-desktop-workspace .spec-card input, .airflow-desktop-workspace .spec-card select, .airflow-desktop-workspace .spec-card textarea { background:#0d1e31; color:#eef6ff; border:1px solid #3d5876; }
+.airflow-report-actions { margin:45px 0 20px; padding:26px; background:#102036; border:1px solid #345371; border-radius:16px; scroll-margin-top:16px; }
+.airflow-report-actions > p,.airflow-report-actions > div > p { color:#afc5dc; }
+.airflow-report-actions h2 { color:#eaf4ff; margin:4px 0; }
+.airflow-report-actions > button { margin:14px 0; }
+.airflow-report-result { border-top:1px solid #3b556e; padding-top:22px; margin-top:20px; }
+.airflow-report-result h3 { font-size:1.75rem; color:#e9faff; }
+.airflow-report-options { display:grid; grid-template-columns:repeat(auto-fit,minmax(185px,1fr)); gap:10px; margin:18px 0; }
+.airflow-report-options article { display:flex; flex-direction:column; gap:5px; padding:16px; border:1px solid #375671; border-radius:10px; background:#152d46; }
+.airflow-report-options article strong { color:#bfe7ff; font-size:1.05rem; }
+.airflow-report-options article small { color:#a9c0d5; }
+.airflow-report-caution { color:#f5d9ab!important; font-size:.87rem; }
+.technical-modal-backdrop { position:fixed; z-index:2000; inset:0; background:#020812d9; display:grid; place-items:center; padding:20px; }
+.technical-quick-modal { width:min(620px,100%); max-height:90vh; overflow:auto; background:#102034; color:#eef6ff; border:1px solid #466382; border-radius:18px; padding:26px; box-shadow:0 35px 100px #0009; }
+.technical-modal-top,.technical-modal-actions { display:flex; align-items:center; justify-content:space-between; gap:12px; }
+.technical-modal-top { font-size:.76rem; font-weight:800; letter-spacing:.11em; color:#83bee6; }
+.technical-step-progress { height:4px; border-radius:4px; background:#2b4054; margin:18px 0 30px; overflow:hidden; }
+.technical-step-progress i { display:block; height:100%; background:#55b4eb; transition:width .2s; }
+.technical-step-content { min-height:260px; display:grid; align-content:start; gap:18px; }
+.technical-step-content h2 { margin:0; font-size:1.45rem; }
+.technical-step-content label { display:flex; flex-direction:column; gap:7px; color:#c2d6e8; font-size:.87rem; font-weight:600; }
+.technical-step-content input,.technical-step-content select,.technical-step-content textarea { background:#0a1828; color:#fff; border:1px solid #425e79; border-radius:8px; padding:10px; width:100%; box-sizing:border-box; }
+.technical-step-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:12px; }
+.technical-modal-actions { margin-top:24px; border-top:1px solid #29445b; padding-top:20px; }
+.technical-comparison-page { max-width:1550px!important; }
+.technical-compare-hero { padding:35px; background:linear-gradient(120deg,#101e30,#192f49); color:#eef6ff; border-radius:17px; border:1px solid #324962; }
+.technical-compare-hero h1 { font-size:clamp(2rem,4vw,3.5rem); letter-spacing:-.04em; margin:8px 0; color:#f4f8ff; }
+.technical-compare-hero > p { max-width:800px; color:#acc7df; }
+.technical-compare-stats { display:flex; flex-wrap:wrap; gap:12px; margin-top:24px; }
+.technical-compare-stats span { display:flex; flex-direction:column; gap:3px; background:#203a56; border:1px solid #42617f; border-radius:10px; padding:12px 18px; color:#d3e3f3; }
+.technical-compare-stats strong { color:#94d7fc; }
+.technical-matrix-section { margin:44px 0; }
+.technical-matrix-scroll { overflow:auto; border:1px solid #ccd9e4; border-radius:12px; }
+.technical-matrix { border-collapse:collapse; min-width:1100px; width:100%; font-size:.85rem; }
+.technical-matrix th,.technical-matrix td { padding:14px; border-bottom:1px solid #dbe3ec; text-align:center; }
+.technical-matrix thead th { background:#172e48; color:#e9f3ff; position:sticky; top:0; z-index:2; }
+.technical-matrix tbody th { width:240px; min-width:240px; text-align:left; background:#f4f8fb; color:#183149; position:sticky; left:0; z-index:1; }
+.technical-matrix tbody th small { display:block; color:#617a92; font-weight:400; margin-top:4px; }
+.technical-matrix tbody tr:nth-child(even) td { background:#f4f7fa; }
+.tech-status { border-radius:20px; display:inline-block; padding:5px 9px; white-space:nowrap; font-size:.75rem; font-weight:700; }
+.tech-status.available { background:#d8f3e9; color:#136e4e; }
+.tech-status.review { background:#fff0c9; color:#865d0c; }
+.tech-status.unknown { background:#e7ecf1; color:#607083; }
+.technical-evidence-note { font-size:.82rem; color:#697c91; margin-top:14px; }
+.technical-competitor-grid,.technical-gap-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(290px,1fr)); gap:15px; }
+.technical-competitor-card,.technical-gap-panel { padding:24px; background:#f4f8fc; border:1px solid #cfdee9; border-radius:13px; }
+.technical-competitor-card h3 { margin:4px 0 10px; color:#193550; }
+.technical-competitor-card ul { padding-left:20px; }
+.technical-competitor-card li { margin:6px 0; }
+.technical-response { border-top:1px solid #cedce8; margin-top:20px; padding-top:16px; }
+.technical-gap-panel { margin:35px 0 50px; }
+.technical-gap-grid article { background:#fff; border:1px solid #d4e0eb; border-radius:10px; padding:16px; }
+.technical-firmware-page { max-width:1500px!important; }
+.technical-firmware-hero { background:linear-gradient(115deg,#0d192c,#1a3654); border:1px solid #355271; border-radius:16px; padding:28px 34px; margin-bottom:22px; }
+.technical-firmware-hero h1 { color:#f1f7ff; font-size:clamp(2rem,4vw,3rem); letter-spacing:-.04em; }
+.technical-firmware-hero p { color:#a9c6df; }
+.technical-firmware-page .firmware-section-block { border:1px solid #d4e0eb; border-radius:14px; padding:22px; background:#f8fafc; margin-bottom:24px; }
+.technical-firmware-page .firmware-release-card { border:1px solid #c9d9e6; border-radius:12px; background:#fff; box-shadow:0 6px 24px #11253a0a; }
+.technical-firmware-page .firmware-version-pill { font-family:ui-monospace,SFMono-Regular,Consolas,monospace; background:#16304a; color:#d0f0ff; border-radius:6px; }
+.technical-firmware-page .release-topline,.technical-firmware-page .firmware-meta,.technical-firmware-page .firmware-file-row { font-family:ui-monospace,SFMono-Regular,Consolas,monospace; font-size:.82rem; }
+.technical-firmware-page .firmware-file-row { background:#f2f7fb; border:1px solid #dfebf3; border-radius:6px; padding:9px; margin:5px 0; }
+@media(max-width:1050px) { .airflow-desktop-workspace .setup-workspace { grid-template-columns:190px minmax(0,1fr)!important; } .airflow-desktop-workspace .setup-workspace>aside:last-child { grid-column:1/-1; } }
+@media(max-width:700px) { .airflow-desktop-workspace .setup-workspace { grid-template-columns:1fr!important; } .airflow-desktop-workspace .setup-canvas { min-height:520px; height:520px; } .technical-step-grid { grid-template-columns:1fr; } .technical-compare-hero { padding:22px; } }
+
+.firmware-console-summary { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin-top:22px; }
+.firmware-console-summary span { display:flex; flex-direction:column; gap:8px; padding:14px 18px; background:#213c59; border:1px solid #436481; border-radius:9px; }
+.firmware-console-summary small { font-size:.68rem; color:#b6cee3; letter-spacing:.08em; font-weight:800; }
+.firmware-console-summary strong { font-family:ui-monospace,SFMono-Regular,Consolas,monospace; font-size:1.6rem; color:#ddf5ff; }
+.firmware-file-checksum { display:block; font-size:.68rem; opacity:.7; max-width:240px; overflow-wrap:anywhere; }
+@media(max-width:720px) { .firmware-console-summary {grid-template-columns:repeat(2,minmax(0,1fr));} }
+
+.technical-strength-gap { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:15px; margin:32px 0; }
+.technical-position-card { padding:24px; background:#eaf6f4; border:1px solid #aed4cc; border-radius:12px; }
+.technical-position-card.warning { background:#fffaed; border-color:#e9d5a0; }
+.technical-position-card h3 { color:#183b50; margin:8px 0; }
+.technical-position-card small { color:#5c7185; }
+@media(max-width:750px) { .technical-strength-gap { grid-template-columns:1fr; } }

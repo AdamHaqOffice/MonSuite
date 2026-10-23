@@ -1,4 +1,5 @@
 import { useMemo, useRef, useState } from 'react';
+import '../technicalRefresh.css';
 import AppShell from '../components/AppShell.jsx';
 import {
   accessoryItems,
@@ -29,6 +30,9 @@ const DEFAULT_PROJECT_FORM = {
   ceilingHeightFt: 10,
   targetAch: 6,
   pressureTarget: '-0.02 inWC',
+  projectType: 'Healthcare construction',
+  hazard: 'Construction dust',
+  exhaust: 'Outside containment',
   notes: '',
 };
 
@@ -749,6 +753,14 @@ export default function SetupBuilderPage({ user, onLogout, theme, onToggleTheme 
   const [pendingDuct, setPendingDuct] = useState(null);
   const [projectForm, setProjectForm] = useState(DEFAULT_PROJECT_FORM);
   const [formAddSku, setFormAddSku] = useState('PPM4');
+  const [quickStep, setQuickStep] = useState(-1);
+  const [quickForm, setQuickForm] = useState(DEFAULT_PROJECT_FORM);
+  const [generatedReport, setGeneratedReport] = useState(null);
+  const [savedPlans, setSavedPlans] = useState(() => {
+    try { return JSON.parse(localStorage.getItem('monsuite-saved-plans') || '[]'); }
+    catch { return []; }
+  });
+  const [selectedPlanId, setSelectedPlanId] = useState('');
 
   const selectedItem = placedItems.find((item) => item.id === selectedId);
   const selectedCatalogItem = selectedItem ? getCatalogForPlacedItem(selectedItem) : null;
@@ -899,11 +911,12 @@ export default function SetupBuilderPage({ user, onLogout, theme, onToggleTheme 
     setNotice(`${target.label} removed from the specification and drawing.`);
   }
 
-  function drawRoomFromForm() {
+  function drawRoomFromForm(override = null) {
+    const roomForm = override && override.roomLengthFt ? override : projectForm;
     if (!canvasRef.current) return;
     const canvasSize = getCanvasSize(canvasRef.current);
-    const lengthFt = Math.max(4, Number(projectForm.roomLengthFt) || drawingMetrics.lengthFt || 30);
-    const widthFt = Math.max(4, Number(projectForm.roomWidthFt) || drawingMetrics.widthFt || 20);
+    const lengthFt = Math.max(4, Number(roomForm.roomLengthFt) || drawingMetrics.lengthFt || 30);
+    const widthFt = Math.max(4, Number(roomForm.roomWidthFt) || drawingMetrics.widthFt || 20);
     const origin = { x: GRID_SIZE * 2, y: GRID_SIZE * 2 };
     const roomWidth = Math.min(lengthFt * GRID_SIZE, canvasSize.width - GRID_SIZE * 4);
     const roomHeight = Math.min(widthFt * GRID_SIZE, canvasSize.height - GRID_SIZE * 4);
@@ -1351,6 +1364,91 @@ export default function SetupBuilderPage({ user, onLogout, theme, onToggleTheme 
     }
   }
 
+  function applyQuickSetup() {
+    const configured = { ...projectForm, ...quickForm };
+    setProjectForm(configured);
+    drawRoomFromForm(configured);
+    setQuickStep(-1);
+    setGeneratedReport(null);
+    setNotice('Quick setup complete. Drag devices and ducts onto the plan to refine the design.');
+  }
+
+  function saveNamedPlan() {
+    const name = window.prompt('Setup name', projectForm.projectName || 'Untitled layout');
+    if (name === null) return;
+    const plan = { id: makeId('plan'), name: name.trim() || 'Untitled layout', savedAt: new Date().toISOString(), placedItems, connections, walls, doors, projectForm };
+    const next = [plan, ...savedPlans].slice(0, 30);
+    try {
+      localStorage.setItem('monsuite-saved-plans', JSON.stringify(next));
+      setSavedPlans(next);
+      setSelectedPlanId(plan.id);
+      setNotice('Named setup saved to this browser. Export JSON for a portable backup.');
+    } catch { setNotice('Browser storage is full. Use Export JSON to back up your layout.'); }
+  }
+
+  function loadNamedPlan() {
+    const plan = savedPlans.find((item) => item.id === selectedPlanId);
+    if (!plan) { setNotice('Select a saved plan first.'); return; }
+    const size = getCanvasSize(canvasRef.current);
+    setPlacedItems(constrainProbes(plan.placedItems || [], size));
+    setConnections(plan.connections || []);
+    setWalls(plan.walls || []);
+    setDoors(plan.doors || []);
+    setProjectForm({ ...DEFAULT_PROJECT_FORM, ...plan.projectForm });
+    setGeneratedReport(null);
+    setNotice('Loaded ' + plan.name);
+  }
+
+  function generateReport() {
+    const volume = drawingMetrics.volumeFt3 || (Number(projectForm.roomLengthFt) * Number(projectForm.roomWidthFt) * Number(projectForm.ceilingHeightFt));
+    const ach = Number(projectForm.targetAch) || 0;
+    if (!volume || !ach) {
+      setNotice('Draw a room or enter its dimensions and target ACH before generating a report.');
+      return;
+    }
+    const cfm = Math.ceil(volume * ach / 60);
+    const candidates = scrubberInventoryItems
+      .filter((item) => Number(item.airflowCfm) > 0)
+      .map((item) => ({ ...item, qty: Math.max(1, Math.ceil(cfm / Number(item.airflowCfm))) }))
+      .sort((a,b) => (a.qty-b.qty) || (b.airflowCfm-a.airflowCfm));
+    const placed = drawingSchedule.filter((row) => scrubberInventoryItems.some((item) => item.sku === row.sku));
+    setGeneratedReport({ createdAt: new Date().toLocaleString(), volume, ach, cfm, candidates: candidates.slice(0, 6), placed });
+    setNotice('Engineering estimate generated from the current drawing snapshot.');
+    requestAnimationFrame(() => document.getElementById('airflow-generated-report')?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+  }
+
+  function downloadGeneratedReport() {
+    if (!generatedReport) return;
+    const rows = [
+      'MONSUITE | AIRFLOW PLANNING REPORT',
+      'Generated: ' + generatedReport.createdAt,
+      'Project: ' + (projectForm.projectName || 'Untitled'),
+      'Room: ' + (projectForm.roomName || 'Not specified'),
+      'Application: ' + projectForm.projectType,
+      'Hazard: ' + projectForm.hazard,
+      'Exhaust: ' + projectForm.exhaust,
+      'Volume: ' + generatedReport.volume + ' ft3',
+      'Target ACH: ' + generatedReport.ach,
+      'Estimated airflow: ' + generatedReport.cfm + ' CFM',
+      '',
+      'SCRUBBER OPTIONS (estimated at catalog default/rated CFM)',
+      ...generatedReport.candidates.map((item) => item.qty + ' x ' + item.shortName + ' (' + item.airflowCfm + ' CFM nominal each)'),
+      '',
+      'DRAWN SCRUBBERS',
+      ...(generatedReport.placed.length ? generatedReport.placed.map((row) => row.qty + ' x ' + row.name) : ['No scrubbers placed']),
+      '',
+      'EQUIPMENT SCHEDULE',
+      ...drawingSchedule.map((row) => row.qty + ' x ' + row.name + ' / ' + row.sku),
+      '',
+      'POWER REVIEW',
+      ...(powerWarnings.length ? powerWarnings.map((warning) => warning.message) : ['No currently detected bus issues']),
+      '',
+      'DESIGN REVIEW: Airflow figures are preliminary. Verify actual flow with filters and duct losses, pressure measurements, circuit capacity, regulatory/ICRA specifications and the authority having jurisdiction.'
+    ];
+    const url = URL.createObjectURL(new Blob([rows.join('\n')], {type:'text/plain;charset=utf-8'}));
+    const a = document.createElement('a'); a.href=url; a.download='monsuite-airflow-report.txt'; a.click(); URL.revokeObjectURL(url);
+  }
+
   function exportJson() {
     const draft = { projectForm, drawingMetrics, requiredCfm, totalDuctFeet, placedItems, connections, walls, doors, partsList, powerWarnings, scale: DEFAULT_SCALE_LABEL };
     const blob = new Blob([JSON.stringify(draft, null, 2)], { type: 'application/json' });
@@ -1365,20 +1463,27 @@ export default function SetupBuilderPage({ user, onLogout, theme, onToggleTheme 
 
   return (
     <AppShell user={user} onLogout={onLogout} theme={theme} onToggleTheme={onToggleTheme}>
-      <main className="setup-builder-page setup-builder-v4">
+      <main className="setup-builder-page setup-builder-v4 airflow-desktop-workspace">
         <section className="setup-header">
           <div>
-            <p className="eyebrow">Setup Configurator MVP</p>
-            <h1>Layout Designer</h1>
+            <p className="eyebrow">MonSuite / Engineering workspace</p>
+            <h1>Airflow Planner</h1>
             <p>
-              Draw walls and doors, place monitors, sensors, chargers, and Power Bus modules,
-              connect ethernet/tubing/local power, then review the generated parts list and power warnings.
+              Draw the containment first. Drag equipment, set duct paths and power connections, then generate a sizing report when the layout is ready.
             </p>
           </div>
           <div className="setup-header-actions">
-            <button className="button secondary small" onClick={loadDraft}>Load draft</button>
+            <button className="button primary small" onClick={() => { setQuickForm({ ...projectForm }); setQuickStep(0); }}>Quick setup</button>
+            <select aria-label="Saved plans" value={selectedPlanId} onChange={(e) => setSelectedPlanId(e.target.value)}>
+              <option value="">Saved layouts ({savedPlans.length})</option>
+              {savedPlans.map((plan) => <option key={plan.id} value={plan.id}>{plan.name} — {new Date(plan.savedAt).toLocaleDateString()}</option>)}
+            </select>
+            <button className="button secondary small" onClick={loadNamedPlan}>Open saved</button>
+            <button className="button secondary small" onClick={saveNamedPlan}>Save setup</button>
+            <button className="button secondary small" onClick={loadDraft}>Load last draft</button>
             <button className="button secondary small" onClick={saveDraft}>Save draft</button>
-            <button className="button primary small" onClick={exportJson}>Export JSON</button>
+            <button className="button secondary small" onClick={exportJson}>Export JSON</button>
+            <button className="button primary small" onClick={generateReport}>Generate report</button>
           </div>
         </section>
 
@@ -1745,9 +1850,9 @@ export default function SetupBuilderPage({ user, onLogout, theme, onToggleTheme 
         <section className="system-spec-panel" aria-label="System specification">
           <header className="system-spec-header">
             <div>
-              <p className="eyebrow">Live system specification</p>
-              <h2>Write it or draw it—both stay synchronized</h2>
-              <p>The drawing controls quantities and measured runs. Form changes update room geometry and duct objects.</p>
+              <p className="eyebrow">Plan data / automatically populated</p>
+              <h2>Specification from the drawing</h2>
+              <p>Dimensions, schedule, duct lengths and electrical checks are recorded as you draw. Review or edit the values before generating a report.</p>
             </div>
             <div className="system-spec-metrics">
               <span><b>{drawingMetrics.lengthFt} × {drawingMetrics.widthFt} ft</b> drawn footprint</span>
@@ -1770,7 +1875,7 @@ export default function SetupBuilderPage({ user, onLogout, theme, onToggleTheme 
                 <label>Target ACH<input type="number" min="0" step="0.5" value={projectForm.targetAch} onChange={(event) => updateProjectField('targetAch', event.target.value)} /></label>
                 <label>Pressure target<input value={projectForm.pressureTarget} onChange={(event) => updateProjectField('pressureTarget', event.target.value)} /></label>
               </div>
-              <button className="button secondary small" type="button" onClick={drawRoomFromForm}>Draw room from dimensions</button>
+              <button className="button secondary small" type="button" onClick={() => drawRoomFromForm()}>Apply room dimensions to drawing</button>
               <label className="spec-notes">Notes<textarea rows="3" value={projectForm.notes} onChange={(event) => updateProjectField('notes', event.target.value)} placeholder="Access, exhaust location, circuits, installation notes…" /></label>
             </section>
 
@@ -1832,6 +1937,68 @@ export default function SetupBuilderPage({ user, onLogout, theme, onToggleTheme 
             </section>
           </div>
         </section>
+
+        <section className="airflow-report-actions" id="airflow-generated-report">
+          <div>
+            <p className="eyebrow">Engineering output / on demand</p>
+            <h2>Airflow and equipment report</h2>
+            <p>Recommendations are generated only when you request them. The drawing and form do not automatically change the published result.</p>
+          </div>
+          <button className="button primary" onClick={generateReport}>Generate report</button>
+          {generatedReport && <div className="airflow-report-result">
+            <p className="eyebrow">Snapshot generated {generatedReport.createdAt}</p>
+            <h3>{generatedReport.cfm.toLocaleString()} CFM estimated minimum</h3>
+            <p>{generatedReport.volume.toLocaleString()} ft³ at {generatedReport.ach} ACH. Preliminary airflow before filter loading, duct pressure loss and site verification.</p>
+            <div className="airflow-report-options">
+              {generatedReport.candidates.map((item) => <article key={item.sku}>
+                <strong>{item.qty} × {item.shortName}</strong>
+                <span>{item.airflowCfm.toLocaleString()} nominal CFM per unit</span>
+                <small>{item.name}</small>
+              </article>)}
+            </div>
+            <p>Drawn scrubbers: {generatedReport.placed.length ? generatedReport.placed.map((row) => row.qty + ' × ' + row.name).join(' · ') : 'None yet'}</p>
+            <p className="airflow-report-caution">Not a certified equipment selection. Confirm actual delivered CFM, duct losses, available circuits, negative pressure and project specifications before issue.</p>
+            <button className="button secondary" onClick={downloadGeneratedReport}>Download report</button>
+          </div>}
+        </section>
+
+        {quickStep >= 0 && <div className="technical-modal-backdrop" onMouseDown={() => setQuickStep(-1)}>
+          <div className="technical-quick-modal" role="dialog" aria-modal="true" aria-label="Quick setup wizard" onMouseDown={(event) => event.stopPropagation()}>
+            <div className="technical-modal-top"><span>QUICK SETUP / {quickStep + 1} OF 4</span><button className="button secondary small" onClick={() => setQuickStep(-1)}>Close</button></div>
+            <div className="technical-step-progress"><i style={{width: ((quickStep+1)/4*100)+'%'}} /></div>
+            {quickStep === 0 && <div className="technical-step-content">
+              <h2>Project context</h2>
+              <label>Project name<input autoFocus value={quickForm.projectName} onChange={(e) => setQuickForm((f) => ({...f,projectName:e.target.value}))} placeholder="North Wing containment" /></label>
+              <label>Customer / facility<input value={quickForm.customer} onChange={(e) => setQuickForm((f) => ({...f,customer:e.target.value}))} /></label>
+              <label>Room / area<input value={quickForm.roomName} onChange={(e) => setQuickForm((f) => ({...f,roomName:e.target.value}))} /></label>
+            </div>}
+            {quickStep === 1 && <div className="technical-step-content">
+              <h2>Room geometry</h2>
+              <div className="technical-step-grid">
+                {[['roomLengthFt','Length (ft)'],['roomWidthFt','Width (ft)'],['ceilingHeightFt','Ceiling height (ft)']].map(([key,label]) => <label key={key}>{label}<input type="number" min="1" value={quickForm[key] || ''} onChange={(e) => setQuickForm((f) => ({...f,[key]:e.target.value}))} /></label>)}
+              </div>
+              <p>The wizard draws a rectangular starting boundary. Refine walls, openings and equipment manually afterward.</p>
+            </div>}
+            {quickStep === 2 && <div className="technical-step-content">
+              <h2>Application and operating target</h2>
+              <label>Application<select value={quickForm.projectType} onChange={(e) => setQuickForm((f) => ({...f,projectType:e.target.value}))}>{['Healthcare construction','Asbestos abatement','Mold restoration','Industrial dust','General air cleaning'].map((x) => <option key={x}>{x}</option>)}</select></label>
+              <label>Hazard<select value={quickForm.hazard} onChange={(e) => setQuickForm((f) => ({...f,hazard:e.target.value}))}>{['Construction dust','Asbestos','Mold spores','General particulates','Other / confirm'].map((x) => <option key={x}>{x}</option>)}</select></label>
+              <label>Target ACH<input type="number" min="0.5" step="0.5" value={quickForm.targetAch} onChange={(e) => setQuickForm((f) => ({...f,targetAch:e.target.value}))} /></label>
+            </div>}
+            {quickStep === 3 && <div className="technical-step-content">
+              <h2>Containment conditions</h2>
+              <label>Exhaust path<select value={quickForm.exhaust} onChange={(e) => setQuickForm((f) => ({...f,exhaust:e.target.value}))}>{['Outside containment','Recirculation / HEPA','Shared duct system','Not determined'].map((x) => <option key={x}>{x}</option>)}</select></label>
+              <label>Pressure target<input value={quickForm.pressureTarget} onChange={(e) => setQuickForm((f) => ({...f,pressureTarget:e.target.value}))} /></label>
+              <label>Design notes<textarea value={quickForm.notes} onChange={(e) => setQuickForm((f) => ({...f,notes:e.target.value}))} /></label>
+            </div>}
+            <div className="technical-modal-actions">
+              <button className="button secondary" disabled={quickStep === 0} onClick={() => setQuickStep((s)=>Math.max(0,s-1))}>Back</button>
+              {quickStep < 3
+                ? <button className="button primary" onClick={() => setQuickStep((s)=>s+1)}>Next</button>
+                : <button className="button primary" onClick={applyQuickSetup}>Create drawing</button>}
+            </div>
+          </div>
+        </div>}
 
         {ductModalOpen && (
           <div className="duct-modal-backdrop" role="presentation" onPointerDown={() => setDuctModalOpen(false)}>
