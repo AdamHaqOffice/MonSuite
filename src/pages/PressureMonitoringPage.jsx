@@ -1,3 +1,4 @@
+import '../technicalRefresh.css';
 import { useMemo, useState } from 'react';
 import AppShell from '../components/AppShell.jsx';
 import {
@@ -8,14 +9,7 @@ import {
   pressureTargets,
 } from '../data/pressureMonitoringGuide.js';
 import {
-  abatementLinkProjectValue,
-  calculateRoi,
   competitorMatrix,
-  formatCurrency,
-  marketValuePillars,
-  roiDefaultInputs,
-  salesPlaybooks,
-  sampleReports,
 } from '../data/salesGuideData.js';
 
 function formatNumber(value, digits = 0) {
@@ -23,13 +17,23 @@ function formatNumber(value, digits = 0) {
   return new Intl.NumberFormat('en-US', { maximumFractionDigits: digits }).format(value);
 }
 
-function updateNumberField(setter, field, value) {
-  setter((current) => ({ ...current, [field]: value }));
-}
+const technicalFeatures = [
+  { label: 'Differential pressure monitoring', detail: 'Direct measurement of room-to-reference pressure', ours: 'Available', pattern: /pressure|multi.room environmental/i },
+  { label: 'Remote / cloud dashboard', detail: 'Remote status visibility and trends', ours: 'Available', pattern: /cloud|dashboard|remote|real.time data|connected pressure|shared projects/i },
+  { label: 'Alarm notifications', detail: 'Configured alarms sent to responsible users', ours: 'Available', pattern: /alert|alarm|escalation/i },
+  { label: 'Environmental sensors', detail: 'Temperature and RH as monitored parameters', ours: 'Available', pattern: /temperature|environmental|multi.parameter/i },
+  { label: 'Particle monitoring', detail: 'Particle sensing supported in the system', ours: 'Available', pattern: /particle/i },
+  { label: 'PDF / scheduled reporting', detail: 'Automated formatted project reports', ours: 'Verify release', pattern: /report|documentation|records/i },
+  { label: 'Alarm acknowledgement / escalation', detail: 'Response ownership and escalation history', ours: 'Verify release', pattern: /acknowledg|escalat|monitored service/i },
+  { label: 'CSV / data export', detail: 'Historical data export and interoperability', ours: 'Verify release', pattern: /csv|excel|export/i },
+  { label: 'Audit trail / corrective action', detail: 'Timestamped project response history', ours: 'Verify release', pattern: /audit|corrective|documentation|records/i },
+  { label: 'BACnet / third-party integration', detail: 'Building-management and integration protocols', ours: 'Model dependent', pattern: /bacnet|third.party/i },
+];
+
+function updateNumberField(setter, field, value) { setter((current) => ({ ...current, [field]: value })); }
 
 export default function PressureMonitoringPage({ user, onLogout, theme, onToggleTheme }) {
   const [calc, setCalc] = useState({ length: 12, width: 16, height: 9, targetAch: 12 });
-  const [roi, setRoi] = useState(roiDefaultInputs);
 
   const achMath = useMemo(() => {
     const length = Number(calc.length) || 0;
@@ -41,194 +45,79 @@ export default function PressureMonitoringPage({ user, onLogout, theme, onToggle
     return { volume, cfm };
   }, [calc]);
 
-  const roiMath = useMemo(() => calculateRoi(roi), [roi]);
 
   return (
     <AppShell user={user} onLogout={onLogout} theme={theme} onToggleTheme={onToggleTheme}>
-      <main className="page-wrap pressure-page sales-guide-page">
-        <section className="hero-card pressure-hero sales-guide-hero">
-          <div>
-            <p className="eyebrow">Applications + sales guide</p>
-            <h1>Pressure, reporting, and competitor-backed sales value.</h1>
-            <p>
-              A consolidated guide for explaining pressure monitoring, Abatement Link Projects, competitor positioning, reports, ROI, and job-specific playbooks without adding more top-level sections to MonSuite.
-            </p>
-            <div className="hero-action-row">
-              <a className="button primary" href="/scrubber-selector">Open Airflow Planner</a>
-              <a className="button secondary" href="https://connect.abatement.com" target="_blank" rel="noreferrer">Open Abatement Link ↗</a>
-            </div>
-          </div>
-          <div className="hero-panel pressure-proof-panel">
-            <span>Sales position</span>
-            <strong>Sell proof, not just readings.</strong>
-            <small>Live status · alerts · reports · accountability</small>
+      <main className="page-wrap pressure-page technical-comparison-page">
+        <section className="technical-compare-hero">
+          <p className="eyebrow">PRODUCT INTELLIGENCE / ENGINEERING REFERENCE</p>
+          <h1>Technical Feature Comparison</h1>
+          <p>Compare documented competitor capabilities against our current monitor and Abatement Link ecosystem. This is a technical capability reference—not a sales script.</p>
+          <div className="technical-compare-stats">
+            <span><strong>{competitorMatrix.length}</strong> Competitor platforms reviewed</span>
+            <span><strong>{technicalFeatures.length}</strong> Capability categories</span>
+            <span><strong>Evidence</strong> Vendor-described functions; verify before quoting</span>
           </div>
         </section>
 
-        <section className="sales-guide-cutout-card">
-          <img src="/sales-guides/market-proof-cutout.svg" alt="Market proof infographic for connected monitoring and reports" />
-        </section>
-
-        <section className="section-heading">
-          <p className="eyebrow">Market-backed value</p>
-          <h2>What customers are already being trained to expect</h2>
-          <p>
-            Competitors are not only selling pressure monitors. They are selling visibility, automatic documentation, response workflows, and professional reports. MonSuite should help sales explain that value, while Abatement Link owns the live data and project record.
-          </p>
-        </section>
-
-        <section className="sales-pillar-grid">
-          {marketValuePillars.map((pillar) => (
-            <article className="sales-pillar-card" key={pillar.title}>
-              <h3>{pillar.title}</h3>
-              <p>{pillar.description}</p>
-              <small>{pillar.proof}</small>
-            </article>
-          ))}
-        </section>
-
-        <section className="section-heading">
-          <p className="eyebrow">Abatement Link Projects</p>
-          <h2>The live monitoring and reporting story belongs in Abatement Link</h2>
-          <p>
-            MonSuite should point customers toward Abatement Link Projects for live project dashboards, alerts, acknowledgements, escalation, corrective actions, user tracking, and report history.
-          </p>
-        </section>
-
-        <section className="feature-comparison-grid">
-          {abatementLinkProjectValue.map((item) => (
-            <article className="feature-comparison-card" key={item.feature}>
-              <span>Abatement Link</span>
-              <h3>{item.feature}</h3>
-              <p>{item.customerValue}</p>
-              <small>{item.salesNote}</small>
-            </article>
-          ))}
-        </section>
-
-        <section className="section-heading">
-          <p className="eyebrow">Competitive battlecard</p>
-          <h2>Competitor-backed reasons to build and sell the system</h2>
-          <p>
-            Use this as an internal talk track. It is not a legal claim or public comparison sheet; it is a practical reminder of what the market is already offering or clearly moving toward.
-          </p>
-        </section>
-
-        <section className="competitor-grid">
-          {competitorMatrix.map((competitor) => (
-            <article className="competitor-card" key={competitor.company}>
-              <div className="competitor-card-head">
-                <span>Competitor</span>
-                <h3>{competitor.company}</h3>
-              </div>
-              <p>{competitor.marketSignal}</p>
-              <div className="tag-row">
-                {competitor.offers.map((offer) => <span key={offer}>{offer}</span>)}
-              </div>
-              <div className="battlecard-note">
-                <strong>Our response</strong>
-                <p>{competitor.monsuiteResponse}</p>
-              </div>
-              <small>{competitor.battlecard}</small>
-            </article>
-          ))}
-        </section>
-
-        <section className="section-heading">
-          <p className="eyebrow">Report gallery</p>
-          <h2>Reports customers understand before they buy</h2>
-          <p>
-            These should ultimately be generated by Abatement Link, but MonSuite can show sales what the customer is actually buying: daily records, excursion documentation, data availability, corrective actions, and final handoff packages.
-          </p>
-        </section>
-
-        <section className="report-gallery-grid">
-          {sampleReports.map((report) => (
-            <article className="report-gallery-card" key={report.title}>
-              <h3>{report.title}</h3>
-              <p>{report.bestFor}</p>
-              <ul>
-                {report.includes.map((line) => <li key={line}>{line}</li>)}
-              </ul>
-              <strong>{report.whyItSells}</strong>
-            </article>
-          ))}
-        </section>
-
-        <section className="calculator-card roi-calculator-card">
-          <div>
-            <p className="eyebrow">Labor-savings calculator</p>
-            <h2>Estimate the cost of manual rounds and paper/admin work</h2>
-            <p>
-              This is a sales conversation tool, not an accounting model. It helps show why connected monitoring, automatic records, alerts, and reports have real value beyond the device hardware.
-            </p>
+        <section className="technical-matrix-section">
+          <div className="section-heading">
+            <p className="eyebrow">CAPABILITY MATRIX / FEATURE COVERAGE</p>
+            <h2>What exists, what differs, and what needs verification</h2>
+            <p>“Listed” means the existing competitor research identifies the feature. “Unconfirmed” does not mean absent. Our platform column separates documented hardware/cloud functions from features requiring confirmation or development.</p>
           </div>
-          <div className="calc-grid roi-input-grid">
-            <label>
-              Projects / year
-              <input type="number" min="0" value={roi.projectsPerYear} onChange={(event) => updateNumberField(setRoi, 'projectsPerYear', event.target.value)} />
-            </label>
-            <label>
-              Days / project
-              <input type="number" min="0" value={roi.daysPerProject} onChange={(event) => updateNumberField(setRoi, 'daysPerProject', event.target.value)} />
-            </label>
-            <label>
-              Rounds / day
-              <input type="number" min="0" value={roi.roundsPerDay} onChange={(event) => updateNumberField(setRoi, 'roundsPerDay', event.target.value)} />
-            </label>
-            <label>
-              Minutes / round
-              <input type="number" min="0" value={roi.minutesPerRound} onChange={(event) => updateNumberField(setRoi, 'minutesPerRound', event.target.value)} />
-            </label>
-            <label>
-              Admin minutes / day
-              <input type="number" min="0" value={roi.adminMinutesPerDay} onChange={(event) => updateNumberField(setRoi, 'adminMinutesPerDay', event.target.value)} />
-            </label>
-            <label>
-              Loaded hourly cost
-              <input type="number" min="0" value={roi.hourlyRate} onChange={(event) => updateNumberField(setRoi, 'hourlyRate', event.target.value)} />
-            </label>
+          <div className="technical-matrix-scroll" role="region" aria-label="Technical competitor comparison" tabIndex={0}>
+            <table className="technical-matrix">
+              <thead><tr><th scope="col">Feature / capability</th><th scope="col">Abatement platform</th>{competitorMatrix.map((c) => <th scope="col" key={c.company}>{c.company}</th>)}</tr></thead>
+              <tbody>{technicalFeatures.map((feature) => <tr key={feature.label}>
+                <th scope="row">{feature.label}<small>{feature.detail}</small></th>
+                <td><span className={'tech-status ' + (feature.ours === 'Available' ? 'available' : 'review')}>{feature.ours}</span></td>
+                {competitorMatrix.map((c) => {
+                  const offered = c.offers.some((item) => feature.pattern.test(item));
+                  return <td key={c.company}><span className={'tech-status ' + (offered ? 'available':'unknown')}>{offered ? 'Listed' : 'Unconfirmed'}</span></td>;
+                })}
+              </tr>)}</tbody>
+            </table>
           </div>
-          <div className="calc-result-strip roi-result-strip">
-            <div>
-              <span>Manual rounds</span>
-              <strong>{formatNumber(roiMath.yearlyMonitoringHours, 1)} hr/yr</strong>
-            </div>
-            <div>
-              <span>Admin/report work</span>
-              <strong>{formatNumber(roiMath.yearlyAdminHours, 1)} hr/yr</strong>
-            </div>
-            <div>
-              <span>Estimated labor value</span>
-              <strong>{formatCurrency(roiMath.laborCost)}</strong>
-            </div>
+          <p className="technical-evidence-note">Status is based on the feature descriptions currently maintained in MonSuite, not independent certification or a live audit of vendors. Confirm model, software tier, integrations and current release before treating any capability as a procurement requirement.</p>
+        </section>
+
+        <section className="technical-competitor-review">
+          <div className="section-heading"><p className="eyebrow">VENDOR BREAKDOWN</p><h2>Competitor architecture and differentiation</h2></div>
+          <div className="technical-competitor-grid">
+            {competitorMatrix.map((c) => <article key={c.company} className="technical-competitor-card">
+              <p className="eyebrow">COMPETITOR PROFILE</p><h3>{c.company}</h3>
+              <p>{c.marketSignal}</p>
+              <strong>Documented feature set</strong>
+              <ul>{c.offers.map((feature)=><li key={feature}>{feature}</li>)}</ul>
+              <div className="technical-response"><strong>Product response / engineering consideration</strong><p>{c.monsuiteResponse}</p></div>
+            </article>)}
           </div>
         </section>
 
-        <section className="section-heading">
-          <p className="eyebrow">Use-case playbooks</p>
-          <h2>Question lists and sales guidance by job type</h2>
+        <section className="technical-strength-gap">
+          <div className="technical-position-card">
+            <p className="eyebrow">RELATIVE STRENGTH / ABATEMENT</p>
+            <h3>Portable deployment + modular equipment</h3>
+            <p>PPM4 offers a portable pressure-monitoring workflow, while RPM and expansion sensors support more permanent multi-parameter setups. This creates configuration flexibility across temporary containment and fixed environments.</p>
+            <small>Compare each competitor by product SKU and installation model rather than treating every cloud platform as equivalent hardware.</small>
+          </div>
+          <div className="technical-position-card warning">
+            <p className="eyebrow">GAPS / NOT YET VERIFIED</p>
+            <h3>Workflow depth and automated documentation</h3>
+            <p>Several vendors describe scheduled reports, alarm acknowledgement, escalation, or audit histories. Those functions need release-specific verification in Abatement Link before we can claim feature parity.</p>
+            <small>An “unconfirmed” matrix cell is not evidence of a competitor weakness.</small>
+          </div>
         </section>
 
-        <section className="playbook-grid">
-          {salesPlaybooks.map((playbook) => (
-            <article className="playbook-card" key={playbook.id}>
-              <p className="eyebrow">Playbook</p>
-              <h3>{playbook.title}</h3>
-              <p>{playbook.pain}</p>
-              <div className="playbook-columns">
-                <div>
-                  <strong>Ask</strong>
-                  <ul>{playbook.ask.map((item) => <li key={item}>{item}</li>)}</ul>
-                </div>
-                <div>
-                  <strong>Recommend</strong>
-                  <ul>{playbook.recommend.map((item) => <li key={item}>{item}</li>)}</ul>
-                </div>
-              </div>
-              <small><b>Do not promise:</b> {playbook.doNotPromise}</small>
-            </article>
-          ))}
+        <section className="technical-gap-panel">
+          <p className="eyebrow">GAPS / CONFIRMATION BACKLOG</p>
+          <h2>Priority areas to validate in Abatement Link</h2>
+          <div className="technical-gap-grid">
+            <article><strong>Alarm escalation and acknowledgement</strong><p>Confirm workflow, escalation rules, assigned responder, and retained timestamps—not merely alert delivery.</p></article>
+            <article><strong>Report generation</strong><p>Check scheduled PDFs, excursion summaries, data completeness, and final closeout packages by release.</p></article>
+            <article><strong>Audit and integration</strong><p>Confirm change history, corrective-action traceability, export formats and future API/ERP integration support.</p></article>
+          </div>
         </section>
 
         <section className="pressure-principle-grid">
