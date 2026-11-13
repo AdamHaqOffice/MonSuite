@@ -93,3 +93,126 @@
 .technical-position-card h3 { color:#183b50; margin:8px 0; }
 .technical-position-card small { color:#5c7185; }
 @media(max-width:750px) { .technical-strength-gap { grid-template-columns:1fr; } }
+
+
+/* v46 readability repair: explicit foreground/background pairs across the planner.
+   Original setup styles use a near-white header, while the technical theme uses
+   light text. Replacing both together avoids white-on-white in either theme. */
+html .airflow-desktop-workspace .setup-header,
+html[data-theme="light"] .airflow-desktop-workspace .setup-header,
+html[data-theme="dark"] .airflow-desktop-workspace .setup-header {
+  background: #102238;
+  border: 1px solid #35516d;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(1, 10, 23, .24);
+  padding: 24px 28px;
+  color: #f0f7ff;
+}
+html .airflow-desktop-workspace .setup-header h1,
+html[data-theme="light"] .airflow-desktop-workspace .setup-header h1,
+html[data-theme="dark"] .airflow-desktop-workspace .setup-header h1 {
+  color: #ffffff;
+  opacity: 1;
+  text-shadow: none;
+}
+html .airflow-desktop-workspace .setup-header .eyebrow {
+  color: #83cef5;
+}
+html .airflow-desktop-workspace .setup-header p:not(.eyebrow) {
+  color: #c4d5e7;
+  opacity: 1;
+}
+html .airflow-desktop-workspace .setup-panel,
+html .airflow-desktop-workspace .canvas-toolbar,
+html .airflow-desktop-workspace .system-spec-panel,
+html .airflow-desktop-workspace .spec-card,
+html .airflow-desktop-workspace .airflow-report-actions {
+  color: #eaf4ff;
+}
+html .airflow-desktop-workspace .setup-panel h1,
+html .airflow-desktop-workspace .setup-panel h2,
+html .airflow-desktop-workspace .setup-panel h3,
+html .airflow-desktop-workspace .setup-panel strong,
+html .airflow-desktop-workspace .setup-panel .panel-heading span,
+html .airflow-desktop-workspace .canvas-toolbar strong,
+html .airflow-desktop-workspace .system-spec-panel h2,
+html .airflow-desktop-workspace .system-spec-panel h3,
+html .airflow-desktop-workspace .spec-card strong,
+html .airflow-desktop-workspace .spec-card .panel-heading span,
+html .airflow-desktop-workspace .airflow-report-actions h2,
+html .airflow-desktop-workspace .airflow-report-actions h3 {
+  color: #f3f8ff;
+}
+html .airflow-desktop-workspace .setup-panel p,
+html .airflow-desktop-workspace .setup-panel li,
+html .airflow-desktop-workspace .setup-panel small,
+html .airflow-desktop-workspace .setup-panel label,
+html .airflow-desktop-workspace .system-spec-panel p,
+html .airflow-desktop-workspace .system-spec-panel small,
+html .airflow-desktop-workspace .system-spec-panel label,
+html .airflow-desktop-workspace .spec-card label,
+html .airflow-desktop-workspace .spec-card .panel-help,
+html .airflow-desktop-workspace .airflow-report-actions p {
+  color: #c5d7e9;
+}
+html .airflow-desktop-workspace .setup-panel .panel-heading strong,
+html .airflow-desktop-workspace .spec-card .panel-heading strong {
+  background: #263e55;
+  color: #dceefd;
+  border: 1px solid #41617b;
+}
+html .airflow-desktop-workspace .tool-button {
+  color: #d9eafd;
+  background: #1c354e;
+  border-color: #375a77;
+}
+html .airflow-desktop-workspace .tool-button:hover,
+html .airflow-desktop-workspace .tool-button.active {
+  color: #ffffff;
+  background: #225a81;
+  border-color: #62aada;
+}
+html .airflow-desktop-workspace .setup-panel input,
+html .airflow-desktop-workspace .setup-panel select,
+html .airflow-desktop-workspace .setup-panel textarea,
+html .airflow-desktop-workspace .spec-card input,
+html .airflow-desktop-workspace .spec-card select,
+html .airflow-desktop-workspace .spec-card textarea {
+  color: #f4f9ff;
+  background: #0e2033;
+  border: 1px solid #486782;
+}
+html .airflow-desktop-workspace input::placeholder,
+html .airflow-desktop-workspace textarea::placeholder {
+  color: #a4b8cb;
+  opacity: 1;
+}
+html .airflow-desktop-workspace .canvas-toolbar span,
+html .airflow-desktop-workspace .canvas-toolbar small {
+  color: #c2d7eb;
+}
+html .airflow-desktop-workspace .setup-header-actions .button.secondary {
+  color: #e8f5ff;
+  background: #223b55;
+  border: 1px solid #52718b;
+}
+html .airflow-desktop-workspace .setup-header-actions .button.secondary:hover {
+  color: white;
+  background: #315573;
+}
+html .airflow-desktop-workspace .setup-header-actions .button.primary {
+  color: #061827;
+  background: #8cdaff;
+  border-color: #8cdaff;
+}
+html .airflow-desktop-workspace .setup-header-actions .button.primary:hover {
+  background: #b8ebff;
+  border-color: #b8ebff;
+}
+html .airflow-desktop-workspace a:focus-visible,
+html .airflow-desktop-workspace button:focus-visible,
+html .airflow-desktop-workspace input:focus-visible,
+html .airflow-desktop-workspace select:focus-visible {
+  outline: 3px solid #8cdaff;
+  outline-offset: 2px;
+}
