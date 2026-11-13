@@ -216,3 +216,132 @@ html .airflow-desktop-workspace select:focus-visible {
   outline: 3px solid #8cdaff;
   outline-offset: 2px;
 }
+
+/* v47 global theme refinements: class-specific backgrounds and readable text. */
+.scrubber-catalog-intro { display:flex;align-items:center;justify-content:space-between;gap:24px;margin:22px 0 14px;padding:22px 26px;background:#f4f8fc;border:1px solid #d5e3ee;border-radius:14px; }
+.scrubber-catalog-intro h2 {margin:5px 0 8px;color:#173951;}
+.scrubber-catalog-intro p:not(.eyebrow) {color:#506a7e;margin:0;}
+.scrubber-catalog-intro > span {padding:8px 13px;background:#e4eff7;color:#1e506e;border-radius:20px;white-space:nowrap;font-weight:700;}
+.scrubber-catalog-card {text-align:left;transition:border-color .18s,transform .18s,box-shadow .18s;}
+.scrubber-catalog-card:hover {transform:translateY(-2px);box-shadow:0 12px 26px rgba(20,50,80,.12);}
+.scrubber-catalog-card.active {border-color:#2b89c8;box-shadow:inset 0 0 0 1px #2b89c8;}
+.scrubber-image-placeholder {display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:125px;width:100%;height:100%;background:repeating-linear-gradient(45deg,#edf3f7,#edf3f7 12px,#e6eef5 12px,#e6eef5 24px);color:#53748a;border-radius:10px;}
+.scrubber-image-placeholder .placeholder-icon {font-size:2rem;opacity:.8;}
+.scrubber-image-placeholder small {font-size:.6rem;letter-spacing:.11em;font-weight:800;}
+.abatebot-prototype-label {display:inline-block;font-size:clamp(.76rem,1.3vw,.95rem);font-weight:500;vertical-align:middle;color:#53768c;letter-spacing:0;line-height:1.5;}
+html[data-theme="dark"] .abatebot-prototype-label {color:#a8c3dc;}
+/* Explicit theme surfaces override legacy fixed light colors. */
+html[data-theme="dark"] .scrubber-catalog-intro,
+html[data-theme="dark"] .technical-matrix-section,
+html[data-theme="dark"] .technical-competitor-card,
+html[data-theme="dark"] .technical-gap-panel,
+html[data-theme="dark"] .technical-position-card,
+html[data-theme="dark"] .technical-position-card.warning,
+html[data-theme="dark"] .technical-gap-grid article,
+html[data-theme="dark"] .technical-matrix tbody th,
+html[data-theme="dark"] .technical-matrix tbody tr:nth-child(even) td,
+html[data-theme="dark"] .technical-matrix tbody td,
+html[data-theme="dark"] .project-stat-card,
+html[data-theme="dark"] .project-form-card,
+html[data-theme="dark"] .project-card,
+html[data-theme="dark"] .project-detail-card,
+html[data-theme="dark"] .project-form-grid,
+html[data-theme="dark"] .project-analysis-card,
+html[data-theme="dark"] .project-info-card,
+html[data-theme="dark"] .project-data-card,
+html[data-theme="dark"] .project-report-card,
+html[data-theme="dark"] .settings-card,
+html[data-theme="dark"] .wide-settings-card,
+html[data-theme="dark"] .admin-editor-panel,
+html[data-theme="dark"] .admin-form,
+html[data-theme="dark"] .admin-manage-row,
+html[data-theme="dark"] .revision-file-card,
+html[data-theme="dark"] .revision-file-block,
+html[data-theme="dark"] .firmware-section-block,
+html[data-theme="dark"] .firmware-release-card,
+html[data-theme="dark"] .firmware-warning-banner,
+html[data-theme="dark"] .firmware-file-row,
+html[data-theme="dark"] .release-notes-grid,
+html[data-theme="dark"] .news-list,
+html[data-theme="dark"] .news-date-badge,
+html[data-theme="dark"] .downloads-hero,
+html[data-theme="dark"] .downloads-stats,
+html[data-theme="dark"] .download-card-grid,
+html[data-theme="dark"] .download-card,
+html[data-theme="dark"] .download-stat,
+html[data-theme="dark"] .product-doc-card,
+html[data-theme="dark"] .product-spec-list div,
+html[data-theme="dark"] .product-detail-section,
+html[data-theme="dark"] .product-gallery,
+html[data-theme="dark"] .product-image-wrap,
+html[data-theme="dark"] .system-spec-panel,
+html[data-theme="dark"] .spec-card,
+html[data-theme="dark"] .airflow-report-actions,
+html[data-theme="dark"] .pressure-principle-card,
+html[data-theme="dark"] .calculator-card,
+html[data-theme="dark"] .reference-grid > *,
+html[data-theme="dark"] .resources-card,
+html[data-theme="dark"] .resource-link-card,
+html[data-theme="dark"] .glossary-card,
+html[data-theme="dark"] .check-card,
+html[data-theme="dark"] .status-callout,
+html[data-theme="dark"] .connect-pressure-card {
+  background:#101e30;
+  color:#e9f2fd;
+  border-color:#38506a;
+  box-shadow:none;
+}
+html[data-theme="dark"] .technical-matrix tbody tr:nth-child(even) td {background:#17283b;}
+html[data-theme="dark"] .technical-matrix th,
+html[data-theme="dark"] .technical-matrix td {border-color:#38506a;}
+html[data-theme="dark"] .technical-matrix tbody th {background:#17283b;}
+html[data-theme="dark"] .scrubber-catalog-intro h2,
+html[data-theme="dark"] .technical-competitor-card h3,
+html[data-theme="dark"] .technical-position-card h3,
+html[data-theme="dark"] .technical-gap-panel h2,
+html[data-theme="dark"] .technical-matrix tbody th,
+html[data-theme="dark"] .project-stat-card strong,
+html[data-theme="dark"] .project-form-card h2,
+html[data-theme="dark"] .settings-card h2,
+html[data-theme="dark"] .firmware-section-block h2,
+html[data-theme="dark"] .firmware-release-card h2,
+html[data-theme="dark"] .product-detail-section h3,
+html[data-theme="dark"] .spec-card h3,
+html[data-theme="dark"] .system-spec-panel h2 {
+  color:#f0f8ff;
+}
+html[data-theme="dark"] .scrubber-catalog-intro p,
+html[data-theme="dark"] .technical-competitor-card p,
+html[data-theme="dark"] .technical-position-card p,
+html[data-theme="dark"] .technical-position-card small,
+html[data-theme="dark"] .technical-gap-panel p,
+html[data-theme="dark"] .technical-matrix tbody th small,
+html[data-theme="dark"] .technical-evidence-note,
+html[data-theme="dark"] .settings-card p,
+html[data-theme="dark"] .firmware-section-block p,
+html[data-theme="dark"] .product-detail-panel p,
+html[data-theme="dark"] .download-card p,
+html[data-theme="dark"] .news-card p,
+html[data-theme="dark"] .system-spec-panel p {
+  color:#bed0e4;
+}
+html[data-theme="dark"] .scrubber-catalog-intro > span {background:#29435c;color:#d6ecff;}
+html[data-theme="dark"] .scrubber-image-placeholder {background:repeating-linear-gradient(45deg,#14273a,#14273a 12px,#1a3147 12px,#1a3147 24px);color:#a2c9e3;}
+html[data-theme="dark"] .technical-matrix .tech-status.available {background:#153f35;color:#b8f3d8;}
+html[data-theme="dark"] .technical-matrix .tech-status.review {background:#45351b;color:#ffe1a1;}
+html[data-theme="dark"] .technical-matrix .tech-status.unknown {background:#29384a;color:#d0dfed;}
+html[data-theme="dark"] .technical-firmware-page .firmware-section-block {background:#0e1d2f;border-color:#344e68;}
+html[data-theme="dark"] .technical-firmware-page .firmware-release-card {background:#14263b;border-color:#3a526b;}
+html[data-theme="dark"] .technical-firmware-page .firmware-file-row {background:#0d1f31;border-color:#38516b;}
+html[data-theme="dark"] .product-card,
+html[data-theme="dark"] .product-detail-panel,
+html[data-theme="dark"] .product-controls,
+html[data-theme="dark"] .news-card,
+html[data-theme="dark"] .downloads-control-panel,
+html[data-theme="dark"] .download-card,
+html[data-theme="dark"] .settings-hero {
+ background:#112238;color:#eaf4ff;border-color:#38516b;
+}
+html[data-theme="dark"] .product-tabs button.active {color:#fff;background:#1e76ba;}
+html[data-theme="dark"] .technical-compare-hero {border-color:#415e7a;}
+@media(max-width:780px) {.scrubber-catalog-intro{flex-direction:column;align-items:flex-start;}}
