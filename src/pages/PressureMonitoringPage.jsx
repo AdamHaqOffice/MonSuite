@@ -25,9 +25,9 @@ const technicalFeatures = [
   { label: 'Particle monitoring', detail: 'Particle sensing supported in the system', ours: 'Available', pattern: /particle/i },
   { label: 'PDF / scheduled reporting', detail: 'Automated formatted project reports', ours: 'Verify release', pattern: /report|documentation|records/i },
   { label: 'Alarm acknowledgement / escalation', detail: 'Response ownership and escalation history', ours: 'Verify release', pattern: /acknowledg|escalat|monitored service/i },
-  { label: 'CSV / data export', detail: 'Historical data export and interoperability', ours: 'Verify release', pattern: /csv|excel|export/i },
+  { label: 'CSV / data export', detail: 'Historical data export and interoperability', ours: 'Available', pattern: /csv|excel|export/i },
   { label: 'Audit trail / corrective action', detail: 'Timestamped project response history', ours: 'Verify release', pattern: /audit|corrective|documentation|records/i },
-  { label: 'BACnet / third-party integration', detail: 'Building-management and integration protocols', ours: 'Model dependent', pattern: /bacnet|third.party/i },
+  { label: 'BACnet / third-party integration', detail: 'Building-management and integration protocols (model-dependent BACnet)', ours: 'Available (selected devices)', pattern: /bacnet|third.party/i },
 ];
 
 function updateNumberField(setter, field, value) { setter((current) => ({ ...current, [field]: value })); }
@@ -71,7 +71,7 @@ export default function PressureMonitoringPage({ user, onLogout, theme, onToggle
               <thead><tr><th scope="col">Feature / capability</th><th scope="col">Abatement platform</th>{competitorMatrix.map((c) => <th scope="col" key={c.company}>{c.company}</th>)}</tr></thead>
               <tbody>{technicalFeatures.map((feature) => <tr key={feature.label}>
                 <th scope="row">{feature.label}<small>{feature.detail}</small></th>
-                <td><span className={'tech-status ' + (feature.ours === 'Available' ? 'available' : 'review')}>{feature.ours}</span></td>
+                <td><span className={'tech-status ' + (feature.ours.startsWith('Available') ? 'available' : 'review')}>{feature.ours}</span></td>
                 {competitorMatrix.map((c) => {
                   const offered = c.offers.some((item) => feature.pattern.test(item));
                   return <td key={c.company}><span className={'tech-status ' + (offered ? 'available':'unknown')}>{offered ? 'Listed' : 'Unconfirmed'}</span></td>;

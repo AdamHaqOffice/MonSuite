@@ -986,7 +986,7 @@ export default function ChatbotPage({ user, onLogout, theme, onToggleTheme }) {
         <section className="hero-card chatbot-hero clean-chatbot-hero">
           <div>
             <p className="eyebrow">Ask AbateBot</p>
-            <h1>AbateBot</h1>
+            <h1>AbateBot <span className="abatebot-prototype-label">(Prototype chatbot, not full AI)</span></h1>
             <p>
               Ask product, setup, firmware, scrubber, pressure monitoring, AT Connect, and support questions. AbateBot searches the MonSuite knowledge base and returns the closest answer with a source when available.
             </p>

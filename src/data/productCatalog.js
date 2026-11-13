@@ -289,7 +289,7 @@ export const products = [
       { title: 'PPM4 Owner Manual', type: 'Manual', href: 'https://docs.google.com/document/d/16K9WVfojveqaZWyiTfti14W0QO2rAuhv/edit?usp=drive_link&ouid=106548179376433005372&rtpof=true&sd=true' },
       { title: 'RPM Owner Manual', type: 'Manual', href: 'https://docs.google.com/document/d/1fQubA6975M3K3Zy80_ylF3fbROo8CGRp/edit?usp=drive_link&ouid=106548179376433005372&rtpof=true&sd=true' },
     ],
-  },,
+  },
 
   {
     id: 'pred750',

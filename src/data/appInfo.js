@@ -1,11 +1,17 @@
-export const APP_VERSION = '45.0.0';
-export const APP_BUILD_NAME = 'AbateBot PPM4/RPM Manual Deep Brain';
-export const APP_BUILD_DATE = '2026-10-09';
+export const APP_VERSION = '47.0.0';
+export const APP_BUILD_NAME = 'Product Catalog, Documents & Dark Mode Refinements';
+export const APP_BUILD_DATE = '2026-11-13';
 
 export const appReleaseNotes = [
-  'Expanded AbateBot with a deep PPM4 and RPM owner-manual knowledge pass covering setup, tubing, alarms, recording, cloud connection, USB exports, administration, maintenance, sensors, and troubleshooting.',
-  'Added more natural how-to question variants so support and sales can ask AbateBot the way customers actually ask questions.',
-  'Added detailed RPM sensor workflow coverage including DIP switches, sensor enablement, alarm triggers, room status, communication errors, cable length, and no-network-switch warnings.',
-  'Added detailed PPM4 workflow coverage including battery conditioning, AC/Battery Mode, ROOM/REF tubing, inline filters, USB ARCHIVE.CSV export, cloud verification, and external sensor setup.',
-  'Kept the V44 Airflow Planner flow polish intact while improving the support assistant brain for pressure monitor manuals.'
+  'Added browsable Air Scrubber product cards with technical specifications and image placeholders.',
+  'Renamed Downloads to Documents and News to Announcements without breaking existing routes.',
+  'Removed the duplicated desktop Setup navigation link; Airflow Planner remains the single entry point.',
+  'Corrected CSV export and model-specific BACnet support in the Technical Comparison.',
+  'Labeled AbateBot clearly as a prototype chatbot, not full AI.',
+  'Improved dark-mode surfaces, card contrast, text, inputs, tables, and technical panels.',
+  'Consolidated Airflow Planner and Setup Builder into one desktop-first drawing workspace.',
+  'Added four-step Quick Setup for project details, operating targets, and room layout.',
+  'Added named saved layouts, JSON export, and on-demand scrubber sizing reports.',
+  'Restyled firmware releases with engineering-oriented status and revision metadata.',
+  'Replaced the sales guide with a technical competitor capability matrix and verification gaps.'
 ];

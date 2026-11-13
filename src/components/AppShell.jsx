@@ -48,15 +48,14 @@ export default function AppShell({ user, onLogout, theme = 'light', onToggleThem
         <nav className="nav-links" aria-label="Main navigation">
           <NavLink to="/hub">Hub</NavLink>
           <NavLink to="/products">Products</NavLink>
-          <NavLink to="/downloads">Downloads</NavLink>
+          <NavLink to="/downloads">Documents</NavLink>
           <NavLink to="/firmware">Firmware</NavLink>
-          <NavLink to="/news">News</NavLink>
+          <NavLink to="/news">Announcements</NavLink>
           <NavLink to="/scrubber-selector">Airflow Planner</NavLink>
           <NavLink to="/at-connect">AT Connect</NavLink>
-          <NavLink to="/pressure-monitoring">Sales Guide</NavLink>
+          <NavLink to="/pressure-monitoring">Technical Comparison</NavLink>
           <NavLink to="/ai-assistant">AbateBot</NavLink>
           <NavLink to="/support">Support</NavLink>
-          <NavLink className="desktop-only-link" to="/setup-builder">Setup</NavLink>
           <NavLink className="mobile-only-link" to="/system-builder">System Builder</NavLink>
           <NavLink to="/settings">Settings</NavLink>
         </nav>

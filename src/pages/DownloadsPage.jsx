@@ -153,7 +153,7 @@ export default function DownloadsPage({ user, onLogout, theme, onToggleTheme, ad
         <section className="hero-card downloads-hero compact-human-hero">
           <div>
             <p className="eyebrow">Document library</p>
-            <h1>Manuals & downloads</h1>
+            <h1>Documents</h1>
             <p>Current manuals, quick guides, firmware notes, and setup references.</p>
           </div>
           <div className="download-stats-card subtle-panel">
@@ -236,7 +236,7 @@ export default function DownloadsPage({ user, onLogout, theme, onToggleTheme, ad
           <p>Old temp files and archive folders stay out of the live library.</p>
         </section>
 
-        <section className="download-card-grid" aria-label="Downloads">
+        <section className="download-card-grid" aria-label="Documents">
           {filteredDownloads.map((doc) => (
             <article className={`download-card status-${doc.status.toLowerCase()}`} key={doc.id}>
               <div className="download-card-top">

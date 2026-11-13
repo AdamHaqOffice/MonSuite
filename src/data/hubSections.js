@@ -48,7 +48,7 @@ export const hubSections = [
     theme: 'pressure',
   },
   {
-    title: 'Manuals & Downloads',
+    title: 'Documents',
     eyebrow: 'Documents',
     description: 'Central library for manuals, pamphlets, quick guides, spec sheets, and product information files.',
     path: '/downloads',
@@ -66,7 +66,7 @@ export const hubSections = [
     theme: 'firmware',
   },
   {
-    title: 'Monitor News',
+    title: 'Announcements',
     eyebrow: 'Updates',
     description: 'Monitor product updates, firmware notes, documentation changes, roadmap items, and sales announcements.',
     path: '/news',
@@ -94,16 +94,6 @@ export const hubSections = [
     mobileOnly: true,
   },
   {
-    title: 'Setup Configurator',
-    eyebrow: 'Combined planner',
-    description: 'Now opens the same Airflow Planner so room size, layout, scrubbers, ducting, and monitor needs stay connected.',
-    path: '/setup-builder',
-    status: 'Updated',
-    icon: '▦',
-    theme: 'setup',
-    desktopOnly: true,
-  },
-  {
     title: 'Parts & Costing',
     eyebrow: 'Future tool',
     description: 'Generate parts lists, estimate costs, and export setup summaries for sales or customer review.',
@@ -115,7 +105,7 @@ export const hubSections = [
   {
     title: 'Ask AbateBot',
     eyebrow: 'Search bot',
-    description: 'Ask questions across manuals, guides, firmware notes, product pages, setup rules, and troubleshooting entries.',
+    description: 'Prototype chatbot (not full AI). Searches curated manuals, product knowledge, firmware and troubleshooting information.',
     path: '/ai-assistant',
     status: 'Live',
     icon: '🤖',

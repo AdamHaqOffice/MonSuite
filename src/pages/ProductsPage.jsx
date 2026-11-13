@@ -1,3 +1,4 @@
+import '../technicalRefresh.css';
 import { useMemo, useState } from 'react';
 import AppShell from '../components/AppShell.jsx';
 import { powerReference, productCategories, products } from '../data/productCatalog.js';
@@ -7,9 +8,16 @@ function hasLink(value) {
 }
 
 function ProductImage({ product, className = '' }) {
+  const [imageError, setImageError] = useState(false);
+  const showPlaceholder = !product.image || imageError;
   return (
     <div className={`product-image-wrap ${className}`}>
-      <img src={product.image} alt={product.name} />
+      {showPlaceholder
+        ? <div className="scrubber-image-placeholder" role="img" aria-label={product.name + ' image coming soon'}>
+            <span className="placeholder-icon">▣</span><small>PRODUCT IMAGE PENDING</small>
+          </div>
+        : <img src={product.image} alt={product.name} onError={() => setImageError(true)} />
+      }
       <span>{product.shortName}</span>
     </div>
   );
@@ -17,7 +25,7 @@ function ProductImage({ product, className = '' }) {
 
 function ProductCard({ product, selected, onSelect }) {
   return (
-    <button className={`product-card ${selected ? 'active' : ''}`} onClick={() => onSelect(product.id)}>
+    <button type="button" aria-pressed={selected} className={`product-card ${selected ? 'active' : ''} ${product.category === 'Air Scrubbers' ? 'scrubber-catalog-card' : ''}`} onClick={() => onSelect(product.id)}>
       <ProductImage product={product} />
       <div className="product-card-body">
         <p className="eyebrow">{product.category}</p>
@@ -29,6 +37,7 @@ function ProductCard({ product, selected, onSelect }) {
             <span key={label}>{value}</span>
           ))}
         </div>
+        {product.category === 'Air Scrubbers' && <span className="scrubber-open-specs">View technical specifications →</span>}
       </div>
     </button>
   );
@@ -66,9 +75,23 @@ export default function ProductsPage({ user, onLogout, theme, onToggleTheme }) {
     });
   }, [activeCategory, query]);
 
-  const selectedProduct = products.find((product) => product.id === selectedProductId)
+  const selectedProduct = filteredProducts.find((product) => product.id === selectedProductId)
     || filteredProducts[0]
-    || products[0];
+    || null;
+  
+  function openProductDetails(id) {
+    setSelectedProductId(id);
+    window.requestAnimationFrame(() => {
+      document.getElementById('product-technical-details')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
+
+  function showAirScrubbers() {
+    setActiveCategory('Air Scrubbers');
+    setQuery('');
+    setSelectedProductId(null);
+    window.requestAnimationFrame(() => document.getElementById('product-catalog-grid')?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+  }
 
   return (
     <AppShell user={user} onLogout={onLogout} theme={theme} onToggleTheme={onToggleTheme}>
@@ -78,12 +101,12 @@ export default function ProductsPage({ user, onLogout, theme, onToggleTheme }) {
             <p className="eyebrow">Product knowledge</p>
             <h1>Products</h1>
             <p>
-              A cleaner sales/support product section built from the uploaded manuals, quick guides, module pamphlets,
-              product photos, power notes, and setup rules.
+              Technical product catalog for monitors, sensors, air scrubbers, and accessories. Select any card to review operating data, applications, and setup considerations.
             </p>
             <div className="product-hero-actions">
-              <a className="button primary small" href="/setup-builder">Open setup builder</a>
-              <a className="button secondary small" href="/downloads">View downloads</a>
+              <button className="button primary small" type="button" onClick={showAirScrubbers}>Browse Air Scrubbers</button>
+              <a className="button secondary small" href="/scrubber-selector">Airflow Planner</a>
+              <a className="button secondary small" href="/downloads">View documents</a>
             </div>
           </div>
           <div className="product-power-card">
@@ -125,14 +148,17 @@ export default function ProductsPage({ user, onLogout, theme, onToggleTheme }) {
           </div>
         </section>
 
-        <section className="products-layout">
+        {activeCategory === 'Air Scrubbers' && (
+          <div className="scrubber-catalog-intro"><div><p className="eyebrow">AIR FILTRATION / PRODUCT LINEUP</p><h2>Air scrubber equipment</h2><p>Choose a model below to view specifications and operating considerations. Product images can be added as they become available.</p></div><span>{filteredProducts.length} models</span></div>
+        )}
+        <section className="products-layout" id="product-catalog-grid">
           <div className="products-grid">
             {filteredProducts.map((product) => (
               <ProductCard
                 key={product.id}
                 product={product}
                 selected={selectedProduct?.id === product.id}
-                onSelect={setSelectedProductId}
+                onSelect={openProductDetails}
               />
             ))}
 
@@ -145,7 +171,7 @@ export default function ProductsPage({ user, onLogout, theme, onToggleTheme }) {
           </div>
 
           {selectedProduct && (
-            <aside className="product-detail-panel">
+            <aside className="product-detail-panel" id="product-technical-details">
               <div className="product-detail-hero">
                 <ProductImage product={selectedProduct} className="large" />
                 <div>

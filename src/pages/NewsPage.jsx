@@ -81,7 +81,7 @@ export default function NewsPage({ user, onLogout, theme, onToggleTheme, adminMo
         <section className="hero-card news-hero compact-human-hero">
           <div>
             <p className="eyebrow">Monitor updates</p>
-            <h1>Product updates</h1>
+            <h1>Announcements</h1>
             <p>Firmware reminders, document changes, known issues, and sales/support notes.</p>
           </div>
           <div className="hero-panel subtle-panel">
@@ -96,7 +96,7 @@ export default function NewsPage({ user, onLogout, theme, onToggleTheme, adminMo
             <div className="section-subhead compact-admin-head">
               <div>
                 <p className="eyebrow">Admin</p>
-                <h2>Add news update</h2>
+                <h2>Add announcement</h2>
               </div>
               <p>{adminSource === 'Firestore' ? 'Publishing to Firestore. Published posts appear for all users.' : 'Using local staging because Firestore is not available/configured.'}</p>
             </div>
@@ -108,7 +108,7 @@ export default function NewsPage({ user, onLogout, theme, onToggleTheme, adminMo
               <label className="admin-check-row"><input type="checkbox" checked={form.published} onChange={(e) => updateField('published', e.target.checked)} /><span>Publish to users</span></label>
               <label className="full-span"><span>Summary</span><textarea value={form.summary} onChange={(e) => updateField('summary', e.target.value)} placeholder="Short summary users will see first." /></label>
               <label className="full-span"><span>Details, one per line</span><textarea value={form.details} onChange={(e) => updateField('details', e.target.value)} placeholder="Added latest PPM4 v2.3 package\nUpdated change log with revision history" /></label>
-              <button className="button primary" type="submit" disabled={saving}>{saving ? 'Saving...' : 'Add news post'}</button>
+              <button className="button primary" type="submit" disabled={saving}>{saving ? 'Saving...' : 'Add announcement'}</button>
             </form>
 
             {adminPosts.length ? (
@@ -125,7 +125,7 @@ export default function NewsPage({ user, onLogout, theme, onToggleTheme, adminMo
           </section>
         )}
 
-        <section className="news-list" aria-label="Monitor news posts">
+        <section className="news-list" aria-label="Announcements">
           {allNews.map((item) => (
             <article className={`news-card status-${item.status.toLowerCase().replaceAll(' ', '-')}`} key={item.id}>
               <div className="news-date-badge">

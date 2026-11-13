@@ -93,3 +93,265 @@
 .technical-position-card h3 { color:#183b50; margin:8px 0; }
 .technical-position-card small { color:#5c7185; }
 @media(max-width:750px) { .technical-strength-gap { grid-template-columns:1fr; } }
+
+
+/* v46 readability repair: explicit foreground/background pairs across the planner.
+   Original setup styles use a near-white header, while the technical theme uses
+   light text. Replacing both together avoids white-on-white in either theme. */
+html .airflow-desktop-workspace .setup-header,
+html[data-theme="light"] .airflow-desktop-workspace .setup-header,
+html[data-theme="dark"] .airflow-desktop-workspace .setup-header {
+  background: #102238;
+  border: 1px solid #35516d;
+  border-radius: 16px;
+  box-shadow: 0 12px 32px rgba(1, 10, 23, .24);
+  padding: 24px 28px;
+  color: #f0f7ff;
+}
+html .airflow-desktop-workspace .setup-header h1,
+html[data-theme="light"] .airflow-desktop-workspace .setup-header h1,
+html[data-theme="dark"] .airflow-desktop-workspace .setup-header h1 {
+  color: #ffffff;
+  opacity: 1;
+  text-shadow: none;
+}
+html .airflow-desktop-workspace .setup-header .eyebrow {
+  color: #83cef5;
+}
+html .airflow-desktop-workspace .setup-header p:not(.eyebrow) {
+  color: #c4d5e7;
+  opacity: 1;
+}
+html .airflow-desktop-workspace .setup-panel,
+html .airflow-desktop-workspace .canvas-toolbar,
+html .airflow-desktop-workspace .system-spec-panel,
+html .airflow-desktop-workspace .spec-card,
+html .airflow-desktop-workspace .airflow-report-actions {
+  color: #eaf4ff;
+}
+html .airflow-desktop-workspace .setup-panel h1,
+html .airflow-desktop-workspace .setup-panel h2,
+html .airflow-desktop-workspace .setup-panel h3,
+html .airflow-desktop-workspace .setup-panel strong,
+html .airflow-desktop-workspace .setup-panel .panel-heading span,
+html .airflow-desktop-workspace .canvas-toolbar strong,
+html .airflow-desktop-workspace .system-spec-panel h2,
+html .airflow-desktop-workspace .system-spec-panel h3,
+html .airflow-desktop-workspace .spec-card strong,
+html .airflow-desktop-workspace .spec-card .panel-heading span,
+html .airflow-desktop-workspace .airflow-report-actions h2,
+html .airflow-desktop-workspace .airflow-report-actions h3 {
+  color: #f3f8ff;
+}
+html .airflow-desktop-workspace .setup-panel p,
+html .airflow-desktop-workspace .setup-panel li,
+html .airflow-desktop-workspace .setup-panel small,
+html .airflow-desktop-workspace .setup-panel label,
+html .airflow-desktop-workspace .system-spec-panel p,
+html .airflow-desktop-workspace .system-spec-panel small,
+html .airflow-desktop-workspace .system-spec-panel label,
+html .airflow-desktop-workspace .spec-card label,
+html .airflow-desktop-workspace .spec-card .panel-help,
+html .airflow-desktop-workspace .airflow-report-actions p {
+  color: #c5d7e9;
+}
+html .airflow-desktop-workspace .setup-panel .panel-heading strong,
+html .airflow-desktop-workspace .spec-card .panel-heading strong {
+  background: #263e55;
+  color: #dceefd;
+  border: 1px solid #41617b;
+}
+html .airflow-desktop-workspace .tool-button {
+  color: #d9eafd;
+  background: #1c354e;
+  border-color: #375a77;
+}
+html .airflow-desktop-workspace .tool-button:hover,
+html .airflow-desktop-workspace .tool-button.active {
+  color: #ffffff;
+  background: #225a81;
+  border-color: #62aada;
+}
+html .airflow-desktop-workspace .setup-panel input,
+html .airflow-desktop-workspace .setup-panel select,
+html .airflow-desktop-workspace .setup-panel textarea,
+html .airflow-desktop-workspace .spec-card input,
+html .airflow-desktop-workspace .spec-card select,
+html .airflow-desktop-workspace .spec-card textarea {
+  color: #f4f9ff;
+  background: #0e2033;
+  border: 1px solid #486782;
+}
+html .airflow-desktop-workspace input::placeholder,
+html .airflow-desktop-workspace textarea::placeholder {
+  color: #a4b8cb;
+  opacity: 1;
+}
+html .airflow-desktop-workspace .canvas-toolbar span,
+html .airflow-desktop-workspace .canvas-toolbar small {
+  color: #c2d7eb;
+}
+html .airflow-desktop-workspace .setup-header-actions .button.secondary {
+  color: #e8f5ff;
+  background: #223b55;
+  border: 1px solid #52718b;
+}
+html .airflow-desktop-workspace .setup-header-actions .button.secondary:hover {
+  color: white;
+  background: #315573;
+}
+html .airflow-desktop-workspace .setup-header-actions .button.primary {
+  color: #061827;
+  background: #8cdaff;
+  border-color: #8cdaff;
+}
+html .airflow-desktop-workspace .setup-header-actions .button.primary:hover {
+  background: #b8ebff;
+  border-color: #b8ebff;
+}
+html .airflow-desktop-workspace a:focus-visible,
+html .airflow-desktop-workspace button:focus-visible,
+html .airflow-desktop-workspace input:focus-visible,
+html .airflow-desktop-workspace select:focus-visible {
+  outline: 3px solid #8cdaff;
+  outline-offset: 2px;
+}
+
+/* v47 global theme refinements: class-specific backgrounds and readable text. */
+.scrubber-catalog-intro { display:flex;align-items:center;justify-content:space-between;gap:24px;margin:22px 0 14px;padding:22px 26px;background:#f4f8fc;border:1px solid #d5e3ee;border-radius:14px; }
+.scrubber-catalog-intro h2 {margin:5px 0 8px;color:#173951;}
+.scrubber-catalog-intro p:not(.eyebrow) {color:#506a7e;margin:0;}
+.scrubber-catalog-intro > span {padding:8px 13px;background:#e4eff7;color:#1e506e;border-radius:20px;white-space:nowrap;font-weight:700;}
+.scrubber-catalog-card {text-align:left;transition:border-color .18s,transform .18s,box-shadow .18s;}
+.scrubber-catalog-card:hover {transform:translateY(-2px);box-shadow:0 12px 26px rgba(20,50,80,.12);}
+.scrubber-catalog-card.active {border-color:#2b89c8;box-shadow:inset 0 0 0 1px #2b89c8;}
+.scrubber-image-placeholder {display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;min-height:125px;width:100%;height:100%;background:repeating-linear-gradient(45deg,#edf3f7,#edf3f7 12px,#e6eef5 12px,#e6eef5 24px);color:#53748a;border-radius:10px;}
+.scrubber-image-placeholder .placeholder-icon {font-size:2rem;opacity:.8;}
+.scrubber-image-placeholder small {font-size:.6rem;letter-spacing:.11em;font-weight:800;}
+.abatebot-prototype-label {display:inline-block;font-size:clamp(.76rem,1.3vw,.95rem);font-weight:500;vertical-align:middle;color:#53768c;letter-spacing:0;line-height:1.5;}
+html[data-theme="dark"] .abatebot-prototype-label {color:#a8c3dc;}
+/* Explicit theme surfaces override legacy fixed light colors. */
+html[data-theme="dark"] .scrubber-catalog-intro,
+html[data-theme="dark"] .technical-matrix-section,
+html[data-theme="dark"] .technical-competitor-card,
+html[data-theme="dark"] .technical-gap-panel,
+html[data-theme="dark"] .technical-position-card,
+html[data-theme="dark"] .technical-position-card.warning,
+html[data-theme="dark"] .technical-gap-grid article,
+html[data-theme="dark"] .technical-matrix tbody th,
+html[data-theme="dark"] .technical-matrix tbody tr:nth-child(even) td,
+html[data-theme="dark"] .technical-matrix tbody td,
+html[data-theme="dark"] .project-stat-card,
+html[data-theme="dark"] .project-form-card,
+html[data-theme="dark"] .project-card,
+html[data-theme="dark"] .project-detail-card,
+html[data-theme="dark"] .project-form-grid,
+html[data-theme="dark"] .project-analysis-card,
+html[data-theme="dark"] .project-info-card,
+html[data-theme="dark"] .project-data-card,
+html[data-theme="dark"] .project-report-card,
+html[data-theme="dark"] .settings-card,
+html[data-theme="dark"] .wide-settings-card,
+html[data-theme="dark"] .admin-editor-panel,
+html[data-theme="dark"] .admin-form,
+html[data-theme="dark"] .admin-manage-row,
+html[data-theme="dark"] .revision-file-card,
+html[data-theme="dark"] .revision-file-block,
+html[data-theme="dark"] .firmware-section-block,
+html[data-theme="dark"] .firmware-release-card,
+html[data-theme="dark"] .firmware-warning-banner,
+html[data-theme="dark"] .firmware-file-row,
+html[data-theme="dark"] .release-notes-grid,
+html[data-theme="dark"] .news-list,
+html[data-theme="dark"] .news-date-badge,
+html[data-theme="dark"] .downloads-hero,
+html[data-theme="dark"] .downloads-stats,
+html[data-theme="dark"] .download-card-grid,
+html[data-theme="dark"] .download-card,
+html[data-theme="dark"] .download-stat,
+html[data-theme="dark"] .product-doc-card,
+html[data-theme="dark"] .product-spec-list div,
+html[data-theme="dark"] .product-detail-section,
+html[data-theme="dark"] .product-gallery,
+html[data-theme="dark"] .product-image-wrap,
+html[data-theme="dark"] .system-spec-panel,
+html[data-theme="dark"] .spec-card,
+html[data-theme="dark"] .airflow-report-actions,
+html[data-theme="dark"] .pressure-principle-card,
+html[data-theme="dark"] .calculator-card,
+html[data-theme="dark"] .reference-grid > *,
+html[data-theme="dark"] .resources-card,
+html[data-theme="dark"] .resource-link-card,
+html[data-theme="dark"] .glossary-card,
+html[data-theme="dark"] .check-card,
+html[data-theme="dark"] .status-callout,
+html[data-theme="dark"] .connect-pressure-card {
+  background:#101e30;
+  color:#e9f2fd;
+  border-color:#38506a;
+  box-shadow:none;
+}
+html[data-theme="dark"] .technical-matrix tbody tr:nth-child(even) td {background:#17283b;}
+html[data-theme="dark"] .technical-matrix th,
+html[data-theme="dark"] .technical-matrix td {border-color:#38506a;}
+html[data-theme="dark"] .technical-matrix tbody th {background:#17283b;}
+html[data-theme="dark"] .scrubber-catalog-intro h2,
+html[data-theme="dark"] .technical-competitor-card h3,
+html[data-theme="dark"] .technical-position-card h3,
+html[data-theme="dark"] .technical-gap-panel h2,
+html[data-theme="dark"] .technical-matrix tbody th,
+html[data-theme="dark"] .project-stat-card strong,
+html[data-theme="dark"] .project-form-card h2,
+html[data-theme="dark"] .settings-card h2,
+html[data-theme="dark"] .firmware-section-block h2,
+html[data-theme="dark"] .firmware-release-card h2,
+html[data-theme="dark"] .product-detail-section h3,
+html[data-theme="dark"] .spec-card h3,
+html[data-theme="dark"] .system-spec-panel h2 {
+  color:#f0f8ff;
+}
+html[data-theme="dark"] .scrubber-catalog-intro p,
+html[data-theme="dark"] .technical-competitor-card p,
+html[data-theme="dark"] .technical-position-card p,
+html[data-theme="dark"] .technical-position-card small,
+html[data-theme="dark"] .technical-gap-panel p,
+html[data-theme="dark"] .technical-matrix tbody th small,
+html[data-theme="dark"] .technical-evidence-note,
+html[data-theme="dark"] .settings-card p,
+html[data-theme="dark"] .firmware-section-block p,
+html[data-theme="dark"] .product-detail-panel p,
+html[data-theme="dark"] .download-card p,
+html[data-theme="dark"] .news-card p,
+html[data-theme="dark"] .system-spec-panel p {
+  color:#bed0e4;
+}
+html[data-theme="dark"] .scrubber-catalog-intro > span {background:#29435c;color:#d6ecff;}
+html[data-theme="dark"] .scrubber-image-placeholder {background:repeating-linear-gradient(45deg,#14273a,#14273a 12px,#1a3147 12px,#1a3147 24px);color:#a2c9e3;}
+html[data-theme="dark"] .technical-matrix .tech-status.available {background:#153f35;color:#b8f3d8;}
+html[data-theme="dark"] .technical-matrix .tech-status.review {background:#45351b;color:#ffe1a1;}
+html[data-theme="dark"] .technical-matrix .tech-status.unknown {background:#29384a;color:#d0dfed;}
+html[data-theme="dark"] .technical-firmware-page .firmware-section-block {background:#0e1d2f;border-color:#344e68;}
+html[data-theme="dark"] .technical-firmware-page .firmware-release-card {background:#14263b;border-color:#3a526b;}
+html[data-theme="dark"] .technical-firmware-page .firmware-file-row {background:#0d1f31;border-color:#38516b;}
+html[data-theme="dark"] .product-card,
+html[data-theme="dark"] .product-detail-panel,
+html[data-theme="dark"] .product-controls,
+html[data-theme="dark"] .news-card,
+html[data-theme="dark"] .downloads-control-panel,
+html[data-theme="dark"] .download-card,
+html[data-theme="dark"] .settings-hero {
+ background:#112238;color:#eaf4ff;border-color:#38516b;
+}
+html[data-theme="dark"] .product-tabs button.active {color:#fff;background:#1e76ba;}
+html[data-theme="dark"] .technical-compare-hero {border-color:#415e7a;}
+@media(max-width:780px) {.scrubber-catalog-intro{flex-direction:column;align-items:flex-start;}}
+
+.scrubber-open-specs {display:inline-flex;margin-top:12px;padding:7px 10px;border-radius:7px;background:#e3f1fb;color:#165680;font-size:.75rem;font-weight:800;letter-spacing:.01em;}
+#product-technical-details {scroll-margin-top:100px;}
+#product-catalog-grid {scroll-margin-top:110px;}
+html[data-theme="dark"] .scrubber-open-specs {background:#21496a;color:#bde8ff;}
+html[data-theme="dark"] .product-spec-list dt,
+html[data-theme="dark"] .product-detail-panel li,
+html[data-theme="dark"] .product-detail-panel label,
+html[data-theme="dark"] .product-card h3 {color:#d9e9f9;}
+html[data-theme="dark"] .product-spec-list dd {color:#e9f6ff;}
