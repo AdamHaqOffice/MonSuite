@@ -71,7 +71,7 @@ export default function PressureMonitoringPage({ user, onLogout, theme, onToggle
               <thead><tr><th scope="col">Feature / capability</th><th scope="col">Abatement platform</th>{competitorMatrix.map((c) => <th scope="col" key={c.company}>{c.company}</th>)}</tr></thead>
               <tbody>{technicalFeatures.map((feature) => <tr key={feature.label}>
                 <th scope="row">{feature.label}<small>{feature.detail}</small></th>
-                <td><span className={'tech-status ' + (feature.ours === 'Available' ? 'available' : 'review')}>{feature.ours}</span></td>
+                <td><span className={'tech-status ' + (feature.ours.startsWith('Available') ? 'available' : 'review')}>{feature.ours}</span></td>
                 {competitorMatrix.map((c) => {
                   const offered = c.offers.some((item) => feature.pattern.test(item));
                   return <td key={c.company}><span className={'tech-status ' + (offered ? 'available':'unknown')}>{offered ? 'Listed' : 'Unconfirmed'}</span></td>;
