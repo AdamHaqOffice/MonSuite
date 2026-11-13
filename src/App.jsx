@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react';
+import './technicalRefresh.css';
 import { Navigate, Route, Routes, useLocation } from 'react-router-dom';
 import {
   onAuthStateChanged,
