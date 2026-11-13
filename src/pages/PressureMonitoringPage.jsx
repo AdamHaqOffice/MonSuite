@@ -25,9 +25,9 @@ const technicalFeatures = [
   { label: 'Particle monitoring', detail: 'Particle sensing supported in the system', ours: 'Available', pattern: /particle/i },
   { label: 'PDF / scheduled reporting', detail: 'Automated formatted project reports', ours: 'Verify release', pattern: /report|documentation|records/i },
   { label: 'Alarm acknowledgement / escalation', detail: 'Response ownership and escalation history', ours: 'Verify release', pattern: /acknowledg|escalat|monitored service/i },
-  { label: 'CSV / data export', detail: 'Historical data export and interoperability', ours: 'Verify release', pattern: /csv|excel|export/i },
+  { label: 'CSV / data export', detail: 'Historical data export and interoperability', ours: 'Available', pattern: /csv|excel|export/i },
   { label: 'Audit trail / corrective action', detail: 'Timestamped project response history', ours: 'Verify release', pattern: /audit|corrective|documentation|records/i },
-  { label: 'BACnet / third-party integration', detail: 'Building-management and integration protocols', ours: 'Model dependent', pattern: /bacnet|third.party/i },
+  { label: 'BACnet / third-party integration', detail: 'Building-management and integration protocols (model-dependent BACnet)', ours: 'Available (selected devices)', pattern: /bacnet|third.party/i },
 ];
 
 function updateNumberField(setter, field, value) { setter((current) => ({ ...current, [field]: value })); }
