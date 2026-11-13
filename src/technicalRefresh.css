@@ -345,3 +345,13 @@ html[data-theme="dark"] .settings-hero {
 html[data-theme="dark"] .product-tabs button.active {color:#fff;background:#1e76ba;}
 html[data-theme="dark"] .technical-compare-hero {border-color:#415e7a;}
 @media(max-width:780px) {.scrubber-catalog-intro{flex-direction:column;align-items:flex-start;}}
+
+.scrubber-open-specs {display:inline-flex;margin-top:12px;padding:7px 10px;border-radius:7px;background:#e3f1fb;color:#165680;font-size:.75rem;font-weight:800;letter-spacing:.01em;}
+#product-technical-details {scroll-margin-top:100px;}
+#product-catalog-grid {scroll-margin-top:110px;}
+html[data-theme="dark"] .scrubber-open-specs {background:#21496a;color:#bde8ff;}
+html[data-theme="dark"] .product-spec-list dt,
+html[data-theme="dark"] .product-detail-panel li,
+html[data-theme="dark"] .product-detail-panel label,
+html[data-theme="dark"] .product-card h3 {color:#d9e9f9;}
+html[data-theme="dark"] .product-spec-list dd {color:#e9f6ff;}
