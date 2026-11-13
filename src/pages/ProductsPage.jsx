@@ -37,6 +37,7 @@ function ProductCard({ product, selected, onSelect }) {
             <span key={label}>{value}</span>
           ))}
         </div>
+        {product.category === 'Air Scrubbers' && <span className="scrubber-open-specs">View technical specifications →</span>}
       </div>
     </button>
   );
@@ -77,6 +78,20 @@ export default function ProductsPage({ user, onLogout, theme, onToggleTheme }) {
   const selectedProduct = filteredProducts.find((product) => product.id === selectedProductId)
     || filteredProducts[0]
     || null;
+  
+  function openProductDetails(id) {
+    setSelectedProductId(id);
+    window.requestAnimationFrame(() => {
+      document.getElementById('product-technical-details')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  }
+
+  function showAirScrubbers() {
+    setActiveCategory('Air Scrubbers');
+    setQuery('');
+    setSelectedProductId(null);
+    window.requestAnimationFrame(() => document.getElementById('product-catalog-grid')?.scrollIntoView({ behavior: 'smooth', block: 'start' }));
+  }
 
   return (
     <AppShell user={user} onLogout={onLogout} theme={theme} onToggleTheme={onToggleTheme}>
@@ -89,7 +104,8 @@ export default function ProductsPage({ user, onLogout, theme, onToggleTheme }) {
               Technical product catalog for monitors, sensors, air scrubbers, and accessories. Select any card to review operating data, applications, and setup considerations.
             </p>
             <div className="product-hero-actions">
-              <a className="button primary small" href="/scrubber-selector">Open Airflow Planner</a>
+              <button className="button primary small" type="button" onClick={showAirScrubbers}>Browse Air Scrubbers</button>
+              <a className="button secondary small" href="/scrubber-selector">Airflow Planner</a>
               <a className="button secondary small" href="/downloads">View documents</a>
             </div>
           </div>
@@ -135,14 +151,14 @@ export default function ProductsPage({ user, onLogout, theme, onToggleTheme }) {
         {activeCategory === 'Air Scrubbers' && (
           <div className="scrubber-catalog-intro"><div><p className="eyebrow">AIR FILTRATION / PRODUCT LINEUP</p><h2>Air scrubber equipment</h2><p>Choose a model below to view specifications and operating considerations. Product images can be added as they become available.</p></div><span>{filteredProducts.length} models</span></div>
         )}
-        <section className="products-layout">
+        <section className="products-layout" id="product-catalog-grid">
           <div className="products-grid">
             {filteredProducts.map((product) => (
               <ProductCard
                 key={product.id}
                 product={product}
                 selected={selectedProduct?.id === product.id}
-                onSelect={setSelectedProductId}
+                onSelect={openProductDetails}
               />
             ))}
 
@@ -155,7 +171,7 @@ export default function ProductsPage({ user, onLogout, theme, onToggleTheme }) {
           </div>
 
           {selectedProduct && (
-            <aside className="product-detail-panel">
+            <aside className="product-detail-panel" id="product-technical-details">
               <div className="product-detail-hero">
                 <ProductImage product={selectedProduct} className="large" />
                 <div>
