@@ -94,16 +94,6 @@ export const hubSections = [
     mobileOnly: true,
   },
   {
-    title: 'Setup Configurator',
-    eyebrow: 'Combined planner',
-    description: 'Now opens the same Airflow Planner so room size, layout, scrubbers, ducting, and monitor needs stay connected.',
-    path: '/setup-builder',
-    status: 'Updated',
-    icon: '▦',
-    theme: 'setup',
-    desktopOnly: true,
-  },
-  {
     title: 'Parts & Costing',
     eyebrow: 'Future tool',
     description: 'Generate parts lists, estimate costs, and export setup summaries for sales or customer review.',
